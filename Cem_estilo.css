@@ -1,0 +1,206 @@
+.navbar-custom {
+    background-color: #780415; /* Cambia este color al que prefieras */
+}
+.navbar-nav .nav-item .nav-link {
+    color: white;
+}
+.navbar {
+    justify-content: center;
+}
+.navbar-nav {
+    flex-direction: row;
+}
+.nav-item {
+    padding: 0 10px;
+}
+.navbar-brand {
+    color: white !important;
+    font-weight: bolder;
+}
+.header-img {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../Integradora/img/cliente_img/cliente_inicio.jpg') no-repeat center center;
+    background-size: cover;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    border-radius: 15px;
+    font-weight: bold;
+}
+.header-img-ub {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../Integradora/img/cliente_img/cliente_inicio_ubicacion.jpg') no-repeat center center;
+    background-size: cover;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    border-radius: 15px;
+    font-weight: bold;
+}
+.map-container {
+    width: 100%; /* Ajusta esto según tus necesidades */
+    max-width: 1100px; /* Ajusta esto según tus necesidades */
+    margin: 0 auto; /* Centrar el div en la página */
+}
+.map-container iframe {
+    width: 100%;
+    height: 300px; /* Ajusta la altura según tus necesidades */
+    border: 0;
+}
+.header-img-con {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../Integradora/img/cliente_img/cliente_inicio_consejos.jpg') no-repeat center center;
+    background-size: cover;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    border-radius: 15px;
+    font-weight: bold;
+}
+.header-img-terminos {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../Integradora/img/cliente_img/cliente_inicio_terminos.jpg') no-repeat center center;
+    background-size: cover;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    border-radius: 15px;
+    font-weight: bold;
+}
+.profile-img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+.content {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+.sangria {
+    margin-left: 20px;
+}
+.rojito{
+    color: #780415;
+}
+.footer {
+    background-color: #600714;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+.footer .left, .footer .center, .footer .right {
+    flex: 1;
+    text-align: center;
+}
+.footer .left {
+    font-size: 2rem;
+    font-weight: bolder;
+}
+.footer .center p, .footer .right p {
+    margin: 0;
+}
+.footer .center, .footer .right {
+    padding: 0 20px;
+}
+.services-section {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+.service-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.service-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+.service-img {
+    flex: 1;
+    max-width: 500px;
+    margin-right: 20px;
+    margin-left: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+.service-description {
+    flex: 2;
+    text-align: center;
+}
+.btn-quote {
+    background-color: #800000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+.service-divider {
+    height: 2px;
+    background-color: #800000;
+    margin: 30px 0;
+}
+.grande{
+    font-size: 5rem;
+}
+.quote-section {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+    text-align: center;
+}
+.step {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.step h3 {
+    color: #800000;
+}
+.step p {
+    margin-top: 10px;
+}
+.btn-start-quote {
+    flex: 1; /* Optional: makes buttons take equal space */
+    margin: 1 20px; /* Optional: gives space between buttons */
+    background-color: #800000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin-top: 10px;
+    justify-content: space-around;
+}
+.note {
+    color: #800000;
+    font-weight: bold;
+}

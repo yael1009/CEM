@@ -1,0 +1,116 @@
+/* Estilos para el modal */
+.modal-header {
+    background-color: #800000;
+    color: white;
+    font-weight: bold;
+}
+.quote-section {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+    text-align: center;
+}
+.step img {
+    max-width: 90%; /* Ajusta este valor según sea necesario */
+    max-height: 200px; /* Ajusta este valor según sea necesario */
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+.portfolio-section {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+.portfolio-item {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.portfolio-item img {
+    max-width: 100%;
+    max-height: 200px;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+.portfolio-item h3 {
+    color: #800000;
+}
+.form-label {
+    font-weight: bold;
+}
+.custom-radio .form-check-input:checked ~ .form-check-label {
+    background-color: #760b0b;
+    color: white;
+}
+.custom-radio .form-check-input:checked {
+    background-color: #760b0b;
+    border-color: #760b0b;
+}
+.custom-radio .form-check-label {
+    padding: 10px;
+    border: 2px solid #760b0b;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.custom-radio .form-check-input {
+    display: none;
+}
+.custom-radio .form-check-input + .form-check-label:hover {
+    background-color: #760b0b;
+    color: white;
+}
+.radio-group {
+    display: flex;
+    align-items: center;
+}
+.custom-radio .form-check-input:checked ~ .form-check-label {
+    background-color: #760b0b;
+    color: white;
+}
+
+.custom-radio .form-check-input:checked {
+    background-color: #760b0b;
+    border-color: #760b0b;
+}
+
+.custom-radio .form-check-label {
+    padding: 10px 20px;
+    border: 2px solid #760b0b;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-right: 10px;
+}
+
+.custom-radio .form-check-input {
+    display: none;
+}
+
+.custom-radio .form-check-input + .form-check-label:hover {
+    background-color: #760b0b;
+    color: white;
+}
+
+.modal-header {
+    background-color: #760b0b;
+    color: white;
+}
+
+.radio-group {
+    display: flex;
+    align-items: center;
+}
+
+
+
+

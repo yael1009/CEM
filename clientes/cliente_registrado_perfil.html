@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../Cem_estilo.css">
+    
+    <link rel="stylesheet" href="../cem_estilo2.css">
+    <link rel="stylesheet" href="../cem_estilo3.css">
+    <style>
+        .navbar-custom {
+            background-color: #800000;
+            color: white;
+        }
+        .profile-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 1000px;
+            width: 100%;
+            margin: 20px 0;
+        }
+        .profile-profile-img {
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        }
+        .btn-custom {
+            background-color: #800000;
+            color: white;
+            border-radius: 15px;
+            margin: 10px;
+        }
+        .table-custom {
+            width: 100%;
+            margin: 20px 0;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .table-custom th, .table-custom td {
+            padding: 10px;
+            text-align: left;
+        }
+        .table-header {
+            background-color: #800000;
+            color: white;
+            text-align: center;
+        }
+        .footer {
+            background-color: #800000;
+            color: white;
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            justify-content: space-around;
+        }
+        .footer div {
+            flex: 1;
+        }
+        th.fixed-width {
+            width: 450px; /* Ajusta este valor según tus necesidades */
+        }
+    </style>
+</head>
+<body>
+    <!--NAV-->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand text-white" href="Cliente_Inicio.html">CEM</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link text-white" href="Cliente_Inicio.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="clientes_servicios.html">Servicios</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="cliente_cotizar.html">Cotizar</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="cliente_portafolio.html">Portafolio</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="cliente_contacto.html">Contacto</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="cliente_inicio_sesion.html"><strong>Perfil</strong> <img src="../img/foto_perfil.jpg" alt="Foto de perfil" class="profile-img"></a></li>
+            </ul>
+        </div>
+    </nav>
+    <!--Perfil-->
+    <div class="container d-flex flex-column align-items-center">
+        <h1 class="mt-4">Mi Perfil</h1>
+        <div class="d-flex justify-content-center">
+            <button type="button" class="btn btn-custom"> <a href="cliente_mis_cotizaciones.html" class="custom-link">Mis Cotizaciones</a></button>
+            <button type="button" class="btn btn-custom">Administrar Cuenta</button>
+            <button type="button" class="btn btn-custom">Cerrar sesión</button>
+        </div>
+        <div class="profile-container mt-4">
+            <div class="table-custom">
+                <div class="table-header p-2">
+                    Datos Personales
+                </div>
+                <table class="table mb-0" >
+                    <tbody>
+                        <tr>
+                            <th class="fixed-width">Nombres:</th>
+                            <td>Jorge</td>
+                        </tr>
+                        <tr>
+                            <th class="fixed-width">Apellido Paterno:</th>
+                            <td>Fabela</td>
+                        </tr>
+                        <tr>
+                            <th class="fixed-width">Apellido Materno:</th>
+                            <td>No se</td>
+                        </tr>
+                        <tr>
+                            <th class="fixed-width">Telefono:</th>
+                            <td>871 666 6969</td>
+                        </tr>
+                        <tr>
+                            <th class="fixed-width">Correo:</th>
+                            <td>jorgito_uwu@gmail.com</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-custom">
+                <div class="table-header p-2">
+                    Datos de Usuario
+                </div>
+                <table class="table mb-0" >
+                    <tbody>
+                        <tr>
+                            <th class="text-center" colspan="2"><img src="../Integradora/img/foto_perfil.jpg" alt="Foto de perfil" class="profile-profile-img"></th>
+                        </tr>
+                        <tr>
+                            <th class="fixed-width">Usuario:</th>
+                            <td>jorgito_uwu</td>
+                        </tr>
+                        <tr>
+                            <th class="fixed-width">Contraseña:</th>
+                            <td>*****************</td>
+                        </tr>
+                        <tr>
+                            <th class="fixed-width">Uso de la cuenta:</th>
+                            <td>Personal</td>
+                        </tr>
+                        <tr>
+                            <th class="fixed-width">Cargo de la compañía:</th>
+                            <td>Propietario</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--Foot-->
+    <footer class="footer mt-4">
+        <div class="left">
+            <strong>CEM</strong>
+        </div>
+        <div class="center">
+            <p><strong>Contacto directo:</strong><br>
+            Ing. Esteban Corgoba<br>
+            cemconstrucciones@hotmail.com<br>
+            871 184 1980<br>
+            871 754 4054</p>
+        </div>
+        <div class="right">
+            <p><strong>Dirección:</strong><br>
+            Calle Sierra La Gloria S/N Colonia<br>
+            MA. Mercado de Lopez Sanchez,<br>
+            Torreon Coahuila</p>
+        </div>
+    </footer>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
