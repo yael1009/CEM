@@ -88,23 +88,9 @@
 
 <body>
     <!--NAV-->
-    <nav class="navbar navbar-expand-lg navbar-custom">
-        <a class="navbar-brand" href="Cliente_Inicio.html">CEM</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="../clientes/Cliente_Inicio.html">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" href="../clientes/clientes_servicios.html">Servicios</a></li>
-                <li class="nav-item"><a class="nav-link" href="../clientes/cliente_cotizar.html">Cotizar</a></li>
-                <li class="nav-item"><a class="nav-link" href="../clientes/cliente_portafolio.html">Portafolio</a></li>
-                <li class="nav-item"><a class="nav-link" href="../clientes/cliente_contacto.html">Contacto</a></li>
-                <li class="nav-item"><a class="nav-link" href="roles_inicio.html"><strong>Ordenes</strong></a></li>
-                <li class="nav-item"><a class="nav-link" href="../clientes/cliente_inicio_sesion.html">Perfil <img src="../img/foto_perfil.jpg" alt="Foto de perfil" class="profile-img"></a></li>
-            </ul>
-        </div>
-    </nav>
+    <?php
+    include "../inc/navbar.php";
+    ?>
 
     <!-- Ordenes -->
     <div class="container mt-4">
@@ -285,24 +271,9 @@
     </div>
 
     <!-- Foot -->
-    <footer class="footer mt-4">
-        <div class="left">
-            CEM
-        </div>
-        <div class="center">
-            <p><strong>Contacto directo:</strong><br>
-            Ing. Esteban Corgoba<br>
-            cemconstrucciones@hotmail.com<br>
-            871 184 1980<br>
-            871 754 4054</p>
-        </div>
-        <div class="right">
-            <p><strong>Dirección:</strong><br>
-            Calle Sierra La Gloria S/N Colonia<br>
-            MA. Mercado de Lopez Sanchez,<br>
-            Torreon Coahuila</p>
-        </div>
-    </footer>
+    <?php
+    include "../inc/footer.php";
+    ?>
     <!-- Bootstrap 4 JavaScript -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
