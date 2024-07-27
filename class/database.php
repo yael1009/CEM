@@ -66,5 +66,21 @@ class database
             echo $e->getMessage();
         }
     }
+
+    public function limpiarString($string) {
+        $bannedWords=["<script>","</script>","<script src","<script type=","SELECT * FROM","SELECT "," SELECT ","DELETE FROM","INSERT INTO","DROP TABLE","DROP DATABASE","TRUNCATE TABLE","SHOW TABLES","SHOW DATABASES","<?php","?>","--","^","<",">","==","=",";","::"];
+
+        $string=trim($string);
+        $string=stripslashes($string);
+
+        foreach($bannedWords as $bannedWord){
+            $string=str_ireplace($bannedWord, "", $string);
+        }
+
+        $string=trim($string);
+        $string=stripslashes($string);
+
+        return $string;
+    }
 }
 ?>
