@@ -111,6 +111,19 @@
     align-items: center;
 }
 
+/*Disque pa q jale en celulares pero ps no jalo sorrys*/
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
 
+    .nav-menu.active {
+        display: flex;
+    }
 
-
+    .nav-toggle {
+        display: flex;
+    }
+}

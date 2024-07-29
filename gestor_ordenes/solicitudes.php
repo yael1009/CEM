@@ -88,23 +88,9 @@
 
 <body>
     <!--NAV-->
-    <nav class="navbar navbar-expand-lg navbar-custom">
-        <a class="navbar-brand" href="Cliente_Inicio.html">CEM</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="../clientes/Cliente_Inicio.html">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" href="../clientes/clientes_servicios.html">Servicios</a></li>
-                <li class="nav-item"><a class="nav-link" href="../clientes/cliente_cotizar.html">Cotizar</a></li>
-                <li class="nav-item"><a class="nav-link" href="../clientes/cliente_portafolio.html">Portafolio</a></li>
-                <li class="nav-item"><a class="nav-link" href="../clientes/cliente_contacto.html">Contacto</a></li>
-                <li class="nav-item"><a class="nav-link" href="roles_inicio.html"><strong>Ordenes</strong></a></li>
-                <li class="nav-item"><a class="nav-link" href="../clientes/cliente_inicio_sesion.html">Perfil <img src="../img/foto_perfil.jpg" alt="Foto de perfil" class="profile-img"></a></li>
-            </ul>
-        </div>
-    </nav>
+    <?php
+    include "../inc/navbar.php";
+    ?>
 
     <!-- Ordenes -->
     <div class="container mt-4">
@@ -114,7 +100,7 @@
                 <a class="nav-link active" id="solicitudes-tab" data-toggle="tab" href="#solicitudes" role="tab" aria-controls="solicitudes" aria-selected="true">Solicitudes</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="progreso-tab" data-toggle="tab" href="#progreso" role="tab" aria-controls="progreso" aria-selected="false">En Progreso</a>
+                <a class="nav-link" id="progreso-tab" data-toggle="tab" href="#progreso" role="tab" aria-controls="progreso" aria-selected="false">En progreso</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="completado-tab" data-toggle="tab" href="#completado" role="tab" aria-controls="completado" aria-selected="false">Completado</a>
@@ -125,40 +111,7 @@
         </ul>
         <div class="tab-content" id="myTabContent">
             <!-- Solicitudes -->
-            <div class="tab-pane fade show active" id="solicitudes" role="tabpanel" aria-labelledby="solicitudes-tab">
-                <br>
-                <?php
-                include '../class/database.php';
-                $conexion = new database();
-                $conexion->conectardb();
-        
-                $consulta = "SELECT usuarios.usuario, solicitudes.fecha_esperada, solicitudes.ubicacion, solicitudes.estado
-                FROM solicitudes join usuarios on solicitudes.usuario = usuarios.id_usuario";
-                $tabla = $conexion -> seleccionar($consulta);
-        
-                foreach($tabla as $reg)
-                {
-                $clase = ($reg->estado == "No visto") ? 'seen' : 'Nseen';
-                echo "
-                <div class='row'>
-                    <div class='col-md-12'>
-                        <div class='project-card $clase'>
-                            <img src='https://via.placeholder.com/70' alt='Foto de perfil'>
-                            <div class='project-info'>
-                                <p><strong>$reg->usuario</strong></p>
-                                <p>$reg->fecha_esperada</p>
-                                <p>$reg->ubicacion</p>
-                            </div>
-                            <a href='#' class='text-danger'>expandir</a>
-                        </div>
-                    </div>
-                </div>
-                ";
-                }
-                $conexion->desconectardb();
-                ?>
-            </div>
-        </div>
+             <?php include "../views/gestor_orden/solicitud.php" ?>
             <!-- Progreso -->
             <div class="tab-pane fade" id="progreso" role="tabpanel" aria-labelledby="progreso-tab">
                 <br>
@@ -285,24 +238,9 @@
     </div>
 
     <!-- Foot -->
-    <footer class="footer mt-4">
-        <div class="left">
-            CEM
-        </div>
-        <div class="center">
-            <p><strong>Contacto directo:</strong><br>
-            Ing. Esteban Corgoba<br>
-            cemconstrucciones@hotmail.com<br>
-            871 184 1980<br>
-            871 754 4054</p>
-        </div>
-        <div class="right">
-            <p><strong>Dirección:</strong><br>
-            Calle Sierra La Gloria S/N Colonia<br>
-            MA. Mercado de Lopez Sanchez,<br>
-            Torreon Coahuila</p>
-        </div>
-    </footer>
+    <?php
+    include "../inc/footer.php";
+    ?>
     <!-- Bootstrap 4 JavaScript -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
