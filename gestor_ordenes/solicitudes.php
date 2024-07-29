@@ -100,7 +100,7 @@
                 <a class="nav-link active" id="solicitudes-tab" data-toggle="tab" href="#solicitudes" role="tab" aria-controls="solicitudes" aria-selected="true">Solicitudes</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="progreso-tab" data-toggle="tab" href="#progreso" role="tab" aria-controls="progreso" aria-selected="false">En Progreso</a>
+                <a class="nav-link" id="progreso-tab" data-toggle="tab" href="#progreso" role="tab" aria-controls="progreso" aria-selected="false">En progreso</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="completado-tab" data-toggle="tab" href="#completado" role="tab" aria-controls="completado" aria-selected="false">Completado</a>
@@ -111,40 +111,7 @@
         </ul>
         <div class="tab-content" id="myTabContent">
             <!-- Solicitudes -->
-            <div class="tab-pane fade show active" id="solicitudes" role="tabpanel" aria-labelledby="solicitudes-tab">
-                <br>
-                <?php
-                include '../class/database.php';
-                $conexion = new database();
-                $conexion->conectardb();
-        
-                $consulta = "SELECT usuarios.usuario, solicitudes.fecha_esperada, solicitudes.ubicacion, solicitudes.estado
-                FROM solicitudes join usuarios on solicitudes.usuario = usuarios.id_usuario";
-                $tabla = $conexion -> seleccionar($consulta);
-        
-                foreach($tabla as $reg)
-                {
-                $clase = ($reg->estado == "No visto") ? 'seen' : 'Nseen';
-                echo "
-                <div class='row'>
-                    <div class='col-md-12'>
-                        <div class='project-card $clase'>
-                            <img src='https://via.placeholder.com/70' alt='Foto de perfil'>
-                            <div class='project-info'>
-                                <p><strong>$reg->usuario</strong></p>
-                                <p>$reg->fecha_esperada</p>
-                                <p>$reg->ubicacion</p>
-                            </div>
-                            <a href='#' class='text-danger'>expandir</a>
-                        </div>
-                    </div>
-                </div>
-                ";
-                }
-                $conexion->desconectardb();
-                ?>
-            </div>
-        </div>
+             <?php include "../views/gestor_orden/solicitud.php" ?>
             <!-- Progreso -->
             <div class="tab-pane fade" id="progreso" role="tabpanel" aria-labelledby="progreso-tab">
                 <br>
