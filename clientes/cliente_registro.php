@@ -51,11 +51,7 @@
                 <h1 class="mb-4">Crear Cuenta</h1>
                 <p class="rojito">¡Regístrate hoy y accede a servicios exclusivos! Disfruta de una experiencia personalizada y soluciones a medida. ¡Únete ahora y aprovecha todas nuestras ventajas!</p>
             </div>
-<<<<<<< HEAD
             <form action="" method="post" autocomplete="off" class="FormularioAjax">
-=======
-            <form action="" method="post" autocomplete="off">
->>>>>>> origin/ana
                 <div class="mb-3">
                     <label class="form-label" for="nombre">Nombres</label>
                     <input class="form-control" type="text" name="nombre" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,60}" maxlength="60" required>
@@ -86,19 +82,11 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="compañia">Uso de la Cuenta</label>
-<<<<<<< HEAD
-                    <input class="form-control" type="text" name="compañia" required placeholder="Personal/Compañia">
+                    <input class="form-control" type="text" name="compañia" placeholder="Personal/Compañia">
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="cargo">Cargo en la Compañia</label>
-                    <input class="form-control" type="text" name="cargo" required placeholder="Personal/Propietario/Gerente/Constructor">
-=======
-                    <input class="form-control" type="text" name="compañia" placeholder="Personal/Nombre de la Compañia" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}" maxlength="100" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="cargo">Cargo en la Compañia</label>
-                    <input class="form-control" type="text" name="cargo" placeholder="Personal/Propietario/Gerente/Constructor" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,50}" maxlength="50" required>
->>>>>>> origin/ana
+                    <input class="form-control" type="text" name="cargo" placeholder="Personal/Propietario/Gerente/Constructor">
                 </div>
                 <div class="centra-boton">
                     <button type="submit" class="btn btn-custom">Crear Cuenta</button>
