@@ -51,6 +51,15 @@
         .padd{
             padding-left: 290px;
         }
+        .table-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vh;
+        }
+        .table {
+            width: 100%; /* Hace que la tabla ocupe todo el ancho del contenedor */
+        }
     </style>
 </head>
 <body>
@@ -115,17 +124,17 @@
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Registrarse</h1>
                 </div>
                 <div class="modal-body">
-                    <form action="">
+                    <form action="" autocomplete="off">
                         <label class="form-label" for="nombre">Nombres</label>
-                        <input class="form-control" type="text" name="nombre">
+                        <input class="form-control" type="text" name="nombre" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,60}" maxlength="60" required>
                         <label class="form-label" for="apaterno">Apellido Paterno</label>
-                        <input class="form-control" type="text" name="apaterno">
+                        <input class="form-control" type="text" name="apaterno" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,30}" maxlength="30" required>
                         <label class="form-label" for="amaterno">Apellido Materno</label>
-                        <input class="form-control" type="text" name="amaterno">
+                        <input class="form-control" type="text" name="amaterno" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,30}" maxlength="30" required>
                         <label class="form-label" for="tel">Telefono</label>
                         <input class="form-control" type="text" name="tel">
                         <label class="form-label" for="correo">Correo:</label>
-                        <input class="form-control" type="email" name="correo">
+                        <input class="form-control" type="email" name="correo" maxlength="100">
                         <label class="form-label" for="usuario">Usuario:</label>
                         <input class="form-control" type="text" name="usuario">
                         <label class="form-label" for="pass">Password:</label>
@@ -138,7 +147,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" id="guardarBtn">Guardar</button>
+                    <button type="button" class="btn btn-custom">Inicia Sesion</button>
+                    <button type="button" class="btn btn-primary" id="guardarBtn">Registrarse</button>
                 </div>
             </div>
         </div>
@@ -154,9 +164,50 @@
                     <form id="form2">
                         <label class="form-label" for="detalle">¿Qué fecha prefiere para programar la realización del trabajo?</label>
                         <input class="form-control" type="date" name="detalle">
-                        <label class="form-label" for="ubicacion">¿Cuál es la ubicación donde se realizará el trabajo?</label>
-                        <input class="form-control" type="text" name="ubicacion">
+                        <label class="form-label" for="ubicacion">¿Cuál es la Direccion donde se realizará el trabajo?</label>
+                        <div class="table-container">
+                            <table class="table table-borderless">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <input class="form-control" type="text" name="calle" placeholder="Calle">
+                                        </td>
+                                        <td>
+                                            <input class="form-control" type="text" name="colonia" placeholder="Colonia">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input class="form-control" type="text" name="numero_ext" placeholder="Numero Exterior">
+                                        </td>
+                                        <td>
+                                            <input class="form-control" type="text" name="numero_int" placeholder="Numero Interior">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input class="form-control" type="text" name="ciudad" placeholder="Ciudad">
+                                        </td>
+                                        <td>
+                                            <input class="form-control" type="text" name="estado" placeholder="Estado">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input class="form-control" type="text" name="codigo_postal" placeholder="Codigo Postal">
+                                        </td>
+                                        <td>
+                                            <input class="form-control" type="text" name="referencia" placeholder="Referencia">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                        </div>
+
                         
+
+
                         <label class="form-label" for="tipo_trabajo">Tipo de trabajo:</label>
                         <div class="radio-group">
                             <div class="form-check custom-radio">
@@ -171,7 +222,7 @@
                         <label class="form-label" for="archivo">Subir Archivos</label>
                         <input class="form-control" type="file" name="archivo">
                         <label class="form-label" for="comentarios">Comentarios</label>
-                        <textarea class="form-control" name="comentarios" rows="3"></textarea>
+                        <textarea class="form-control" name="comentarios" rows="2"></textarea>
                     </form>
                 </div>
                 <div class="modal-footer">

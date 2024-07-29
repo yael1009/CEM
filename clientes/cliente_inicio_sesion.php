@@ -57,11 +57,11 @@
             <form action="../scripts/cliente_inicio_sesion.php" method="post">
                 <div class="mb-3">
                     <label class="form-label" for="usuario">Usuario:</label>
-                    <input class="form-control" type="text" name="usuario">
+                    <input class="form-control" type="text" name="usuario" pattern="[a-zA-Z0-9]{4,50}" maxlength="50" required>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Contraseña:</label>
-                    <input type="password" class="form-control" name="password">
+                    <input type="password" class="form-control" name="password" pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength="100" required>
                 </div>
                 <div class="centra-boton">
                     <button type="button" class="btn btn-custom"><a class="custom-link" href="cliente_registro.php">Crear Cuenta</a></button>
