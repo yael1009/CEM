@@ -23,6 +23,9 @@
             color: white;
             border-radius: 15px;
         }
+        .padd{
+            padding-left: 290px;
+        }
     </style>
 </head>
 <body>
@@ -32,13 +35,15 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-            <ul class="navbar-nav">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto padd">
                 <li class="nav-item"><a class="nav-link" href="Cliente_Inicio.html"><strong>Inicio</strong></a></li>
                 <li class="nav-item"><a class="nav-link" href="clientes_servicios.html">Servicios</a></li>
                 <li class="nav-item"><a class="nav-link" href="cliente_cotizar.html">Cotizar</a></li>
                 <li class="nav-item"><a class="nav-link" href="cliente_portafolio.html">Portafolio</a></li>
                 <li class="nav-item"><a class="nav-link" href="cliente_contacto.html">Contacto</a></li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a class="nav-link" href="cliente_inicio_sesion.html">Perfil <img src="../img/foto_perfil.jpg" alt="Foto de perfil" class="profile-img"></a></li>
             </ul>
         </div>
@@ -51,7 +56,7 @@
         </div>
         <div class="content mt-4">
             <p>
-                La empresa CEM se dedica a proporcionar soluciones integrales en el ámbito de las instalaciones eléctricas, abarcando tanto media como baja tensión. Además, se especializa en la realización de mantenimientos preventivos y correctivos, asegurando así el óptimo funcionamiento de los sistemas eléctricos. Ofrecemos una amplia gama de materiales eléctricos de alta calidad y contamos con experiencia en la ejecución de proyectos de obra civil, garantizando un servicio completo y profesional para satisfacer las necesidades de nuestros clientes.
+                La empresa <span class="rojito"><strong>CEM</strong></span> se dedica a proporcionar soluciones integrales en el ámbito de las instalaciones eléctricas, abarcando tanto media como baja tensión. Además, se especializa en la realización de mantenimientos preventivos y correctivos, asegurando así el óptimo funcionamiento de los sistemas eléctricos. Ofrecemos una amplia gama de materiales eléctricos de alta calidad y contamos con experiencia en la ejecución de proyectos de obra civil, garantizando un servicio completo y profesional para satisfacer las necesidades de nuestros clientes.
             </p>
         </div>
     </div>
@@ -77,7 +82,7 @@
                 </li>
                 <li><b class="rojito">¿Cuándo conviene remodelar la instalación eléctrica?</b>
                     <dl class="sangria">
-                        <dd>La <span class="rojito">instalación eléctrica</span> debe ser <span class="rojito">remodelada</span> como máximo cada 30 años, ésto si la instalación eléctrica es de excelente calidad, de otra forma es muy recomendable remodelarla antes, pues el <span class="rojito">aislante</span> que recubre el cableado no soporta las altas temperaturas que soportan los materiales de ahora, por lo que es muy probable que el cableado de una instalación vieja <span class="rojito">ya no se encuentre en buenas condiciones</span> debido a la carga que los nuevos aparatos del hogar puedan llegar a generar en la instalación.</dd>
+                        <dd>La <span class="rojito">instalación eléctrica</span> debe ser <span class="rojito">remodelada</span> como máximo cada 30 años, ésto si la instalación eléctrica es de excelente calidad, de otra forma es muy recomendable remodelarla antes, pues el <span class="rojito">aislante</span> que recubre el cableado no soporta las altas temperaturas que soportan los materiales de ahora, por lo que es muy probable que el cableado de una instalación vieja <span class="rojito">ya no se encuentre en buenas condiciones</span> debido a la carga que los nuevos aparatos del hogar puedan llegar a generar en la instalación.</dd>
                     </dl>
                 </li>
             </ul>
@@ -99,7 +104,7 @@
                 <li><b class="rojito">Derivación:</b> Fuga no deseada de corriente eléctrica en un circuito.</li>
                 <li><b class="rojito">Fusible:</b> Dispositivo de seguridad para proteger los circuitos de una sobrecarga de corriente eléctrica.</li>
                 <li><b class="rojito">Interruptor (Switch- Apagador):</b> Mecanismo utilizado para impedir o permitir el paso de la energía eléctrica en un circuito.</li>
-                <li><b class="rojito">Pastillas:</b> Son un interruptor automático que previene la sobrecarga del circuito eléctrico. </li>
+                <li><b class="rojito">Pastillas:</b> Son un interruptor automático que previene la sobrecarga del circuito eléctrico. </li>
                 <li><b class="rojito">Puentear:</b> Permitir mediante conexiones adicionales (en algunos casos el salto entre dispositivos conectados al circuito eléctrico) el funcionamiento de un circuito eléctrico.</li>
                 <li><b class="rojito">Roza:</b> Canal que se abre en la pared para empotrar conductores de agua y electricidad.</li>
                 <li><b class="rojito">Tomacorriente (Enchufe):</b> Mecanismo para la conexión de aparatos eléctricos al circuito eléctrico.</li>
@@ -120,12 +125,10 @@
     </div>
     <br>
     
-    <button class="btn"><a href="cliente_registrado_perfil.html">Mi perfil xd</a></button>
-    <h2>Gestor de Contenido</h2>
-    <button class="btn"><a href="../gestor_contenido/contenido_inicio.html">Gestor de contenido uwu</a></button>
-    
-    <h2>Gestor de Roles</h2>
-    <button class="btn"><a href="../gestor_roles/roles_inicio.html">Gestor de roles owo</a></button>
+    <button class="btn"><a href="cliente_registrado_perfil.html">Mi perfil xd</a></button><br>
+    <button class="btn"><a href="../gestor_contenido/contenido_inicio.html">Gestor de contenido uwu</a></button><br>
+    <button class="btn"><a href="../gestor_roles/roles_inicio.html">Gestor de roles owo</a></button><br>
+    <button class="btn"><a href="../gestor_ordenes/ordenes_inicio.html">Gestor de Ordenes :p</a></button><br>
     <!--Foot-->
     <footer class="footer mt-4">
         <div class="left">

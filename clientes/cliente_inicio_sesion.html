@@ -39,6 +39,9 @@
         {
         color: black; /* Cambia el color a negro al pasar el cursor */
         }
+        .padd{
+            padding-left: 290px;
+        }
     </style>
 </head>
 <body>
@@ -48,14 +51,16 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-            <ul class="navbar-nav">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto padd">
                 <li class="nav-item"><a class="nav-link" href="Cliente_Inicio.html">Inicio</a></li>
                 <li class="nav-item"><a class="nav-link" href="clientes_servicios.html">Servicios</a></li>
                 <li class="nav-item"><a class="nav-link" href="cliente_cotizar.html">Cotizar</a></li>
                 <li class="nav-item"><a class="nav-link" href="cliente_portafolio.html">Portafolio</a></li>
                 <li class="nav-item"><a class="nav-link" href="cliente_contacto.html">Contacto</a></li>
-                <li class="nav-item"><a class="nav-link" href="cliente_inicio_sesion.html"><strong>Perfil</strong> <img src="../img/foto_perfil.jpg" alt="Foto de perfil" class="profile-img"></a></li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="cliente_inicio_sesion.html"><strong>Perfil </strong><img src="../img/foto_perfil.jpg" alt="Foto de perfil" class="profile-img"></a></li>
             </ul>
         </div>
     </nav>
@@ -78,7 +83,7 @@
                     <input type="password" class="form-control" id="contrasena" placeholder="Contraseña">
                 </div>
                 <div class="centra-boton">
-                    <button type="button" class="btn btn-custom"><a class="custom-link" href="cliente_registro.php">Crear Cuenta</a></button>
+                    <button type="button" class="btn btn-custom"><a class="custom-link" href="cliente_crea_cuenta.html">Crear Cuenta</a></button>
                     <button type="button" class="btn btn-custom">Iniciar sesión</button>
                 </div>
             </form>
