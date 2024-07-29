@@ -4,13 +4,14 @@ class main
 	//Esta funcion sirve para verificar que ningun campo required este vacio por si le mueven al html, validacion de back
     public function validar_campos_vacios(array $fields) 
 	{
+		$bool = true;
         foreach ($fields as $field) 
 		{
             if (empty($field)) {
-				return false;
+				$bool=false;
             }
         }
-		return true;
+		return $bool;
     }
 
 	/*Esto sirve para que si cambian el codigo html desde la pagina 
