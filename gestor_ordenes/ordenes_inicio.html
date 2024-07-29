@@ -1,294 +1,133 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuarios</title>
+    <title>CEM - Construcción, Electricidad y Mantenimiento</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../Cem_estilo.css">
+    
     <link rel="stylesheet" href="../cem_estilo2.css">
     <link rel="stylesheet" href="../cem_estilo3.css">
     <style>
-        
-
-        .personal-card .details {
-            flex: 1;
-            display: flex;
-            justify-content: space-between;
-            margin: 0;
-            text-align: center;
-            align-items: center;
-        }
-
         .btn-custom {
             background-color: #800000;
             color: white;
+        }
+        .modal-body input {
+            border: 2px solid #800000;
             border-radius: 15px;
-            margin: 10px;
         }
-
-        .add-button-container {
-            text-align: right;
-            margin: 20px 0;
+        .modal-footer .btn-custom {
+            background-color: #800000;
+            color: white;
+            border-radius: 15px;
         }
-        /*Esta parte es importante pq el background no se va a poner solo
-        lo vas a poner dependiendo si ya lo vio o no, en la clase proyect-card no pone el fondo, 
-        si lo dejas asi se queda completamente en blanco, por eso esta el seen y el not seen (Nseen)
-        estos para solicitudes. Las que esten en progreso van a seguir teniendo el seen y las que cancalaron las puse mas opacas
-        si no te gustan los colores tu se los cambias:/*/
-        .seen{
-            background-color: #f1f1f1;
-        }
-        .Nseen{
-            background-color: #b9b9b9;
-        }
-        .cancel{
-            background-color: #646464;
-            color: #ffffff;
-        }
-        .cancela{
-            color: #ff5b5b;
-        }
-        .project-card {
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 10px;
-            margin: 10px 0;
-            display: flex;
-            align-items: center;
-        }
-        .project-card img {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            margin-right: 20px;
-        }
-        .project-card .project-info {
-            flex-grow: 1;
-        }
-
-        .nav-tabs .nav-link {
-            border: 1px solid transparent;
-            border-top-left-radius: .25rem;
-            border-top-right-radius: .25rem;
-            margin-bottom: -1px;
-            color: black;
-        }
-        .nav-tabs .nav-link.active {
-            color: #800000;
-        }
-        .profile-img-cuad {
-            height: 60px;
-            width: 60px;
-            border-radius: 50%;
+        .padd{
+            padding-left: 290px;
         }
     </style>
 </head>
-
 <body>
     <!--NAV-->
     <nav class="navbar navbar-expand-lg navbar-custom">
-        <a class="navbar-brand" href="Cliente_Inicio.html">CEM</a>
+        <a class="navbar-brand" href="ordenes_inicio.html">CEM</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="../clientes/Cliente_Inicio.html">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" href="../clientes/clientes_servicios.html">Servicios</a></li>
-                <li class="nav-item"><a class="nav-link" href="../clientes/cliente_cotizar.html">Cotizar</a></li>
-                <li class="nav-item"><a class="nav-link" href="../clientes/cliente_portafolio.html">Portafolio</a></li>
-                <li class="nav-item"><a class="nav-link" href="../clientes/cliente_contacto.html">Contacto</a></li>
-                <li class="nav-item"><a class="nav-link" href="roles_inicio.html"><strong>Ordenes</strong></a></li>
-                <li class="nav-item"><a class="nav-link" href="../clientes/cliente_inicio_sesion.html">Perfil <img src="../img/foto_perfil.jpg" alt="Foto de perfil" class="profile-img"></a></li>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto padd">
+                <li class="nav-item"><a class="nav-link" href="ordenes_inicio.html"><strong>Inicio</strong></a></li>
+                <li class="nav-item"><a class="nav-link" href="ordenes_Cservicios.html">Servicios</a></li>
+                <li class="nav-item"><a class="nav-link" href="ordenes_Ccorizar.html">Cotizar</a></li>
+                <li class="nav-item"><a class="nav-link" href="ordenes_Cportafolio.html">Portafolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="ordenes_Ccontacto.html">Contacto</a></li>
+                <li class="nav-item"><a class="nav-link" href="../gestor_ordenes/ordenes_ordenes.html">Ordenes</a></li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="ordenes_registrado_perfil.html">Perfil <img src="../img/foto_perfil_ordenes.jpg" alt="Foto de perfil" class="profile-img"></a></li>
             </ul>
         </div>
     </nav>
-
-    <!-- Ordenes -->
-    <div class="container mt-4">
-        <h1 class="text-center">Ordenes</h1>
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" id="solicitudes-tab" data-toggle="tab" href="#solicitudes" role="tab" aria-controls="solicitudes" aria-selected="true">Solicitudes</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="progreso-tab" data-toggle="tab" href="#progreso" role="tab" aria-controls="progreso" aria-selected="false">En Progreso</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="completado-tab" data-toggle="tab" href="#completado" role="tab" aria-controls="completado" aria-selected="false">Completado</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="cancelado-tab" data-toggle="tab" href="#cancelado" role="tab" aria-controls="cancelado" aria-selected="false">Cancelados</a>
-            </li>
-        </ul>
-        <div class="tab-content" id="myTabContent">
-            <!-- Solicitudes -->
-            <div class="tab-pane fade show active" id="solicitudes" role="tabpanel" aria-labelledby="solicitudes-tab">
-                <br>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="project-card Nseen">
-                            <img src="https://via.placeholder.com/70" alt="Foto de perfil">
-                            <div class="project-info">
-                                <p><strong>Nombre del Proyecto</strong></p>
-                                <p>Usuario</p>
-                                <p>Direccion / calle / numero</p>
-                            </div>
-                            <a href="#" class="text-danger">expandir</a>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="project-card seen">
-                            <img src="https://via.placeholder.com/70" alt="Foto de perfil">
-                            <div class="project-info">
-                                <p><strong>Nombre del Proyecto</strong></p>
-                                <p>Usuario</p>
-                                <p>Direccion / calle / numero</p>
-                            </div>
-                            <a href="#" class="text-danger">expandir</a>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="project-card seen">
-                            <img src="https://via.placeholder.com/70" alt="Foto de perfil">
-                            <div class="project-info">
-                                <p><strong>Nombre del Proyecto</strong></p>
-                                <p>Usuario</p>
-                                <p>Direccion / calle / numero</p>
-                            </div>
-                            <a href="#" class="text-danger">expandir</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Progreso -->
-            <div class="tab-pane fade" id="progreso" role="tabpanel" aria-labelledby="progreso-tab">
-                <br>
-                <div class="col-md-12">
-                    <div class="project-card seen">
-                        <img src="https://via.placeholder.com/70" alt="Foto de perfil">
-                        <div class="project-info">
-                            <p><strong>Nombre del Proyecto</strong></p>
-                            <p>Usuario</p>
-                            <p>Direccion / calle / numero</p>
-                        </div>
-                        <a href="#" class="text-danger">expandir</a>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="project-card seen">
-                        <img src="https://via.placeholder.com/70" alt="Foto de perfil">
-                        <div class="project-info">
-                            <p><strong>Nombre del Proyecto</strong></p>
-                            <p>Usuario</p>
-                            <p>Direccion / calle / numero</p>
-                        </div>
-                        <a href="#" class="text-danger">expandir</a>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="project-card seen">
-                        <img src="https://via.placeholder.com/70" alt="Foto de perfil">
-                        <div class="project-info">
-                            <p><strong>Nombre del Proyecto</strong></p>
-                            <p>Usuario</p>
-                            <p>Direccion / calle / numero</p>
-                        </div>
-                        <a href="#" class="text-danger">expandir</a>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="project-card seen">
-                        <img src="https://via.placeholder.com/70" alt="Foto de perfil">
-                        <div class="project-info">
-                            <p><strong>Nombre del Proyecto</strong></p>
-                            <p>Usuario</p>
-                            <p>Direccion / calle / numero</p>
-                        </div>
-                        <a href="#" class="text-danger">expandir</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Completados -->
-            <div class="tab-pane fade" id="completado" role="tabpanel" aria-labelledby="completado-tab">
-                <br>
-                <div class="col-md-12">
-                    <div class="project-card seen">
-                        <img src="https://via.placeholder.com/70" alt="Foto de perfil">
-                        <div class="project-info">
-                            <p><strong>Nombre del Proyecto</strong></p>
-                            <p>Usuario</p>
-                            <p>Direccion / calle / numero</p>
-                        </div>
-                        <a href="#" class="text-danger">expandir</a>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="project-card seen">
-                        <img src="https://via.placeholder.com/70" alt="Foto de perfil">
-                        <div class="project-info">
-                            <p><strong>Nombre del Proyecto</strong></p>
-                            <p>Usuario</p>
-                            <p>Direccion / calle / numero</p>
-                        </div>
-                        <a href="#" class="text-danger">expandir</a>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="project-card seen">
-                        <img src="https://via.placeholder.com/70" alt="Foto de perfil">
-                        <div class="project-info">
-                            <p><strong>Nombre del Proyecto</strong></p>
-                            <p>Usuario</p>
-                            <p>Direccion / calle / numero</p>
-                        </div>
-                        <a href="#" class="text-danger">expandir</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Cancelados -->
-            <div class="tab-pane fade" id="cancelado" role="tabpanel" aria-labelledby="cancelado-tab">
-                <br>
-                <div class="col-md-12">
-                    <div class="project-card cancel">
-                        <img src="https://via.placeholder.com/70" alt="Foto de perfil">
-                        <div class="project-info">
-                            <p><strong>Nombre del Proyecto</strong></p>
-                            <p>Usuario</p>
-                            <p>Direccion / calle / numero</p>
-                        </div>
-                        <a href="#" class="cancela">expandir</a>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="project-card cancel">
-                        <img src="https://via.placeholder.com/70" alt="Foto de perfil">
-                        <div class="project-info">
-                            <p><strong>Nombre del Proyecto</strong></p>
-                            <p>Usuario</p>
-                            <p>Direccion / calle / numero</p>
-                        </div>
-                        <a href="#" class="cancela">expandir</a>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="project-card cancel">
-                        <img src="https://via.placeholder.com/70" alt="Foto de perfil">
-                        <div class="project-info">
-                            <p><strong>Nombre del Proyecto</strong></p>
-                            <p>Usuario</p>
-                            <p>Direccion / calle / numero</p>
-                        </div>
-                        <a href="#" class="cancela">expandir</a>
-                    </div>
-                </div>
-            </div>
+    <!--CEM-->
+    <br>
+    <div class="container">
+        <div class="header-img">
+            <div>Construcción, Electricidad y Mantenimiento</div>
+        </div>
+        <div class="content mt-4">
+            <p>
+                La empresa CEM se dedica a proporcionar soluciones integrales en el ámbito de las instalaciones eléctricas, abarcando tanto media como baja tensión. Además, se especializa en la realización de mantenimientos preventivos y correctivos, asegurando así el óptimo funcionamiento de los sistemas eléctricos. Ofrecemos una amplia gama de materiales eléctricos de alta calidad y contamos con experiencia en la ejecución de proyectos de obra civil, garantizando un servicio completo y profesional para satisfacer las necesidades de nuestros clientes.
+            </p>
         </div>
     </div>
-
-    <!-- Foot -->
+    <br>
+    <!--Consejos-->
+    <div class="container">
+        <div class="header-img-con">
+            <div>Consejos</div>
+        </div>
+        <div class="content mt-4">
+            <ul>
+                <li><b class="rojito">Valorar la Disponibilidad Horaria</b>
+                    <dl class="sangria">
+                        <dd>Para tener un mejor servicio se recomienda contratar al especialista con más <span class="rojito">experiencia</span> y que además tenga una <span class="rojito">amplia disponibilidad horaria</span> y se encuentre cerca del domicilio donde se va a realizar el trabajo eléctrico.</dd>
+                        <dd>Cada empresa debe garantizar por escrito que el servicio eléctrico <span class="rojito">se realice en un tiempo razonabl</span> y especificar si pueden surgir días de trabajo extras.</dd>
+                    </dl>
+                </li>
+                <li><b class="rojito">Solicitar referencias</b>
+                    <dl class="sangria">
+                        <dd>Una excelente manera de encontrar al profesionista más preparado es <span class="rojito">buscar referencias con amigos</span>, familiares o conocidos que hayan contratado un servicio similar y preguntar sobre la eficacia de sus trabajos.</dd>
+                        <dd>Otra de las maneras es buscar en <span class="rojito">páginas de internet</span> sobre referencias o recomendaciones en empresas o especialistas en este tipo de trabajos.</dd>
+                    </dl>
+                </li>
+                <li><b class="rojito">¿Cuándo conviene remodelar la instalación eléctrica?</b>
+                    <dl class="sangria">
+                        <dd>La <span class="rojito">instalación eléctrica</span> debe ser <span class="rojito">remodelada</span> como máximo cada 30 años, ésto si la instalación eléctrica es de excelente calidad, de otra forma es muy recomendable remodelarla antes, pues el <span class="rojito">aislante</span> que recubre el cableado no soporta las altas temperaturas que soportan los materiales de ahora, por lo que es muy probable que el cableado de una instalación vieja <span class="rojito">ya no se encuentre en buenas condiciones</span> debido a la carga que los nuevos aparatos del hogar puedan llegar a generar en la instalación.</dd>
+                    </dl>
+                </li>
+            </ul>
+            
+        </div>
+        <br>
+    </div>
+    <!--Terminos-->
+    <div class="container">
+        <div class="header-img-terminos">
+            <div>Términos básicos <br>relacionados con la electricidad</div>
+        </div>
+        <div class="content mt-4">
+            <ul>
+                <li><b class="rojito">Acometida:</b> Se le llama a la línea de energía que viene desde la calle hasta nuestro domicilio, en donde se conecta el medidor de consumo de luz para posteriormente llevarlo a la caja de pastillas y al interior de la construcción.</li>
+                <li><b class="rojito">CA:</b> Corriente alterna, aquella corriente con la que nos abastece CFE, puede llegar a ser de 110 V, 220 V o 440 V dependiendo del tipo de conexión que se haya requerido.</li>
+                <li><b class="rojito">Circuito Interior:</b> Se le conoce como circuito interior a todo el cableado eléctrico que se haya realizado dentro de la construcción.</li>
+                <li><b class="rojito">Cortocircuito:</b> Contacto entre alguna de las fases de alimentación de energía eléctrica y un neutro, ya sea en algún aparato eléctrico o en la instalación eléctrica.</li>
+                <li><b class="rojito">Derivación:</b> Fuga no deseada de corriente eléctrica en un circuito.</li>
+                <li><b class="rojito">Fusible:</b> Dispositivo de seguridad para proteger los circuitos de una sobrecarga de corriente eléctrica.</li>
+                <li><b class="rojito">Interruptor (Switch- Apagador):</b> Mecanismo utilizado para impedir o permitir el paso de la energía eléctrica en un circuito.</li>
+                <li><b class="rojito">Pastillas:</b> Son un interruptor automático que previene la sobrecarga del circuito eléctrico. </li>
+                <li><b class="rojito">Puentear:</b> Permitir mediante conexiones adicionales (en algunos casos el salto entre dispositivos conectados al circuito eléctrico) el funcionamiento de un circuito eléctrico.</li>
+                <li><b class="rojito">Roza:</b> Canal que se abre en la pared para empotrar conductores de agua y electricidad.</li>
+                <li><b class="rojito">Tomacorriente (Enchufe):</b> Mecanismo para la conexión de aparatos eléctricos al circuito eléctrico.</li>
+                <li><b class="rojito">Toma de tierra:</b> Conexión de una toma de corriente, máquina o circuito, que permite evacuar a tierra las corrientes eléctricas estáticas o producidas por derivaciones no deseadas.</li>
+            </ul>
+        </div>
+    </div>
+    <br>
+    <!--Ubicacion-->
+    <div class="container">
+        <div class="header-img-ub">
+            <div>Ubicación</div>
+        </div>
+        <br>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3600.8647715034117!2d-103.374429903924!3d25.5095561260036!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x868fdca4f55f16cb%3A0xcbb5c843214811f6!2sSierra%20La%20Gloria%2026%2C%20M.%20Mercado%20de%20L%C3%B3pez%20S%C3%A1nchez%2C%2027294%20Torre%C3%B3n%2C%20Coah.!5e0!3m2!1ses-419!2smx!4v1720532376357!5m2!1ses-419!2smx" width="1055" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+    <br>
+    
+    <button class="btn"><a href="../clientes/Cliente_Inicio.html">inicio del cliente</a></button>
+    <!--Foot-->
     <footer class="footer mt-4">
         <div class="left">
             CEM
@@ -307,10 +146,8 @@
             Torreon Coahuila</p>
         </div>
     </footer>
-    <!-- Bootstrap 4 JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+
+</body>
 </html>

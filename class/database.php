@@ -49,10 +49,12 @@ class database
         try
         {
             $this->pdolocal->query($consulta);
+            return true;
         }
         catch(PDOException $e)
         {
             echo $e->getMessage();
+            return false;
         }
     }
 

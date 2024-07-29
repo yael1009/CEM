@@ -51,7 +51,7 @@
                 <h1 class="mb-4">Crear Cuenta</h1>
                 <p class="rojito">¡Regístrate hoy y accede a servicios exclusivos! Disfruta de una experiencia personalizada y soluciones a medida. ¡Únete ahora y aprovecha todas nuestras ventajas!</p>
             </div>
-            <form action="" method="post">
+            <form action="" method="post" autocomplete="off" class="FormularioAjax">
                 <div class="mb-3">
                     <label class="form-label" for="nombre">Nombres</label>
                     <input class="form-control" type="text" name="nombre" required>
@@ -82,11 +82,11 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="compañia">Uso de la Cuenta</label>
-                    <input class="form-control" type="text" name="compañia" placeholder="Personal/Compañia">
+                    <input class="form-control" type="text" name="compañia" required placeholder="Personal/Compañia">
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="cargo">Cargo en la Compañia</label>
-                    <input class="form-control" type="text" name="cargo" placeholder="Personal/Propietario/Gerente/Constructor">
+                    <input class="form-control" type="text" name="cargo" required placeholder="Personal/Propietario/Gerente/Constructor">
                 </div>
                 <div class="centra-boton">
                     <button type="submit" class="btn btn-custom">Crear Cuenta</button>
@@ -98,7 +98,7 @@
                 ini_set('display_startup_errors', 1);
                 error_reporting(E_ALL);
 
-                include'../class/database.php';
+                include '../class/database.php';
 
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $db = new Database();
@@ -117,18 +117,10 @@
                     if (empty($nombre) || empty($apaterno) || empty($amaterno) || empty($tel) || empty($correo) || empty($usuario) || empty($pass) || empty($compañia) || empty($cargo)) {
                         echo "<div class='alert alert-danger'>Error: Todos los campos son requeridos</div>";
                     } else {
-                        $query = $db->preparar("CALL CREAR_USUARIO_CL(:nombre, :apaterno, :amaterno, :correo, :tel, :usuario, :pass)");
-                        $query->bindParam(':nombre', $nombre);
-                        $query->bindParam(':apaterno', $apaterno);
-                        $query->bindParam(':amaterno', $amaterno);
-                        $query->bindParam(':correo', $correo);
-                        $query->bindParam(':tel', $tel);
-                        $query->bindParam(':usuario', $usuario);
-                        $query->bindParam(':pass', $pass);
+                        $query = "CALL CREAR_USUARIO_CL('$nombre', '$apaterno', '$amaterno', '$correo', '$tel', '$usuario', '$pass', '$compañia', '$cargo')";
 
-                        if ($query->execute()) {
-                            echo "<div class='alert alert-success'>CLIENTE REGISTRADO</div>";
-                            header("refresh:3;url=Cliente_inicio.html");
+                        if ($db->ejecutar($query) ) {
+                            header("refresh:3;url=../clientes/Cliente_Inicio.html");
                             exit();
                         } else {
                             echo "<div class='alert alert-danger'>ERROR AL REGISTRAR CLIENTE</div>";
@@ -147,7 +139,8 @@
 
     
     <?php
-    //no jalo alaberga
+    //no jalo alaberga     <script src="../js/ajax.js"></script>
+
     include "../inc/navbar_celular.php";
     ?>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
