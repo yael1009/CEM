@@ -51,42 +51,54 @@
                 <h1 class="mb-4">Crear Cuenta</h1>
                 <p class="rojito">¡Regístrate hoy y accede a servicios exclusivos! Disfruta de una experiencia personalizada y soluciones a medida. ¡Únete ahora y aprovecha todas nuestras ventajas!</p>
             </div>
+<<<<<<< HEAD
             <form action="" method="post" autocomplete="off" class="FormularioAjax">
+=======
+            <form action="" method="post" autocomplete="off">
+>>>>>>> origin/ana
                 <div class="mb-3">
                     <label class="form-label" for="nombre">Nombres</label>
-                    <input class="form-control" type="text" name="nombre" required>
+                    <input class="form-control" type="text" name="nombre" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,60}" maxlength="60" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="apaterno">Apellido Paterno</label>
-                    <input class="form-control" type="text" name="apaterno" required>
+                    <input class="form-control" type="text" name="apaterno" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,30}" maxlength="30" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="amaterno">Apellido Materno</label>
-                    <input class="form-control" type="text" name="amaterno" required>
+                    <input class="form-control" type="text" name="amaterno" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,30}" maxlength="30" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="tel">Telefono</label>
-                    <input class="form-control" type="text" name="tel" required>
+                    <input class="form-control" type="text" name="tel" pattern="[0-9]+" maxlength="10" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="correo">Correo:</label>
-                    <input class="form-control" type="email" name="correo" required>
+                    <input class="form-control" type="email" name="correo" maxlength="100" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="usuario">Usuario:</label>
-                    <input class="form-control" type="text" name="usuario" required>
+                    <input class="form-control" type="text" name="usuario" pattern="[a-zA-Z0-9]{4,50}" maxlength="50" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="pass">Password:</label>
-                    <input class="form-control" type="password" name="pass" required>
+                    <input class="form-control" type="password" name="pass" pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength="100" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="compañia">Uso de la Cuenta</label>
+<<<<<<< HEAD
                     <input class="form-control" type="text" name="compañia" required placeholder="Personal/Compañia">
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="cargo">Cargo en la Compañia</label>
                     <input class="form-control" type="text" name="cargo" required placeholder="Personal/Propietario/Gerente/Constructor">
+=======
+                    <input class="form-control" type="text" name="compañia" placeholder="Personal/Nombre de la Compañia" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}" maxlength="100" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="cargo">Cargo en la Compañia</label>
+                    <input class="form-control" type="text" name="cargo" placeholder="Personal/Propietario/Gerente/Constructor" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,50}" maxlength="50" required>
+>>>>>>> origin/ana
                 </div>
                 <div class="centra-boton">
                     <button type="submit" class="btn btn-custom">Crear Cuenta</button>
