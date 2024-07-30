@@ -54,7 +54,7 @@
                 <p class="rojito">Si ya está registrado en nuestra página, puede ingresar sus datos aquí. Si aún no tiene una cuenta, puede crear una cuenta nueva para acceder al servicio.</p>
 
             </div>
-            <form action="../scripts/cliente_inicio_sesion.php" method="post">
+            <form action="" method="post" autocomplete="off">
                 <div class="mb-3">
                     <label class="form-label" for="usuario">Usuario:</label>
                     <input class="form-control" type="text" name="usuario" pattern="[a-zA-Z0-9]{4,50}" maxlength="50" required>
@@ -68,6 +68,14 @@
                     <button type="submit" class="btn btn-custom">Iniciar sesión</button>
                 </div>
             </form>
+            
+            <?php
+			if(isset($_POST['usuario']) && isset($_POST['password'])){
+				require_once "../class/main.php";
+				require_once "../scripts/iniciar_sesion.php";
+			}
+		    ?>
+
         </div>
     </div>
     <!--Foot-->

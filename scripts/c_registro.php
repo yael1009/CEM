@@ -129,8 +129,8 @@
         $query=("CALL CREAR_USUARIO_CL('$nombre', '$apaterno', '$amaterno', '$correo', '$tel', '$usuario', '$pass', '$compañia', '$cargo')");
 
         if ($db->ejecutar($query)) {
-            echo "<div class='alert alert-success'>CLIENTE REGISTRADO</div>";
             header("refresh:3;url=Cliente_inicio.html");
+            echo "<div class='alert alert-success'>CLIENTE REGISTRADO</div>";
             exit();
         } else {
             echo "<div class='alert alert-danger'>ERROR AL REGISTRAR CLIENTE</div>";
