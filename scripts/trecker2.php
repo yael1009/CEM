@@ -1,35 +1,36 @@
 <?php
-    include '../class/database.php';
+    include '../class/conexionbd.php';
     $conexion = new Database();
     $conexion ->conectarDB();
     // Obtener datos del formulario
 
+
     extract($_POST);
 
-    $contrasena = $_POST['pass'];
+    $contrasena = $_POST['contrasena'];
     $hash = password_hash($contrasena, PASSWORD_DEFAULT);
 
 
     // Preparar consulta para llamar al procedimiento almacenado
-    $query = $conexion->preparar("CALL CREAR_USUARIO_CL(:nombre, :apaterno, :amaterno, :correo, :tel, :usuario, :pass, :compañia, :cargo)");
+    $stmt = $conexion->preparar("CALL crear_usuario(:correo, :usuario, :contrasena, :nombre, :apellido_paterno, :apellido_materno, :genero, :fecha_nacimiento, :telefono)");
 
     // Vincular parámetros
-    $query->bindParam(':nombre', $nombre);
-    $query->bindParam(':apaterno', $apaterno);
-    $query->bindParam(':amaterno', $amaterno);
-    $query->bindParam(':correo', $correo);
-    $query->bindParam(':tel', $tel);
-    $query->bindParam(':usuario', $usuario);
-    $query->bindParam(':pass', $pass);
-    $query->bindParam(':compañia', $compañia);
-    $query->bindParam(':cargo', $cargo);
+    $stmt->bindParam(':correo', $correo);
+    $stmt->bindParam(':usuario', $usuario);
+    $stmt->bindParam(':contrasena', $hash);
+    $stmt->bindParam(':nombre', $nombre);
+    $stmt->bindParam(':apellido_paterno', $apellido_paterno);
+    $stmt->bindParam(':apellido_materno', $apellido_materno);
+    $stmt->bindParam(':genero', $genero);
+    $stmt->bindParam(':fecha_nacimiento', $fecha_nacimiento);
+    $stmt->bindParam(':telefono', $telefono);
 
     // Ejecutar consulta
-    if ($query->execute()) {
-        header("Location: ../clientes/Cliente_Inicio.html");
+    if ($stmt->execute()) {
+        header("Location: ../../index.php");
         $db->desconectarDB();
     } else {
-        echo "Error al crear usuario: " . $query->errorInfo()[2];
+        echo "Error al crear usuario: " . $stmt->errorInfo()[2];
     }
 
     // Cerrar conexión

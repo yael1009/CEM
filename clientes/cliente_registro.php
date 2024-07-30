@@ -78,7 +78,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="pass">Password:</label>
-                    <input class="form-control" type="password" name="pass" pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength="100" required>
+                    <input class="form-control" type="password" name="pass" pattern="[a-zA-Z0-9$@.]{7,100}" maxlength="100" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="compañia">Uso de la Cuenta</label>
@@ -93,54 +93,13 @@
                     <button type="button" class="btn btn-custom">Iniciar sesión</button>
                 </div>
             </form>
-            <?php /*
-                ini_set('display_errors', 1);
-                ini_set('display_startup_errors', 1);
-                error_reporting(E_ALL);
-
-                include '../class/database.php';
-
-                if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    $db = new Database();
-                    $db->conectardb();
-
-                    $nombre = $_POST['nombre'] ?? '';
-                    $apaterno = $_POST['apaterno'] ?? '';
-                    $amaterno = $_POST['amaterno'] ?? '';
-                    $tel = $_POST['tel'] ?? '';
-                    $correo = $_POST['correo'] ?? '';
-                    $usuario = $_POST['usuario'] ?? '';
-                    $pass = $_POST['pass'] ?? '';
-                    $compañia = $_POST['compañia'] ?? '';
-                    $cargo = $_POST['cargo'] ?? '';
-
-                    if (empty($nombre) || empty($apaterno) || empty($amaterno) || empty($tel) || empty($correo) || empty($usuario) || empty($pass) || empty($compañia) || empty($cargo)) {
-                        echo "<div class='alert alert-danger'>Error: Todos los campos son requeridos</div>";
-                    } else {
-                        $query = "CALL CREAR_USUARIO_CL('$nombre', '$apaterno', '$amaterno', '$correo', '$tel', '$usuario', '$pass', '$compañia', '$cargo')";
-
-                        if ($db->ejecutar($query) ) {
-                            header("refresh:3;url=../clientes/Cliente_Inicio.html");
-                            exit();
-                        } else {
-                            echo "<div class='alert alert-danger'>ERROR AL REGISTRAR CLIENTE</div>";
-                        }
-                    }
-
-                    $db->desconectardb();
-                }*/
-            ?>
         </div>
     </div>
     <!--Foot-->
     <?php
     include "../inc/footer.php";
-    ?>
 
-    
-    <?php
     //no jalo alaberga     <script src="../js/ajax.js"></script>
-
     include "../inc/navbar_celular.php";
     ?>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
