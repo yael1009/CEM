@@ -1,10 +1,42 @@
 <?php
 class main
 {
+	//Esta funcion sirve para verificar que ningun campo required este vacio por si le mueven al html, validacion de back
+    public function validar_campos_vacios(array $fields) 
+	{
+		$bool = true;
+        foreach ($fields as $field) 
+		{
+            if (empty($field)) {
+				$bool=false;
+            }
+        }
+		return $bool;
+    }
+
+	/*Esto sirve para que si cambian el codigo html desde la pagina 
+    no puedan insertar por ejemplo si es int letras o si su limite es 100 q metan 200#, validacion de back*/
+    function verificar_datos($filtro,$cadena){
+		if(preg_match("/^".$filtro."$/", $cadena)){
+			return false;
+        }else{
+            return true;
+        }
+	}
+
+	function mensaje_error($especifica)
+	{
+		$mensaje ='<div class="alert alert-danger">
+                <strong>¡Ocurrio un error inesperado!</strong><br>
+                .$especifica. no coincide con el formato solicitado
+            	</div>';
+		return $mensaje;
+	}
+
     // Trim sirve para eliminar espacios en blanco
     // striplashes cambia las \
     // str_ireplace determinas palabras y las remplazas por otras
-    public function limpiarString($string) { 
+    public function limpiarstring($string) { 
         $bannedWords=["<script>","</script>","<script src","<script type=","SELECT * FROM","SELECT "," SELECT ","DELETE FROM","INSERT INTO","DROP TABLE","DROP DATABASE","TRUNCATE TABLE","SHOW TABLES","SHOW DATABASES","<?php","?>","--","^","<",">","==","=",";","::"];
 
         $string=trim($string);
@@ -19,16 +51,6 @@ class main
 
         return $string;
     }
-    
-    /*Esto sirve para que si cambian el codigo html desde la pagina 
-    no puedan insertar por ejemplo si es int letras o si su limite es 100 q metan 200#*/
-    function verificar_datos($filtro,$cadena){
-		if(preg_match("/^".$filtro."$/", $cadena)){
-			return false;
-        }else{
-            return true;
-        }
-	}
 
     //Esto es para guardar correctamente las fotos dentro de la base de datos
     function renombrar_fotos($nombre){
