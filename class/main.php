@@ -4,14 +4,13 @@ class main
 	//Esta funcion sirve para verificar que ningun campo required este vacio por si le mueven al html, validacion de back
     public function validar_campos_vacios(array $fields) 
 	{
-		$bool = true;
+		return true;
         foreach ($fields as $field) 
 		{
             if (empty($field)) {
-				$bool=false;
+				return false;
             }
         }
-		return $bool;
     }
 
 	/*Esto sirve para que si cambian el codigo html desde la pagina 
@@ -28,7 +27,7 @@ class main
 	{
 		$mensaje ='<div class="alert alert-danger">
                 <strong>¡Ocurrio un error inesperado!</strong><br>
-                .$especifica. no coincide con el formato solicitado
+                '.$especifica.'
             	</div>';
 		return $mensaje;
 	}

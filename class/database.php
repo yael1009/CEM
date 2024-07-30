@@ -68,5 +68,19 @@ class database
             echo $e->getMessage();
         }
     }
+
+    public function contar($query) 
+    {
+        try
+        {
+            $stmt = $this->pdolocal->prepare($query);
+            $stmt->execute();            
+            return $stmt->rowCount();
+        }
+        catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
 }
 ?>

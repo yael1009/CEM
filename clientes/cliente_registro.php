@@ -51,7 +51,7 @@
                 <h1 class="mb-4">Crear Cuenta</h1>
                 <p class="rojito">¡Regístrate hoy y accede a servicios exclusivos! Disfruta de una experiencia personalizada y soluciones a medida. ¡Únete ahora y aprovecha todas nuestras ventajas!</p>
             </div>
-            <form action="" method="post" autocomplete="off" class="FormularioAjax">
+            <form action="../scripts/c_registro.php" method="post" autocomplete="off" class="FormularioAjax">
                 <div class="mb-3">
                     <label class="form-label" for="nombre">Nombres</label>
                     <input class="form-control" type="text" name="nombre" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,60}" maxlength="60" required>
@@ -93,7 +93,7 @@
                     <button type="button" class="btn btn-custom">Iniciar sesión</button>
                 </div>
             </form>
-            <?php
+            <?php /*
                 ini_set('display_errors', 1);
                 ini_set('display_startup_errors', 1);
                 error_reporting(E_ALL);
@@ -128,7 +128,7 @@
                     }
 
                     $db->desconectardb();
-                }
+                }*/
             ?>
         </div>
     </div>

@@ -1,5 +1,5 @@
 <?php
-
+// esta madre es para los archivos a subir
 if(mime_content_type($_FILES['fichero']['tmp_name'])!="image/jpeg" && mime_content_type($_FILES['fichero']['tmp_name'])!="image/png"){
     echo "Tipo de fichero no admitido";
     exit();
