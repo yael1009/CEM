@@ -1,5 +1,6 @@
 <?php
     include '../class/database.php';
+    $main = new main();
 	/*== Almacenando datos ==*/
     $usuario = $main->limpiarstring($_POST['usuario'] ?? '');
     $clave = $main->limpiarstring($_POST['password'] ?? '');
@@ -18,23 +19,45 @@
         exit();
     }
 
-    if($main->verificar_datos("[a-zA-Z0-9$@.]{7,100}",$pass))
+    if($main->verificar_datos("[a-zA-Z0-9$@.]{7,100}",$clave))
     {
         echo $main->mensaje_error("La contraseña no coincide con el formato solicitado");
         exit();
     }
 
 
-    $db = new database();
-    $db->conectardb();
-    $query=("CALL VERIFY_USUARIO ('admin_cem', 'contraseña_hash1')");
+    $bd = new database();
+    $bd->conectardb();
+    $query=("CALL VERIFY_USUARIO ('$usuario', '$clave')");
 
+    $tabla = $bd->seleccionar1($query);
 
-    $check_user=conexion();
-    $check_user=$check_user->query("SELECT * FROM usuario WHERE usuario_usuario='$usuario'");
-    if()
+    if($tabla ->output == 'Credenciales correctas'){
+        $query2=("CALL creacion_sesion('$usuario')");
+        $reg = $bd->seleccionar1($query2);
+       // foreach($tabla as $reg){
 
-    if($check_user->rowCount()==1){
+            session_name("Yo"); //talvez 
+            session_start(); // las quite
+            $_SESSION['id'] = $reg->id; // Acceso a propiedades del objeto
+            $_SESSION['nombre'] = $reg->nombre;
+            $_SESSION['apellido'] = $reg->apaterno;
+            $_SESSION['usuario'] = $reg->usuario;
+       // }
+
+        if(headers_sent()){
+            echo '<script> <meta http-equiv="refresh" content="3;url=Cliente_inicio.html">; </script>';
+        }else{
+            header("refresh:3;url=Cliente_inicio.html");
+        }
+        echo "<div class='alert alert-success'>INICIO DE SESION EXITOSO</div>";
+        exit();
+    }
+    else{
+        echo $main->mensaje_error("El usuario o la contraseña son incorrectos");
+        exit();
+    }
+ /*   if($check_user->rowCount()==1){
 
     	$check_user=$check_user->fetch();
 
@@ -70,7 +93,7 @@
     }
 
         // Llamar al procedimiento almacenado VERIFY_USUARIO
-    $stmt = $mysqli->prepare("CALL VERIFY_USUARIO(?, ?)");
+    $stmt = $mysqli->prepare("CALL VERIFY_USUARIO ('admin_cem', 'contraseña_hash1')");
     $stmt->bind_param("sb", $usuario, $clave);
     $stmt->execute();
 
@@ -102,5 +125,5 @@
             </div>
         ';
     }
-
+*/
     $db->desconectardb();

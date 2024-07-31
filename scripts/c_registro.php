@@ -94,46 +94,91 @@
         exit();
     }else{
         $clave=password_hash($clave_1,PASSWORD_BCRYPT,["cost"=>10]);
-    } ==*/
+    } ==
 
-    /*   ESTA ES UNA MEJOR PRACTICA PERO POR COMO NOS ENSEÑO GARAY PS NO 
-        $query = $db->preparar("CALL CREAR_USUARIO_CL(:nombre, :apaterno, :amaterno, :correo, :tel, :usuario, :pass, :compañia, :cargo)");
-        $query->bindParam(':nombre', $nombre);
-        $query->bindParam(':apaterno', $apaterno);
-        $query->bindParam(':amaterno', $amaterno);
-        $query->bindParam(':correo', $correo);
-        $query->bindParam(':tel', $tel);
-        $query->bindParam(':usuario', $usuario);
-        $query->bindParam(':pass', $pass);
-        $query->bindParam(':compañia', $compañia);
-        $query->bindParam(':cargo', $cargo);
-/*
-        $query->execute();
+       ESTA ES UNA MEJOR PRACTICA PERO POR COMO NOS ENSEÑO GARAY PS NO */
+       /* $query = $db->preparar("CALL CREAR_USUARIO_CL(:nombre, :apaterno, :amaterno, :correo, :tel, :usuario, :pass, :compañia, :cargo)");
 
-        if($query->rowCount()==1){
-            echo '
-                <div class="notification is-info is-light">
-                    <strong>¡USUARIO REGISTRADO!</strong><br>
-                    El usuario se registro con exito
-                </div>
-            ';
-        }else{
-            echo '
-                <div class="notification is-danger is-light">
-                    <strong>¡Ocurrio un error inesperado!</strong><br>
-                    No se pudo registrar el usuario, por favor intente nuevamente
-                </div>
-            ';
+        $marcadores =[
+        ':nombre'=> $nombre,
+        ':apaterno'=> $apaterno,
+        ':amaterno'=> $amaterno,
+        ':correo'=> $correo,
+        ':tel'=> $tel,
+        ':usuario'=> $usuario,
+        ':pass'=> $pass,
+        ':compañia'=> $compañia,
+        ':cargo'=> $cargo
+        ];
+
+        foreach ($marcadores as $parametro => $valor) {
+            $query->bindParam($parametro, $valor);
         }
-        /*/
-        $query=("CALL CREAR_USUARIO_CL('$nombre', '$apaterno', '$amaterno', '$correo', '$tel', '$usuario', '$pass', '$compañia', '$cargo')");
 
-        if ($db->ejecutar($query)) {
-            header("refresh:3;url=Cliente_inicio.html");
+        //$main->bindParams($query,$marcadores);
+
+        $query2->$db->ejecutarQuery($query);
+
+        if($query2->$db->contar()==1){
+            if(headers_sent()){
+				echo '<script> <meta http-equiv="refresh" content="3;url=Cliente_inicio.html">; </script>';
+			}else{
+                header("refresh:3;url=Cliente_inicio.html");
+            }
             echo "<div class='alert alert-success'>CLIENTE REGISTRADO</div>";
             exit();
         } else {
             echo "<div class='alert alert-danger'>ERROR AL REGISTRAR CLIENTE</div>";
         }
+        /*
+
+              // ESTA ES UNA MEJOR PRACTICA PERO POR COMO NOS ENSEÑO GARAY PS NO 
+               $query ="CALL CREAR_USUARIO_CL(:nombre, :apaterno, :amaterno, :correo, :tel, :usuario, :pass, :compañia, :cargo)";
+
+               $marcadores =[
+               ':nombre'=> $nombre,
+               ':apaterno'=> $apaterno,
+               ':amaterno'=> $amaterno,
+               ':correo'=> $correo,
+               ':tel'=> $tel,
+               ':usuario'=> $usuario,
+               ':pass'=> $pass,
+               ':compañia'=> $compañia,
+               ':cargo'=> $cargo
+               ];
+       
+              // foreach ($marcadores as $parametro => $valor) {
+              //     $query->bindParam($parametro, $valor);
+               //}
+       
+               //$main->bindParams($query,$marcadores);
+       
+               //$query2->$db->ejecutarQuery($query);
+       
+               if ($db->ejecutarQuery($query,$marcadores)) {
+                if(headers_sent()){
+                    echo '<script> <meta http-equiv="refresh" content="3;url=Cliente_inicio.html">; </script>';
+                }else{
+                    header("refresh:3;url=Cliente_inicio.html");
+                }
+                echo "<div class='alert alert-success'>CLIENTE REGISTRADO</div>";
+                exit();
+            } else {
+                echo "<div class='alert alert-danger'>ERROR AL REGISTRAR CLIENTE</div>";
+            }
+               /*/
+        $query=("CALL CREAR_USUARIO_CL('$nombre', '$apaterno', '$amaterno', '$correo', '$tel', '$usuario', '$pass', '$compañia', '$cargo')");
+
+        if ($db->ejecutar($query)) {
+            if(headers_sent()){
+				echo '<script> <meta http-equiv="refresh" content="3;url=Cliente_inicio.html">; </script>';
+			}else{
+                header("refresh:3;url=Cliente_inicio.html");
+            }
+            echo "<div class='alert alert-success'>CLIENTE REGISTRADO</div>";
+            exit();
+        } else {
+            echo "<div class='alert alert-danger'>ERROR AL REGISTRAR CLIENTE</div>";
+        } 
     $db->desconectardb();
 ?>

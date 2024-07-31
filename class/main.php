@@ -52,6 +52,12 @@ class main
         return $string;
     }
 
+	//Esto es para meter bindparams a los marcadores de los inserts
+    public function bindParams($query, $params) {
+        foreach ($params as $parametro => $valor) {
+            $query->bindParam($parametro, $valor);
+        }
+    }
     //Esto es para guardar correctamente las fotos dentro de la base de datos
     function renombrar_fotos($nombre){
 		$nombre=str_ireplace(" ", "_", $nombre);
