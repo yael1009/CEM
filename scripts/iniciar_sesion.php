@@ -36,12 +36,13 @@
         $query2=("CALL creacion_sesion('$usuario')");
         $reg = $bd->seleccionar1($query2);
 
-            session_name("Yo"); //talvez 
-            session_start(); // las quite se usamos el index
+          //  session_name("Yo"); //talvez las quite se usamos el index,  
+          //  session_start(); // si no estas usando el index quita los comentarios
             $_SESSION['id'] = $reg->id;
             $_SESSION['nombre'] = $reg->nombre;
             $_SESSION['apellido'] = $reg->apaterno;
             $_SESSION['usuario'] = $reg->usuario;
+            $_SESSION['rol'] = $reg->rol;
 
         if(headers_sent()){
             echo '<script> <meta http-equiv="refresh" content="3;url=Cliente_inicio.html">; </script>';
