@@ -12,7 +12,7 @@
                 <li class="nav-item"><a class="nav-link" href="index.php?vista=contacto">Contacto</a></li>
             </ul>
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="index.php?vista=login">Perfil <img src="../img/foto_perfil.jpg" alt="Foto de perfil" class="profile-img"></a></li>
+                <li class="nav-item"><a class="nav-link" href="index.php?vista=login">Perfil <img src="img/foto_perfil.jpg" alt="Foto de perfil" class="profile-img"></a></li>
             </ul>
         </div>
     </nav>

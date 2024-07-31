@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="step">
-                        <img src="../img/cliente_img/cliente_cotizacion_paso1.jpeg" alt="Paso 1">
+                        <img src="img/cliente_img/cliente_cotizacion_paso1.jpeg" alt="Paso 1">
                         <h3>Paso 1</h3>
                         <p>Cuéntanos tu proyecto. Puedes incluir fotografías y archivos.</p>
                     </div>
