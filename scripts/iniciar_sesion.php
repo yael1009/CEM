@@ -35,15 +35,13 @@
     if($tabla ->output == 'Credenciales correctas'){
         $query2=("CALL creacion_sesion('$usuario')");
         $reg = $bd->seleccionar1($query2);
-       // foreach($tabla as $reg){
 
             session_name("Yo"); //talvez 
-            session_start(); // las quite
-            $_SESSION['id'] = $reg->id; // Acceso a propiedades del objeto
+            session_start(); // las quite se usamos el index
+            $_SESSION['id'] = $reg->id;
             $_SESSION['nombre'] = $reg->nombre;
             $_SESSION['apellido'] = $reg->apaterno;
             $_SESSION['usuario'] = $reg->usuario;
-       // }
 
         if(headers_sent()){
             echo '<script> <meta http-equiv="refresh" content="3;url=Cliente_inicio.html">; </script>';

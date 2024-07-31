@@ -10,7 +10,7 @@
             <li class="nav-item"><a class="nav-link" href="cliente_cotizar.html">Cotizar</a></li>
             <li class="nav-item"><a class="nav-link" href="cliente_portafolio.html">Portafolio</a></li>
             <li class="nav-item"><a class="nav-link" href="cliente_contacto.html">Contacto</a></li>
-            <li class="nav-item"><a class="nav-link" href="cliente_inicio_sesion.html">Perfil <img src="../img/foto_perfil.jpg" alt="Foto de perfil" class="profile-img"></a></li>
+            <li class="nav-item"><a class="nav-link" href="cliente_inicio_sesion.html">Perfil <img src="img/foto_perfil.jpg" alt="Foto de perfil" class="profile-img"></a></li>
         </ul>
     </div>
 </nav>
