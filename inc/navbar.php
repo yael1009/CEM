@@ -13,7 +13,7 @@
                     <li class="nav-item"><a class="nav-link" href="index.php?vista=contacto">Contacto</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown
+                            Administrar
                         </a>
                         <div class="dropdown-menu red navbar" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item link" href="index.php?vista=administrador">Administrador</a>
@@ -24,9 +24,24 @@
                         </div>
                     </li>
                 </ul>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.php?vista=login">Perfil <img src="img/foto_perfil.jpg" alt="Foto de perfil" class="profile-img"></a></li>
-                </ul>
+
+                <?php
+                // Verificar si la sesión está iniciada
+                if (isset($_SESSION['usuario'])) {
+                    // Si la sesión está iniciada, mostrar este contenido
+                    echo //"Bienvenido, " . htmlspecialchars($_SESSION['usuario']) . "!";
+
+                    '<ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.php?vista=perfil">Perfil <img src="img/foto_perfil.jpg" alt="Foto de perfil" class="profile-img"></a></li>
+                    </ul>';
+                } else {
+                    // Si la sesión no está iniciada, mostrar otro contenido
+                    echo
+                    '<ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.php?vista=login">Iniciar sesion <img src="https://via.placeholder.com/70" alt="Foto de perfil" class="profile-img"></a></li>
+                    </ul>';
+                }
+                ?>
             </div>
         </div>
     </nav>

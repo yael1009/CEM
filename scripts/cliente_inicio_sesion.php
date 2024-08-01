@@ -1,4 +1,4 @@
-<?php
+<?php // esta madre es del yorch pero ps no se uso jeje babosin nolesalio
     session_start();
     
     include'../class/database.php';

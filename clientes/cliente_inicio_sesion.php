@@ -85,6 +85,7 @@
             <?php
 			if(isset($_POST['usuario']) && isset($_POST['password'])){
 				require_once "../class/main.php";
+                require_once "../class/database.php";
 				require_once "../scripts/iniciar_sesion.php";
 			}
 		    ?>
