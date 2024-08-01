@@ -13,28 +13,33 @@ require 'inc/session_start.php'; ?>
     }
 
     //is file comprueba si existe un archivo en el directorio
-    if(is_file("views/".$_GET['vista'].".php") && $_GET['vista']!="login" && $_GET['vista']!="404"){
+    if(is_file("views/".$_GET['vista'].".php")){
 
-        /*== Cerrar sesion ==
-        if((!isset($_SESSION['id']) || $_SESSION['id']=="") || (!isset($_SESSION['usuario']) || $_SESSION['usuario']=="")){
-            include "views/logout.php";
-            exit();
-        }*/
+        //Esta parte es importante pq son las vistas permitidas para todos, ya despues voy a moverle a los roles
+        if ($_GET['vista'] != 'login' && $_GET['vista'] != '404' && $_GET['vista'] != 'home' 
+            && $_GET['vista']!="servicios" && $_GET['vista']!="cotizar" && $_GET['vista']!="portafolio"
+            && $_GET['vista']!="contacto" && $_GET['vista']!="login" && $_GET['vista']!="registro") 
+        {
+            if((!isset($_SESSION['id']) || $_SESSION['id']=="") || (!isset($_SESSION['usuario']) || $_SESSION['usuario']=="")){
+                header("Location: index.php?vista=home");
+                exit();
+            }        
+        }
 
         // NAVBAR
         include 'inc/navbar.php'; 
 
         include "views/".$_GET['vista'].".php";
 
+        /*Esta nacada era para q se vea bn en cel pero no valio madresilla
+        include "inc/script.php";*/
+
         // FOOTER
         include 'inc/footer.php'; 
         
     }else{
-            if($_GET['vista']=="login"){
-                include "views/login.php";
-            }else{
-                include "views/404.php";
-            }
+            //Esto es para que si no encontro ninguna vista te envie aqui
+            include "views/404.php";
         }
     ?>
 </body>

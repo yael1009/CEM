@@ -71,6 +71,15 @@ class main
 		return $nombre;
 	}
 
+	//Esto es para evitar que entren a URLS a las q no deberian (no la e usado por weba de crear la instancia y pq ps ajanose)
+	function verificar_autenticacion() {
+		if (!isset($_SESSION['id']) || empty($_SESSION['id'])) {
+			// Redirigir a la página de inicio si el usuario no está autenticado
+			header("Location: index.php?vista=home");
+			exit();
+		}
+	}
+
     //Esto sirve para ir imprimiendo los registros de la bd de manera aca chida
     function paginador_tablas($pagina,$Npaginas,$url,$botones){
 		$tabla='<nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">';
