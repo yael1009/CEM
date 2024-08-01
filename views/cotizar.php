@@ -13,14 +13,14 @@
                 </div>
                 <div class="col-md-4">
                     <div class="step">
-                        <img src="../img/cliente_img/cliente_cotizacion_paso22.jpeg" alt="Paso 2">
+                        <img src="img/cliente_img/cliente_cotizacion_paso22.jpeg" alt="Paso 2">
                         <h3>Paso 2</h3>
                         <p>Recibiremos tu solicitud y nosotros agendaremos una cita.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="step">
-                        <img src="../img/cliente_img/cliente_cotizacion_paso3.jpeg" alt="Paso 3">
+                        <img src="img/cliente_img/cliente_cotizacion_paso3.jpeg" alt="Paso 3">
                         <h3>Paso 3</h3>
                         <p>Elaboraremos una cotización en breve y te la enviaremos.</p>
                     </div>
