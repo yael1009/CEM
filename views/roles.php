@@ -18,84 +18,9 @@
         </ul>
         <div class="tab-content" id="myTabContent">
             <!-- Clientes -->
-            <div class="tab-pane fade show active" id="clientes" role="tabpanel" aria-labelledby="clientes-tab">
-                <div class="profile-container mt-4">
-                    <div class="profile-card">
-                        <div class="step">
-                            <img src="../img/foto_perfil_clientes.jpg" alt="Foto de perfil" class="profile-img-cuad">
-                            <p>Jorge</p>
-                            <p>Favela</p>
-                            <a href="#" class="text-danger" data-toggle="modal" data-target="#SeeMoreUser">expandir</a>
-
-                        </div>
-                    </div>
-                    <div class="profile-card">
-                        <div class="step">
-                            <img src="../img/foto_perfil_clientes.jpg" alt="Foto de perfil" class="profile-img-cuad">
-                            <p>Esteban Oz</p>
-                            <p>Cordoba</p>
-                            <a href="#" class="text-danger">expandir</a>
-
-                        </div>
-                    </div>
-                    <div class="profile-card">
-                        <div class="step">
-                            <img src="../img/foto_perfil_clientes.jpg" alt="Foto de perfil" class="profile-img-cuad">
-                            <p>Roberto Yael</p>
-                            <p>Alvarez</p>
-                            <a href="#" class="text-danger">expandir</a>
-                        </div>
-                    </div>
-                    <div class="profile-card">
-                        <div class="step">
-                            <img src="../img/foto_perfil_clientes.jpg" alt="Foto de perfil" class="profile-img-cuad">
-                            <p>Carlos</p>
-                            <p>Arizpe</p>
-                            <a href="#" class="text-danger">expandir</a>
-                        </div>
-                    </div>
-                    <div class="profile-card">
-                        <div class="step">
-                            <img src="../img/foto_perfil_clientes.jpg" alt="Foto de perfil" class="profile-img-cuad">
-                            <p>Jose Angel</p>
-                            <p>Cortinas</p>
-                            <a href="#" class="text-danger">expandir</a>
-                        </div>
-                    </div>
-                    <div class="profile-card">
-                        <div class="step">
-                            <img src="../img/foto_perfil_clientes.jpg" alt="Foto de perfil" class="profile-img-cuad">
-                            <p>Daniel</p>
-                            <p>Espinoza</p>
-                            <a href="#" class="text-danger">expandir</a>
-                        </div>
-                    </div>
-                    <div class="profile-card">
-                        <div class="step">
-                            <img src="../img/foto_perfil_clientes.jpg" alt="Foto de perfil" class="profile-img-cuad">
-                            <p>Thania</p>
-                            <p>Medina</p>
-                            <a href="#" class="text-danger">expandir</a>
-                        </div>
-                    </div>
-                    <div class="profile-card">
-                        <div class="step">
-                            <img src="../img/foto_perfil_clientes.jpg" alt="Foto de perfil" class="profile-img-cuad">
-                            <p>Pamela</p>
-                            <p>Robledo</p>
-                            <a href="#" class="text-danger">expandir</a>
-                        </div>
-                    </div>
-                    <div class="profile-card">
-                        <div class="step">
-                            <img src="../img/foto_perfil_clientes.jpg" alt="Foto de perfil" class="profile-img-cuad">
-                            <p>Jonathan</p>
-                            <p>Castro</p>
-                            <a href="#" class="text-danger">expandir</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+             <?php
+             include "tabs/user_list.php"; 
+             ?>
             <!-- Personal -->
             <div class="tab-pane fade" id="personal" role="tabpanel" aria-labelledby="personal-tab">
                 <br>
