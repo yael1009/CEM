@@ -16,11 +16,11 @@
                         Dropdown
                         </a>
                         <div class="dropdown-menu red navbar" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item link" href="#">Administrador</a>
-                            <a class="dropdown-item link" href="#">Aparatos</a>
-                            <a class="dropdown-item link" href="#">Cotizaciones</a>
-                            <a class="dropdown-item link" href="#">Contenido</a>
-                            <a class="dropdown-item link" href="#">Roles</a>
+                            <a class="dropdown-item link" href="index.php?vista=administrador">Administrador</a>
+                            <a class="dropdown-item link" href="index.php?vista=aparatos">Aparatos</a>
+                            <a class="dropdown-item link" href="index.php?vista=cotizaciones">Cotizaciones</a>
+                            <a class="dropdown-item link" href="index.php?vista=contenido">Contenido</a>
+                            <a class="dropdown-item link" href="index.php?vista=roles">Roles</a>
                         </div>
                     </li>
                 </ul>

@@ -171,9 +171,9 @@
 
         if ($db->ejecutar($query)) {
             if(headers_sent()){
-				echo '<script> <meta http-equiv="refresh" content="3;url=Cliente_inicio.html">; </script>';
+				echo '<script> <meta http-equiv="refresh" content="3;url=index.php?vista=home">; </script>';
 			}else{
-                header("refresh:3;url=Cliente_inicio.html");
+                header("refresh:3;url=index.php?vista=home");
             }
             echo "<div class='alert alert-success'>CLIENTE REGISTRADO</div>";
             exit();
