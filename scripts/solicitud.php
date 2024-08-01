@@ -1,7 +1,7 @@
 <div class="tab-pane fade show active" id="solicitudes" role="tabpanel" aria-labelledby="solicitudes-tab">
     <br>
     <?php
-    include '../class/database.php';
+   // include '../class/database.php';
     $conexion = new database();
     $conexion->conectardb();
 

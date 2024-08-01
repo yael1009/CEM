@@ -2,9 +2,9 @@
     <div class="container d-flex flex-column align-items-center">
         <h1 class="mt-4">Mi Perfil</h1>
         <div class="d-flex justify-content-center">
-            <button type="button" class="btn btn-custom"> <a href="cliente_mis_cotizaciones.html" class="custom-link">Mis Cotizaciones</a></button>
+            <button type="button" class="btn btn-custom"> <a href="index.php?vista=mis_cotizaciones" class="custom-link">Mis Cotizaciones</a></button>
             <button type="button" class="btn btn-custom">Administrar Cuenta</button>
-            <button type="button" class="btn btn-custom" href="index.php?vista=logout">Cerrar sesión</button>
+            <button type="button" class="btn btn-custom"> <a href="index.php?vista=logout" class="custom-link">Cerrar sesión</a></button>
         </div>
         <div class="profile-container mt-4">
             <div class="table-custom">
