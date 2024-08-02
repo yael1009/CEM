@@ -29,8 +29,12 @@ require 'inc/session_start.php'; ?>
         // NAVBAR
         include 'inc/navbar.php'; 
 
-        include "views/".$_GET['vista'].".php";
-
+        if(isset($_GET['tab']) || $_GET['tab']==""){
+            include "views/".$_GET['vista'].".php&tab=".$_GET['tab']."";
+        }
+        else{        
+            include "views/".$_GET['vista'].".php";
+        }
         /*Esta nacada era para q se vea bn en cel pero no valio madresilla
         include "inc/script.php";*/
 
