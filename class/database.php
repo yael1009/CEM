@@ -83,6 +83,20 @@ class database
         }
     }
 
+    public function contar_resultados($query) 
+    {
+        try
+        {
+            $stmt = $this->pdolocal->prepare($query);
+            $stmt->execute();            
+            return $stmt->fetchColumn();
+        }
+        catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
+
     function seleccionar1($consulta)
     {
         try

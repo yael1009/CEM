@@ -82,9 +82,12 @@ class main
 
     //Esto sirve para ir imprimiendo los registros de la bd de manera aca chida
     function paginador_tablas($pagina,$Npaginas,$url,$botones){
+		//etiqueta de apaertura de navegacion
 		$tabla='<nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">';
 
+		//se comprueba si la pagina es 1, se deshabilita el boton anterior (laa clase disable no existe)
 		if($pagina<=1){
+			//boton de anterior y apertura de navegacion
 			$tabla.='
 			<a class="pagination-previous is-disabled" disabled >Anterior</a>
 			<ul class="pagination-list">';

@@ -17,7 +17,7 @@
         
             $pagina=$main->limpiarstring($pagina);
             $url="index.php?vista=roles&page=";
-            $registros=3;
+            $registros=5;
             $busqueda="";
 
             require_once "./scripts/usuario_lista.php";
