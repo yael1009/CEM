@@ -1,8 +1,4 @@
     <!-- Usuarios -->
-    <?php
-    // Obtener la variable 'tab' de la URL, o usar una pestaña predeterminada si no está presente
-        $_GET['tab']="tabcliente";
-        ?>
     <div class="container mt-4">
         <h1 class="text-center">Usuarios</h1>
         <!-- Añadir -->
@@ -11,23 +7,22 @@
         </div>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link <?php echo $tab == 'tabclientes' ? 'active' : ''; ?>" id="clientes-tab" data-toggle="tab" href="index.php?vista=roles&tab=tabcliente" role="tab" aria-controls="clientes" aria-selected="true">Clientes</a>
+                <a class="nav-link active" id="clientes-tab" data-toggle="tab" href="#clientes" role="tab" aria-controls="clientes" aria-selected="true">Clientes</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <?php echo $tab == 'tabempleados' ? 'active' : ''; ?>" id="personal-tab" data-toggle="tab" href="index.php?vista=roles&tab=tabempleados" role="tab" aria-controls="personal" aria-selected="false">Personal</a>
+                <a class="nav-link" id="personal-tab" data-toggle="tab" href="#personal" role="tab" aria-controls="personal" aria-selected="false">Personal</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <?php echo $tab == 'tab3' ? 'active' : ''; ?>" id="proveedores-tab" data-toggle="tab" href="index.php?vista=roles&tab=tab3" role="tab" aria-controls="proveedores" aria-selected="false">Proveedores</a>
+                <a class="nav-link" id="proveedores-tab" data-toggle="tab" href="#proveedores" role="tab" aria-controls="proveedores" aria-selected="false">Proveedores</a>
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">
             <!-- Clientes -->
-            <?php
-
-            include "tabs/user_list.php"; 
-            ?>
+             <?php
+             include "tabs/user_list.php"; 
+             ?>
             <!-- Personal -->
-            <div class="tab-pane fade <?php echo $tab == 'tab1' ? 'show active' : ''; ?>" id="tabempleados" role="tabpanel" aria-labelledby="personal-tab">
+            <div class="tab-pane fade" id="personal" role="tabpanel" aria-labelledby="personal-tab">
                 <br>
                 <div class="personal-container">
                     <div class="personal-card">
@@ -89,7 +84,7 @@
                 </div>
             </div>
             <!-- Proveedres -->
-            <div class="tab-pane fade <?php echo $tab == 'tab3' ? 'show active' : ''; ?>" id="proveedores" role="tabpanel" aria-labelledby="proveedores-tab">
+            <div class="tab-pane fade" id="proveedores" role="tabpanel" aria-labelledby="proveedores-tab">
                 <br>
                 <div class="personal-container">
                     <div class="personal-card">

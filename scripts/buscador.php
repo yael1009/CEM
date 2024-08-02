@@ -39,7 +39,7 @@
 			    }else{
                     //si todo esta correcto, redirige a la url
 			    	$_SESSION[$modulo_buscador]=$txt;
-			    	header("Location: index.php?vista=".$modulos_url."",true,303); 
+			    	header("Location: index.php?vista=$modulos_url&$_SESSION[tab]",true,303); 
  					exit();  
 			    }
 			}
