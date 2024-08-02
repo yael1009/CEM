@@ -20,7 +20,7 @@
 	$conexion->conectardb();
 
     $datos = $conexion->seleccionar($consulta_datos);
-    $total = (int) $conexion->contar($consulta_total); 
+    $total = $conexion->contar_resultados($consulta_total);
 
     //ceil redondea a su entero proximo
 	$Npaginas =ceil($total/$registros);
@@ -76,6 +76,9 @@
 	if($total>=1 && $pagina<=$Npaginas){
 		echo $main->paginador_tablas($pagina,$Npaginas,$url,7);
 	}
+/*	echo "<pre>";
+	print_r(get_defined_vars());
+	echo "</pre>";
 /*
 	$tabla.='
 	<div class="table-container">
