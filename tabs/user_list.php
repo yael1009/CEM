@@ -17,21 +17,10 @@
         
             $pagina=$main->limpiarstring($pagina);
             $url="index.php?vista=roles&page=";
-            $registros=15;
+            $registros=3;
             $busqueda="";
 
             require_once "./scripts/usuario_lista.php";
-
         ?>
-
-        <div class="profile-card">
-            <div class="step">
-                <img src="../img/foto_perfil_clientes.jpg" alt="Foto de perfil" class="profile-img-cuad">
-                <p>Jorge</p>
-                <p>Favela</p>
-                <a href="#" class="text-danger" data-toggle="modal" data-target="#SeeMoreUser">expandir</a>
-            </div>
-        </div>
-
     </div>
 </div>

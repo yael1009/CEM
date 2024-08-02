@@ -33,6 +33,7 @@
 
     foreach($tabla as $reg)
     {
+        //if para cambiar la clase segun el estado
     $clase = ($reg->estado == "No visto") ? 'seen' : 'Nseen';
     echo "
     <div class='row'>
