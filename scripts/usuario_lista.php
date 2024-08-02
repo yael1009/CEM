@@ -4,7 +4,8 @@
     $conexion = new database();
 
 	if(isset($busqueda) && $busqueda!=""){
-            // aqui tengo que ajustar la busqueda multitable y agregar mas terminos de busqueda
+		$_SESSION['tab'] = 'tabcliente';
+		// aqui tengo que ajustar la busqueda multitable y agregar mas terminos de busqueda
 		$consulta_datos="SELECT * FROM vista_usuarios WHERE ((id_usuario!='".$_SESSION['id']."') AND id_empleado IS NULL AND (nombre LIKE '%$busqueda%' OR a_p LIKE '%$busqueda%' OR usuario LIKE '%$busqueda%' OR correo LIKE '%$busqueda%')) ORDER BY nombre ASC LIMIT $inicio,$registros";
 
 		$consulta_total="SELECT COUNT(id_usuario) FROM vista_usuarios WHERE ((id_usuario!='".$_SESSION['id']."') AND id_empleado IS NULL AND (nombre LIKE '%$busqueda%' OR a_p LIKE '%$busqueda%' OR usuario LIKE '%$busqueda%' OR correo LIKE '%$busqueda%'))";
