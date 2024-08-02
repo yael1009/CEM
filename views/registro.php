@@ -52,7 +52,7 @@
 			if(isset($_POST['nombre']) && isset($_POST['apaterno']) && isset($_POST['amaterno']) && isset($_POST['tel'])
             && isset($_POST['correo']) && isset($_POST['usuario']) && isset($_POST['pass']) && isset($_POST['compañia'])
             && isset($_POST['cargo'])){
-				require_once "../scripts/c_registro.php";
+				require_once "scripts/c_registro.php";
 			}
 		    ?>
 
