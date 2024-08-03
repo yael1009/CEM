@@ -15,7 +15,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Administrar
                         </a>
-                        <div class="dropdown-menu red navbar" aria-labelledby="navbarDropdownMenuLink">
+                        <div class="dropdown-menu red" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item link" href="index.php?vista=administrador">Administrador</a>
                             <a class="dropdown-item link" href="index.php?vista=aparatos">Aparatos</a>
                             <a class="dropdown-item link" href="index.php?vista=cotizaciones">Cotizaciones</a>

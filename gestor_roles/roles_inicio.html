@@ -1,3 +1,6 @@
+roles_inicio.html
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,6 +37,20 @@
             color: white;
             border-radius: 15px;
             margin: 10px;
+        }
+        
+        .btn-custom a{
+            color: white;
+        }
+        .btn-custom:hover a{
+            color: #800000;
+            border-color: #800000;
+        }
+
+        .btn-custom:hover {
+            background-color: white;
+            color: #800000;
+            border-color: #800000;
         }
 
         .add-button-container {
@@ -113,6 +130,12 @@
         .padd{
             padding-left: 290px;
         }
+        .rounded-circle {
+            border-radius: 50% !important;
+        }
+        .text-center {
+            text-align: center !important;
+        }
     </style>
 </head>
 
@@ -141,214 +164,232 @@
     <!-- Usuarios -->
     <div class="container mt-4">
         <h1 class="text-center">Usuarios</h1>
-        <!-- Añadir -->
-        <div class="add-button-container">
-            <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#userModal">Añadir</button>
-        </div>
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" id="clientes-tab" data-toggle="tab" href="#clientes" role="tab" aria-controls="clientes" aria-selected="true">Clientes</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="personal-tab" data-toggle="tab" href="#personal" role="tab" aria-controls="personal" aria-selected="false">Personal</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="proveedores-tab" data-toggle="tab" href="#proveedores" role="tab" aria-controls="proveedores" aria-selected="false">Proveedores</a>
-            </li>
-        </ul>
-        <div class="tab-content" id="myTabContent">
-            <!-- Clientes -->
-            <div class="tab-pane fade show active" id="clientes" role="tabpanel" aria-labelledby="clientes-tab">
-                <div class="profile-container mt-4">
-                    <div class="profile-card">
-                        <div class="step">
-                            <img src="../img/foto_perfil_clientes.jpg" alt="Foto de perfil" class="profile-img-cuad">
-                            <p>Jorge</p>
-                            <p>Favela</p>
-                            <a href="#" class="text-danger" data-toggle="modal" data-target="#SeeMoreUser">expandir</a>
+                <!-- Añadir -->
+                <div class="add-button-container">
+                    <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#userModal">Añadir</button>
+                </div>
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="clientes-tab" data-toggle="tab" href="#clientes" role="tab" aria-controls="clientes" aria-selected="true">Clientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="personal-tab" data-toggle="tab" href="#personal" role="tab" aria-controls="personal" aria-selected="false">Personal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="proveedores-tab" data-toggle="tab" href="#proveedores" role="tab" aria-controls="proveedores" aria-selected="false">Proveedores</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <!-- Clientes -->
+                    <div class="service-divider"></div>
+                    <!-- Modulo de busqueda -->
+                    <div class="centerr">
+                        <form action="" autocomplete="off">
+                            <input class="form-control" type="text" name="txt_buscador" placeholder="¿Qué estas buscando?" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{1,30}" maxlength="30">
+                            <button class="btn btn-custom">Buscar</button>
+                            <button class="btn btn-custom">Quitar Busqueda</button>
+                        </form>
+                    </div>
 
+                    <div class="tab-pane fade show active" id="clientes" role="tabpanel" aria-labelledby="clientes-tab">
+                        <div class="profile-container mt-4">
+                            <div class="profile-card">
+                                <div class="step">
+                                    <img src="../img/foto_perfil_clientes.jpg" alt="Foto de perfil" class="profile-img-cuad">
+                                    <p>Jorge</p>
+                                    <p>Favela</p>
+                                    <a href="#" class="text-danger" data-toggle="modal" data-target="#SeeMoreUser">expandir</a>
+        
+                                </div>
+                            </div>
+                            <div class="profile-card">
+                                <div class="step">
+                                    <img src="../img/foto_perfil_clientes.jpg" alt="Foto de perfil" class="profile-img-cuad">
+                                    <p>Esteban Oz</p>
+                                    <p>Cordoba</p>
+                                    <a href="#" class="text-danger">expandir</a>
+        
+                                </div>
+                            </div>
+                            <div class="profile-card">
+                                <div class="step">
+                                    <img src="../img/foto_perfil_clientes.jpg" alt="Foto de perfil" class="profile-img-cuad">
+                                    <p>Roberto Yael</p>
+                                    <p>Alvarez</p>
+                                    <a href="#" class="text-danger">expandir</a>
+                                </div>
+                            </div>
+                            <div class="profile-card">
+                                <div class="step">
+                                    <img src="../img/foto_perfil_clientes.jpg" alt="Foto de perfil" class="profile-img-cuad">
+                                    <p>Carlos</p>
+                                    <p>Arizpe</p>
+                                    <a href="#" class="text-danger">expandir</a>
+                                </div>
+                            </div>
+                            <div class="profile-card">
+                                <div class="step">
+                                    <img src="../img/foto_perfil_clientes.jpg" alt="Foto de perfil" class="profile-img-cuad">
+                                    <p>Jose Angel</p>
+                                    <p>Cortinas</p>
+                                    <a href="#" class="text-danger">expandir</a>
+                                </div>
+                            </div>
+                            <div class="profile-card">
+                                <div class="step">
+                                    <img src="../img/foto_perfil_clientes.jpg" alt="Foto de perfil" class="profile-img-cuad">
+                                    <p>Daniel</p>
+                                    <p>Espinoza</p>
+                                    <a href="#" class="text-danger">expandir</a>
+                                </div>
+                            </div>
+                            <div class="profile-card">
+                                <div class="step">
+                                    <img src="../img/foto_perfil_clientes.jpg" alt="Foto de perfil" class="profile-img-cuad">
+                                    <p>Thania</p>
+                                    <p>Medina</p>
+                                    <a href="#" class="text-danger">expandir</a>
+                                </div>
+                            </div>
+                            <div class="profile-card">
+                                <div class="step">
+                                    <img src="../img/foto_perfil_clientes.jpg" alt="Foto de perfil" class="profile-img-cuad">
+                                    <p>Pamela</p>
+                                    <p>Robledo</p>
+                                    <a href="#" class="text-danger">expandir</a>
+                                </div>
+                            </div>
+                            <div class="profile-card">
+                                <div class="step">
+                                    <img src="../img/foto_perfil_clientes.jpg" alt="Foto de perfil" class="profile-img-cuad">
+                                    <p>Jonathan</p>
+                                    <p>Castro</p>
+                                    <a href="#" class="text-danger">expandir</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="profile-card">
-                        <div class="step">
-                            <img src="../img/foto_perfil_clientes.jpg" alt="Foto de perfil" class="profile-img-cuad">
-                            <p>Esteban Oz</p>
-                            <p>Cordoba</p>
-                            <a href="#" class="text-danger">expandir</a>
-
+                    <!-- Personal -->
+                    
+                    <div class="tab-pane fade" id="personal" role="tabpanel" aria-labelledby="personal-tab">
+                        <br>
+                        <div class="personal-container">
+                            <div class="personal-card">
+                                <div class="step">
+                                    <div class="details">
+                                        <img src="../img/foto_perfil_personal.jpg" alt="Foto de perfil" class="profile-img-cuad">
+                                        <p>Nombressss</p>
+                                        <p>Apellidosssss</p>
+                                        <p>Rol</p>
+                                        <p><a href="#" class="text-danger">expandir</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="personal-card">
+                                <div class="step">
+                                    <div class="details">
+                                        <img src="../img/foto_perfil_personal.jpg" alt="Foto de perfil" class="profile-img-cuad">
+                                        <p>Nombressss</p>
+                                        <p>Apellidosssss</p>
+                                        <p>Rol</p>
+                                        <p><a href="#" class="text-danger">expandir</a></p>
+                                    </div>
+        
+                                </div>
+                            </div>
+                            <div class="personal-card">
+                                <div class="step">
+                                    <div class="details">
+                                        <img src="../img/foto_perfil_personal.jpg" alt="Foto de perfil" class="profile-img-cuad">
+                                        <p>Nombressss</p>
+                                        <p>Apellidosssss</p>
+                                        <p>Rol</p>
+                                        <p><a href="#" class="text-danger">expandir</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="personal-card">
+                                <div class="step">
+                                    <div class="details">
+                                        <img src="../img/foto_perfil_personal.jpg" alt="Foto de perfil" class="profile-img-cuad">
+                                        <p>Nombressss</p>
+                                        <p>Apellidosssss</p>
+                                        <p>Rol</p>
+                                        <p><a href="#" class="text-danger">expandir</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="personal-card">
+                                <div class="step">
+                                    <div class="details">
+                                        <img src="../img/foto_perfil_personal.jpg" alt="Foto de perfil" class="profile-img-cuad">
+                                        <p>Nombressss</p>
+                                        <p>Apellidosssss</p>
+                                        <p>Rol</p>
+                                        <p><a href="#" class="text-danger">expandir</a></p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="profile-card">
-                        <div class="step">
-                            <img src="../img/foto_perfil_clientes.jpg" alt="Foto de perfil" class="profile-img-cuad">
-                            <p>Roberto Yael</p>
-                            <p>Alvarez</p>
-                            <a href="#" class="text-danger">expandir</a>
-                        </div>
-                    </div>
-                    <div class="profile-card">
-                        <div class="step">
-                            <img src="../img/foto_perfil_clientes.jpg" alt="Foto de perfil" class="profile-img-cuad">
-                            <p>Carlos</p>
-                            <p>Arizpe</p>
-                            <a href="#" class="text-danger">expandir</a>
-                        </div>
-                    </div>
-                    <div class="profile-card">
-                        <div class="step">
-                            <img src="../img/foto_perfil_clientes.jpg" alt="Foto de perfil" class="profile-img-cuad">
-                            <p>Jose Angel</p>
-                            <p>Cortinas</p>
-                            <a href="#" class="text-danger">expandir</a>
-                        </div>
-                    </div>
-                    <div class="profile-card">
-                        <div class="step">
-                            <img src="../img/foto_perfil_clientes.jpg" alt="Foto de perfil" class="profile-img-cuad">
-                            <p>Daniel</p>
-                            <p>Espinoza</p>
-                            <a href="#" class="text-danger">expandir</a>
-                        </div>
-                    </div>
-                    <div class="profile-card">
-                        <div class="step">
-                            <img src="../img/foto_perfil_clientes.jpg" alt="Foto de perfil" class="profile-img-cuad">
-                            <p>Thania</p>
-                            <p>Medina</p>
-                            <a href="#" class="text-danger">expandir</a>
-                        </div>
-                    </div>
-                    <div class="profile-card">
-                        <div class="step">
-                            <img src="../img/foto_perfil_clientes.jpg" alt="Foto de perfil" class="profile-img-cuad">
-                            <p>Pamela</p>
-                            <p>Robledo</p>
-                            <a href="#" class="text-danger">expandir</a>
-                        </div>
-                    </div>
-                    <div class="profile-card">
-                        <div class="step">
-                            <img src="../img/foto_perfil_clientes.jpg" alt="Foto de perfil" class="profile-img-cuad">
-                            <p>Jonathan</p>
-                            <p>Castro</p>
-                            <a href="#" class="text-danger">expandir</a>
+                    <!-- Proveedres -->
+                    <div class="tab-pane fade" id="proveedores" role="tabpanel" aria-labelledby="proveedores-tab">
+                        <br>
+                        <div class="personal-container">
+                            <div class="personal-card">
+                                <div class="step">
+                                    <div class="details">
+                                        <img src="../img/foto_perfil_proveedores.jpg" alt="Foto de perfil" class="profile-img-cuad">
+                                        <p>Nombressss</p>
+                                        <p>Apellidosssss</p>
+                                        <p>Rol</p>
+                                        <p><a href="#" class="text-danger">expandir</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="personal-card">
+                                <div class="step">
+                                    <div class="details">
+                                        <img src="../img/foto_perfil_proveedores.jpg" alt="Foto de perfil" class="profile-img-cuad">
+                                        <p>Nombressss</p>
+                                        <p>Apellidosssss</p>
+                                        <p>Rol</p>
+                                        <p><a href="#" class="text-danger">expandir</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="personal-card">
+                                <div class="step">
+                                    <div class="details">
+                                        <img src="../img/foto_perfil_proveedores.jpg" alt="Foto de perfil" class="profile-img-cuad">
+                                        <p>Nombressss</p>
+                                        <p>Apellidosssss</p>
+                                        <p>Rol</p>
+                                        <p><a href="#" class="text-danger">expandir</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="personal-card">
+                                <div class="step">
+                                    <div class="details">
+                                        <img src="../img/foto_perfil_proveedores.jpg" alt="Foto de perfil" class="profile-img-cuad">
+                                        <p>Nombressss</p>
+                                        <p>Apellidosssss</p>
+                                        <p>Rol</p>
+                                        <p><a href="#" class="text-danger">expandir</a></p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- Personal -->
-            <div class="tab-pane fade" id="personal" role="tabpanel" aria-labelledby="personal-tab">
-                <br>
-                <div class="personal-container">
-                    <div class="personal-card">
-                        <div class="step">
-                            <div class="details">
-                                <img src="../img/foto_perfil_personal.jpg" alt="Foto de perfil" class="profile-img-cuad">
-                                <p>Nombressss</p>
-                                <p>Apellidosssss</p>
-                                <p>Rol</p>
-                                <p><a href="#" class="text-danger">expandir</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="personal-card">
-                        <div class="step">
-                            <div class="details">
-                                <img src="../img/foto_perfil_personal.jpg" alt="Foto de perfil" class="profile-img-cuad">
-                                <p>Nombressss</p>
-                                <p>Apellidosssss</p>
-                                <p>Rol</p>
-                                <p><a href="#" class="text-danger">expandir</a></p>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="personal-card">
-                        <div class="step">
-                            <div class="details">
-                                <img src="../img/foto_perfil_personal.jpg" alt="Foto de perfil" class="profile-img-cuad">
-                                <p>Nombressss</p>
-                                <p>Apellidosssss</p>
-                                <p>Rol</p>
-                                <p><a href="#" class="text-danger">expandir</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="personal-card">
-                        <div class="step">
-                            <div class="details">
-                                <img src="../img/foto_perfil_personal.jpg" alt="Foto de perfil" class="profile-img-cuad">
-                                <p>Nombressss</p>
-                                <p>Apellidosssss</p>
-                                <p>Rol</p>
-                                <p><a href="#" class="text-danger">expandir</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="personal-card">
-                        <div class="step">
-                            <div class="details">
-                                <img src="../img/foto_perfil_personal.jpg" alt="Foto de perfil" class="profile-img-cuad">
-                                <p>Nombressss</p>
-                                <p>Apellidosssss</p>
-                                <p>Rol</p>
-                                <p><a href="#" class="text-danger">expandir</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Proveedres -->
-            <div class="tab-pane fade" id="proveedores" role="tabpanel" aria-labelledby="proveedores-tab">
-                <br>
-                <div class="personal-container">
-                    <div class="personal-card">
-                        <div class="step">
-                            <div class="details">
-                                <img src="../img/foto_perfil_proveedores.jpg" alt="Foto de perfil" class="profile-img-cuad">
-                                <p>Nombressss</p>
-                                <p>Apellidosssss</p>
-                                <p>Rol</p>
-                                <p><a href="#" class="text-danger">expandir</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="personal-card">
-                        <div class="step">
-                            <div class="details">
-                                <img src="../img/foto_perfil_proveedores.jpg" alt="Foto de perfil" class="profile-img-cuad">
-                                <p>Nombressss</p>
-                                <p>Apellidosssss</p>
-                                <p>Rol</p>
-                                <p><a href="#" class="text-danger">expandir</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="personal-card">
-                        <div class="step">
-                            <div class="details">
-                                <img src="../img/foto_perfil_proveedores.jpg" alt="Foto de perfil" class="profile-img-cuad">
-                                <p>Nombressss</p>
-                                <p>Apellidosssss</p>
-                                <p>Rol</p>
-                                <p><a href="#" class="text-danger">expandir</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="personal-card">
-                        <div class="step">
-                            <div class="details">
-                                <img src="../img/foto_perfil_proveedores.jpg" alt="Foto de perfil" class="profile-img-cuad">
-                                <p>Nombressss</p>
-                                <p>Apellidosssss</p>
-                                <p>Rol</p>
-                                <p><a href="#" class="text-danger">expandir</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    </div>
+<!-- Mostrando -->
+    <div class="text-center">
+        <button class="btn btn-custom text-left mx-1">Anterior</button>
+        <!-- Puta bola pendeja -->
+            <button class="btn btn-custom rounded-circle mx-1"><a class="" href="">#</a></button>
+        <button class="btn btn-custom text-right mx-1">Siguiente</button>
     </div>
 <!-- Añadir -->
 <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -537,7 +578,7 @@
                                         </tr>
                                         <tr>
                                             <th>Contraseña:</th>
-                                            <td>*************</td>
+                                            <td>*</td>
                                         </tr>
                                         <tr>
                                             <th>Uso de la cuenta:</th>
