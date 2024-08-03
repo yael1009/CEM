@@ -11,7 +11,12 @@
                 <div class="table-header p-2">
                     Datos Personales
                 </div>
-                <table class="table mb-0" >
+                <?php
+
+                    include '../scripts/info_sesion_perfil.php';
+
+                ?>
+                <!-- <table class="table mb-0" >
                     <tbody>
                         <tr>
                             <th class="fixed-width">Nombres:</th>
@@ -63,6 +68,6 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
+            </div> -->
         </div>
     </div>
