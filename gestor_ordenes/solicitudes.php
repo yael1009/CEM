@@ -124,7 +124,10 @@
         </ul>
         <div class="tab-content" id="myTabContent">
             <!-- Solicitudes -->
-             <?php include "../views/gestor_orden/solicitud.php" ?>
+             <?php 
+             include '../class/database.php';
+             include "../scripts/solicitud.php" 
+             ?>
             <!-- Progreso -->
             <div class="tab-pane fade" id="progreso" role="tabpanel" aria-labelledby="progreso-tab">
                 <br>

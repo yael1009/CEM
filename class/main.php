@@ -71,11 +71,25 @@ class main
 		return $nombre;
 	}
 
-    //Esto sirve para ir imprimiendo los registros de la bd de manera aca chida
+	//Esto es para evitar que entren a URLS a las q no deberian (no la e usado por weba de crear la instancia y pq ps ajanose)
+	function verificar_autenticacion() {
+		if (!isset($_SESSION['id']) || empty($_SESSION['id'])) {
+			// Redirigir a la página de inicio si el usuario no está autenticado
+			header("Location: index.php?vista=home");
+			exit();
+		}
+	}
+
+    /*Pagina de default es 1, si avanzas o regresas se suma o resta
+	  Npaginas es el numero total de paginas que hay, se calcula diviendo $registros entre  paginas
+	  botones son todos los que quieras qeu aparezcan*/
     function paginador_tablas($pagina,$Npaginas,$url,$botones){
+		//etiqueta de apaertura de navegacion
 		$tabla='<nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">';
 
+		//se comprueba si la pagina es 1, se deshabilita el boton anterior (laa clase disable no existe)
 		if($pagina<=1){
+			//boton de anterior y apertura de navegacion
 			$tabla.='
 			<a class="pagination-previous is-disabled" disabled >Anterior</a>
 			<ul class="pagination-list">';
@@ -88,12 +102,17 @@ class main
 			';
 		}
 
+		//Botones de enmedio
+		//contador de ciclos o iteraciones
 		$ci=0;
+		// Se empieza a contar desde la pagina actual
 		for($i=$pagina; $i<=$Npaginas; $i++){
+			//si el contador alcanza los botones deseados se rompre el ciclo
 			if($ci>=$botones){
 				break;
 			}
 			if($pagina==$i){
+				//es la pagina actual para q tenga una clase diferente
 				$tabla.='<li><a class="pagination-link is-current" href="'.$url.$i.'">'.$i.'</a></li>';
 			}else{
 				$tabla.='<li><a class="pagination-link" href="'.$url.$i.'">'.$i.'</a></li>';
@@ -101,6 +120,7 @@ class main
 			$ci++;
 		}
 
+		//Boton de siguiente
 		if($pagina==$Npaginas){
 			$tabla.='
 			</ul>

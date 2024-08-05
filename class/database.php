@@ -30,6 +30,7 @@ class database
         }
     }
 
+    //Es para un select de varios registros
     function seleccionar($consulta)
     {
         try
@@ -44,6 +45,7 @@ class database
         }
     }
 
+    //Es para el insert into
     function ejecutar($consulta)
     {
         try
@@ -69,6 +71,7 @@ class database
         }
     }
 
+    //Cuenta los registros que se regresa
     public function contar($query) 
     {
         try
@@ -83,6 +86,22 @@ class database
         }
     }
 
+    //Al usar count en la bd, regresa el resutado
+    public function contar_resultados($query) 
+    {
+        try
+        {
+            $stmt = $this->pdolocal->prepare($query);
+            $stmt->execute();            
+            return $stmt->fetchColumn();
+        }
+        catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
+
+    //Es para un select que unicamnete regrese 1 registro
     function seleccionar1($consulta)
     {
         try

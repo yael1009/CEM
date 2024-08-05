@@ -1,5 +1,5 @@
 <?php
-    include '../class/database.php';
+     //include '../class/database.php';
     $main = new main();
 	/*== Almacenando datos ==*/
     $usuario = $main->limpiarstring($_POST['usuario'] ?? '');
@@ -34,20 +34,49 @@
 
     if($tabla ->output == 'Credenciales correctas'){
         $query2=("CALL creacion_sesion('$usuario')");
-        $reg = $bd->seleccionar1($query2);
+        $tabla2 = $bd->seleccionar($query2);
 
+        foreach($tabla2 as $reg){
           //  session_name("Yo"); //talvez las quite se usamos el index,  
           //  session_start(); // si no estas usando el index quita los comentarios
             $_SESSION['id'] = $reg->id;
             $_SESSION['nombre'] = $reg->nombre;
             $_SESSION['apellido'] = $reg->apaterno;
             $_SESSION['usuario'] = $reg->usuario;
-            $_SESSION['rol'] = $reg->rol;
+            if($reg->rol=='Cliente'){
+                $_SESSION['cliente'] = $reg->rol;
+            }
+            else if($reg->rol=='Gestor de Cotizaciones'){
+                $_SESSION['g_cotizaciones'] = $reg->rol;
+            }
+            else if($reg->rol=='Gestor de Usuarios'){
+                $_SESSION['g_usuarios'] = $reg->rol;
+            }
+            else if($reg->rol=='Administrador'){
+                $_SESSION['administrador'] = $reg->rol;
+            }
+        }
+
+        echo "ID: " . $_SESSION['id'] . "<br>";
+        echo "Nombre: " . $_SESSION['nombre'] . "<br>";
+        echo "Apellido: " . $_SESSION['apellido'] . "<br>";
+        echo "Usuario: " . $_SESSION['usuario'] . "<br>";
+        echo "Rol: ";
+        if(isset($_SESSION['cliente'])){
+            echo $_SESSION['cliente'] . "<br>";
+        } else if(isset($_SESSION['g_cotizaciones'])){
+            echo $_SESSION['g_cotizaciones'] . "<br>";
+        } else if(isset($_SESSION['g_usuarios'])){
+            echo $_SESSION['g_usuarios'] . "<br>";
+        } else if(isset($_SESSION['administrador'])){
+            echo $_SESSION['administrador'] . "<br>";
+        }
+        echo "------------------------<br>";
 
         if(headers_sent()){
             echo '<script> <meta http-equiv="refresh" content="3;url=index.php?vista=home">; </script>';
         }else{
-            header("refresh:3;url=index.php?vista=home");
+            header("refresh:10;url=index.php?vista=home");
         }
         echo "<div class='alert alert-success'>INICIO DE SESION EXITOSO</div>";
         exit();

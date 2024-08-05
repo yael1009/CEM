@@ -112,6 +112,8 @@
             && isset($_POST['correo']) && isset($_POST['usuario']) && isset($_POST['pass']) && isset($_POST['compañia'])
             && isset($_POST['cargo'])){
 				require_once "../scripts/c_registro.php";
+                include "../class/main.php";
+                include '../class/database.php';
 			}
 		    ?>
 
