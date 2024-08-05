@@ -1,6 +1,6 @@
 <?php
-    //include "../class/main.php";
-    //include '../class/database.php';
+    include "../class/main.php";
+    include '../class/database.php';
 
     $db = new Database();
     $main = new main();
