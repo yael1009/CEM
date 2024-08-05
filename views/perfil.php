@@ -13,7 +13,7 @@
                 </div>
                 <?php
 
-                    include 'C:\Users\balon\OneDrive\Escritorio\UTT\Cuatri 3\Aplicaciones Web\samp2\htdocs\CEM\scripts\info_sesion_perfil.php';
+                    include 'scripts\info_sesion_perfil.php';
 
                 ?>
                 

@@ -68,7 +68,7 @@ if (!empty($tabla) && is_array($tabla) && isset($tabla[0])) {
             <table class='table mb-0'>
                 <tbody>
                     <tr>
-                        <th class='text-center' colspan='2'><img src='../Integradora/img/foto_perfil.jpg' alt='Foto de perfil' class='profile-profile-img'></th>
+                        <th class='text-center' colspan='2'><img src='img/foto_perfil.jpg' alt='Foto de perfil' class='profile-profile-img'></th>
                     </tr>
                     <tr>
                         <th class='fixed-width'>Usuario:</th>

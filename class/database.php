@@ -3,7 +3,7 @@ class database
 {
     private $pdolocal;
     private $user = "root";
-    private $password = "";
+    private $password = "sonicyael";
     private $server = "mysql:host=localhost;dbname=bd_cem";
 
     function conectardb()
