@@ -80,24 +80,27 @@ class main
 		}
 	}
 
-    /*Pagina de default es 1, si avanzas o regresas se suma o resta
+    /*LE MOVI ENTONCES A VER SI NO SE DESMADRO
+	  Pagina de default es 1, si avanzas o regresas se suma o resta
 	  Npaginas es el numero total de paginas que hay, se calcula diviendo $registros entre  paginas
 	  botones son todos los que quieras qeu aparezcan*/
     function paginador_tablas($pagina,$Npaginas,$url,$botones){
 		//etiqueta de apaertura de navegacion
-		$tabla='<nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">';
+		$tabla='    <div class="text-center">
+		<nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">';
 
 		//se comprueba si la pagina es 1, se deshabilita el boton anterior (laa clase disable no existe)
 		if($pagina<=1){
 			//boton de anterior y apertura de navegacion
-			$tabla.='
-			<a class="pagination-previous is-disabled" disabled >Anterior</a>
+			$tabla.= //
+			'
+			<button class="btn btn-custom text-left mx-1"><a class="pagination-previous is-disabled" disabled >Anterior</a></button>
 			<ul class="pagination-list">';
 		}else{
 			$tabla.='
-			<a class="pagination-previous" href="'.$url.($pagina-1).'" >Anterior</a>
+			<button class="btn btn-custom text-left mx-1"><a class="pagination-previous" href="'.$url.($pagina-1).'" >Anterior</a></button>
 			<ul class="pagination-list">
-				<li><a class="pagination-link" href="'.$url.'1">1</a></li>
+				<button class="btn btn-custom text-left mx-1"><li><a class="pagination-link" href="'.$url.'1">1</a></li></button>
 				<li><span class="pagination-ellipsis">&hellip;</span></li>
 			';
 		}
@@ -113,29 +116,31 @@ class main
 			}
 			if($pagina==$i){
 				//es la pagina actual para q tenga una clase diferente
-				$tabla.='<li><a class="pagination-link is-current" href="'.$url.$i.'">'.$i.'</a></li>';
+				$tabla.='<li><button class="btn btn-custom rounded-circle mx-1"><a class="pagination-link is-current" href="'.$url.$i.'">'.$i.'</a></li></button>';
 			}else{
-				$tabla.='<li><a class="pagination-link" href="'.$url.$i.'">'.$i.'</a></li>';
+				$tabla.='<li><button class="btn btn-custom rounded-circle mx-1"><a class="pagination-link" href="'.$url.$i.'">'.$i.'</a></li></button>';
 			}
 			$ci++;
+
 		}
 
 		//Boton de siguiente
 		if($pagina==$Npaginas){
 			$tabla.='
 			</ul>
-			<a class="pagination-next is-disabled" disabled >Siguiente</a>
+			<button class="btn btn-custom text-right mx-1"><a class="pagination-next is-disabled" disabled >Siguiente</a></button>
 			';
 		}else{
 			$tabla.='
 				<li><span class="pagination-ellipsis">&hellip;</span></li>
-				<li><a class="pagination-link" href="'.$url.$Npaginas.'">'.$Npaginas.'</a></li>
+				<button class="btn btn-custom text-right mx-1"><li><a class="pagination-link" href="'.$url.$Npaginas.'">'.$Npaginas.'</a></li></button>
 			</ul>
-			<a class="pagination-next" href="'.$url.($pagina+1).'" >Siguiente</a>
-			';
+			<button class="btn btn-custom text-right mx-1"><a class="pagination-next" href="'.$url.($pagina+1).'" >Siguiente</a></button>
+			';         
+
 		}
 
-		$tabla.='</nav>';
+		$tabla.='</nav></div>';
 		return $tabla;
 	}
 }

@@ -17,7 +17,7 @@
         </ul>
         <div class="tab-content" id="myTabContent">
             <!-- Solicitudes -->
-            <?php  include "tabs/solicitud.php" ?>
+            <?php //include "scripts/solicitud.php" ?>
             <!-- Progreso -->
             <div class="tab-pane fade" id="progreso" role="tabpanel" aria-labelledby="progreso-tab">
                 <br>

@@ -1,10 +1,13 @@
+ordenes_ordenes.html
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuarios</title>
+    <title>Ordenes</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../Cem_estilo.css">
     <link rel="stylesheet" href="../cem_estilo2.css">
@@ -26,6 +29,20 @@
             color: white;
             border-radius: 15px;
             margin: 10px;
+        }
+
+        .btn-custom a{
+            color: white;
+        }
+        .btn-custom:hover a{
+            color: #800000;
+            border-color: #800000;
+        }
+
+        .btn-custom:hover {
+            background-color: white;
+            color: #800000;
+            border-color: #800000;
         }
 
         .add-button-container {
@@ -67,7 +84,9 @@
         .project-card .project-info {
             flex-grow: 1;
         }
-
+        .btn-custom a{
+            color: white;
+        }
         .nav-tabs .nav-link {
             border: 1px solid transparent;
             border-top-left-radius: .25rem;
@@ -130,6 +149,15 @@
         </ul>
         <div class="tab-content" id="myTabContent">
             <!-- Solicitudes -->
+            <div class="service-divider"></div>
+                    <!-- Modulo de busqueda -->
+                    <div class="centerr">
+                        <form action="" autocomplete="off">
+                            <input class="form-control" type="text" name="txt_buscador" placeholder="¿Qué estas buscando?" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{1,30}" maxlength="30">
+                            <button class="btn btn-custom">Buscar</button>
+                            <button class="btn btn-custom">Quitar Busqueda</button>
+                        </form>
+                    </div>
             <div class="tab-pane fade show active" id="solicitudes" role="tabpanel" aria-labelledby="solicitudes-tab">
                 <br>
                 <div class="row">
@@ -141,7 +169,7 @@
                                 <p>Usuario</p>
                                 <p>Direccion / calle / numero</p>
                             </div>
-                            <a href="#" class="text-danger">expandir</a>
+                            <a href="ordenes_expandir.html" class="text-danger">expandir</a>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -293,6 +321,13 @@
         </div>
     </div>
 
+    <!-- Mostrando -->
+    <div class="text-center">
+        <button class="btn btn-custom text-left mx-1">Anterior</button>
+        <!-- Puta bola pendeja -->
+            <button class="btn btn-custom rounded-circle mx-1"><a class="" href="">#</a></button>
+        <button class="btn btn-custom text-right mx-1">Siguiente</button>
+    </div>
     <!-- Foot -->
     <footer class="footer mt-4">
         <div class="left">
