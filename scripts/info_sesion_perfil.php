@@ -11,8 +11,8 @@ if (!isset($_SESSION['usuario'])) {
 
 $user = $_SESSION['usuario']; // Obtén el ID del usuario desde la sesión
 
-require_once '../class/database.php';
-require_once '../class/main.php';
+require_once 'class/database.php';
+require_once 'class/main.php';
 
 $conexion = new database;
 $conexion->conectardb();
