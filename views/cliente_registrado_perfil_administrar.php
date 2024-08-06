@@ -90,75 +90,85 @@
     <!--Perfil-->
     <form action="" method="post" class="FormularioAjax">
 
-    <div class="container d-flex flex-column align-items-center">
-        <h1 class="mt-4">Mi Perfil</h1>
-        <div class="d-flex justify-content-center">
-            <button type="button" class="btn btn-custom"><a href="index.php?vista=perfil" class="custom-link">Cancelar Edicion</a></button>
-            <button type="submit" class="btn btn-custom">Guardar</button>
-        </div>
-        <div class="profile-container mt-4">
-            <div class="table-custom">
-                <div class="table-header p-2">
-                    Datos Personales
-                </div>
-                <table class="table mb-0" >
-                    <tbody>
-                        <tr>
-                            <th class="fixed-width">Nombres:</th>
-                            <td><input type="text" name="nombres" class="form-control"></td>
-                        </tr>
-                        <tr>
-                            <th class="fixed-width">Apellido Paterno:</th>
-                            <td><input type="text" name="a_p" class="form-control"></td>
-                        </tr>
-                        <tr>
-                            <th class="fixed-width">Apellido Materno:</th>
-                            <td><input type="text" name="a_m" class="form-control"></td>
-                        </tr>
-                        <tr>
-                            <th class="fixed-width">Telefono:</th>
-                            <td><input type="text" name="tel" class="form-control"></td>
-                        </tr>
-                        <tr>
-                            <th class="fixed-width">Correo:</th>
-                            <td><input type="text" name="correo" class="form-control"></td>
-                        </tr>
-                    </tbody>
-                </table>
+        <div class="container d-flex flex-column align-items-center">
+            <h1 class="mt-4">Mi Perfil</h1>
+            <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-custom">
+                    <a href="index.php?vista=perfil" class="custom-link">Cancelar Edicion</a>
+                </button>
+                <button type="submit" class="btn btn-custom">Guardar</button>
             </div>
-            <div class="table-custom">
-                <div class="table-header p-2">
-                    Datos de Usuario
+            <div class="profile-container mt-4">
+                <div class="table-custom">
+                    <div class="table-header p-2">
+                        Datos Personales
+                    </div>
+                    <table class="table mb-0">
+                        <tbody>
+                            <tr>
+                                <th class="fixed-width">Nombres:</th>
+                                <td><input type="text" name="nombres" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <th class="fixed-width">Apellido Paterno:</th>
+                                <td><input type="text" name="a_p" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <th class="fixed-width">Apellido Materno:</th>
+                                <td><input type="text" name="a_m" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <th class="fixed-width">Teléfono:</th>
+                                <td><input type="text" name="tel" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <th class="fixed-width">Correo:</th>
+                                <td><input type="email" name="correo" class="form-control"></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <table class="table mb-0" >
-                    <tbody>
-                        <tr>
-                            <th class="text-center" colspan="2"><img src="../Integradora/img/foto_perfil.jpg" alt="Foto de perfil" class="profile-profile-img"></th>
-                        </tr>
-                        <tr>
-                            <th class="fixed-width">Usuario:</th>
-                            <td><input type="text" name="user" class="form-control"></td>
-                        </tr>
-                        <tr>
-                            <th class="fixed-width">Uso de la cuenta:</th>
-                            <td><input type="text" name="uso" class="form-control"></td>
-                        </tr>
-                        <tr>
-                            <th class="fixed-width">Cargo de la compañía:</th>
-                            <td><input type="text" name="cargo" class="form-control"></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="table-custom">
+                    <div class="table-header p-2">
+                        Datos de Usuario
+                    </div>
+                    <table class="table mb-0">
+                        <tbody>
+                            <tr>
+                            <th class="fixed-width">Foto de Perfil</th>
+                                <th class="text-center" colspan="2"><img src="../Integradora/img/foto_perfil.jpg" alt="Foto de perfil" class="profile-profile-img"></th>
+                            </tr>
+                            <tr>
+                                <th class="fixed-width">Usuario:</th>
+                                <td><input type="text" name="usuario" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <th class="fixed-width">Uso de la cuenta:</th>
+                                <td><input type="text" name="uso" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <th class="fixed-width">Cargo de la compañía:</th>
+                                <td><input type="text" name="cargo" class="form-control"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-
     </form>
 
     <?php
-        if(isset($_POST['nombres']) && isset($_POST['a_p']) && isset($_POST['a_m']) && isset($_POST['tel']))
-    ?>
+
+    if(isset($_POST['usuario']) || isset($_POST['uso']) || isset($_POST['cargo']) || isset($_POST['nombres']) || 
+    isset($_POST['a_p']) || isset($_POST['a_m']) || isset($_POST['tel']) || isset($_POST['correo'])){
+
+        require_once "class/main.php";
+        require_once "scripts/editar_perfil.php";
+
+    }
+	?>
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
 </body>
 </html>
