@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dispositivos</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../Cem_estilo.css">
+    <link rel="stylesheet" href="../cem_estilo2.css">
+    <link rel="stylesheet" href="../cem_estilo3.css">
+    <style>
+        .profile-card {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            height: 30%;
+            width: 20%;
+            aspect-ratio: 1 / 1;
+        }
+
+        .personal-card .details {
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            margin: 0;
+            text-align: center;
+            align-items: center;
+        }
+
+        .btn-custom {
+            background-color: #800000;
+            color: white;
+            border-radius: 15px;
+            margin: 10px;
+        }
+        
+        .btn-custom a{
+            color: white;
+        }
+        .btn-custom:hover a{
+            color: #800000;
+            border-color: #800000;
+        }
+
+        .btn-custom:hover {
+            background-color: white;
+            color: #800000;
+            border-color: #800000;
+        }
+
+        .add-button-container {
+            text-align: right;
+            margin: 20px 0;
+        }
+
+        .personal-container {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .profile-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .nav-tabs .nav-link {
+            border: 1px solid transparent;
+            border-top-left-radius: .25rem;
+            border-top-right-radius: .25rem;
+            margin-bottom: -1px;
+            color: black;
+        }
+        .nav-tabs .nav-link.active {
+            color: #800000;
+        }
+        .profile-img-cuad {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+        }
+        .modal-body {
+            border: none;
+            
+        }
+
+        .modal-header {
+            border-bottom: none;
+            background-color: #800000;
+            color: white;
+
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: space-around;
+            border-top: none;
+        }
+        .table-custom {
+            width: 100%;
+            margin: 20px 0;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .table-custom th, .table-custom td {
+            padding: 10px;
+            text-align: left;
+        }
+        .table-header {
+            background-color: #800000;
+            color: white;
+            text-align: center;
+        }
+        .centerr {
+            justify-content: center;
+        }
+        .centerr img{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        .padd{
+            padding-left: 290px;
+        }
+        .rounded-circle {
+            border-radius: 50% !important;
+        }
+        .text-center {
+            text-align: center !important;
+        }
+        
+        .red {
+            background-color: #780415; 
+        }
+        .link {
+        color: white;
+        }
+
+        .table th, .table td {
+            vertical-align: middle;
+        }
+        
+        .total-row {
+            font-weight: bold;
+        }
+        .table-responsive {
+            margin-top: 20px;
+        }
+        th{
+            background-color: #cecece;
+        }
+        select {
+            background-color: #800000;
+            color: white;
+            height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--NAV-->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand" href="Cliente_Inicio.html">CEM</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto padd">
+                <li class="nav-item"><a class="nav-link" href="Cliente_Inicio.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="clientes_servicios.html">Servicios</a></li>
+                <li class="nav-item"><a class="nav-link" href="cliente_cotizar.html">Cotizar</a></li>
+                <li class="nav-item"><a class="nav-link" href="cliente_portafolio.html">Portafolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="cliente_contacto.html">Contacto</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Administrar
+                    </a>
+                    <div class="dropdown-menu red" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item link" href="index.php?vista=administrador">Administrador</a>
+                        <a class="dropdown-item link" href="index.php?vista=aparatos">Aparatos</a>
+                        <a class="dropdown-item link" href="index.php?vista=cotizaciones">Cotizaciones</a>
+                        <a class="dropdown-item link" href="index.php?vista=contenido">Contenido</a>
+                        <a class="dropdown-item link" href="index.php?vista=roles">Roles</a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="cliente_inicio_sesion.html">Perfil <img src="../img/foto_perfil.jpg" alt="Foto de perfil" class="profile-img"></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- catalogo -->
+
+    <div class="container mt-4">
+        <h1 class="text-center">Catálogo</h1>
+        <div class="text-right mb-3">
+            <button class="btn btn-custom"><a href="ordenes_catalogo.html">Cancelar Edicion</a></button>
+            <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#conceptModal">Añadir Concepto</button>
+            <button class="btn btn-custom">Guardar</button>
+        </div>
+        
+        <div class="service-divider"></div>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Concepto</th>
+                        <th>Insumo</th>
+                        <th>Unidad</th>
+                        <th>Cant.</th>
+                        <th>Unitario</th>
+                        <th>Importe</th>
+                        <th colspan="2">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Suministro e instalación de acometida eléctrica</td>
+                        <td>Cable de cobre</td>
+                        <td>Pza</td>
+                        <td>2</td>
+                        <td>$5,500.00</td>
+                        <td>$11,000.00</td>
+                        <td>
+                            <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#editconceptModal">Editar</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-custom">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Suministro e instalación de interruptor termomagnético principal con gabinete</td>
+                        <td>Interruptor Automatico</td>
+                        <td>Pza</td>
+                        <td>2</td>
+                        <td>$8,800.00</td>
+                        <td>$17,600.00</td>
+                        <td>
+                            <button class="btn btn-custom">Editar</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-custom">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Suministro e instalación de tablero centro de carga para 12 circuitos, incluye interruptores</td>
+                        <td>Toma Corriente</td>
+                        <td>Pza</td>
+                        <td>2</td>
+                        <td>$8,800.00</td>
+                        <td>$17,600.00</td>
+                        <td>
+                            <button class="btn btn-custom">Editar</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-custom">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Instalación de salidas para alumbrado interior, incluye canalización y cableado</td>
+                        <td>Caja de conecciones</td>
+                        <td>Salida</td>
+                        <td>12</td>
+                        <td>$8,800.00</td>
+                        <td>$17,600.00</td>
+                        <td>
+                            <button class="btn btn-custom">Editar</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-custom">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Suministro e instalación de luminaria LED tipo campana industrial UFO 100W</td>
+                        <td>Placa Solar</td>
+                        <td>Pza</td>
+                        <td>12</td>
+                        <td>$8,800.00</td>
+                        <td>$17,600.00</td>
+                        <td>
+                            <button class="btn btn-custom">Editar</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-custom">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Instalación de salidas para alumbrado exterior, incluye canalización y cableado</td>
+                        <td>Fusible</td>
+                        <td>Salida</td>
+                        <td>9</td>
+                        <td>$8,800.00</td>
+                        <td>$17,600.00</td>
+                        <td>
+                            <button class="btn btn-custom">Editar</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-custom">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Suministro e instalación de reflector LED 100W para exterior</td>
+                        <td>Bateria de respaldo</td>
+                        <td>Pza</td>
+                        <td>9</td>
+                        <td>$8,800.00</td>
+                        <td>$17,600.00</td>
+                        <td>
+                            <button class="btn btn-custom">Editar</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-custom">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="service-divider"></div>
+            <table class="table">
+                <tbody>
+                    <tr class="total-row">
+                        <td class="text-right">Total</td>
+                        <td class="text-right">$131,138.00</td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+
+    <!-- Añadir -->
+<div class="modal fade" id="conceptModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Añadir Concepto</h1>
+            </div>
+            <div class="modal-body">
+                <form action="" autocomplete="off">
+                    <label class="form-label" for="concepto">Concepto:</label>
+                    <input class="form-control" type="text" name="concepto" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,1000}" maxlength="1000" required><br>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Insumo Usado</option>
+                        <option value="1">Cable Cobre</option>
+                        <option value="2">Interruptor Automatico</option>
+                        <option value="3">Toma Corriente</option>
+                        <option value="4">Caja de Conecciones</option>
+                        <option value="5">Placa Solar</option>
+                        <option value="6">Conector MC4</option>
+                        <option value="7">Sensor de Luz</option>
+                        <option value="8">Fusible</option>
+                        <option value="9">Rele de Proteccion</option>
+                    </select><br><br>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Unidad</option>
+                        <option value="1">Unidad</option>
+                        <option value="2">Pieza</option>
+                        <option value="3">Caja</option>
+                        <option value="4">Metro</option>
+                    </select><br><br>
+
+                    <label class="form-label" for="cantidad">Cantidad:</label>
+                    <input class="form-control" type="text" name="cantidad" pattern="[0-9]+" maxlength="10" required>
+                    <label class="form-label" for="unitario">Unitario:</label>
+                    <div class="input-group mb-3">
+                    <span class="input-group-text">$</span>
+                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="unitario" pattern="[0-9]+" maxlength="10" required>
+                    <span class="input-group-text">.00</span>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-custom" id="guardarBtn">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Editar -->
+<div class="modal fade" id="editconceptModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Concepto</h1>
+            </div>
+            <div class="modal-body">
+                <form action="" autocomplete="off">
+                    <label class="form-label" for="concepto">Concepto:</label>
+                    <input class="form-control" type="text" name="concepto" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,1000}" maxlength="1000" required><br>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Insumo Usado</option>
+                        <option value="1">Cable Cobre</option>
+                        <option value="2">Interruptor Automatico</option>
+                        <option value="3">Toma Corriente</option>
+                        <option value="4">Caja de Conecciones</option>
+                        <option value="5">Placa Solar</option>
+                        <option value="6">Conector MC4</option>
+                        <option value="7">Sensor de Luz</option>
+                        <option value="8">Fusible</option>
+                        <option value="9">Rele de Proteccion</option>
+                    </select><br><br>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Unidad</option>
+                        <option value="1">Unidad</option>
+                        <option value="2">Pieza</option>
+                        <option value="3">Caja</option>
+                        <option value="4">Metro</option>
+                    </select><br><br>
+
+                    <label class="form-label" for="cantidad">Cantidad:</label>
+                    <input class="form-control" type="text" name="cantidad" pattern="[0-9]+" maxlength="10" required>
+                    <label class="form-label" for="unitario">Unitario:</label>
+                    <div class="input-group mb-3">
+                    <span class="input-group-text">$</span>
+                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="unitario" pattern="[0-9]+" maxlength="10" required>
+                    <span class="input-group-text">.00</span>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-custom" id="guardarBtn">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Foot -->
+    <footer class="footer mt-4">
+        <div class="left">
+            CEM
+        </div>
+        <div class="center">
+            <p><strong>Contacto directo:</strong><br>
+            Ing. Esteban Corgoba<br>
+            cemconstrucciones@hotmail.com<br>
+            871 184 1980<br>
+            871 754 4054</p>
+        </div>
+        <div class="right">
+            <p><strong>Dirección:</strong><br>
+            Calle Sierra La Gloria S/N Colonia<br>
+            MA. Mercado de Lopez Sanchez,<br>
+            Torreon Coahuila</p>
+        </div>
+    </footer>
+    <!-- Bootstrap 4 JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
