@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dispositivos</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../Cem_estilo.css">
+    <link rel="stylesheet" href="../cem_estilo2.css">
+    <link rel="stylesheet" href="../cem_estilo3.css">
+    <style>
+        .profile-card {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            height: 30%;
+            width: 20%;
+            aspect-ratio: 1 / 1;
+        }
+
+        .personal-card .details {
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            margin: 0;
+            text-align: center;
+            align-items: center;
+        }
+
+        .btn-custom {
+            background-color: #800000;
+            color: white;
+            border-radius: 15px;
+            margin: 10px;
+        }
+        
+        .btn-custom a{
+            color: white;
+        }
+        .btn-custom:hover a{
+            color: #800000;
+            border-color: #800000;
+        }
+
+        .btn-custom:hover {
+            background-color: white;
+            color: #800000;
+            border-color: #800000;
+        }
+
+        .add-button-container {
+            text-align: right;
+            margin: 20px 0;
+        }
+
+        .personal-container {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .profile-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .nav-tabs .nav-link {
+            border: 1px solid transparent;
+            border-top-left-radius: .25rem;
+            border-top-right-radius: .25rem;
+            margin-bottom: -1px;
+            color: black;
+        }
+        .nav-tabs .nav-link.active {
+            color: #800000;
+        }
+        .profile-img-cuad {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+        }
+        .modal-body {
+            border: none;
+            
+        }
+
+        .modal-header {
+            border-bottom: none;
+            background-color: #800000;
+            color: white;
+
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: space-around;
+            border-top: none;
+        }
+        .table-custom {
+            width: 100%;
+            margin: 20px 0;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .table-custom th, .table-custom td {
+            padding: 10px;
+            text-align: left;
+        }
+        .table-header {
+            background-color: #800000;
+            color: white;
+            text-align: center;
+        }
+        .centerr {
+            justify-content: center;
+        }
+        .centerr img{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        .padd{
+            padding-left: 290px;
+        }
+        .rounded-circle {
+            border-radius: 50% !important;
+        }
+        .text-center {
+            text-align: center !important;
+        }
+        
+        .red {
+            background-color: #780415; 
+        }
+        .link {
+        color: white;
+        }
+        th{
+            background-color: #cecece;
+        }
+    </style>
+</head>
+
+<body>
+    <!--NAV-->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand" href="Cliente_Inicio.html">CEM</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto padd">
+                <li class="nav-item"><a class="nav-link" href="Cliente_Inicio.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="clientes_servicios.html">Servicios</a></li>
+                <li class="nav-item"><a class="nav-link" href="cliente_cotizar.html">Cotizar</a></li>
+                <li class="nav-item"><a class="nav-link" href="cliente_portafolio.html">Portafolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="cliente_contacto.html">Contacto</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Administrar
+                    </a>
+                    <div class="dropdown-menu red" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item link" href="index.php?vista=administrador">Administrador</a>
+                        <a class="dropdown-item link" href="index.php?vista=aparatos">Aparatos</a>
+                        <a class="dropdown-item link" href="index.php?vista=cotizaciones">Cotizaciones</a>
+                        <a class="dropdown-item link" href="index.php?vista=contenido">Contenido</a>
+                        <a class="dropdown-item link" href="index.php?vista=roles">Roles</a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="cliente_inicio_sesion.html">Perfil <img src="../img/foto_perfil.jpg" alt="Foto de perfil" class="profile-img"></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Aparatos -->
+    <div class="container mt-4">
+        <h1 class="text-center">Aparatos</h1>
+        <div class="text-right">
+            <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#appliancesModal">Añadir</button>
+        </div>
+        <div class="service-divider"></div>
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>Nombre completo del Aparato</th>
+                    <th>Potencia nominal</th>
+                    <th colspan="2">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Lampara de bajo consumo y tubos fluorescentes 9W</td>
+                    <td>9</td>
+                    <td>
+                        <button type="button" data-toggle="modal" data-target="#editappliancesModal" class="btn btn-primary btn-sm">Editar</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger btn-sm">Eliminar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Lampara de bajo consumo y tubos fluorescentes 11W</td>
+                    <td>11</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm">Editar</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger btn-sm">Eliminar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Lampara de bajo consumo y tubos fluorescentes 15W</td>
+                    <td>15</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm">Editar</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger btn-sm">Eliminar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Lampara de bajo consumo y tubos fluorescentes 20W</td>
+                    <td>20</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm">Editar</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger btn-sm">Eliminar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Lamparas incandescentes 25W</td>
+                    <td>25</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm">Editar</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger btn-sm">Eliminar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Lamparas incandescentes 40W</td>
+                    <td>40</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm">Editar</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger btn-sm">Eliminar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Lamparas incandescentes 60W</td>
+                    <td>60</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm">Editar</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger btn-sm">Eliminar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Lamparas incandescentes 75W</td>
+                    <td>75</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm">Editar</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger btn-sm">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- Añadir -->
+<div class="modal fade" id="appliancesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Añadir Aparato</h1>
+            </div>
+            <div class="modal-body">
+                <form action="" autocomplete="off">
+                    <label class="form-label" for="nombre">Nombre Completo del Aparato:</label>
+                    <input class="form-control" type="text" name="nombre" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}" maxlength="100" required>
+                    <label class="form-label" for="apaterno">Potencia Nominal:</label>
+                    <input class="form-control" type="text" name="potencia_nominal" pattern="[0-9]+" maxlength="10" required>
+                    
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-custom" id="guardarBtn">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Editar -->
+<div class="modal fade" id="editappliancesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Añadir Aparato</h1>
+            </div>
+            <div class="modal-body">
+                <form action="" autocomplete="off">
+                    <label class="form-label" for="nombre">Nombre Completo del Aparato:</label>
+                    <input class="form-control" type="text" name="nombre" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}" maxlength="100" required>
+                    <label class="form-label" for="apaterno">Potencia Nominal:</label>
+                    <input class="form-control" type="text" name="potencia_nominal" pattern="[0-9]+" maxlength="10" required>
+                    
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-custom" id="guardarBtn">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Foot -->
+    <footer class="footer mt-4">
+        <div class="left">
+            CEM
+        </div>
+        <div class="center">
+            <p><strong>Contacto directo:</strong><br>
+            Ing. Esteban Corgoba<br>
+            cemconstrucciones@hotmail.com<br>
+            871 184 1980<br>
+            871 754 4054</p>
+        </div>
+        <div class="right">
+            <p><strong>Dirección:</strong><br>
+            Calle Sierra La Gloria S/N Colonia<br>
+            MA. Mercado de Lopez Sanchez,<br>
+            Torreon Coahuila</p>
+        </div>
+    </footer>
+    <!-- Bootstrap 4 JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
