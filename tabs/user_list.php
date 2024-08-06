@@ -22,7 +22,7 @@
                 <input type="hidden" name="modulo_buscador" value="usuario">   
                 <div class="field is-grouped">
                     <p class="control is-expanded">
-                        <input class="form-control" type="text" name="txt_buscador" placeholder="¿Qué estas buscando?" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{1,30}" maxlength="30" >
+                        <input onkeypress="buscar_ahora($('#buscar_1').val());" class="form-control" type="text" name="txt_buscador" placeholder="¿Qué estas buscando?" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{1,30}" maxlength="30" >
                     </p>
                     <p class="control">
                         <button class="btn btn-custom" type="submit" >Buscar</button>
