@@ -1,5 +1,7 @@
-<?php // TODO ESTO ES UNA PRUEBA, A LION
-require 'inc/session_start.php'; ?>
+<?php 
+ob_start(); // Inicia el buffer de salida
+ require 'inc/session_start.php'; 
+ ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -36,6 +38,8 @@ require 'inc/session_start.php'; ?>
 
         // FOOTER
         include 'inc/footer.php'; 
+        ob_end_flush(); // Envía el contenido del buffer de salida y desactiva el almacenamiento en búfer
+ 
         
     }else{
             //Esto es para que si no encontro ninguna vista te envie aqui

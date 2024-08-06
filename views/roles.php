@@ -19,7 +19,7 @@
         <div class="tab-content" id="myTabContent">
             <!-- Clientes -->
              <?php
-             include "tabs/user_list.php"; 
+             include "tabs/user_search.php"; 
              ?>
             <!-- Personal -->
             <div class="tab-pane fade" id="personal" role="tabpanel" aria-labelledby="personal-tab">

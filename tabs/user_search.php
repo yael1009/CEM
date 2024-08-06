@@ -5,10 +5,11 @@
 
 <div class="container pb-6 pt-6">
     <?php
-        //require_once "../class/main.php";
+        require_once "./class/main.php";
+        $main = new main();
 
         if(isset($_POST['modulo_buscador'])){
-            require_once "../scripts/buscador.php";
+            require_once "./scripts/buscador.php";
         }
 
         if(!isset($_SESSION['busqueda_usuario']) && empty($_SESSION['busqueda_usuario'])){
@@ -19,16 +20,15 @@
                 <input type="hidden" name="modulo_buscador" value="usuario">   
                 <div class="field is-grouped">
                     <p class="control is-expanded">
-                        <input class="input is-rounded" type="text" name="txt_buscador" placeholder="¿Qué estas buscando?" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{1,30}" maxlength="30" >
+                        <input class="form-control" type="text" name="txt_buscador" placeholder="¿Qué estas buscando?" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{1,30}" maxlength="30" >
                     </p>
                     <p class="control">
-                        <button class="button is-info" type="submit" >Buscar</button>
+                        <button class="btn btn-custom" type="submit" >Buscar</button>
                     </p>
                 </div>
             </form>
         </div>
     </div>
-    
     <?php }else{ ?>
     <div class="columns">
         <div class="column">
@@ -37,15 +37,18 @@
                 <input type="hidden" name="eliminar_buscador" value="usuario">
                 <p>Estas buscando <strong>“<?php echo $_SESSION['busqueda_usuario']; ?>”</strong></p>
                 <br>
-                <button type="submit" class="button is-danger is-rounded">Eliminar busqueda</button>
+                <button type="submit" class="btn btn-custom">Eliminar busqueda</button>
             </form>
         </div>
     </div>
     <?php
+            $busqueda=$_SESSION['busqueda_usuario']; /* <== */
+
+        }
             # Eliminar usuario #
-            if(isset($_GET['user_id_del'])){
+            /*if(isset($_GET['user_id_del'])){
                 require_once "./php/usuario_eliminar.php";
-            }
+            }*/
 
             if(!isset($_GET['page'])){
                 $pagina=1;
@@ -56,13 +59,11 @@
                 }
             }
 
-            # Paginador usuario #
             $pagina=$main->limpiarstring($pagina);
-            $url="index.php?vista=roles&page=";
+            $url="index.php?vista=roles&page="; /* <== */
             $registros=5;
-            $busqueda=$_SESSION['busqueda_usuario']; /* <== */
 
+            # Paginador usuario #
             require_once "./scripts/usuario_lista.php";
-        } 
     ?>
 </div>
