@@ -135,6 +135,7 @@
                     <table class="table mb-0">
                         <tbody>
                             <tr>
+                            <th class="fixed-width">Foto de Perfil</th>
                                 <th class="text-center" colspan="2"><img src="../Integradora/img/foto_perfil.jpg" alt="Foto de perfil" class="profile-profile-img"></th>
                             </tr>
                             <tr>

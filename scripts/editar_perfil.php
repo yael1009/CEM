@@ -46,9 +46,9 @@ try {
     $stmt->bindParam(':cargo', $cargo, PDO::PARAM_STR);
 
     if ($stmt->execute()) {
-        echo "Perfil actualizado correctamente.";
+        echo "<div class='alert alert-success'>¡Perfil actualizado correctamente!</div>";
     } else {
-        echo "Error al actualizar el perfil.";
+        echo "<div class='alert alert-danger'>¡Error al actualizar el perfil!</div>";
     }
 } catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
