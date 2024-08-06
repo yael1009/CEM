@@ -45,6 +45,10 @@ try {
     $stmt->bindParam(':uso', $compania, PDO::PARAM_STR);
     $stmt->bindParam(':cargo', $cargo, PDO::PARAM_STR);
 
+    if(!$_POST['usuario']==NULL){
+        $_SESSION['usuario'] = $_POST['usuario'];
+    }
+
     if ($stmt->execute()) {
         echo "<div class='alert alert-success'>¡Perfil actualizado correctamente!</div>";
     } else {

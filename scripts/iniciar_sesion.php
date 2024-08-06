@@ -1,5 +1,5 @@
 <?php
-     //include '../class/database.php';
+     include 'class/database.php';
     $main = new main();
 	/*== Almacenando datos ==*/
     $usuario = $main->limpiarstring($_POST['usuario'] ?? '');
