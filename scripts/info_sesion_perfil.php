@@ -1,13 +1,4 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-
-// Verifica si el ID del usuario está en la sesión
-if (!isset($_SESSION['usuario'])) {
-    echo "No hay sesión iniciada.";
-    exit;
-}
 
 $user = $_SESSION['usuario']; // Obtén el ID del usuario desde la sesión
 
@@ -17,8 +8,7 @@ require_once 'class/main.php';
 $conexion = new database;
 $conexion->conectardb();
 
-// Ajusta la consulta para usar el ID del usuario de la sesión
-// Nota: Agrega comillas simples alrededor de $user
+// Ajusta la consulta para usar el Nombre del usuario en la sesion
 $consultaperfi = "SELECT PERSONAS.NOMBRE, PERSONAS.A_P, PERSONAS.A_M, PERSONAS.CORREO, PERSONAS.TELEFONO, USUARIOS.FOTO, USUARIOS.USUARIO, 
 USUARIOS.CONTRASEÑA, CLIENTES.COMPAÑIA, CLIENTES.CARGO 
 FROM PERSONAS, CLIENTES, USUARIOS, USUARIO_ROL 
