@@ -85,6 +85,19 @@
             
         ?>
 
+        <script type="text/javascript">
+            function buscar_ahora(buscar) {
+                var parametros = {"buscar":buscar};
+                $.ajax({
+                    data:parametros,
+                    type:'POST',
+                    url:'buscador2.php',
+                    success:function(data){
+                        document.getElementById("datos_buscador").innerHTML=data;
+                    }
+                    });
+                }
+        </script>
             
     </div>
 </div>
