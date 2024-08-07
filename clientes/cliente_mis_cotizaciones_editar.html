@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Cotizaciones</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../Cem_estilo.css">
+    <link rel="stylesheet" href="../cem_estilo2.css">
+    <link rel="stylesheet" href="../cem_estilo3.css">
+    <style>
+        .navbar-custom {
+            background-color: #800000;
+            color: white;
+        }
+        .profile-img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+        .container-custom {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 1000px;
+            width: 100%;
+            margin: 20px 0;
+        }
+        .btn-custom {
+            background-color: #800000;
+            color: white;
+            border-color: #800000;
+            transition: all 0.3s ease;
+        }
+        .btn-custom:hover {
+            background-color: white;
+            color: #800000;
+            border-color: #800000;
+        }
+        .table-custom {
+            width: 100%;
+            margin: 20px 0;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .table-custom th, .table-custom td {
+            padding: 10px;
+            text-align: left;
+        }
+        .table-header {
+            background-color: #800000;
+            color: white;
+            text-align: center;
+        }
+        .footer {
+            background-color: #800000;
+            color: white;
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            justify-content: space-around;
+        }
+        .footer div {
+            flex: 1;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Separación entre botones */
+            margin-top: 20px;
+        }
+        .padd{
+            padding-left: 290px;
+        }
+        .tablee th, .tablee td {
+            border: none; /* Elimina los bordes de las celdas */
+        }
+        .custom-file-input ~ .custom-file-label::after {
+            content: "Seleccionar";
+            background-color: #800000;
+            border: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!--NAV-->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand" href="Cliente_Inicio.html">CEM</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto padd">
+                <li class="nav-item"><a class="nav-link" href="Cliente_Inicio.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="clientes_servicios.html">Servicios</a></li>
+                <li class="nav-item"><a class="nav-link" href="cliente_cotizar.html">Cotizar</a></li>
+                <li class="nav-item"><a class="nav-link" href="cliente_portafolio.html">Portafolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="cliente_contacto.html">Contacto</a></li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="cliente_inicio_sesion.html"><strong>Perfil</strong> <img src="../img/foto_perfil.jpg" alt="Foto de perfil" class="profile-img"></a></li>
+            </ul>
+        </div>
+    </nav>
+    <!--Mis Cotizaciones-->
+    <div class="container d-flex flex-column align-items-center">
+        <h1 class="mt-4">Editar Mi Cotizacion</h1>
+        <div class="container-custom mt-4">
+            <div class="table-custom">
+                <div class="table-header p-2">
+                    ID_ORDEN
+                </div>
+                <form action="">
+                    <table class="table mb-0">
+                        <tbody>
+                            <tr>
+                                <th>Fecha de entrega óptima:</th>
+                                <td><input class="form-control" type="date" name="detalle"></td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">Dirección:</th>
+                            </tr>
+                            <tr class="tablee">
+                                <td class="tablee">
+                                    <input class="form-control" type="text" name="calle" placeholder="Calle" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}" maxlength="100">
+                                </td>
+                                <td class="tablee">
+                                    <input class="form-control" type="text" name="colonia" placeholder="Colonia" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}" maxlength="100">
+                                </td>
+                            </tr>
+                            <tr class="tablee">
+                                <td class="tablee">
+                                    <input class="form-control" type="text" name="numero_ext" placeholder="Numero Exterior" pattern="[0-9]+" maxlength="10">
+                                </td>
+                                <td class="tablee">
+                                    <input class="form-control" type="text" name="numero_int" placeholder="Numero Interior" pattern="[0-9]+" maxlength="10">
+                                </td>
+                            </tr>
+                            <tr class="tablee">
+                                <td class="tablee">
+                                    <input class="form-control" type="text" name="ciudad" placeholder="Ciudad" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}" maxlength="100">
+                                </td>
+                                <td class="tablee">
+                                    <input class="form-control" type="text" name="estado" placeholder="Estado" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}" maxlength="100">
+                                </td>
+                            </tr>
+                            <tr class="tablee">
+                                <td class="tablee">
+                                    <input class="form-control" type="text" name="codigo_postal" placeholder="Codigo Postal" pattern="^[0-9]{5}$" maxlength="5">
+                                </td>
+                                <td class="tablee">
+                                    <input class="form-control" type="text" name="referencia" placeholder="Referencia" pattern="[a-zA-Z0-9$@.-]{7,2000}" maxlength="2000">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Tipo trabajo:</th>
+                                <td>
+                                    <div class="radio-group">
+                                        <div class="form-check custom-radio">
+                                            <input class="form-check-input" type="radio" name="tipo_trabajo" id="domestico" value="Domestico">
+                                            <label class="form-check-label" for="domestico">Domestico</label>
+                                        </div>
+                                        <div class="form-check custom-radio">
+                                            <input class="form-check-input" type="radio" name="tipo_trabajo" id="industrial" value="Industrial">
+                                            <label class="form-check-label" for="industrial">Industrial</label>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Archivos enviados:</th>
+                                <td>
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="img_serv" name="img_serv">
+                                        <label class="custom-file-label" for="img_serv">Seleccionar archivo</label>
+                                    </div>
+                                    <br><br><button type="button" class="btn btn-custom">Agregar Otro Archivo</button><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Comentarios:</th>
+                                <td><textarea class="form-control" name="comentarios" rows="3" pattern="[a-zA-Z0-9$@.-]{7,2000}" maxlength="2000"></textarea></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+            <div class="button-container">
+                <button type="button" class="btn btn-custom">Cancelar Edicion</button>
+                <button type="button" class="btn btn-custom">Guardar</button>
+            </div>
+        </div>
+    </div>
+    
+    <!--Foot-->
+    <footer class="footer mt-4">
+        <div class="left">
+            <strong>CEM</strong>
+        </div>
+        <div class="center">
+            <p><strong>Contacto directo:</strong><br>
+            Ing. Esteban Corgoba<br>
+            cemconstrucciones@hotmail.com<br>
+            871 184 1980<br>
+            871 754 4054</p>
+        </div>
+        <div class="right">
+            <p><strong>Dirección:</strong><br>
+            Calle Sierra La Gloria S/N Colonia<br>
+            MA. Mercado de Lopez Sanchez,<br>
+            Torreon Coahuila</p>
+        </div>
+    </footer>
+
+</body>
+</html>
