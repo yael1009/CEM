@@ -11,7 +11,7 @@
 		
         //si es correcto, nombra la variable segun el nombre para redirijir a la url
 		$modulos_url=[
-			"usuario"=>"roles",
+			"usuario"=>"clientes",
 			"solicitudes"=>"cotizaciones",
 			"insumos"=>"product_search"
 		];

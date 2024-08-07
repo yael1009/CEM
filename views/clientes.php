@@ -4,7 +4,6 @@
     <div class="service-divider"></div>
 
 
-    <div class="profile-container mt-4">
     <?php
         require_once "./class/main.php";
         $main = new main();
@@ -42,10 +41,12 @@
             </form>
         </div>
     </div>
+
     <?php
             $busqueda=$_SESSION['busqueda_usuario']; /* <== */
 
         }
+            echo '    <div class="profile-container mt-4">';
             # Eliminar usuario #
             /*if(isset($_GET['user_id_del'])){
                 require_once "./php/usuario_eliminar.php";
