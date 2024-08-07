@@ -63,7 +63,7 @@ if($main->verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,60}",$nombre))
         exit();
     }
 
-    if($main->verificar_datos("[a-zA-Z0-9$@.]{7,100}",$correo)) //meter ese patter
+    if($main->verificar_datos("[a-zA-Z0-9$@.]{7,100}",$correo))
     {
         echo $main->mensaje_error("El correo no coincide con el formato solicitado");
         exit();
@@ -73,6 +73,16 @@ if($main->verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,60}",$nombre))
     {
         echo $main->mensaje_error("El usuario no coincide con el formato solicitado");
         exit();
+    }
+
+    if($main->verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}", $compania))
+    {
+        echo $main->mensaje_error("El uso no coincide con el formato solicitado");
+    }
+
+    if($main->verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}", $cargo))
+    {
+        echo $main->mensaje_error("El cargo no coincide con el formato solicitado");
     }
 
 try {

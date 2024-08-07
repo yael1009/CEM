@@ -107,23 +107,23 @@
                         <tbody>
                             <tr>
                                 <th class="fixed-width">Nombres:</th>
-                                <td><input type="text" name="nombres" class="form-control"></td>
+                                <td><input type="text" name="nombres" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,60}" class="form-control" autocomplete="off"></td>
                             </tr>
                             <tr>
                                 <th class="fixed-width">Apellido Paterno:</th>
-                                <td><input type="text" name="a_p" class="form-control"></td>
+                                <td><input type="text" name="a_p" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,60}" class="form-control"></td>
                             </tr>
                             <tr>
                                 <th class="fixed-width">Apellido Materno:</th>
-                                <td><input type="text" name="a_m" class="form-control"></td>
+                                <td><input type="text" name="a_m" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,60}" class="form-control"></td>
                             </tr>
                             <tr>
                                 <th class="fixed-width">Teléfono:</th>
-                                <td><input type="text" name="tel" class="form-control"></td>
+                                <td><input type="text" name="tel" pattern="[0-9]+" class="form-control"></td>
                             </tr>
                             <tr>
                                 <th class="fixed-width">Correo:</th>
-                                <td><input type="email" name="correo" class="form-control"></td>
+                                <td><input type="email" name="correo" pattern="[a-zA-Z0-9$@.]{7,100}" class="form-control"></td>
                             </tr>
                         </tbody>
                     </table>
@@ -140,15 +140,15 @@
                             </tr>
                             <tr>
                                 <th class="fixed-width">Usuario:</th>
-                                <td><input type="text" name="usuario" class="form-control"></td>
+                                <td><input type="text" name="usuario" pattern="[a-zA-Z0-9]{4,50}" class="form-control"></td>
                             </tr>
                             <tr>
                                 <th class="fixed-width">Uso de la cuenta:</th>
-                                <td><input type="text" name="uso" class="form-control"></td>
+                                <td><input type="text" name="uso" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}" class="form-control"></td>
                             </tr>
                             <tr>
                                 <th class="fixed-width">Cargo de la compañía:</th>
-                                <td><input type="text" name="cargo" class="form-control"></td>
+                                <td><input type="text" name="cargo" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}" class="form-control"></td>
                             </tr>
                         </tbody>
                     </table>

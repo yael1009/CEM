@@ -63,6 +63,18 @@
         exit();
     }
 
+    if($main->verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}",$compañia))
+    {
+        echo $main->mensaje_error("La compañia no coincide con el formato solicitado");
+        exit();
+    }
+
+    if($main->verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}",$cargo))
+    {
+        echo $main->mensaje_error("el cargo no coincide con el formato solicitado");
+        exit();
+    }
+
             /*== Verificando email ==*/
     if($correo!=""){
         if(filter_var($correo, FILTER_VALIDATE_EMAIL)){
