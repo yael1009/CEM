@@ -135,7 +135,7 @@ class main
 				<li><span class="pagination-ellipsis">&hellip;</span></li>
 				<button class="btn btn-custom text-right mx-1"><li><a class="pagination-link" href="'.$url.$Npaginas.'">'.$Npaginas.'</a></li></button>
 			</ul>
-			<button class="btn btn-custom text-right mx-1"><a class="pagination-next" href="'.$url.($pagina+1).'" >Siguiente</a></button>
+			<button class="btn btn-custom text-right mx-1" href="'.$url.($pagina+1).'"><a class="pagination-next" href="'.$url.($pagina+1).'" >Siguiente</a></button>
 			';         
 
 		}

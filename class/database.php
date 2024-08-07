@@ -3,13 +3,27 @@ class database
 {
     private $pdolocal;
     private $user = "root";
-    private $password = "";
+    private $password = "sonicyael";
     private $server = "mysql:host=localhost;dbname=bd_cem";
 
     function conectardb()
     {
         try
         {
+            $this->pdolocal = new PDO($this->server,$this->user,$this->password);
+        }
+        catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
+
+    public function __construct(){}
+    public function __construct1($usuario)
+    {
+        try
+        {
+            
             $this->pdolocal = new PDO($this->server,$this->user,$this->password);
         }
         catch(PDOException $e)

@@ -61,7 +61,7 @@
             }
 
             $pagina=$main->limpiarstring($pagina);
-            $url="index.php?vista=roles&page="; /* <== */
+            $url="index.php?vista=clientes&page="; /* <== */
             $registros=5;
 
             # Paginador usuario #
