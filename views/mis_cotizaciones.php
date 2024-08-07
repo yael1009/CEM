@@ -10,38 +10,26 @@
                 <div class="table-header p-2">
                     ID_ORDEN
                 </div>
-                <table class="table mb-0">
-                    <tbody>
-                        <tr>
-                            <th>Trabajo solicitado el día:</th>
-                            <td>Trabajo solicitado el día</td>
-                        </tr>
-                        <tr>
-                            <th>Fecha de entrega óptima:</th>
-                            <td>Fecha de entrega óptima</td>
-                        </tr>
-                        <tr>
-                            <th>Dirección:</th>
-                            <td>Dirección</td>
-                        </tr>
-                        <tr>
-                            <th>Tipo trabajo:</th>
-                            <td>Tipo trabajo</td>
-                        </tr>
-                        <tr>
-                            <th>Estado:</th>
-                            <td>Estado</td>
-                        </tr>
-                        <tr>
-                            <th>Archivos enviados:</th>
-                            <td>Archivo<br>Archivo<br>Archivo</td>
-                        </tr>
-                        <tr>
-                            <th>Comentarios:</th>
-                            <td>Comentarios</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <?php
+                    include 'class/main.php';
+                    $main=new main();
+                    // si no esta definida la variable se le asigna 1
+                    if(!isset($_GET['page'])){
+                        $pagina=1;
+                    }else{ //se recoge a variable y se convierte en entero
+                        $pagina=(int) $_GET['page'];
+                        if($pagina<=1){
+                            $pagina=1;
+                        }
+                    }
+
+                    $pagina=$main->limpiarstring($pagina);
+                    $url="index.php?vista=mis_cotizaciones&page=";
+                    $registros=1;
+                    $busqueda="";
+
+                    require_once "./scripts/ver_mis_cotizaciones.php";
+                ?>
             </div>
             <div class="button-container">
                 <button type="button" class="btn btn-custom">Cancelar orden</button>
