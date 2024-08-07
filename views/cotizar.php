@@ -185,3 +185,22 @@
             </div>
         </div>
     </div>
+    <!-- Bootstrap 5 JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        document.getElementById('guardarBtn').addEventListener('click', function() {
+            var myModal = new bootstrap.Modal(document.getElementById('nuevoModal'), {});
+            myModal.show();
+            var registroModal = bootstrap.Modal.getInstance(document.getElementById('registro'));
+            registroModal.hide();
+        });
+        document.getElementById('enviarBtn').addEventListener('click', function() {
+            var myModal = new bootstrap.Modal(document.getElementById('ultimoModal'), {});
+            myModal.show();
+            var registroModal = bootstrap.Modal.getInstance(document.getElementById('nuevoModal'));
+            registroModal.hide();
+        });
+        
+    </script>

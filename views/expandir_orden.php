@@ -76,7 +76,7 @@
                 </tr>
                 <tr>
                     <th class="section-title">Levantamiento</th>
-                    <td><button class="btn btn-custom btn-sm" data-toggle="modal" data-target="#VerLevantamientoModal">Ver Levantamiento</button>
+                    <td><button class="btn btn-custom btn-sm">Ver Levantamiento</button>
                         <button class="btn btn-custom btn-sm" data-toggle="modal" data-target="#LevantamientoModalVoltaje">Crear Levantamiento</button></td>
                 </tr>
                 <tr>
@@ -98,82 +98,6 @@
         </div>
     </div>
     
-    <!-- Modal de Ver Levantamiento -->
-    <div class="modal fade" id="VerLevantamientoModal" tabindex="-1" role="dialog" aria-labelledby="levantamientoModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="levantamientoModalLabel">Levantamiento</h5>
-                </div>
-                <div class="modal-body">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Aparatos</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Aparato #1</td>
-                                <td class="text-right"><button class="btn btn-danger">Eliminar</button></td>
-                            </tr>
-                            <tr>
-                                <td>Aparato #2</td>
-                                <td class="text-right"><button class="btn btn-danger">Eliminar</button></td>
-                            </tr>
-                            <tr>
-                                <td>Aparato #3</td>
-                                <td class="text-right"><button class="btn btn-danger">Eliminar</button></td>
-                            </tr>
-                            <tr>
-                                <td>Aparato #4</td>
-                                <td class="text-right"><button class="btn btn-danger">Eliminar</button></td>
-                            </tr>
-                            <tr>
-                                <td>Aparato #5</td>
-                                <td class="text-right"><button class="btn btn-danger">Eliminar</button></td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">
-                                    <select class="form-select same" aria-label="Default select example">
-                                        <option selected>Agregar Aparato</option>
-                                        <option value="2">MiniSplit</option>
-                                        <option value="3">Ventilador</option>
-                                        <option value="2">Foquito</option>
-                                        <option value="2">Focote</option>
-                                        <option value="2">Focototote</option>
-                                        <option value="2">Foquititito</option>
-                                        </select>
-                                    <button class="btn btn-secondary same">Gestionar Aparatos</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div>
-                        <form action="">
-                            <label class="form-label" for="tip_serv">Tipo de Voltaje</label>
-                            <!-- Grupo de Radio Buttons -->
-                            <div class="radio-red">
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" id="radioCliente" name="customRadio" class="custom-control-input">
-                                    <label class="custom-control-label" for="radioCliente">127 V</label>
-                                </div>
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" id="radioGestorContenido" name="customRadio" class="custom-control-input">
-                                    <label class="custom-control-label" for="radioGestorContenido">220 V</label>
-                                </div>
-                        </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button class="btn btn-primary">Guardar</button>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- Modal de Creacion de Levantamiento Escoger el Voltaje-->
     <div class="modal fade" id="LevantamientoModalVoltaje" tabindex="-1" role="dialog" aria-labelledby="levantamientoModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl" role="document">
@@ -186,15 +110,15 @@
                         <form action="">
                             <label class="form-label" for="tip_serv">Tipo de Voltaje</label>
                             <!-- Grupo de Radio Buttons -->
-                            <div class="radio-red">
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" id="radioCliente" name="customRadio" class="custom-control-input">
-                                    <label class="custom-control-label" for="radioCliente">127 V</label>
-                                </div>
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" id="radioGestorContenido" name="customRadio" class="custom-control-input">
-                                    <label class="custom-control-label" for="radioGestorContenido">220 V</label>
-                                </div>
+                            <div class="radio-group">
+                            <div class="form-check custom-radio">
+                                <input class="form-check-input" type="radio" name="tipo_trabajo" id="domestico" value="Domestico">
+                                <label class="form-check-label" for="domestico">127 V</label>
+                            </div>
+                            <div class="form-check custom-radio">
+                                <input class="form-check-input" type="radio" name="tipo_trabajo" id="industrial" value="Industrial">
+                                <label class="form-check-label" for="industrial">220 V</label>
+                            </div>
                         </div>
                         </form>
 
@@ -219,32 +143,38 @@
                         <thead>
                             <tr>
                                 <th>Aparatos</th>
-                                <th></th>
+                                <th>Cantidad</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>Aparato #1</td>
+                                <td>2</td>
                                 <td class="text-right"><button class="btn btn-danger">Eliminar</button></td>
                             </tr>
                             <tr>
                                 <td>Aparato #2</td>
+                                <td>5</td>
                                 <td class="text-right"><button class="btn btn-danger">Eliminar</button></td>
                             </tr>
                             <tr>
                                 <td>Aparato #3</td>
+                                <td>2</td>
                                 <td class="text-right"><button class="btn btn-danger">Eliminar</button></td>
                             </tr>
                             <tr>
                                 <td>Aparato #4</td>
+                                <td>3</td>
                                 <td class="text-right"><button class="btn btn-danger">Eliminar</button></td>
                             </tr>
                             <tr>
                                 <td>Aparato #5</td>
+                                <td>1</td>
                                 <td class="text-right"><button class="btn btn-danger">Eliminar</button></td>
                             </tr>
                             <tr>
-                                <td colspan="2">
+                                <td>
                                     <select class="form-select same" aria-label="Default select example">
                                         <option selected>Agregar Aparato</option>
                                         <option value="2">MiniSplit</option>
@@ -254,16 +184,39 @@
                                         <option value="2">Focototote</option>
                                         <option value="2">Foquititito</option>
                                         </select>
-                                    <button class="btn btn-secondary same">Gestionar Aparatos</button>
                                 </td>
+                                <td>
+                                <label class="form-label" for="concepto">Cantidad:</label>
+                                <input class="form-control" type="text" name="N_aparatos" pattern="[0-9]+" maxlength="10" required>
+                                </td>
+                                <td>
+                                    <button class="btn btn-custom">Agregar</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button class="btn btn-secondary same">Gestionar Aparatos</button>
+
+                                </td>
+                                
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button class="btn btn-primary" id="">Guardar</button>
+                    <button class="btn btn-primary" id="btnCreaLevantamiento">Crear</button>
                 </div>
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        document.getElementById('guardarBtnCreacionVoltaje').addEventListener('click', function() {
+            $('#LevantamientoModalVoltaje').modal('hide');
+            $('#LevantamientoModalAparatos').modal('show');
+        });
+    </script> 
