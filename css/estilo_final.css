@@ -1,0 +1,521 @@
+/* nav */
+.navbar-custom {
+    background-color: #780415; /* Cambia este color al que prefieras */
+}
+.navbar-nav .nav-item .nav-link {
+    color: white;
+}
+.navbar {
+    justify-content: center;
+}
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav-item {
+    padding: 0 10px;
+}
+.navbar-brand {
+    color: white !important;
+    font-weight: bolder;
+}
+.profile-img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+.padd{
+    padding-left: 290px;
+}
+/* drops */
+.red {
+    background-color: #780415; 
+}
+.darkeRed {
+    background-color: #6a0010; 
+}
+.link {
+    color: white;
+}
+/* foot */
+.footer {
+    background-color: #600714;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+.footer .left, .footer .center, .footer .right {
+    flex: 1;
+    text-align: center;
+}
+.footer .left {
+    font-size: 2rem;
+    font-weight: bolder;
+}
+.footer .center p, .footer .right p {
+    margin: 0;
+}
+.footer .center, .footer .right {
+    padding: 0 20px;
+}
+/* mostrando? */
+.rounded-circle {
+    border-radius: 50% !important;
+}
+.text-center {
+    text-align: center !important;
+}
+/* btn? */
+.btn-custom {
+    background-color: #800000;
+    color: white;
+    border-color: #800000;
+    transition: all 0.3s ease;
+}
+.btn-custom:hover {
+    background-color: white;
+    color: #800000;
+    border-color: #800000;
+}
+.btn-custom a{
+    color: white;
+}
+.btn-custom:hover a{
+    color: #800000;
+    border-color: #800000;
+}
+.btn-group .btn {
+    margin: 0 10px;
+}
+/* modals? */
+.modal-body {
+    border: none;
+}
+.modal-header {
+    border-bottom: none;
+    background-color: #800000;
+    color: white;
+}
+.modal-footer {
+    display: flex;
+    justify-content: space-around;
+    border-top: none;
+}
+/* radio? */
+.custom-radio .form-check-input:checked ~ .form-check-label {
+    background-color: #760b0b;
+    color: white;
+}
+.custom-radio .form-check-input:checked {
+    background-color: #760b0b;
+    border-color: #760b0b;
+}
+.custom-radio .form-check-label {
+    padding: 10px;
+    border: 2px solid #760b0b;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-right: 10px;
+}
+.custom-radio .form-check-input {
+    display: none;
+}
+.custom-radio .form-check-input + .form-check-label:hover {
+    background-color: #760b0b;
+    color: white;
+}
+.radio-group {
+    display: flex;
+    align-items: center;
+}
+/* forms? */
+.form-label {
+    font-weight: bold;
+}
+.custom-file-input ~ .custom-file-label::after {
+    content: "Seleccionar";
+    background-color: #800000;
+    border: none;
+    color: white;
+}
+select {
+    background-color: #800000;
+    color: white;
+}
+/* clientes_inicio */
+.header-img {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../Integradora/img/cliente_img/cliente_inicio.jpg') no-repeat center center;
+    background-size: cover;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    border-radius: 15px;
+    font-weight: bold;
+}
+.header-img-ub {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../Integradora/img/cliente_img/cliente_inicio_ubicacion.jpg') no-repeat center center;
+    background-size: cover;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    border-radius: 15px;
+    font-weight: bold;
+}
+.map-container {
+    width: 100%; /* Ajusta esto según tus necesidades */
+    max-width: 1100px; /* Ajusta esto según tus necesidades */
+    margin: 0 auto; /* Centrar el div en la página */
+}
+.map-container iframe {
+    width: 100%;
+    height: 300px; /* Ajusta la altura según tus necesidades */
+    border: 0;
+}
+.header-img-con {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../Integradora/img/cliente_img/cliente_inicio_consejos.jpg') no-repeat center center;
+    background-size: cover;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    border-radius: 15px;
+    font-weight: bold;
+}
+.header-img-terminos {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../Integradora/img/cliente_img/cliente_inicio_terminos.jpg') no-repeat center center;
+    background-size: cover;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    border-radius: 15px;
+    font-weight: bold;
+}
+.content {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+.sangria {
+    margin-left: 20px;
+}
+.rojito{
+    color: #780415;
+}
+/* clientes_servicios */
+.services-section {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+.service-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.service-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+.service-img {
+    flex: 1;
+    max-width: 500px;
+    margin-right: 20px;
+    margin-left: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+.service-description {
+    flex: 2;
+    text-align: center;
+}
+.service-divider {
+    height: 2px;
+    background-color: #800000;
+    margin: 30px 0;
+}
+.grande{
+    font-size: 5rem;
+}
+/* clientes_cotizar */
+.quote-section {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+    text-align: center;
+}
+.step {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.step img {
+    max-width: 90%; /* Ajusta este valor según sea  necesario */
+    max-height: 200px; /* Ajusta este valor según sea necesario */
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+.step h3 {
+    color: #800000;
+}
+.step p {
+    margin-top: 10px;
+}
+.note {
+    color: #800000;
+    font-weight: bold;
+}
+/* clientes_porafolio */
+.portfolio-section {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+.portfolio-item {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.portfolio-item img {
+    max-width: 100%;
+    max-height: 200px;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+.portfolio-item h3 {
+    color: #800000;
+}
+/* clientes_inicia_sesion y cliente_crea_cuenta*/
+.centra-boton {
+    display: flex;
+    justify-content: space-around;
+    border-top: none;
+}
+.login-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    margin: 20px 0;
+}
+.form-inicio {
+    border: 2px solid #800000;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+/* clientes_registrado_perfil*/
+.profile-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 1000px;
+    width: 100%;
+    margin: 20px 0;
+}
+.profile-profile-img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+.table-custom {
+    width: 100%;
+    margin: 20px 0;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.table-custom th, .table-custom td {
+    padding: 10px;
+    text-align: left;
+}
+.table-header {
+    background-color: #800000;
+    color: white;
+    text-align: center;
+}
+th.fixed-width {
+    width: 450px; /* Ajusta este valor según tus necesidades */
+}
+/* clientes_mis_cotizaciones*/
+.container-custom {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 1000px;
+    width: 100%;
+    margin: 20px 0;
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Separación entre botones */
+    margin-top: 20px;
+}
+/* roles_inicio */
+.profile-card {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    height: 30%;
+    width: 20%;
+    aspect-ratio: 1 / 1;
+}
+.personal-card .details {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    text-align: center;
+    align-items: center;
+}
+.add-button-container {
+    text-align: right;
+    margin: 20px 0;
+}
+.personal-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+.profile-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.profile-img-cuad {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+.centerr {
+    justify-content: center;
+}
+.centerr img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+/* roles_aparatos */
+.thBlanco{
+    background-color: #cecece;
+}
+/* ordenes_ordenes */
+.seen{
+    background-color: #f1f1f1;
+}
+.Nseen{
+    background-color: #b9b9b9;
+}
+.cancel{
+    background-color: #646464;
+    color: #ffffff;
+}
+.cancela{
+    color: #ff5b5b;
+}
+.project-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+.project-card img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+.project-card .project-info {
+    flex-grow: 1;
+}
+/* ordenes_expandir */
+.header-title {
+    text-align: center;
+    background-color: #8B0000;
+    color: white;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+.order-info {
+    margin-bottom: 20px;
+}
+.order-info h6 {
+    font-weight: bold;
+}
+.profile-img-table {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    background-color: #D3D3D3;
+    text-align: center;
+    line-height: 100px;
+}
+.profile-img-table p {
+    margin: 0;
+}
+.section-title {
+    font-weight: bold;
+}
+.actions {
+    margin-top: 20px;
+}
+.same{
+    height: 40px;
+}
+.tablee th, .tablee td {
+      border: none; /* Elimina los bordes de las celdas */
+}
+/* ordenes_catalogo */
+.tabla th, .tabla td {
+    vertical-align: middle;
+}
+.total-row {
+    font-weight: bold;
+}
