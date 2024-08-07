@@ -33,7 +33,7 @@
             </div>
             <div class="button-container">
                 <button type="button" class="btn btn-custom">Cancelar orden</button>
-                <button type="button" class="btn btn-custom">Editar</button>
+                <button type="button" class="btn btn-custom"><a href="index.php?vista=editar_mi_cotizacion" class="custom-link">Editar</a></button>
             </div>
         </div>
     </div>

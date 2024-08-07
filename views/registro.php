@@ -24,7 +24,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="correo">Correo:</label>
-                    <input class="form-control" type="email" name="correo" maxlength="100" required>
+                    <input class="form-control" type="email" name="correo" pattern="[a-zA-Z0-9$@.]{7,100}" maxlength="100" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="usuario">Usuario:</label>
@@ -36,11 +36,11 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="compañia">Uso de la Cuenta</label>
-                    <input class="form-control" type="text" name="compañia" placeholder="Personal/Compañia">
+                    <input class="form-control" type="text" name="compañia" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}" placeholder="Personal/Compañia">
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="cargo">Cargo en la Compañia</label>
-                    <input class="form-control" type="text" name="cargo" placeholder="Personal/Propietario/Gerente/Constructor">
+                    <input class="form-control" type="text" name="cargo" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}" placeholder="Personal/Propietario/Gerente/Constructor">
                 </div>
                 <div class="centra-boton">
                     <button type="submit" class="btn btn-custom">Crear Cuenta</button>
