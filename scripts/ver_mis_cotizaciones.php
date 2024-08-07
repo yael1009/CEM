@@ -12,9 +12,9 @@
 
 	}else{
 
-		$consulta_datos="SELECT * FROM VistaCompletaSolicitudes  WHERE usuario='".$_SESSION['id']."' ORDER BY fecha_solicitud ASC LIMIT $inicio,$registros";
+		$consulta_datos="SELECT * FROM VistaParcialSolicitudes  WHERE usuario='".$_SESSION['id']."' ORDER BY fecha_solicitud ASC LIMIT $inicio,$registros";
 
-		$consulta_total="SELECT COUNT( DISTINCT id_solicitud) FROM VistaCompletaSolicitudes  WHERE usuario='".$_SESSION['id']."'";
+		$consulta_total="SELECT COUNT( DISTINCT id_solicitud) FROM VistaParcialSolicitudes  WHERE usuario='".$_SESSION['id']."'";
 		
 	}
 	
@@ -30,6 +30,10 @@
 		$contador=$inicio+1;
 		$pag_inicio=$inicio+1;
 		foreach($datos as $rows){
+            $query="SELECT DISTINCT tipo_servicio FROM VistaCompletaSolicitudes  WHERE usuario='".$_SESSION['id']."' AND id_solicitud='".$rows->id_solicitud."' ORDER BY fecha_solicitud";
+            $solicitudes = $conexion->seleccionar($query);
+            $query_archivo="SELECT DISTINCT archivo_ruta FROM VistaCompletaSolicitudes  WHERE usuario='".$_SESSION['id']."' AND id_solicitud='".$rows->id_solicitud."' ORDER BY fecha_solicitud";
+            $archivos = $conexion->seleccionar($query_archivo);
 			$tabla.='
                 <table class="table mb-0">
                     <tbody>
@@ -46,7 +50,7 @@
                             <td>'.$rows->direccion_completa.'</td>
                         </tr>
                         <tr>
-                            <th>Dirección:</th>
+                            <th>Referencia:</th>
                             <td>'.$rows->referencia.'</td>
                         </tr>
                         <tr>
@@ -56,8 +60,10 @@
                         <tr>
                             <th>Servicios solicitados:</th>
                             <td>';
-        
-                            foreach ($rows as $rows2) {
+                            /*$query2="SELECT * FROM VistaCompletaSolicitudes  WHERE usuario='".$_SESSION['id']."' AND tipo_servicio='".$solicitudes->tipo_servicio."' AND id_solicitud='".$rows->id_solicitud."'";
+                            $servicios = $conexion->seleccionar($query2);
+
+                            foreach ($solicitudes as $rows2) {
                                 if ($rows2->tipo_servicio == "Instalaciones Eléctricas y mantenimientos") {
                                     $tabla .= "Instalaciones Eléctricas y mantenimientos <br>";
                                     foreach ($rows2 as $rows3) { // Asumiendo que $rows2->servicios es un array
@@ -76,38 +82,36 @@
                                         $tabla .= $rows3->servicio . "<br>";
                                     }
                                 }
-                            }
+                            }*/
 
-                            /*        if (isset($rows->servicios) && is_array($rows->servicios)) {
-            foreach ($rows->servicios as $rows2) {
-                if (isset($rows2->tipo_servicio)) {
-                    if ($rows2->tipo_servicio == "Instalaciones Eléctricas y mantenimientos") {
-                        $tabla .= "Instalaciones Eléctricas y mantenimientos <br>";
-                        if (isset($rows2->servicio) && is_array($rows2->servicio)) {
-                            foreach ($rows2->servicio as $servicio) {
-                                $tabla .= htmlspecialchars($servicio) . "<br>";
-                            }
-                        }
-                    }
-                    if ($rows2->tipo_servicio == "Obra civil") {
-                        $tabla .= "Obra civil <br>";
-                        if (isset($rows2->servicio) && is_array($rows2->servicio)) {
-                            foreach ($rows2->servicio as $servicio) {
-                                $tabla .= htmlspecialchars($servicio) . "<br>";
-                            }
-                        }
-                    }
-                    if ($rows2->tipo_servicio == "Construccion ligera") {
-                        $tabla .= "Construccion ligera <br>";
-                        if (isset($rows2->servicio) && is_array($rows2->servicio)) {
-                            foreach ($rows2->servicio as $servicio) {
-                                $tabla .= htmlspecialchars($servicio) . "<br>";
-                            }
-                        }
-                    }
-                }
-            }
-        }*/
+                            foreach ($solicitudes as $rows2) {
+                                $query2="SELECT DISTINCT servicio FROM VistaCompletaSolicitudes  WHERE usuario='".$_SESSION['id']."' AND tipo_servicio='".$rows2->tipo_servicio."' AND id_solicitud='".$rows->id_solicitud."'";
+                                $servicios = $conexion->seleccionar($query2);
+
+                                $tabla .= "<strong>".$rows2->tipo_servicio."</strong> <br>";
+                                foreach ($servicios as $rows3) {
+                                    $tabla .= $rows3->servicio . "<br>";
+                                }
+                                }
+                                /*if ($rows2->tipo_servicio == "Instalaciones Eléctricas y mantenimientos") {
+                                    $tabla .= "Instalaciones Eléctricas y mantenimientos <br>";
+                                    foreach ($rows2 as $rows3) { // Asumiendo que $rows2->servicios es un array
+                                        $tabla .= $rows3->servicio . "<br>";
+                                    }
+                                }
+                                if ($rows2->tipo_servicio == "Obra civil") {
+                                    $tabla .= "Obra civil <br>";
+                                    foreach ($rows2 as $rows3) {
+                                        $tabla .= $rows3->servicio . "<br>";
+                                    }
+                                }
+                                if ($rows2->tipo_servicio == "Construccion ligera") {
+                                    $tabla .= "Construccion ligera <br>";
+                                    foreach ($rows2 as $rows3) {
+                                        $tabla .= $rows3->servicio . "<br>";
+                                    }
+                                }
+                            }*/
                             
                             $tabla .= '</td>
                         </tr>
@@ -125,17 +129,9 @@
                         <tr>
                             <th>Archivos enviados:</th>
                             <td>';
-                            foreach($rows as $rows2){
+                            foreach($archivos as $rows2){
                                 $tabla.=$rows2->archivo_ruta . "<br>";
                             }
-
-                            /*        if (isset($rows->archivos) && is_array($rows->archivos)) {
-            foreach ($rows->archivos as $archivo) {
-                if (isset($archivo->archivo_ruta)) {
-                    $tabla .= htmlspecialchars($archivo->archivo_ruta) . "<br>";
-                }
-            }
-        }*/
                             $tabla .= '</td>
                         </tr>
                         <tr>
@@ -173,7 +169,7 @@
 
 
 	if($total>0 && $pagina<=$Npaginas){
-		$tabla.='<p class="has-text-right">Mostrando usuarios <strong>'.$pag_inicio.'</strong> al <strong>'.$pag_final.'</strong> de un <strong>total de '.$total.'</strong></p>';
+		$tabla.='<p class="has-text-right">Mostrando cotizaciones <strong>'.$pag_inicio.'</strong> al <strong>'.$pag_final.'</strong> de un <strong>total de '.$total.'</strong></p>';
 	}
 
 	$conexion->desconectardb();

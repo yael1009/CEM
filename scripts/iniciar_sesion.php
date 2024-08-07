@@ -19,6 +19,11 @@
         exit();
     }
 
+    if($main->verificar_datos("[a-zA-Z0-9$@.]{7,100}",$clave))
+    {
+        echo $main->mensaje_error("La contraseña no coincide con el formato solicitado");
+        exit();
+    }
 
 
     $bd = new database();
