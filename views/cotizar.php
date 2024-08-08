@@ -28,7 +28,7 @@
             </div>
 
             <p class="note">COTIZACIÓN SUJETA A CAMBIOS</p>
-            <button class="btn-start-quote" data-bs-toggle="modal" data-bs-target="#registro">Comenzar cotización</button>
+            <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#registro">Comenzar cotización</button>
         </div>
     </div>
     <!-- Modal -->
@@ -92,6 +92,15 @@
                                 <label class="form-check-label" for="industrial">Industrial</label>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="form-label">Seleccione los Servicios:</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="cliente">
+                                <label class="form-check-label" for="cliente">
+                                Instalación de Sistemas Eléctricos:
+                                </label>
+                            </div>
+                        </div>
                         <label class="form-label" for="archivo">Subir Archivos</label>
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="img_serv" name="img_serv">
@@ -124,34 +133,34 @@
                                     <tbody>
                                         <tr>
                                             <td>
-                                                <input class="form-control" type="text" name="calle" placeholder="Calle">
+                                                <input class="form-control" type="text" name="calle" placeholder="Calle" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}" maxlength="100">
                                             </td>
                                             <td>
-                                                <input class="form-control" type="text" name="colonia" placeholder="Colonia">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input class="form-control" type="text" name="numero_ext" placeholder="Numero Exterior">
-                                            </td>
-                                            <td>
-                                                <input class="form-control" type="text" name="numero_int" placeholder="Numero Interior">
+                                                <input class="form-control" type="text" name="colonia" placeholder="Colonia" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}" maxlength="100">
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input class="form-control" type="text" name="ciudad" placeholder="Ciudad">
+                                                <input class="form-control" type="text" name="numero_ext" placeholder="Numero Exterior" pattern="[0-9]+" maxlength="10">
                                             </td>
                                             <td>
-                                                <input class="form-control" type="text" name="estado" placeholder="Estado">
+                                                <input class="form-control" type="text" name="numero_int" placeholder="Numero Interior" pattern="[0-9]+" maxlength="10">
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input class="form-control" type="text" name="codigo_postal" placeholder="Codigo Postal">
+                                                <input class="form-control" type="text" name="ciudad" placeholder="Ciudad" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}" maxlength="100">
                                             </td>
                                             <td>
-                                                <input class="form-control" type="text" name="referencia" placeholder="Referencia">
+                                                <input class="form-control" type="text" name="estado" placeholder="Estado" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}" maxlength="100">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input class="form-control" type="text" name="codigo_postal" placeholder="Codigo Postal" pattern="^[0-9]{5}$" maxlength="5">
+                                            </td>
+                                            <td>
+                                                <input class="form-control" type="text" name="referencia" placeholder="Referencia" pattern="[a-zA-Z0-9$@.-]{7,2000}" maxlength="2000">
                                             </td>
                                         </tr>
                                     </tbody>
@@ -180,7 +189,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     <button type="button" class="btn btn-custom">Descargar</button>
-                    <button type="button" class="btn btn-primary"><a class="custom-link" href="cliente_contacto.html">Contactanos</a></button>
+                    <button type="button" class="btn btn-primary"><a class="custom-link" href="index.php?vista=contacto">Contactanos</a></button>
                 </div>
             </div>
         </div>

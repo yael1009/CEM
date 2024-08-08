@@ -8,12 +8,12 @@
             </div>
             <form action="" method="post" autocomplete="off">
                 <div class="mb-3">
-                    <label class="form-label" for="usuario">Usuario:</label>
-                    <input class="form-control" type="text" name="usuario" pattern="[a-zA-Z0-9]{4,50}" maxlength="50" required>
+                    <label class="form-label" for="usuario">Usuario:</label><br>
+                    <input class="form-inicio" type="text" name="usuario" pattern="[a-zA-Z0-9]{4,50}" maxlength="50" required>
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label">Contraseña:</label>
-                    <input type="password" class="form-control" name="password" pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength="100" required>
+                    <label for="password" class="form-label">Contraseña:</label><br>
+                    <input type="password" class="form-inicio" name="password" pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength="100" required>
                 </div>
                 <div class="centra-boton">
                     <button type="button" class="btn btn-custom"><a class="custom-link" href="index.php?vista=registro">Crear Cuenta</a></button>

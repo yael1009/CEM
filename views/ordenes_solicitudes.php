@@ -20,7 +20,7 @@
                     <p>Usuario</p>
                     <p>Direccion / calle / numero</p>
                 </div>
-                <a href="ordenes_expandir.html" class="text-danger">expandir</a>
+                <a href="index.php?vista=expandir_orden" class="text-danger">expandir</a>
                         </div>
                     </div>
                     <div class="col-md-12">

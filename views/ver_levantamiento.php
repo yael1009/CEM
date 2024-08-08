@@ -2,6 +2,7 @@
 
 <div class="container mt-4">
         <h1 class="text-center">Ver Levantamiento ID_ORDEN</h1>
+        <div class="service-divider"></div>
         <div class="text-right mb-3">
             <button class="btn btn-custom"><a href="ordenes_catalogo.html">Cancelar Edicion</a></button>
             <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#conceptModal">Añadir Aparato</button>

@@ -71,12 +71,16 @@
                     <td>Tipo de trabajo</td>
                 </tr>
                 <tr>
+                    <th class="section-title">Servicios</th>
+                    <td>Servicios</td>
+                </tr>
+                <tr>
                     <th class="section-title">Estado</th>
                     <td>Estado</td>
                 </tr>
                 <tr>
                     <th class="section-title">Levantamiento</th>
-                    <td><button class="btn btn-custom btn-sm">Ver Levantamiento</button>
+                    <td><button class="btn btn-custom btn-sm"><a href="index.php?vista=ver_levantamiento">Ver Levantamient</a>o</button>
                         <button class="btn btn-custom btn-sm" data-toggle="modal" data-target="#LevantamientoModalVoltaje">Crear Levantamiento</button></td>
                 </tr>
                 <tr>
@@ -87,14 +91,22 @@
                     <th class="section-title">Comentarios del cliente</th>
                     <td>Comentarios del cliente</td>
                 </tr>
+                <tr>
+                    <th class="section-title">Subtotal</th>
+                    <td>Subtotal</td>
+                </tr>
+                <tr>
+                    <th class="section-title">Total</th>
+                    <td>Total</td>
+                </tr>
             </tbody>
         </table>
 
         <div class="actions text-center">
             <button class="btn btn-custom mx-1">Cancelar orden</button>
-            <button class="btn btn-custom mx-1"><a href="ordenes_catalogo.html">Ver Catálogo</a></button>
-            <button class="btn btn-custom mx-1"><a href="ordenes_expandir_editar.html">Editar</a></button>
-            <button class="btn btn-custom mx-1"> <a href="ordenes_ordenes.html">Regresar</a></button>
+            <button class="btn btn-custom mx-1"><a href="index.php?vista=catalogo_editar">Ver Catálogo</a></button>
+            <button class="btn btn-custom mx-1"><a href="index.php?vista=editar_orden">Editar</a></button>
+            <button class="btn btn-custom mx-1"> <a href="index.php?vista=ordenes_solicitudes">Regresar</a></button>
         </div>
     </div>
     
@@ -194,9 +206,8 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-                                    <button class="btn btn-secondary same">Gestionar Aparatos</button>
-
+                                <td colspan="3">
+                                    <button class="btn btn-info same"><a href="index.php?vista=aparatos">Gestionar Aparatos</a></button>
                                 </td>
                                 
                             </tr>
