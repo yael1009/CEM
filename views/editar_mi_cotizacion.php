@@ -93,7 +93,7 @@
 <?php
 if(isset($_POST['fecha']) || isset($_POST['calle']) || isset($_POST['colonia']) || isset($_POST['numero_ext']) || 
 isset($_POST['numero_int']) || isset($_POST['ciudad']) || isset($_POST['estado']) || isset($_POST['codigo_postal']) || isset($_POST['referencia']) || 
-isset($_POST['tipo_trabajo']) || isset($_POST['img_serv']) || isset($_POST['comentarios'])){
+isset($_POST['tipo_trabajo']) || isset($_POST['comentarios'])){
 
     require_once "class/main.php";
     require_once "scripts/script_editar_mi_cotizacion.php";
