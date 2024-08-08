@@ -8,82 +8,64 @@ $conexion = new database;
 $conexion->conectardb();
 
 // Recibir datos del formulario
-$nombres = $main->limpiarstring(!empty($_POST['nombres']) ? $_POST['nombres'] : NULL);
-$a_p = $main->limpiarstring(!empty($_POST['a_p']) ? $_POST['a_p'] : NULL);
-$a_m = $main->limpiarstring(!empty($_POST['a_m']) ? $_POST['a_m'] : NULL);
-$tel = $main->limpiarstring(!empty($_POST['tel']) ? $_POST['tel'] : NULL);
-$correo = $main->limpiarstring(!empty($_POST['correo']) ? $_POST['correo'] : NULL);
-$usuario = $main->limpiarstring(!empty($_POST['usuario']) ? $_POST['usuario'] : NULL);
-$compania = $main->limpiarstring(!empty($_POST['uso']) ? $_POST['uso'] : NULL);
-$cargo = $main->limpiarstring(!empty($_POST['cargo']) ? $_POST['cargo'] : NULL);
+$nombres = !empty($_POST['nombres']) ? $main->limpiarstring($_POST['nombres']) : NULL;
+$a_p = !empty($_POST['a_p']) ? $main->limpiarstring($_POST['a_p']) : NULL;
+$a_m = !empty($_POST['a_m']) ? $main->limpiarstring($_POST['a_m']) : NULL;
+$tel = !empty($_POST['tel']) ? $main->limpiarstring($_POST['tel']) : NULL;
+$correo = !empty($_POST['correo']) ? $main->limpiarstring($_POST['correo']) : NULL;
+$usuario = !empty($_POST['usuario']) ? $main->limpiarstring($_POST['usuario']) : NULL;
+$compania = !empty($_POST['uso']) ? $main->limpiarstring($_POST['uso']) : NULL;
+$cargo = !empty($_POST['cargo']) ? $main->limpiarstring($_POST['cargo']) : NULL;
 
 $foto = NULL;
 
 /* Verificar que el correo ingresado no exista en la BD */
-if($correo!=""){
-    if(filter_var($correo, FILTER_VALIDATE_EMAIL)){
-        if($conexion->contar("SELECT correo FROM personas WHERE correo='$correo'")>0){
-            echo $main->mensaje_error("El correo electrónico ingresado ya se encuentra registrado, por favor elija otro");
-            exit();
-        }
-    }else{
-        echo $main->mensaje_error("Ha ingresado un correo electrónico no valido");
+if ($correo && filter_var($correo, FILTER_VALIDATE_EMAIL)) {
+    if ($conexion->contar("SELECT correo FROM personas WHERE correo='$correo'") > 0) {
+        echo $main->mensaje_error("El correo electrónico ingresado ya se encuentra registrado, por favor elija otro");
         exit();
-    } 
+    }
+} elseif ($correo) {
+    echo $main->mensaje_error("Ha ingresado un correo electrónico no válido");
+    exit();
 }
 
 /* Verificar que el usuario ingresado no exista en la BD */
-if($conexion->contar("SELECT usuario FROM usuarios WHERE usuario='$usuario'")>0){
+if ($usuario && $conexion->contar("SELECT usuario FROM usuarios WHERE usuario='$usuario'") > 0) {
     echo $main->mensaje_error("El USUARIO ingresado ya se encuentra registrado, por favor elija otro");
     exit();
 }
 
-/* Verificar datos del formulario */ 
-if($main->verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,60}",$nombre))
-    {
-        echo $main->mensaje_error("EL NOMBRE no coincide con el formato solicitado");
-        exit();
-    }
+/* Verificar datos del formulario */
+if ($nombres && $main->verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,60}", $nombres)) {
+    echo $main->mensaje_error("EL NOMBRE no coincide con el formato solicitado");
+    exit();
+}
 
-    if($main->verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,30}",$apaterno))
-    {
-        echo $main->mensaje_error("El apellido paterno no coincide con el formato solicitado");
-        exit();
-    }
+if ($a_p && $main->verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,30}", $a_p)) {
+    echo $main->mensaje_error("El apellido paterno no coincide con el formato solicitado");
+    exit();
+}
 
-    if($main->verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,30}",$amaterno))
-    {
-        echo $main->mensaje_error("El apellido materno no coincide con el formato solicitado");
-        exit();
-    }
+if ($a_m && $main->verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,30}", $a_m)) {
+    echo $main->mensaje_error("El apellido materno no coincide con el formato solicitado");
+    exit();
+}
 
-    if($main->verificar_datos("[0-9]+",$tel)) //no m convence el pattern
-    {
-        echo $main->mensaje_error("El telefono no coincide con el formato solicitado");
-        exit();
-    }
+if ($tel && $main->verificar_datos("[0-9]+", $tel)) {
+    echo $main->mensaje_error("El teléfono no coincide con el formato solicitado");
+    exit();
+}
 
-    if($main->verificar_datos("[a-zA-Z0-9$@.]{7,100}",$correo))
-    {
-        echo $main->mensaje_error("El correo no coincide con el formato solicitado");
-        exit();
-    }
+if ($correo && $main->verificar_datos("[a-zA-Z0-9$@.]{7,100}", $correo)) {
+    echo $main->mensaje_error("El correo no coincide con el formato solicitado");
+    exit();
+}
 
-    if($main->verificar_datos("[a-zA-Z0-9]{4,50}",$usuario))
-    {
-        echo $main->mensaje_error("El usuario no coincide con el formato solicitado");
-        exit();
-    }
-
-    if($main->verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}", $compania))
-    {
-        echo $main->mensaje_error("El uso no coincide con el formato solicitado");
-    }
-
-    if($main->verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}", $cargo))
-    {
-        echo $main->mensaje_error("El cargo no coincide con el formato solicitado");
-    }
+if ($usuario && $main->verificar_datos("[a-zA-Z0-9]{4,50}", $usuario)) {
+    echo $main->mensaje_error("El usuario no coincide con el formato solicitado");
+    exit();
+}
 
 try {
     $query = "CALL EDITAR_USER_CLIENTE(
@@ -112,7 +94,7 @@ try {
     $stmt->bindParam(':uso', $compania, PDO::PARAM_STR);
     $stmt->bindParam(':cargo', $cargo, PDO::PARAM_STR);
 
-    if(!$_POST['usuario']==NULL){
+    if (!empty($_POST['usuario'])) {
         $_SESSION['usuario'] = $_POST['usuario'];
     }
 
