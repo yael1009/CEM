@@ -4,7 +4,7 @@
     </div>
     <div class="center">
         <p><strong>Contacto directo:</strong><br>
-        Ing. Esteban Corgoba<br>
+        Ing. Esteban Cordova<br>
         cemconstrucciones@hotmail.com<br>
         871 184 1980<br>
         871 754 4054</p>

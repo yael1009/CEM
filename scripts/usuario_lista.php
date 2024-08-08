@@ -2,20 +2,16 @@
 	$inicio = ($pagina>0) ? (($pagina * $registros)-$registros) : 0;
 	$tabla="";
 	include 'class/database.php';
-    $conexion = new database();
+    $conexion = new database($_SESSION[]);
 
 	if(isset($busqueda) && $busqueda!=""){
-		// aqui tengo que ajustar la busqueda multitable y agregar mas terminos de busqueda
 		$consulta_datos="SELECT * FROM vista_usuarios WHERE ((id_usuario!='".$_SESSION['id']."') AND id_empleado IS NULL AND (nombre LIKE '%$busqueda%' OR a_p LIKE '%$busqueda%' OR usuario LIKE '%$busqueda%' OR correo LIKE '%$busqueda%')) ORDER BY nombre ASC LIMIT $inicio,$registros";
 
 		$consulta_total="SELECT COUNT(id_usuario) FROM vista_usuarios WHERE ((id_usuario!='".$_SESSION['id']."') AND id_empleado IS NULL AND (nombre LIKE '%$busqueda%' OR a_p LIKE '%$busqueda%' OR usuario LIKE '%$busqueda%' OR correo LIKE '%$busqueda%'))";
-
 	}else{
-
 		$consulta_datos="SELECT * FROM vista_usuarios WHERE id_usuario!='".$_SESSION['id']."' AND id_empleado IS NULL ORDER BY usuario ASC LIMIT $inicio,$registros";
 
 		$consulta_total="SELECT COUNT(id_usuario) FROM vista_usuarios WHERE id_usuario!='".$_SESSION['id']."' AND id_empleado IS NULL";
-		
 	}
 	
 	$conexion->conectardb();

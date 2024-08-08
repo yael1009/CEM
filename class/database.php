@@ -3,13 +3,15 @@ class database
 {
     private $pdolocal;
     private $user = "root";
-    private $password = "sonicyael";
+    private $password = "";
+ /*   private $user = "invitado";
+    private $password = "contraseñainvitado";*/
     private $server = "mysql:host=localhost;dbname=bd_cem";
 
     function conectardb()
     {
         try
-        {
+        {   
             $this->pdolocal = new PDO($this->server,$this->user,$this->password);
         }
         catch(PDOException $e)
@@ -18,19 +20,22 @@ class database
         }
     }
 
-    public function __construct(){}
-    public function __construct1($usuario)
+    /*public function __construct($usuario)
     {
         try
         {
-            
             $this->pdolocal = new PDO($this->server,$this->user,$this->password);
+            if($usuario !== "invitado"){
+            $resultado = $this->pdolocal->query("SELECT contraseña FROM usuarios WHERE usuario=".$usuario."");
+            $fila = $resultado->fetch(PDO::FETCH_OBJ);
+            $this->pdolocal = new PDO($this->server,$usuario,$fila->contraseña);
+            }
         }
         catch(PDOException $e)
         {
             echo $e->getMessage();
         }
-    }
+    }*/
 
     function desconectardb()
     {
