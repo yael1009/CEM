@@ -27,7 +27,7 @@
                             <a class="dropdown-item link" href="index.php?vista=cotizaciones">Cotizaciones</a>
                         </div>
                         <div class="red">
-                            <a class="dropdown-item link" href="roles_clientes.html">Solicitudes</a>
+                            <a class="dropdown-item link" href="index.php?vista=ordenes_solicitudes">Solicitudes</a>
                             <a class="dropdown-item link" href="roles_clientes.html">En Progreso</a>
                             <a class="dropdown-item link" href="roles_clientes.html">Completado</a>
                             <a class="dropdown-item link" href="roles_clientes.html">Cancelado</a>
