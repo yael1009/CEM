@@ -531,3 +531,13 @@ th.fixed-width {
 .total-row {
     font-weight: bold;
 }
+.navbar-toggler {
+    border: none; /* Opcional: eliminar el borde del botón */
+}
+.navbar-toggler-icon {
+    width: 30px;
+    height: 30px;
+    background-size: 30px 30px; /* Tamaño del icono */
+    border-radius: 5px; /* Esquinas redondeadas (opcional) */
+    background-image: url("../img/menu.png");
+}
