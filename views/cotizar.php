@@ -28,7 +28,7 @@
             </div>
 
             <p class="note">COTIZACIÓN SUJETA A CAMBIOS</p>
-            <button class="btn-start-quote" data-bs-toggle="modal" data-bs-target="#registro">Comenzar cotización</button>
+            <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#registro">Comenzar cotización</button>
         </div>
     </div>
     <!-- Modal -->
@@ -92,19 +92,28 @@
                                 <label class="form-check-label" for="industrial">Industrial</label>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="form-label">Seleccione los Servicios:</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="cliente">
+                                <label class="form-check-label" for="cliente">
+                                Instalación de Sistemas Eléctricos:
+                                </label>
+                            </div>
+                        </div>
                         <label class="form-label" for="archivo">Subir Archivos</label>
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="img_serv" name="img_serv">
                             <label class="custom-file-label" for="img_serv">Seleccionar archivo</label>
                         </div>
-                        <br><button type="button" class="btn btn-custom">Agregar Otro Archivo</button><br>
+                        <br><br><button type="button" class="btn btn-custom">Agregar Otro Archivo</button><br>
                         <label class="form-label" for="comentarios">Comentarios</label>
                         <textarea class="form-control" name="comentarios" rows="3" pattern="[a-zA-Z0-9$@.-]{7,2000}" maxlength="2000"></textarea>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" id="enviarBtn">Enviar</button>
+                    <button type="button" class="btn btn-primary" id="continuaBtn">Continuar</button>
                 </div>
             </div>
         </div>
@@ -124,34 +133,34 @@
                                     <tbody>
                                         <tr>
                                             <td>
-                                                <input class="form-control" type="text" name="calle" placeholder="Calle">
+                                                <input class="form-control" type="text" name="calle" placeholder="Calle" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}" maxlength="100">
                                             </td>
                                             <td>
-                                                <input class="form-control" type="text" name="colonia" placeholder="Colonia">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input class="form-control" type="text" name="numero_ext" placeholder="Numero Exterior">
-                                            </td>
-                                            <td>
-                                                <input class="form-control" type="text" name="numero_int" placeholder="Numero Interior">
+                                                <input class="form-control" type="text" name="colonia" placeholder="Colonia" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}" maxlength="100">
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input class="form-control" type="text" name="ciudad" placeholder="Ciudad">
+                                                <input class="form-control" type="text" name="numero_ext" placeholder="Numero Exterior" pattern="[0-9]+" maxlength="10">
                                             </td>
                                             <td>
-                                                <input class="form-control" type="text" name="estado" placeholder="Estado">
+                                                <input class="form-control" type="text" name="numero_int" placeholder="Numero Interior" pattern="[0-9]+" maxlength="10">
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input class="form-control" type="text" name="codigo_postal" placeholder="Codigo Postal">
+                                                <input class="form-control" type="text" name="ciudad" placeholder="Ciudad" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}" maxlength="100">
                                             </td>
                                             <td>
-                                                <input class="form-control" type="text" name="referencia" placeholder="Referencia">
+                                                <input class="form-control" type="text" name="estado" placeholder="Estado" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}" maxlength="100">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input class="form-control" type="text" name="codigo_postal" placeholder="Codigo Postal" pattern="^[0-9]{5}$" maxlength="5">
+                                            </td>
+                                            <td>
+                                                <input class="form-control" type="text" name="referencia" placeholder="Referencia" pattern="[a-zA-Z0-9$@.-]{7,2000}" maxlength="2000">
                                             </td>
                                         </tr>
                                     </tbody>
@@ -179,8 +188,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-custom">Descargar</button>
-                    <button type="button" class="btn btn-primary"><a class="custom-link" href="cliente_contacto.html">Contactanos</a></button>
+                    <button type="button" class="btn btn-custom"><a class="custom-link link" href="index.php?vista=mis_cotizaciones">Ver Mi Cotizacion</a></button>
+                    <button type="button" class="btn btn-primary"><a class="custom-link link" href="index.php?vista=contacto">Contactanos</a></button>
                 </div>
             </div>
         </div>
@@ -190,17 +199,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
 
     <script>
-        document.getElementById('guardarBtn').addEventListener('click', function() {
-            var myModal = new bootstrap.Modal(document.getElementById('nuevoModal'), {});
-            myModal.show();
-            var registroModal = bootstrap.Modal.getInstance(document.getElementById('registro'));
-            registroModal.hide();
+
+        document.getElementById('registrarseBtn').addEventListener('click', function() {
+            $('#registro').modal('hide');
+            $('#nuevoModal').modal('show');
         });
-        document.getElementById('enviarBtn').addEventListener('click', function() {
-            var myModal = new bootstrap.Modal(document.getElementById('ultimoModal'), {});
-            myModal.show();
-            var registroModal = bootstrap.Modal.getInstance(document.getElementById('nuevoModal'));
-            registroModal.hide();
+        document.getElementById('continuaBtn').addEventListener('click', function() {
+            $('#nuevoModal').modal('hide');
+            $('#direccionModal').modal('show');
+        });
+        document.getElementById('continuarBtn').addEventListener('click', function() {
+            $('#direccionModal').modal('hide');
+            $('#ultimoModal').modal('show');
         });
         
     </script>

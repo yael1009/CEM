@@ -1,7 +1,7 @@
     <!--Perfil-->
     <div class="container d-flex flex-column align-items-center">
         <h1 class="mt-4">Mi Perfil</h1>
-        <div class="d-flex justify-content-center">
+        <div class="button-container">
             <button type="button" class="btn btn-custom"> <a href="index.php?vista=mis_cotizaciones" class="custom-link">Mis Cotizaciones</a></button>
             <button type="button" class="btn btn-custom"> <a href="index.php?vista=cliente_registrado_perfil_administrar" class="custom-link">Administrar Cuenta</a></button>
             <button type="button" class="btn btn-custom"> <a href="index.php?vista=logout" class="custom-link">Cerrar sesión</a></button>
@@ -18,4 +18,5 @@
                 ?>
                 
         </div>
+    </div>
     </div>

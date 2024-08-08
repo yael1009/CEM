@@ -74,8 +74,3 @@
         </div>
     </div>
     <br>
-    
-    <button class="btn"><a href="clientes/cliente_registrado_perfil.html">Mi perfil xd</a></button><br>
-    <button class="btn"><a href="gestor_contenido/contenido_inicio.html">Gestor de contenido uwu</a></button><br>
-    <button class="btn"><a href="gestor_roles/roles_inicio.html">Gestor de roles owo</a></button><br>
-    <button class="btn"><a href="gestor_ordenes/ordenes_inicio.html">Gestor de Ordenes :p</a></button><br>
