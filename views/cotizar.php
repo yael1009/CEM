@@ -106,14 +106,14 @@
                             <input type="file" class="custom-file-input" id="img_serv" name="img_serv">
                             <label class="custom-file-label" for="img_serv">Seleccionar archivo</label>
                         </div>
-                        <br><button type="button" class="btn btn-custom">Agregar Otro Archivo</button><br>
+                        <br><br><button type="button" class="btn btn-custom">Agregar Otro Archivo</button><br>
                         <label class="form-label" for="comentarios">Comentarios</label>
                         <textarea class="form-control" name="comentarios" rows="3" pattern="[a-zA-Z0-9$@.-]{7,2000}" maxlength="2000"></textarea>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" id="enviarBtn">Enviar</button>
+                    <button type="button" class="btn btn-primary" id="continuaBtn">Continuar</button>
                 </div>
             </div>
         </div>
@@ -188,8 +188,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-custom">Descargar</button>
-                    <button type="button" class="btn btn-primary"><a class="custom-link" href="index.php?vista=contacto">Contactanos</a></button>
+                    <button type="button" class="btn btn-custom"><a class="custom-link link" href="index.php?vista=mis_cotizaciones">Ver Mi Cotizacion</a></button>
+                    <button type="button" class="btn btn-primary"><a class="custom-link link" href="index.php?vista=contacto">Contactanos</a></button>
                 </div>
             </div>
         </div>
@@ -199,17 +199,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
 
     <script>
-        document.getElementById('guardarBtn').addEventListener('click', function() {
-            var myModal = new bootstrap.Modal(document.getElementById('nuevoModal'), {});
-            myModal.show();
-            var registroModal = bootstrap.Modal.getInstance(document.getElementById('registro'));
-            registroModal.hide();
+
+        document.getElementById('registrarseBtn').addEventListener('click', function() {
+            $('#registro').modal('hide');
+            $('#nuevoModal').modal('show');
         });
-        document.getElementById('enviarBtn').addEventListener('click', function() {
-            var myModal = new bootstrap.Modal(document.getElementById('ultimoModal'), {});
-            myModal.show();
-            var registroModal = bootstrap.Modal.getInstance(document.getElementById('nuevoModal'));
-            registroModal.hide();
+        document.getElementById('continuaBtn').addEventListener('click', function() {
+            $('#nuevoModal').modal('hide');
+            $('#direccionModal').modal('show');
+        });
+        document.getElementById('continuarBtn').addEventListener('click', function() {
+            $('#direccionModal').modal('hide');
+            $('#ultimoModal').modal('show');
         });
         
     </script>

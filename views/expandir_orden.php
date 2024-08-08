@@ -207,7 +207,7 @@
                             </tr>
                             <tr>
                                 <td colspan="3">
-                                    <button class="btn btn-info same"><a href="index.php?vista=aparatos">Gestionar Aparatos</a></button>
+                                    <button class="btn btn-info same"><a class="link" href="index.php?vista=aparatos">Gestionar Aparatos</a></button>
                                 </td>
                                 
                             </tr>

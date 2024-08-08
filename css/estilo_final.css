@@ -38,6 +38,10 @@
 .link {
     color: white;
 }
+.disabled{
+    color: white;
+    opacity: 1;
+}
 /* foot */
 .footer {
     background-color: #600714;
