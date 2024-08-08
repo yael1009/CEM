@@ -79,7 +79,8 @@ try {
         :codigo_postal,
         :ciudad,
         :estado,
-        :referencia
+        :referencia,
+        :$id_solicitud
     )");
 
     $stmt = $conexion->preparar($query);

@@ -139,7 +139,9 @@
                             <td>'.$rows->comentarios.'</td>
                         </tr>
                     </tbody>
-                </table>
+                </table>'.
+                $id_solicitud=$rows->id_solicitud
+                .'<button type="button" class="btn btn-custom"><a href="index.php?vista=editar_mi_cotizacion" class="custom-link">Editar</a></button>
             ';
             $contador++;
 		}
