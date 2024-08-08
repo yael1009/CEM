@@ -10,7 +10,7 @@ $conexion->conectardb();
 
 // Ajusta la consulta para usar el Nombre del usuario en la sesion
 $consultaperfi = "SELECT PERSONAS.NOMBRE, PERSONAS.A_P, PERSONAS.A_M, PERSONAS.CORREO, PERSONAS.TELEFONO, USUARIOS.FOTO, USUARIOS.USUARIO, 
-USUARIOS.CONTRASEÑA, CLIENTES.COMPAÑIA, CLIENTES.CARGO 
+CLIENTES.COMPAÑIA, CLIENTES.CARGO 
 FROM PERSONAS, CLIENTES, USUARIOS, USUARIO_ROL 
 WHERE PERSONAS.ID_PERSONA = CLIENTES.PERSONA 
 AND PERSONAS.USUARIO = USUARIOS.ID_USUARIO 
@@ -63,10 +63,6 @@ if (!empty($tabla) && is_array($tabla) && isset($tabla[0])) {
                     <tr>
                         <th class='fixed-width'>Usuario:</th>
                         <td>{$datos->USUARIO}</td>
-                    </tr>
-                    <tr>
-                        <th class='fixed-width'>Contraseña:</th>
-                        <td>{$datos->CONTRASEÑA}</td>
                     </tr>
                     <tr>
                         <th class='fixed-width'>Uso de la cuenta:</th>
