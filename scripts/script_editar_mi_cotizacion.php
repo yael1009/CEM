@@ -72,7 +72,7 @@ try {
         :fecha,
         :tipo_trabajo,
         :comentarios,
-        :calle,
+        :calle, 
         :colonia,
         :numero_ext,
         :numero_int,
@@ -80,7 +80,6 @@ try {
         :ciudad,
         :estado,
         :referencia,
-        :$id_solicitud
     )");
 
     $stmt = $conexion->preparar($query);
@@ -98,8 +97,8 @@ try {
     $stmt->bindParam(':tipo_trabajo', $tipo_trabajop, PDO::PARAM_STR);
     $stmt->bindParam(':comentarios', $comentariop, PDO::PARAM_STR);
 
-    if (!$_POST['id'] == NULL) {
-        $_SESSION['id'] = $_POST['id'];
+    if (!$_POST['usuario'] == NULL) {
+        $_SESSION['usuario'] = $_POST['usuario'];
     }
 
     if ($stmt->execute()) {
