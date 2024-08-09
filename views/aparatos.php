@@ -107,21 +107,32 @@
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Añadir Aparato</h1>
             </div>
             <div class="modal-body">
-                <form action="" autocomplete="off">
+                <form action="" method="post" autocomplete="off">
                     <label class="form-label" for="nombre">Nombre Completo del Aparato:</label>
                     <input class="form-control" type="text" name="nombre" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}" maxlength="100" required>
                     <label class="form-label" for="apaterno">Potencia Nominal:</label>
                     <input class="form-control" type="text" name="potencia_nominal" pattern="[0-9]+" maxlength="10" required>
                     
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-custom" id="guardarBtn">Guardar</button>
+                    </div>
+
+                    <?php
+                    if(isset($_POST['nombre']) && isset($_POST['potencia_nominal'])){
+                        require_once "class/main.php";
+                        require_once "scripts/añadir_aparato.php";
+                    }
+                    ?>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-custom" id="guardarBtn">Guardar</button>
+
+                
             </div>
         </div>
     </div>
 </div>
+
+
 <!-- Editar -->
 <div class="modal fade" id="editappliancesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
