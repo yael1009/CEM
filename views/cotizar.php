@@ -27,8 +27,17 @@
                 </div>
             </div>
 
-            <p class="note">COTIZACIÓN SUJETA A CAMBIOS</p>
+
             <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#registro">Comenzar cotización</button>
+
+            <p class="note">COTIZACIÓN SUJETA A CAMBIOS</p>
+            <button class="btn btn-custom"
+            <?php if (isset($_SESSION['usuario'])) { ?>
+            data-bs-toggle="modal" data-bs-target="#registro">Comenzar cotización
+            <?php }else{
+            echo '><a class="custom-link" href="index.php?vista=registro">Comenzar cotización</a>';
+            } ?>
+            </button>
         </div>
     </div>
     <!-- Modal -->

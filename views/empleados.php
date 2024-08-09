@@ -8,7 +8,6 @@
                     <!-- Clientes -->
                     <div class="service-divider"></div>
 
-                    <div class="profile-container mt-4">
     <?php
         require_once "./class/main.php";
         $main = new main();
@@ -17,12 +16,12 @@
             require_once "./scripts/buscador.php";
         }
 
-        if(!isset($_SESSION['busqueda_usuario']) && empty($_SESSION['busqueda_usuario'])){
+        if(!isset($_SESSION['busqueda_empleados']) && empty($_SESSION['busqueda_empleados'])){
     ?>
     <div class="columns">
         <div class="column">
             <form action="" method="POST" autocomplete="off" >
-                <input type="hidden" name="modulo_buscador" value="usuario">   
+                <input type="hidden" name="modulo_buscador" value="empleados">   
                 <div class="field is-grouped">
                     <p class="control is-expanded">
                         <input class="form-control" type="text" name="txt_buscador" placeholder="¿Qué estas buscando?" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{1,30}" maxlength="30" >
@@ -38,18 +37,20 @@
     <div class="columns">
         <div class="column">
             <form class="has-text-centered mt-6 mb-6" action="" method="POST" autocomplete="off" >
-                <input type="hidden" name="modulo_buscador" value="usuario"> 
-                <input type="hidden" name="eliminar_buscador" value="usuario">
-                <p>Estas buscando <strong>“<?php echo $_SESSION['busqueda_usuario']; ?>”</strong></p>
+                <input type="hidden" name="modulo_buscador" value="empleados"> 
+                <input type="hidden" name="eliminar_buscador" value="empleados">
+                <p>Estas buscando <strong>“<?php echo $_SESSION['busqueda_empleados']; ?>”</strong></p>
                 <br>
                 <button type="submit" class="btn btn-custom">Eliminar busqueda</button>
             </form>
         </div>
     </div>
     <?php
-            $busqueda=$_SESSION['busqueda_usuario']; /* <== */
+            $busqueda=$_SESSION['busqueda_empleados']; /* <== */
 
         }
+        echo '    <div class="profile-container mt-4">';
+
             # Eliminar usuario #
             /*if(isset($_GET['user_id_del'])){
                 require_once "./php/usuario_eliminar.php";
@@ -69,7 +70,7 @@
             $registros=5;
 
             # Paginador usuario #
-            require_once "./scripts/usuario_lista.php";
+            require_once "./scripts/empleado_lista.php";
     ?>
     </div>
 </div>
