@@ -3,6 +3,7 @@
             <a class="navbar-brand" href="index.php?vista=home">CEM</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
+                
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto padd">
@@ -17,24 +18,24 @@
                         </a>
                         <div class="dropdown-menu darkeRed" aria-labelledby="navbarDropdownMenuLink">
                         <div class="darkeRed">
-                            <a class="dropdown-item link" href="index.php?vista=administrador">Administrador</a>
+                            <a class="dropdown-item link disabled" href="index.php?vista=administrador">Administrador</a>
                         </div>
                         <div class="red">
                             <a class="dropdown-item link" href="index.php?vista=aparatos">Aparatos</a>
                         </div>
                         <hr class="dropdown-divider">
                         <div class="darkeRed">
-                            <a class="dropdown-item link" href="index.php?vista=cotizaciones">Cotizaciones</a>
+                            <a class="dropdown-item link disabled" href="index.php?vista=cotizaciones">Cotizaciones</a>
                         </div>
                         <div class="red">
-                            <a class="dropdown-item link" href="roles_clientes.html">Solicitudes</a>
+                            <a class="dropdown-item link" href="index.php?vista=ordenes_solicitudes">Solicitudes</a>
                             <a class="dropdown-item link" href="roles_clientes.html">En Progreso</a>
                             <a class="dropdown-item link" href="roles_clientes.html">Completado</a>
                             <a class="dropdown-item link" href="roles_clientes.html">Cancelado</a>
                         </div>
                         <hr class="dropdown-divider">
                         <div class="darkeRed">
-                            <a class="dropdown-item link" href="dropdowns.html">Roles</a>
+                            <a class="dropdown-item link disabled" href="dropdowns.html">Roles</a>
                         </div>
                         <div class="red">
                             <a class="dropdown-item link" href="index.php?vista=clientes">Clientes</a>

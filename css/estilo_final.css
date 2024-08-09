@@ -38,6 +38,10 @@
 .link {
     color: white;
 }
+.disabled{
+    color: white;
+    opacity: 1;
+}
 /* foot */
 .footer {
     background-color: #600714;
@@ -147,10 +151,11 @@
 select {
     background-color: #800000;
     color: white;
+    height: calc(1.5em + .75rem + 2px);
 }
 /* clientes_inicio */
 .header-img {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../Integradora/img/cliente_img/cliente_inicio.jpg') no-repeat center center;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/cliente_img/cliente_inicio.jpg') no-repeat center center;
     background-size: cover;
     height: 300px;
     display: flex;
@@ -163,7 +168,7 @@ select {
     font-weight: bold;
 }
 .header-img-ub {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../Integradora/img/cliente_img/cliente_inicio_ubicacion.jpg') no-repeat center center;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/cliente_img/cliente_inicio_ubicacion.jpg') no-repeat center center;
     background-size: cover;
     height: 300px;
     display: flex;
@@ -186,7 +191,7 @@ select {
     border: 0;
 }
 .header-img-con {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../Integradora/img/cliente_img/cliente_inicio_consejos.jpg') no-repeat center center;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/cliente_img/cliente_inicio_consejos.jpg') no-repeat center center;
     background-size: cover;
     height: 300px;
     display: flex;
@@ -199,7 +204,7 @@ select {
     font-weight: bold;
 }
 .header-img-terminos {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../Integradora/img/cliente_img/cliente_inicio_terminos.jpg') no-repeat center center;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/cliente_img/cliente_inicio_terminos.jpg') no-repeat center center;
     background-size: cover;
     height: 300px;
     display: flex;
@@ -333,7 +338,7 @@ select {
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
+    max-width: 700px;
     width: 100%;
     margin: 20px 0;
 }
@@ -341,6 +346,13 @@ select {
     border: 2px solid #800000;
     border-radius: 15px;
     margin-bottom: 20px;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-clip: padding-box;
 }
 /* clientes_registrado_perfil*/
 .profile-container {
@@ -518,4 +530,14 @@ th.fixed-width {
 }
 .total-row {
     font-weight: bold;
+}
+.navbar-toggler {
+    border: none; /* Opcional: eliminar el borde del botón */
+}
+.navbar-toggler-icon {
+    width: 30px;
+    height: 30px;
+    background-size: 30px 30px; /* Tamaño del icono */
+    border-radius: 5px; /* Esquinas redondeadas (opcional) */
+    background-image: url("../img/menu.png");
 }

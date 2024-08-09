@@ -10,9 +10,9 @@
         
         <div class="service-divider"></div>
         <div class="table-responsive">
-            <table class="table table-bordered">
+            <table class="table tabla table-bordered">
                 <thead>
-                    <tr>
+                    <tr class="thBlanco">
                         <th>Concepto</th>
                         <th>Insumo</th>
                         <th>Unidad</th>
