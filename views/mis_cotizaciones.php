@@ -171,12 +171,12 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <form action="">
+                    <form action="" method="post">
                         <table class="table mb-0">
                             <tbody>
                                 <tr>
                                     <th>Fecha de entrega óptima:</th>
-                                    <td><input class="form-control" type="date" name="detalle"></td>
+                                    <td><input class="form-control" type="date" name="fecha"></td>
                                 </tr>
                                 <tr>
                                     <th colspan="2">Dirección:</th>
@@ -216,17 +216,17 @@
                                 <tr>
                                     <th>Tipo trabajo:</th>
                                     <td>
-                                        <div class="radio-group">
-                                            <div class="form-check custom-radio">
-                                                <input class="form-check-input" type="radio" name="tipo_trabajo" id="domestico" value="Domestico">
-                                                <label class="form-check-label" for="domestico">Domestico</label>
-                                            </div>
-                                            <div class="form-check custom-radio">
-                                                <input class="form-check-input" type="radio" name="tipo_trabajo" id="industrial" value="Industrial">
-                                                <label class="form-check-label" for="industrial">Industrial</label>
-                                            </div>
+                                    <div class="radio-group">
+                                        <div class="form-check custom-radio">
+                                            <input class="form-check-input" type="radio" name="tipo_trabajo" id="domestico" value="Domestico">
+                                            <label class="form-check-label" for="domestico">Domestico</label>
                                         </div>
-                                    </td>
+                                        <div class="form-check custom-radio">
+                                            <input class="form-check-input" type="radio" name="tipo_trabajo" id="industrial" value="Industrial">
+                                            <label class="form-check-label" for="industrial">Industrial</label>
+                                        </div>
+                                    </div>
+                                </td>
                                 </tr>
                                 <tr>
                                     <th>Archivos enviados:</th>
@@ -244,12 +244,25 @@
                                 </tr>
                             </tbody>
                         </table>
+
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary" id="guardarBtn">Guardar</button>
+                        </div>
+
+                        <?php
+if(isset($_POST['fecha']) || isset($_POST['calle']) || isset($_POST['colonia']) || isset($_POST['numero_ext']) || 
+isset($_POST['numero_int']) || isset($_POST['ciudad']) || isset($_POST['estado']) || isset($_POST['codigo_postal']) || isset($_POST['referencia']) || 
+isset($_POST['tipo_trabajo']) || isset($_POST['comentarios'])){
+
+    require_once "class/main.php";
+    require_once "scripts/script_editar_mi_cotizacion.php";
+
+}
+?>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" id="guardarBtn">Guardar</button>
-                </div>
+                
             </div>
         </div>
     </div>

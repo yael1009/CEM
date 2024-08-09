@@ -139,10 +139,11 @@
                             <td>'.$rows->comentarios.'</td>
                         </tr>
                     </tbody>
-                </table>'.
-                $id_solicitud=$rows->id_solicitud
-                .'<button type="button" class="btn btn-custom"><a href="index.php?vista=editar_mi_cotizacion" class="custom-link">Editar</a></button>
+                </table>
+                <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#EditarModal">Editar</button>
+
             ';
+            $id_solicitud=$rows->id_solicitud;
             $contador++;
 		}
 		$pag_final=$contador-1;
