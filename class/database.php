@@ -6,7 +6,7 @@ class database
     private $password = "";
  /*  // private $user = "".$_SESSION['usuario']."";
    // private $password = "contraseñainvitado";*/
-    private $server = "mysql:host=localhost;dbname=bd_cem";
+    private $server = "mysql:host=54.200.232.160;dbname=bd_cem";
 
    /* function conectardb()
     {
