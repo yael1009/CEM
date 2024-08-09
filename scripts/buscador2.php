@@ -1,7 +1,7 @@
 <?php
     include 'class/database.php';
-    $conexion=new database();
-    $conexion->conectardb();
+    $conexion=new database($_SESSION['usuario']);
+    //$conexion->conectardb();
     $consulta="SELECT * FROM vista_usuarios WHERE ((id_usuario!='".$_SESSION['id']."') AND id_empleado IS NULL AND (nombre LIKE '%$busqueda%' OR a_p LIKE '%$busqueda%' OR usuario LIKE '%$busqueda%' OR correo LIKE '%$busqueda%')) ORDER BY nombre ASC LIMIT $inicio,$registros";
     $buscador = $conexion->ejecutar($consulta);
     $resultado=$conexion->contar($buscador);

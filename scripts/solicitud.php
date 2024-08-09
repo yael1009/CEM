@@ -2,8 +2,8 @@
     <br>
     <?php
     include 'class/database.php';
-    $conexion = new database();
-    $conexion->conectardb();
+    $conexion = new database($_SESSION['usuario']);
+    //$conexion->conectardb();
 
     $consulta = "SELECT * FROM preview_solicitud";
     $tabla = $conexion -> seleccionar($consulta);

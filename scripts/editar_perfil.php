@@ -4,8 +4,8 @@ require_once 'class/database.php';
 $user = $_SESSION['id'];
 
 $main = new main();    
-$conexion = new database;
-$conexion->conectardb();
+$conexion = new database($_SESSION['usuario']);
+//$conexion->conectardb();
 
 // Recibir datos del formulario
 $nombres = !empty($_POST['nombres']) ? $main->limpiarstring($_POST['nombres']) : NULL;

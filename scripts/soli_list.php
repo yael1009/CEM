@@ -16,7 +16,7 @@
 		
 	}
 
-	$conexion=conexion();
+	//$conexion=conexion();
 
 	$datos = $conexion->query($consulta_datos);
 	$datos = $datos->fetchAll();

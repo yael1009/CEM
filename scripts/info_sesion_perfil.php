@@ -5,8 +5,8 @@ $user = $_SESSION['usuario']; // Obtén el ID del usuario desde la sesión
 require_once 'class/database.php';
 require_once 'class/main.php';
 
-$conexion = new database;
-$conexion->conectardb();
+$conexion = new database($_SESSION['usuario']);
+//$conexion->conectardb();
 
 // Ajusta la consulta para usar el Nombre del usuario en la sesion
 $consultaperfi = "SELECT PERSONAS.NOMBRE, PERSONAS.A_P, PERSONAS.A_M, PERSONAS.CORREO, PERSONAS.TELEFONO, USUARIOS.FOTO, USUARIOS.USUARIO, 
