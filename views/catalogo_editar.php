@@ -195,7 +195,7 @@
                 <form action="" autocomplete="off">
                     <label class="form-label" for="concepto">Concepto:</label>
                     <input class="form-control" type="text" name="concepto" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,1000}" maxlength="1000" required><br>
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" aria-label="Default select example" name="insumo">
                         <option selected>Insumo Usado</option>
                         <option value="1">Cable Cobre</option>
                         <option value="2">Interruptor Automatico</option>
@@ -207,7 +207,7 @@
                         <option value="8">Fusible</option>
                         <option value="9">Rele de Proteccion</option>
                     </select><br><br>
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" aria-label="Default select example" name="unidad">
                         <option selected>Unidad</option>
                         <option value="1">Unidad</option>
                         <option value="2">Pieza</option>
@@ -223,12 +223,27 @@
                     <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="unitario" pattern="[0-9]+" maxlength="10" required>
                     <span class="input-group-text">.00</span>
                     </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-custom" id="guardarBtn">Guardar</button>
+                    </div>
                 </form>
+
+                <?php
+
+                    if(isset($_POST['concepto']) || isset($_POST['insumo']) || isset($_POST['unidad']) || isset($_POST['cantidad']) || 
+                    isset($_POST['unitario'])){
+                
+                        require_once "class/main.php";
+                        require_once "scripts/editar_concepto_catalogo.php";
+                
+                    }
+                    ?>
+
+                ?>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-custom" id="guardarBtn">Guardar</button>
-            </div>
+            
         </div>
     </div>
 </div>
