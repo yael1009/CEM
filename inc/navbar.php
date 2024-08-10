@@ -12,11 +12,19 @@
                     <li class="nav-item"><a class="nav-link" href="index.php?vista=cotizar">Cotizar</a></li>
                     <li class="nav-item"><a class="nav-link" href="index.php?vista=portafolio">Portafolio</a></li>
                     <li class="nav-item"><a class="nav-link" href="index.php?vista=contacto">Contacto</a></li>
-                    <li class="nav-item dropdown">
+
+                    <?php
+                    if(isset($_SESSION['usuario'])){
+                    if(isset($_SESSION['administrador']) || isset($_SESSION['g_cotizaciones']) || isset($_SESSION['g_usuarios'])){
+                        
+                        ?><li class="nav-item dropdown">
+
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Administrar
                         </a>
                         <div class="dropdown-menu darkeRed" aria-labelledby="navbarDropdownMenuLink">
+                        <?php if(isset($_SESSION['administrador'])){
+                        ?>
                         <div class="darkeRed">
                             <a class="dropdown-item link disabled" href="index.php?vista=administrador">Administrador</a>
                         </div>
@@ -24,6 +32,8 @@
                             <a class="dropdown-item link" href="index.php?vista=aparatos">Aparatos</a>
                         </div>
                         <hr class="dropdown-divider">
+                        <?php }if(isset($_SESSION['g_cotizaciones'])){
+                        ?>
                         <div class="darkeRed">
                             <a class="dropdown-item link disabled" href="index.php?vista=cotizaciones">Cotizaciones</a>
                         </div>
@@ -34,6 +44,8 @@
                             <a class="dropdown-item link" href="index.php?vista=ordenes_canceladas">Cancelado</a>
                         </div>
                         <hr class="dropdown-divider">
+                        <?php }if(isset($_SESSION['g_usuarios'])){
+                        ?>
                         <div class="darkeRed">
                             <a class="dropdown-item link disabled" href="dropdowns.html">Roles</a>
                         </div>
@@ -41,8 +53,11 @@
                             <a class="dropdown-item link" href="index.php?vista=clientes">Clientes</a>
                             <a class="dropdown-item link" href="index.php?vista=empleados">Personal</a>
                         </div>
+                        <?php } ?>
                     </div>
                 </li>
+                <?php }} ?>
+
             </ul>
 
 

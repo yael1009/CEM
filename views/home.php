@@ -16,28 +16,6 @@
         <div class="header-img-con">
             <div>Consejos</div>
         </div>
-        <?php
-$usuario = 'prueba5';
-$password = 'prueba5';
-
-// Conectamos a la base de datos
-/*include 'class/database.php';
-$bd = new database();
-$bd->conectardb();*/
-$pdo = new PDO('mysql:host=localhost;dbname=bd_cem', 'prueba5', 'prueba5');
-
-// Ejecutamos el stored procedure para buscar la contraseña
-$stmt = $pdo->prepare("CALL buscar_contraseña(:usuario, @passIn)");
-$stmt->bindParam(':usuario', $usuario);
-$stmt->execute();
-
-// Recuperamos el resultado del stored procedure
-$stmt = $pdo->prepare("SELECT @passIn AS passIn");
-$stmt->execute();
-$fila = $stmt->fetch(PDO::FETCH_OBJ);
-
-// Mostramos el resultado
-echo "Retrieved password: " . $fila->passIn;?>
         <div class="content mt-4">
             <ul>
                 <li><b class="rojito">Valorar la Disponibilidad Horaria</b>
