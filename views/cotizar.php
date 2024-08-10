@@ -27,15 +27,12 @@
                 </div>
             </div>
 
-
-            <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#registro">Comenzar cotización</button>
-
             <p class="note">COTIZACIÓN SUJETA A CAMBIOS</p>
             <button class="btn btn-custom"
-            <?php if (isset($_SESSION['usuario'])) { ?>
+            <?php if (!isset($_SESSION['usuario'])) { ?>
             data-bs-toggle="modal" data-bs-target="#registro">Comenzar cotización
             <?php }else{
-            echo '><a class="custom-link" href="index.php?vista=registro">Comenzar cotización</a>';
+            echo '><a class="custom-link" href="index.php?vista=login">Comenzar cotización</a>';
             } ?>
             </button>
         </div>
@@ -87,8 +84,17 @@
                 </div>
                 <div class="modal-body">
                     <form id="form2" autocomplete="off">
+                    <?php
+                    // Obtener la fecha actua l
+                    $hoy = date("Y-m-d");
+                    
+                    // Calcular la fecha máxima (por ejemplo, 1 año en el futuro)
+                    $fechaMaxima = date("Y-m-d", strtotime("+1 year"));
+                    ?>
                         <label class="form-label" for="detalle">¿Qué fecha prefiere para programar la realización del trabajo?</label>
-                        <input class="form-control" type="date" name="detalle">
+                        <input class="form-control" type="date" name="fecha"
+                        min="<?php echo $hoy; ?>" 
+                        max="<?php echo $fechaMaxima; ?>">
                         
                         <label class="form-label" for="tipo_trabajo">Tipo de trabajo:</label>
                         <div class="radio-group">
@@ -105,9 +111,15 @@
                             <label class="form-label">Seleccione los Servicios:</label>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="cliente">
+                                <?php 
+                                include_once 'class/database.php';
+                                $db = new Database($_SESSION['usuario']);
+                                $ts=$db->seleccionar("");
+                                ?>
                                 <label class="form-check-label" for="cliente">
                                 Instalación de Sistemas Eléctricos:
                                 </label>
+
                             </div>
                         </div>
                         <label class="form-label" for="archivo">Subir Archivos</label>
@@ -182,6 +194,13 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     <button type="button" class="btn btn-primary" id="continuarBtn">Continuar</button>
                 </div>
+                <?php
+                    if(isset($_POST['nombre']) && isset($_POST['apaterno']) && isset($_POST['amaterno']) && isset($_POST['tel'])
+                    && isset($_POST['correo']) && isset($_POST['usuario']) && isset($_POST['pass']) && isset($_POST['compañia'])
+                    && isset($_POST['cargo'])){
+                        require_once "scripts/c_registro.php";
+                    }
+                ?>
             </div>
         </div>
     </div>

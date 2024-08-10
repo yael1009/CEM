@@ -43,41 +43,17 @@
             $_SESSION['nombre'] = $reg->nombre;
             $_SESSION['apellido'] = $reg->apaterno;
             $_SESSION['usuario'] = $reg->usuario;
-            if($reg->rol=='Cliente'){
-                $_SESSION['cliente'] = $reg->rol;
+            $_SESSION['roles'] = array();
+            if($reg->estado=="1"){
+            $_SESSION['roles'][] = $reg->rol;
             }
-            else if($reg->rol=='Gestor de Cotizaciones'){
-                $_SESSION['g_cotizaciones'] = $reg->rol;
-            }
-            else if($reg->rol=='Gestor de Usuarios'){
-                $_SESSION['g_usuarios'] = $reg->rol;
-            }
-            else if($reg->rol=='Administrador'){
-                $_SESSION['administrador'] = $reg->rol;
+                        echo "Rol: ";
+            foreach($_SESSION['roles'] as $rol){
+                echo $rol . "<br>";
             }
         }
 
-        echo "ID: " . $_SESSION['id'] . "<br>";
-        echo "Nombre: " . $_SESSION['nombre'] . "<br>";
-        echo "Apellido: " . $_SESSION['apellido'] . "<br>";
-        echo "Usuario: " . $_SESSION['usuario'] . "<br>";
-        echo "Rol: ";
-        if(isset($_SESSION['cliente'])){
-            echo $_SESSION['cliente'] . "<br>";
-        } else if(isset($_SESSION['g_cotizaciones'])){
-            echo $_SESSION['g_cotizaciones'] . "<br>";
-        } else if(isset($_SESSION['g_usuarios'])){
-            echo $_SESSION['g_usuarios'] . "<br>";
-        } else if(isset($_SESSION['administrador'])){
-            echo $_SESSION['administrador'] . "<br>";
-        }
-        echo "------------------------<br>";
-
-        if(headers_sent()){
-            echo '<script> <meta http-equiv="refresh" content="3;url=index.php?vista=home">; </script>';
-        }else{
-            header("refresh:10;url=index.php?vista=home");
-        }
+        header("refresh:10;url=index.php?vista=home");
         echo "<div class='alert alert-success'>INICIO DE SESION EXITOSO</div>";
         exit();
     }
