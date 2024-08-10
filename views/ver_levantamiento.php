@@ -8,30 +8,18 @@
             <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#conceptModal">Añadir Aparato</button>
             <button class="btn btn-custom">Guardar</button>
         </div>
-        <table>
-            <tbody>
-                <tr>
-                    <td class="section-title">Voltaje del Circuito</td>
-                    <td>
-                        <div class="radio-group">
-                            <div class="form-check custom-radio">
-                                <input class="form-check-input" type="radio" name="tipo_trabajo" id="domestico" value="Domestico">
-                                <label class="form-check-label" for="domestico">127 V</label>
-                            </div>
-                            <div class="form-check custom-radio">
-                                <input class="form-check-input" type="radio" name="tipo_trabajo" id="industrial" value="Industrial">
-                                <label class="form-check-label" for="industrial">220 V</label>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="service-divider"></div>
         <table class="table">
             <tbody>
                 <tr class="total-row">
-                    <td class="text-right">Resultado:</td>
+                    <th class="section-title text-right">Voltaje del Circuito</th>
+                    <td class="text-right">Voltaje Insertado</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table">
+            <tbody>
+                <tr class="total-row">
+                    <th class="text-right">Resultado:</th>
                     <td class="text-right">######</td>
                 </tr>
             </tbody>

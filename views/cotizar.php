@@ -28,7 +28,6 @@
             </div>
 
 
-            <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#registro">Comenzar cotización</button>
 
             <p class="note">COTIZACIÓN SUJETA A CAMBIOS</p>
             <button class="btn btn-custom"

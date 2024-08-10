@@ -1,4 +1,5 @@
 <div class="container mt-4">
+<h1 class="text-center">Soliciudes</h1>
 
     <!-- Solicitudes -->
     <div class="service-divider"></div>
@@ -6,7 +7,7 @@
     <div class="centerr">
         <form action="" autocomplete="off">
             <input class="form-control" type="text" name="txt_buscador" placeholder="¿Qué estas buscando?" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{1,30}" maxlength="30">
-            <button class="btn btn-custom">Buscar</button>
+            <br><button class="btn btn-custom">Buscar</button>
             <button class="btn btn-custom">Quitar Busqueda</button>
         </form>
     </div>

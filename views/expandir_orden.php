@@ -28,43 +28,12 @@
                     <td>Fecha de entrega óptima</td>
                 </tr>
                 <tr>
-                    <th class="section-title" colspan="2">Dirección</th>
+                    <th class="section-title">Dirección</th>
+                    <td>Dirección</td>
                 </tr>
                 <tr>
-                    <th class="section-title">Calle</th>
-                    <th class="section-title">Colonia</th>
-                </tr>
-                <tr class="tablee">
-                    <td class="tablee">
-                        Calle
-                    </td>
-                    <td class="tablee">
-                        Colonia
-                    </td>
-                </tr>
-                <tr class="tablee">
-                    <td class="tablee">
-                        Numero Exterior
-                    </td>
-                    <td class="tablee">
-                        Numero Interior
-                    </td>
-                </tr>
-                <tr class="tablee">
-                    <td class="tablee">
-                        Ciudad
-                    </td>
-                    <td class="tablee">
-                        Estado
-                    </td>
-                </tr>
-                <tr class="tablee">
-                    <td class="tablee">
-                        Codigo Postal
-                    </td>
-                    <td class="tablee">
-                        Referencia
-                    </td>
+                    <th class="section-title">Referencia</th>
+                    <td>Referencia</td>
                 </tr>
                 <tr>
                     <th class="section-title">Tipo de trabajo</th>
@@ -80,7 +49,7 @@
                 </tr>
                 <tr>
                     <th class="section-title">Levantamiento</th>
-                    <td><button class="btn btn-custom btn-sm"><a href="index.php?vista=ver_levantamiento">Ver Levantamient</a>o</button>
+                    <td><button class="btn btn-custom btn-sm"><a href="index.php?vista=ver_levantamiento">Ver Levantamiento</a></button>
                         <button class="btn btn-custom btn-sm" data-toggle="modal" data-target="#LevantamientoModalVoltaje">Crear Levantamiento</button></td>
                 </tr>
                 <tr>
@@ -90,6 +59,10 @@
                 <tr>
                     <th class="section-title">Comentarios del cliente</th>
                     <td>Comentarios del cliente</td>
+                </tr>
+                <tr>
+                    <th class="section-title">IVA</th>
+                    <td>IVA</td>
                 </tr>
                 <tr>
                     <th class="section-title">Subtotal</th>
@@ -104,12 +77,40 @@
 
         <div class="actions text-center">
             <button class="btn btn-custom mx-1">Cancelar orden</button>
+            <button class="btn btn-custom mx-1">Aceptar orden</button>
             <button class="btn btn-custom mx-1"><a href="index.php?vista=catalogo_editar">Ver Catálogo</a></button>
-            <button class="btn btn-custom mx-1"><a href="index.php?vista=editar_orden">Editar</a></button>
+            <button class="btn btn-custom mx-1" data-toggle="modal" data-target="#EditarModal">Editar Estado</button>
             <button class="btn btn-custom mx-1"> <a href="index.php?vista=ordenes_solicitudes">Regresar</a></button>
         </div>
     </div>
     
+    <!-- Modal de Creacion de Levantamiento Escoger el Voltaje-->
+    <div class="modal fade" id="EditarModal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editarModalLabel">Editar Estado</h5>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <form action="">
+                            <label class="form-label" for="estado">Editar Estado</label><br>
+                            <select class="form-select same" aria-label="Default select example">
+                            <option selected>En Progreso</option>
+                            <option value="2">Completado</option>
+                            <option value="3">Descartado</option>
+                            </select>
+                        </form>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-primary" id="updateBtnEstadoOrden">Cambiar Estado</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Modal de Creacion de Levantamiento Escoger el Voltaje-->
     <div class="modal fade" id="LevantamientoModalVoltaje" tabindex="-1" role="dialog" aria-labelledby="levantamientoModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl" role="document">
