@@ -83,7 +83,7 @@
         echo "------------------------<br>";
 */
 
-        header("refresh:10;url=index.php?vista=home");
+        header("refresh:1;url=index.php?vista=home");
         echo "<div class='alert alert-success'>INICIO DE SESION EXITOSO</div>";
         exit();
     }

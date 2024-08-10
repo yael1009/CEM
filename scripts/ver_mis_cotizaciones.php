@@ -12,9 +12,9 @@
 
 	}else{
 
-		$consulta_datos="SELECT * FROM VistaParcialSolicitudes  WHERE usuario='".$_SESSION['id']."' ORDER BY fecha_solicitud ASC LIMIT $inicio,$registros";
+		$consulta_datos="SELECT * FROM VistaCompletaSolicitudes  WHERE usuario='".$_SESSION['id']."' GROUP BY id_solicitud ORDER BY fecha_solicitud ASC LIMIT $inicio,$registros";
 
-		$consulta_total="SELECT COUNT( DISTINCT id_solicitud) FROM VistaParcialSolicitudes  WHERE usuario='".$_SESSION['id']."'";
+		$consulta_total="SELECT COUNT( DISTINCT id_solicitud) FROM VistaCompletaSolicitudes  WHERE usuario='".$_SESSION['id']."'";
 		
 	}
 	
@@ -125,8 +125,23 @@
                                 $tabla .= $rows->estado_orden;
                             }
                             $tabla.='</td>
-                        </tr>
-                        <tr>
+                        </tr>';
+                        if ($rows->id_venta !== NULL){
+                            $tabla.='
+                            <tr>
+                                <th>Subtotal:</th>
+                                <td>'.$rows->subtotal.'</td>
+                            </tr>
+                            <tr>
+                                <th>IVA:</th>
+                                <td>'.$rows->iva.'</td>
+                            </tr>
+                            <tr>
+                                <th>Total:</th>
+                                <td>'.$rows->total.'</td>
+                            </tr>';
+                        }
+                        $tabla.='<tr>
                             <th>Archivos enviados:</th>
                             <td>';
                             foreach($archivos as $rows2){

@@ -32,7 +32,7 @@
                             <a class="dropdown-item link" href="index.php?vista=aparatos">Aparatos</a>
                         </div>
                         <hr class="dropdown-divider">
-                        <?php }if(isset($_SESSION['g_cotizaciones'])){
+                        <?php }if(isset($_SESSION['g_cotizaciones']) || isset($_SESSION['administrador'])){
                         ?>
                         <div class="darkeRed">
                             <a class="dropdown-item link disabled" href="index.php?vista=cotizaciones">Cotizaciones</a>
@@ -43,9 +43,8 @@
                             <a class="dropdown-item link" href="index.php?vista=ordenes_completado">Completado</a>
                             <a class="dropdown-item link" href="index.php?vista=ordenes_canceladas">Cancelado</a>
                         </div>
+                        <?php }if(isset($_SESSION['g_usuarios']) || isset($_SESSION['administrador'])){?>
                         <hr class="dropdown-divider">
-                        <?php }if(isset($_SESSION['g_usuarios'])){
-                        ?>
                         <div class="darkeRed">
                             <a class="dropdown-item link disabled" href="dropdowns.html">Roles</a>
                         </div>
