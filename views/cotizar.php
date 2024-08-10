@@ -125,7 +125,7 @@
                         </div>
                         <label class="form-label" for="archivo">Subir Archivos</label>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="img_serv" name="img_serv">
+                            <input type="file" class="custom-file-input" id="img_serv" name="img_serv" accept=".pdf">
                             <label class="custom-file-label" for="img_serv">Seleccionar archivo</label>
                         </div>
                         <br><br><button type="button" class="btn btn-custom">Agregar Otro Archivo</button><br>

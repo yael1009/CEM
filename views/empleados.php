@@ -49,7 +49,7 @@
             $busqueda=$_SESSION['busqueda_empleados']; /* <== */
 
         }
-        echo '    <div class="profile-container mt-4">';
+        echo '    <div class="personal-container">';
 
             # Eliminar usuario #
             /*if(isset($_GET['user_id_del'])){
@@ -66,8 +66,8 @@
             }
 
             $pagina=$main->limpiarstring($pagina);
-            $url="index.php?vista=roles&page="; /* <== */
-            $registros=5;
+            $url="index.php?vista=empleados&page="; /* <== */
+            $registros=5;x
 
             # Paginador usuario #
             require_once "./scripts/empleado_lista.php";

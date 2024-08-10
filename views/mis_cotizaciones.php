@@ -29,11 +29,11 @@
                     $busqueda="";
 
                     require_once "./scripts/ver_mis_cotizaciones.php";
+
+                    if(isset($_POST['cancelar'])){
+                        require_once "./scripts/cancelar_orden.php";
+                    }
                 ?>
-            </div>
-            <div class="button-container">
-                <button type="button" class="btn btn-custom">Cancelar orden</button>
-                <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#EditarModal">Editar</button>
             </div>
         </div>
     </div>
