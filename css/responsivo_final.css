@@ -3,16 +3,37 @@
     body {
       background-color: lightcoral; /* Fondo coral claro */
     }
+    .nav-item {
+      width: 100%;
+    }
+    .navbar-collapse{
+      text-align: right;
+    }
+    .dropdown-menu.show{
+      text-align: right;
+    }
+    .header-img{
+      font-size: 2rem;
+    }
+    .header-img-terminos{
+      font-size: 2rem;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .grande{
+      font-size: 3rem;
+    }
+    .service-img{
+      max-width: 300px;
+    }
+  }
 
 
 
 
-
-
-
-
-
-
-
-    
-}
+  /* Estilos para pantallas mayores o iguales a 800px */
+  @media (min-width: 800px) {
+    .padd{
+        padding-left: 290px;
+    }
+    }

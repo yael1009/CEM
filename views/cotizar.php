@@ -27,6 +27,7 @@
                 </div>
             </div>
 
+
             <p class="note">COTIZACIÓN SUJETA A CAMBIOS</p>
             <button class="btn btn-custom"
             <?php if (!isset($_SESSION['usuario'])) { ?>
