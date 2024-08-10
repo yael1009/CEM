@@ -5,7 +5,7 @@ $main = new main;
 $conexion = new database($_SESSION['usuario']);
 //$conexion->conectardb();
 
-$user = $_SESSION['id'];
+$user = $_SESSION['usuario'];
 
 //Datos del formulario, ahora solo se asignan si tienen valor
 $fechap = !empty($_POST['fecha']) ? $main->limpiarstring($_POST['fecha']) : null;
@@ -68,7 +68,7 @@ if ($comentariop && $main->verificar_datos("[a-zA-Z0-9$@.-]{7,2000}", $comentari
 
 try {
     $query = ("CALL EDITAR_MI_COTIZACION(
-        :id,
+        :id_solicitud,
         :fecha,
         :tipo_trabajo,
         :comentarios,
@@ -79,12 +79,12 @@ try {
         :codigo_postal,
         :ciudad,
         :estado,
-        :referencia,
+        :referencia
     )");
 
     $stmt = $conexion->preparar($query);
 
-    $stmt->bindParam(':id', $user, PDO::PARAM_INT);
+    $stmt->bindParam(':id_solicitud', $id_solicitud, PDO::PARAM_INT);
     $stmt->bindParam(':fecha', $fechap, PDO::PARAM_STR);
     $stmt->bindParam(':calle', $callep, PDO::PARAM_STR);
     $stmt->bindParam(':colonia', $coloniap, PDO::PARAM_STR);
