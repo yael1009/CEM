@@ -30,7 +30,7 @@
 
             <p class="note">COTIZACIÓN SUJETA A CAMBIOS</p>
             <button class="btn btn-custom"
-            <?php if (!isset($_SESSION['usuario'])) { ?>
+            <?php if (isset($_SESSION['usuario'])) { ?>
             data-bs-toggle="modal" data-bs-target="#registro">Comenzar cotización
             <?php }else{
             echo '><a class="custom-link" href="index.php?vista=login">Comenzar cotización</a>';
@@ -103,32 +103,69 @@
                                 <input class="form-check-input" type="radio" name="tipo_trabajo" id="domestico" value="Domestico">
                                 <label class="form-check-label" for="domestico">Domestico</label>
                             </div>
+
                             <div class="form-check custom-radio">
                                 <input class="form-check-input" type="radio" name="tipo_trabajo" id="industrial" value="Industrial">
                                 <label class="form-check-label" for="industrial">Industrial</label>
                             </div>
                         </div>
+
                         <div class="form-group">
                             <label class="form-label">Seleccione los Servicios:</label>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="cliente">
                                 <?php 
                                 include_once 'class/database.php';
                                 $db = new Database($_SESSION['usuario']);
-                                $ts=$db->seleccionar("");
+                                    $query="SELECT * FROM TIPO_SERVICIO ";
+                                    $solicitudes = $db->seleccionar($query);
+                                    foreach ($solicitudes as $rows2) {
+                                        $query2="SELECT servicio FROM SERVICIOS  WHERE  tipo_servicio='".$rows2->id_tipo_servicio."'";
+                                        $servicios = $db->seleccionar($query2);
+        
+                                        echo "<strong>".$rows2->tipo_servicio."</strong> <br>";
+                                        foreach ($servicios as $rows3) {
+                                            echo '<br>
+                                            <input class="form-check-input" type="checkbox" name="servicios" value="'.$rows3->servicio.'" id="cliente">
+                                            <label class="form-check-label" for="cliente">
+                                            '.$rows3->servicio.'
+                                            </label> <br>';
+                                        }
+                                        } 
+                                $db->desconectardb(); 
                                 ?>
-                                <label class="form-check-label" for="cliente">
-                                Instalación de Sistemas Eléctricos:
-                                </label>
-
                             </div>
                         </div>
+                        
                         <label class="form-label" for="archivo">Subir Archivos</label>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="img_serv" name="img_serv" accept=".pdf">
-                            <label class="custom-file-label" for="img_serv">Seleccionar archivo</label>
+                        <div id="contenedor-archivos">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="img_serv_1" name="img_serv_1" accept=".pdf">
+                                <label class="custom-file-label" for="img_serv_1">Seleccionar archivo</label>
+                            </div>
                         </div>
-                        <br><br><button type="button" class="btn btn-custom">Agregar Otro Archivo</button><br>
+
+                        <br>
+                        <button type="button" class="btn btn-custom" onclick="agregarArchivo()">Agregar Otro Archivo</button>
+                        <br><br>
+
+                        <script>
+                            let contador = 1; 
+                            function agregarArchivo() {
+                                if (contador < 3) {
+                                    contador++;
+                                    const div = document.createElement('div');
+                                    div.className = 'custom-file';
+                                    div.innerHTML = `
+                                        <input type="file" class="custom-file-input" id="img_serv_${contador}" name="img_serv_${contador}" accept=".pdf">
+                                        <label class="custom-file-label" for="img_serv_${contador}">Seleccionar archivo</label>
+                                    `;
+                                    document.getElementById('contenedor-archivos').appendChild(div);
+                                } else {
+                                    alert('Solo puedes agregar un máximo de 3 archivos.');
+                                }
+                            }
+                        </script>
+
                         <label class="form-label" for="comentarios">Comentarios</label>
                         <textarea class="form-control" name="comentarios" rows="3" pattern="[a-zA-Z0-9$@.-]{7,2000}" maxlength="2000"></textarea>
                     </form>
@@ -193,14 +230,14 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" id="continuarBtn">Continuar</button>
+                    <button type="submit" class="btn btn-primary" id="continuarBtn">Terminar</button>
                 </div>
                 <?php
-                    if(isset($_POST['nombre']) && isset($_POST['apaterno']) && isset($_POST['amaterno']) && isset($_POST['tel'])
-                    && isset($_POST['correo']) && isset($_POST['usuario']) && isset($_POST['pass']) && isset($_POST['compañia'])
-                    && isset($_POST['cargo'])){
-                        require_once "scripts/c_registro.php";
-                    }
+                if(isset($_POST['fecha']) && isset($_POST['tipo_trabajo']) && isset($_POST['servicios']) && isset($_POST['calle'])
+                && isset($_POST['colonia']) && isset($_POST['numero_ext']) && isset($_POST['ciudad']) && isset($_POST['estado'])
+                && isset($_POST['codigo_postal'])){
+                    require_once "scripts/insertar_solicitud.php";
+                }
                 ?>
             </div>
         </div>
