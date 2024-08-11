@@ -16,6 +16,8 @@ $correo = !empty($_POST['correo']) ? $main->limpiarstring($_POST['correo']) : NU
 $usuario = !empty($_POST['usuario']) ? $main->limpiarstring($_POST['usuario']) : NULL;
 $compania = !empty($_POST['uso']) ? $main->limpiarstring($_POST['uso']) : NULL;
 $cargo = !empty($_POST['cargo']) ? $main->limpiarstring($_POST['cargo']) : NULL;
+$RFC = !empty($_POST['RFC']) ? $main->limpiarstring($_POST['RFC']) : NULL;
+$NSS = !empty($_POST['NSS']) ? $main->limpiarstring($_POST['NSS']) : NULL;
 
 $foto = NULL;
 
@@ -67,8 +69,18 @@ if ($usuario && $main->verificar_datos("[a-zA-Z0-9]{4,50}", $usuario)) {
     exit();
 }
 
+if ($RFC && $main->verificar_datos("^[A-ZÑ&]{3,4}\d{6}[A-Z\d]{3}$", $RFC)) {
+    echo $main->mensaje_error("El RFC no coincide con el formato solicitado");
+    exit();
+}
+
+if ($NSS && $main->verificar_datos("\d{11}", $NSS)) {
+    echo $main->mensaje_error("El Numero de Seguro Social no coincide con el formato solicitado");
+    exit();
+}
+
 try {
-    $query = "CALL EDITAR_USER_CLIENTE(
+    $query = "CALL EDITAR_USER(
         :id,
         :usuario,
         :foto,
@@ -78,7 +90,9 @@ try {
         :correo,
         :tel,
         :uso,
-        :cargo
+        :cargo,
+        :RFC,
+        :NSS
     )";
 
     $stmt = $conexion->preparar($query);
@@ -93,6 +107,8 @@ try {
     $stmt->bindParam(':tel', $tel, PDO::PARAM_STR);
     $stmt->bindParam(':uso', $compania, PDO::PARAM_STR);
     $stmt->bindParam(':cargo', $cargo, PDO::PARAM_STR);
+    $stmt->bindParam(':RFC', $RFC, PDO::PARAM_STR);
+    $stmt->bindParam(':NSS', $NSS, PDO::PARAM_INT);
 
     if (!empty($_POST['usuario'])) {
         $_SESSION['usuario'] = $_POST['usuario'];

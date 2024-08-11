@@ -142,14 +142,27 @@
                                 <th class="fixed-width">Usuario:</th>
                                 <td><input type="text" name="usuario" pattern="[a-zA-Z0-9]{4,50}" class="form-control"></td>
                             </tr>
-                            <tr>
-                                <th class="fixed-width">Uso de la cuenta:</th>
-                                <td><input type="text" name="uso" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}" class="form-control"></td>
+                            <?php
+                            if($id_rol = 4){
+                            echo "<tr>
+                                <th class='fixed-width'>Uso de la cuenta:</th>
+                                <td><input type='text' name='uso' pattern='[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}' class='form-control'></td>
                             </tr>
                             <tr>
-                                <th class="fixed-width">Cargo de la compañía:</th>
-                                <td><input type="text" name="cargo" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}" class="form-control"></td>
+                                <th class='fixed-width'>Cargo de la compañía:</th>
+                                <td><input type='text' name='cargo' pattern='[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}' class='form-control'></td>
+                            </tr>";
+                            }else{
+                                echo "<tr>
+                                <th class='fixed-width'>RFC:</th>
+                                <td><input type='text' name='RFC' pattern='^[A-ZÑ&]{3}\d{6}[A-Z0-9]{3}$' class='form-control'></td>
                             </tr>
+                            <tr>
+                                <th class='fixed-width'>NSS:</th>
+                                <td><input type='text' name='NSS' pattern='^\d{2}\d{2}\d{2}\d{5}$' class='form-control'></td>
+                            </tr>";
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>
@@ -160,7 +173,7 @@
     <?php
 
     if(isset($_POST['usuario']) || isset($_POST['uso']) || isset($_POST['cargo']) || isset($_POST['nombres']) || 
-    isset($_POST['a_p']) || isset($_POST['a_m']) || isset($_POST['tel']) || isset($_POST['correo'])){
+    isset($_POST['a_p']) || isset($_POST['a_m']) || isset($_POST['tel']) || isset($_POST['correo']) || isset($_POST['RFC']) || isset($_POST['NSS'])){
 
         require_once "class/main.php";
         require_once "scripts/editar_perfil.php";
