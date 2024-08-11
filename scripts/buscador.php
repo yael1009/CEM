@@ -4,7 +4,7 @@
 	$modulo_buscador=$main->limpiarstring($_POST['modulo_buscador']);
 
     //nombres permitidos
-	$modulos=["usuario","solicitudes","insumos","empleados"];
+	$modulos=["usuario","solicitud","empleados","completado","cancelada","progreso"];
 
     //verifica si el nombre es correcto con los permitidos
 	if(in_array($modulo_buscador, $modulos)){
@@ -12,9 +12,12 @@
         //si es correcto, nombra la variable segun el nombre para redirijir a la url
 		$modulos_url=[
 			"usuario"=>"clientes",
-			"solicitudes"=>"cotizaciones",
-			"insumos"=>"product_search",
-			"empleados"=>"empleados"
+			"solicitud"=>"ordenes_solicitudes",
+			"empleados"=>"empleados",
+			"progreso"=>"ordenes_en_progreso",
+			"completado"=>"ordenes_completado",
+			"cancelada"=>"ordenes_canceladas",
+
 		];
 
         //Iguala la variable al nombre quese ingresa

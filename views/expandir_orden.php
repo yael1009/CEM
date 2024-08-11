@@ -1,6 +1,6 @@
 <div class="container">
         <div class="header-title">
-            <h2>ID_ORDEN</h2>
+            <h2>" <?php echo $_POST['id_solicitud'] ?> "</h2>
         </div>
 
         <div class="order-info row">

@@ -15,7 +15,7 @@
     <div class="columns">
         <div class="column">
             <form action="" method="POST" autocomplete="off" >
-                <input type="hidden" name="modulo_buscador" value="usuario">   
+                <input type="hidden" name="modulo_buscador" value="solicitud">   
                 <div class="field is-grouped">
                     <p class="control is-expanded">
                         <input class="form-control" type="text" name="txt_buscador" placeholder="¿Qué estas buscando?" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{1,30}" maxlength="30" >
@@ -64,7 +64,8 @@
             $registros=5;
 
             # Paginador usuario #
-            require_once "./scripts/solicitud.php";
+            $distintivo='AND estado_orden IS NULL AND estado_solicitud != "Cancelado"';
+            require_once "./scripts/solicitud_lista.php";
     ?>
     <br>
                 </div>

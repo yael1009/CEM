@@ -1,4 +1,3 @@
-<div class="tab-pane fade show active" id="solicitudes" role="tabpanel" aria-labelledby="solicitudes-tab">
     <br>
     <?php
     include 'class/database.php';
@@ -21,7 +20,7 @@
                     <p>$reg->fecha_esperada</p>
                     <p>$reg->ubicacion</p>
                 </div>
-                <a href='#' class='text-danger'>expandir</a>
+                <a href='index.php?vista=expandir_orden' class='text-danger'>expandir</a>
             </div>
         </div>
     </div>
@@ -29,4 +28,3 @@
     }
     $conexion->desconectardb();
     ?>
-</div>

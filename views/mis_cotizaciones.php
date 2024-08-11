@@ -21,7 +21,7 @@
                         if($pagina<=1){
                             $pagina=1;
                         }
-                    }
+                    }d
 
                     $pagina=$main->limpiarstring($pagina);
                     $url="index.php?vista=mis_cotizaciones&page=";

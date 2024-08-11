@@ -67,7 +67,7 @@
 
             $pagina=$main->limpiarstring($pagina);
             $url="index.php?vista=empleados&page="; /* <== */
-            $registros=5;x
+            $registros=5;
 
             # Paginador usuario #
             require_once "./scripts/empleado_lista.php";
