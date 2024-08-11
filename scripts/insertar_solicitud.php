@@ -50,7 +50,7 @@
         exit();
     }
 
-    if($main->verificar_datos("[a-zA-Z0-9$@.]{7,100}",$correo)) //meter ese patter
+    /*if($main->verificar_datos("[a-zA-Z0-9$@.]{7,100}",$correo)) //meter ese patter
     {
         echo $main->mensaje_error("El correo no coincide con el formato solicitado");
         exit();
@@ -81,6 +81,7 @@
     }
 
             /*== Verificando email ==*/
+
     if($correo!=""){
         if(filter_var($correo, FILTER_VALIDATE_EMAIL)){
             if($db->contar("SELECT correo FROM personas WHERE correo='$correo'")>0){
@@ -98,7 +99,7 @@
     if($db->contar("SELECT usuario FROM usuarios WHERE usuario='$usuario'")>0){
         echo $main->mensaje_error("El USUARIO ingresado ya se encuentra registrado, por favor elija otro");
         exit();
-    }
+    }*/
 
         $query=("CALL CREAR_USUARIO_CL('$nombre', '$apaterno', '$amaterno', '$correo', '$tel', '$usuario', '$pass', '$compañia', '$cargo')");
 

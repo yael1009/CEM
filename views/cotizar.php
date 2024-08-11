@@ -139,7 +139,7 @@
                         <label class="form-label" for="archivo">Subir Archivos</label>
                         <div id="contenedor-archivos">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="img_serv_1" name="img_serv_1" accept=".pdf">
+                                <input type="file" class="custom-file-input" id="img_serv_1" name="img_serv[]" accept=".pdf">
                                 <label class="custom-file-label" for="img_serv_1">Seleccionar archivo</label>
                             </div>
                         </div>
@@ -149,21 +149,22 @@
                         <br><br>
 
                         <script>
-                            let contador = 1; 
-                            function agregarArchivo() {
-                                if (contador < 3) {
-                                    contador++;
-                                    const div = document.createElement('div');
-                                    div.className = 'custom-file';
-                                    div.innerHTML = `
-                                        <input type="file" class="custom-file-input" id="img_serv_${contador}" name="img_serv_${contador}" accept=".pdf">
-                                        <label class="custom-file-label" for="img_serv_${contador}">Seleccionar archivo</label>
-                                    `;
-                                    document.getElementById('contenedor-archivos').appendChild(div);
-                                } else {
-                                    alert('Solo puedes agregar un máximo de 3 archivos.');
-                                }
+                        let contador = 1; // Iniciamos en 1 porque ya hay un campo visible
+                        function agregarArchivo() {
+                            if (contador < 3) {
+                                contador++;
+                                const div = document.createElement('div');
+                                div.className = 'custom-file';
+                                div.innerHTML = `
+                                    <input type="file" class="custom-file-input" id="img_serv_${contador}" name="img_serv[]" accept=".pdf">
+                                    <label class="custom-file-label" for="img_serv_${contador}">Seleccionar archivo</label>
+                                    <br><br>
+                                `;
+                                document.getElementById('contenedor-archivos').appendChild(div);
+                            } else {
+                                alert('Solo puedes agregar un máximo de 3 archivos.');
                             }
+                        }
                         </script>
 
                         <label class="form-label" for="comentarios">Comentarios</label>
