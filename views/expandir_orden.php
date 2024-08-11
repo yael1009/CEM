@@ -8,13 +8,21 @@
             $main=new main();
             $conexion=new database($_SESSION['usuario']);
 
-            $id_solicitud=$main->limpiarstring($_POST['id_solicitud']); 
+            //si quiero volver al action slo dejo la guardada de la variable y quito TODO el if
+            if(!isset($_SESSION['id_solicitud'])){
+            $id_solicitud=$main->limpiarstring($_POST['id_solicitud']);
+             $_SESSION['id_solicitud']="$id_solicitud";
+            }else{
+                $id_solicitud=$main->limpiarstring($_SESSION['id_solicitud']);
+            } 
             echo $id_solicitud;
 
             $consulta_datos=("SELECT * FROM VistaCompletaSolicitudes  WHERE id_solicitud='".$id_solicitud."' GROUP BY id_solicitud");
             $rows = $conexion->seleccionar1($consulta_datos);
+            $consulta_usuario=("SELECT DISTINCT concat(nombre, ' ',a_p, ' ',a_m) AS nombre_completo,telefono FROM vista_usuarios ");
+            $rows_usuario = $conexion->seleccionar1($consulta_usuario);
 
-            if(isset($_POST['id_solicitud'])){
+            if(isset($id_solicitud) || $rows != 'Cancelado'){
                 $conexion->ejecutar("UPDATE SOLICITUDES SET estado = 'Visto' WHERE id_solicitud = $id_solicitud");
             }
             ?>
@@ -23,10 +31,12 @@
 
         <div class="order-info row">
             <div class="col-md-8">
-                <h6>Cliente</h6>
-                <p>Usuario: jorgito_uwu<br>
-                    Nombre completo: Jorge Fabela uwu<br>
-                    Teléfono: 871 666 6969</p>
+                <?php echo 
+                '<h6>Cliente</h6>
+                <p>Usuario: "'.$rows->usuario.'"<br>
+                    Nombre completo: "'.$rows_usuario->nombre_completo.'"<br>
+                    Teléfono: "'.$rows_usuario->telefono.'"</p>';
+                ?>
             </div>
             <div class="col-md-4 text-center">
                 <div class="profile-img-table">
@@ -36,9 +46,9 @@
         </div>
 
         <?php
-        $query="SELECT DISTINCT tipo_servicio FROM VistaCompletaSolicitudes  WHERE usuario='".$_SESSION['id']."' AND id_solicitud='".$rows->id_solicitud."' ORDER BY fecha_solicitud";
+        $query="SELECT DISTINCT tipo_servicio FROM VistaCompletaSolicitudes  WHERE id_solicitud='".$rows->id_solicitud."' ORDER BY fecha_solicitud";
             $solicitudes = $conexion->seleccionar($query);
-            $query_archivo="SELECT DISTINCT archivo_ruta FROM VistaCompletaSolicitudes  WHERE usuario='".$_SESSION['id']."' AND id_solicitud='".$rows->id_solicitud."' ORDER BY fecha_solicitud";
+            $query_archivo="SELECT DISTINCT archivo_ruta FROM VistaCompletaSolicitudes  WHERE id_solicitud='".$rows->id_solicitud."' ORDER BY fecha_solicitud";
             $archivos = $conexion->seleccionar($query_archivo);
             $tabla="";
 			$tabla.='
@@ -68,7 +78,7 @@
                     <th class="section-title">Servicios</th>
                     <td>';
                     foreach ($solicitudes as $rows2) {
-                        $query2="SELECT DISTINCT servicio FROM VistaCompletaSolicitudes  WHERE usuario='".$_SESSION['id']."' AND tipo_servicio='".$rows2->tipo_servicio."' AND id_solicitud='".$rows->id_solicitud."'";
+                        $query2="SELECT DISTINCT servicio FROM VistaCompletaSolicitudes  WHERE tipo_servicio='".$rows2->tipo_servicio."' AND id_solicitud='".$rows->id_solicitud."'";
                         $servicios = $conexion->seleccionar($query2);
 
                         $tabla .= "<strong>".$rows2->tipo_servicio."</strong> <br>";
@@ -136,7 +146,10 @@
         </table>
 
         <div class="actions text-center">
-            <button class="btn btn-custom mx-1">Cancelar orden</button>
+            <form action="" method="POST" autocomplete="off" >
+            <input type="hidden" name="accion" values="aceptar">   
+                    <button class="btn btn-custom" type="submit" >Cancelar orden</button>
+            </form>
 
             <button class="btn btn-custom mx-1">Aceptar orden</button>
 
@@ -148,6 +161,11 @@
         </div>
     </div>';
     echo $tabla;
+
+    if(isset($_POST['accion'])){
+        $recargar='index.php?vista=expandir_orden';
+        include 'scripts/estado.php';
+    }
     ?>
     
     <!-- Modal de Creacion de Levantamiento Escoger el Voltaje-->

@@ -1,4 +1,4 @@
-<button class="btn btn-custom">
+<button class="btn btn-custom mx-1">
 	<a href="#" class=" btn-back">Regresar</a>
 </button>
 

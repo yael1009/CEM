@@ -54,7 +54,7 @@
                                     <p>$rows->fecha_esperada</p>
                                     <p>$rows->direccion_completa</p>
                                 </div>
-                                <form action='index.php?vista=expandir_orden' method='POST' autocomplete='off' >
+                                <form action='' method='POST' autocomplete='off' >
                                 <input type='hidden' name='id_solicitud' value='".$rows->id_solicitud."'>   
                                     <button class='btn' type='submit' >
                                     <p class='text-danger'>expandir</p>
@@ -64,6 +64,12 @@
                         </div>
             ";
             $id_solicitud=$rows->id_solicitud;
+            //aqui si quiero volver a lo anterior solo meto action y quito todo el if
+            if(isset($_POST['id_solicitud'])){
+                $id_solicitud = $main->limpiarstring($_POST['id_solicitud']);
+                $_SESSION['id_solicitud'] = $id_solicitud;
+                header("Location: index.php?vista=expandir_orden");
+                exit;			}
             $contador++;
 		}
 		$pag_final=$contador-1;
