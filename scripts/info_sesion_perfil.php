@@ -10,11 +10,11 @@ $conexion->conectardb();
 
 // Ajusta la consulta para usar el Nombre del usuario en la sesion
 $consultaperfi = "SELECT PERSONAS.NOMBRE, PERSONAS.A_P, PERSONAS.A_M, PERSONAS.CORREO, PERSONAS.TELEFONO, USUARIOS.USUARIO, 
-CLIENTES.COMPAÑIA, CLIENTES.CARGO 
-FROM PERSONAS, CLIENTES, USUARIOS, USUARIO_ROL 
-WHERE PERSONAS.ID_PERSONA = CLIENTES.PERSONA 
-AND PERSONAS.USUARIO = USUARIOS.ID_USUARIO 
-AND USUARIO_ROL.USUARIO = USUARIOS.ID_USUARIO 
+CLIENTES.COMPAÑIA, CLIENTES.CARGO, EMPLEADOS.RFC, EMPLEADOS.NSS
+FROM PERSONAS JOIN CLIENTES ON CLIENTES.PERSONA = PERSONAS.ID_PERSONA
+JOIN EMPLEADOS ON EMPLEADOS.PERSONA = PERSONAS.ID_PERSONA
+JOIN USUARIOS ON PERSONAS.USUARIO = USUARIOS.ID_USUARIO
+JOIN USUARIO_ROL ON USUARIO_ROL.USUARIO = USUARIOS.ID_USUARIO
 AND USUARIOS.USUARIO = :usuario";
 
 // Prepara la consulta
@@ -63,16 +63,27 @@ if (!empty($tabla) && is_array($tabla) && isset($tabla[0])) {
                     <tr>
                         <th class='fixed-width'>Usuario:</th>
                         <td>{$datos->USUARIO}</td>
-                    </tr>
-                    <tr>
+                    </tr>";
+                    if($id_rol == 4){
+                        echo "<tr>
                         <th class='fixed-width'>Uso de la cuenta:</th>
                         <td>{$datos->COMPAÑIA}</td>
                     </tr>
                     <tr>
                         <th class='fixed-width'>Cargo de la compañía:</th>
                         <td>{$datos->CARGO}</td>
+                    </tr>";
+                    }else{
+                        echo "<tr>
+                        <th class='fixed-width'>Uso de la cuenta:</th>
+                        <td>{$datos->RFC}</td>
                     </tr>
-                </tbody>
+                    <tr>
+                        <th class='fixed-width'>Cargo de la compañía:</th>
+                        <td>{$datos->NSS}</td>
+                    </tr>";
+                    }
+                echo "</tbody>
             </table>
         </div>";
 } else {
