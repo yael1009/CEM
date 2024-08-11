@@ -114,7 +114,7 @@
                 <br>
                 <div class="button-container">
                 <form action="" method="POST" autocomplete="off" >
-                <input type="hidden" name="cancelar">   
+                <input type="hidden" name="accion" values="cancelar">   
                         <button class="btn btn-custom" type="submit" >Cancelar orden</button>
                 </form>
                 <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#EditarModal">Editar</button>
@@ -123,6 +123,9 @@
             ';
             $id_solicitud=$rows->id_solicitud;
             $contador++;
+            if(isset($_POST['accion'])){
+                include 'scripts/estado.php';
+            }
 		}
 		$pag_final=$contador-1;
 	}else{

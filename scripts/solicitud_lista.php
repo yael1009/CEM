@@ -17,6 +17,16 @@
 		$consulta_total="SELECT COUNT( DISTINCT id_solicitud) FROM VistaCompletaSolicitudes  WHERE id_usuario!='".$_SESSION['id']."' $distintivo";
 		
 	}
+
+  /*  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        // Procesa el formulario aquí
+
+        // Redirige después de procesar
+        header('Location: ' . $_SERVER['REQUEST_URI']);
+        exit();
+    }*/
+
+
 	
 	//$conexion->conectardb();
 

@@ -1,6 +1,24 @@
 <div class="container">
         <div class="header-title">
-            <h2>" <?php echo $_POST['id_solicitud'] ?> "</h2>
+            <h2>ID ORDEN 
+            <?php 
+            include_once 'class/main.php';
+            include_once 'class/database.php';
+
+            $main=new main();
+            $conexion=new database($_SESSION['usuario']);
+
+            $id_solicitud=$main->limpiarstring($_POST['id_solicitud']); 
+            echo $id_solicitud;
+
+            $consulta_datos=("SELECT * FROM VistaCompletaSolicitudes  WHERE id_solicitud='".$id_solicitud."' GROUP BY id_solicitud");
+            $rows = $conexion->seleccionar1($consulta_datos);
+
+            if(isset($_POST['id_solicitud'])){
+                $conexion->ejecutar("UPDATE SOLICITUDES SET estado = 'Visto' WHERE id_solicitud = $id_solicitud");
+            }
+            ?>
+            </h2>
         </div>
 
         <div class="order-info row">
@@ -12,77 +30,125 @@
             </div>
             <div class="col-md-4 text-center">
                 <div class="profile-img-table">
-                    <img src="../img/foto_perfil_clientes.jpg" alt="Foto de perfil" class="img-fluid rounded-circle">
+                    <img src="img/foto_perfil_clientes.jpg" alt="Foto de perfil" class="img-fluid rounded-circle">
                 </div>
             </div>
         </div>
 
+        <?php
+        $query="SELECT DISTINCT tipo_servicio FROM VistaCompletaSolicitudes  WHERE usuario='".$_SESSION['id']."' AND id_solicitud='".$rows->id_solicitud."' ORDER BY fecha_solicitud";
+            $solicitudes = $conexion->seleccionar($query);
+            $query_archivo="SELECT DISTINCT archivo_ruta FROM VistaCompletaSolicitudes  WHERE usuario='".$_SESSION['id']."' AND id_solicitud='".$rows->id_solicitud."' ORDER BY fecha_solicitud";
+            $archivos = $conexion->seleccionar($query_archivo);
+            $tabla="";
+			$tabla.='
         <table class="table">
             <tbody>
                 <tr>
                     <th class="section-title">Trabajo solicitado el día</th>
-                    <td>Trabajo solicitado el día</td>
+                    <td>'.$rows->fecha_solicitud.'</td>
                 </tr>
                 <tr>
                     <th class="section-title">Fecha de entrega óptima</th>
-                    <td>Fecha de entrega óptima</td>
+                    <td>'.$rows->fecha_esperada.'</td>
                 </tr>
                 <tr>
                     <th class="section-title">Dirección</th>
-                    <td>Dirección</td>
+                    <td>'.$rows->direccion_completa.'</td>
                 </tr>
                 <tr>
                     <th class="section-title">Referencia</th>
-                    <td>Referencia</td>
+                    <td>'.$rows->referencia.'</td>
                 </tr>
                 <tr>
                     <th class="section-title">Tipo de trabajo</th>
-                    <td>Tipo de trabajo</td>
+                    <td>'.$rows->tipo_trabajo.'</td>
                 </tr>
                 <tr>
                     <th class="section-title">Servicios</th>
-                    <td>Servicios</td>
+                    <td>';
+                    foreach ($solicitudes as $rows2) {
+                        $query2="SELECT DISTINCT servicio FROM VistaCompletaSolicitudes  WHERE usuario='".$_SESSION['id']."' AND tipo_servicio='".$rows2->tipo_servicio."' AND id_solicitud='".$rows->id_solicitud."'";
+                        $servicios = $conexion->seleccionar($query2);
+
+                        $tabla .= "<strong>".$rows2->tipo_servicio."</strong> <br>";
+                        foreach ($servicios as $rows3) {
+                            $tabla .= $rows3->servicio . "<br>";
+                        }
+                        }          
+                    $tabla .= '</td>
                 </tr>
                 <tr>
                     <th class="section-title">Estado</th>
-                    <td>Estado</td>
+                    <td>';
+                    if ($rows->estado_orden == NULL) {
+                        $tabla .= $rows->estado_solicitud;
+                    }
+                    else{
+                        $tabla .= $rows->estado_orden;
+                    }
+                    $tabla.='</td>
                 </tr>
                 <tr>
                     <th class="section-title">Levantamiento</th>
-                    <td><button class="btn btn-custom btn-sm"><a href="index.php?vista=ver_levantamiento">Ver Levantamiento</a></button>
-                        <button class="btn btn-custom btn-sm" data-toggle="modal" data-target="#LevantamientoModalVoltaje">Crear Levantamiento</button></td>
+                    <td>';
+                    if($rows->id_levantamiento !== NULL || $rows->estado_orden !== NULL ){
+                    $tabla.='
+                    <form action="index.php?vista=ver_levantamiento" method="POST" autocomplete="off" >
+                    <input type="hidden" name="id_levantamiento" value="'.$rows->id_levantamiento.'">   
+                        <button class="btn btn-custom btn-sm" type="submit" >
+                        Ver levantamiento
+                        </button>
+                    </form>';
+                    }else{
+                    $tabla.='<button class="btn btn-custom btn-sm" data-toggle="modal" data-target="#LevantamientoModalVoltaje">Crear Levantamiento</button>';
+                    }
+                    $tabla.='</td>
                 </tr>
                 <tr>
                     <th class="section-title">Archivos enviados</th>
-                    <td>Archivo<br>Archivo<br>Archivo</td>
+                    <td>';
+                    foreach($archivos as $rows2){
+                        $tabla.=$rows2->archivo_ruta . "<br>";
+                    }
+                    $tabla .= '</td>
                 </tr>
                 <tr>
                     <th class="section-title">Comentarios del cliente</th>
-                    <td>Comentarios del cliente</td>
-                </tr>
-                <tr>
-                    <th class="section-title">IVA</th>
-                    <td>IVA</td>
-                </tr>
-                <tr>
-                    <th class="section-title">Subtotal</th>
-                    <td>Subtotal</td>
-                </tr>
-                <tr>
-                    <th class="section-title">Total</th>
-                    <td>Total</td>
-                </tr>
-            </tbody>
+                    <td>'.$rows->comentarios.'</td>
+                </tr>';
+                if ($rows->id_venta !== NULL){
+                    $tabla.='
+                    <tr>
+                        <th class="section-title">Subtotal</th>
+                        <td>'.$rows->subtotal.'</td>
+                    </tr>
+                    <tr>
+                        <th class="section-title">IVA</th>
+                        <td>'.$rows->iva.'</td>
+                    </tr>
+                    <tr>
+                        <th class="section-title">Total</th>
+                        <td>'.$rows->total.'</td>
+                    </tr>';
+                }
+            $tabla .='</tbody>
         </table>
 
         <div class="actions text-center">
             <button class="btn btn-custom mx-1">Cancelar orden</button>
+
             <button class="btn btn-custom mx-1">Aceptar orden</button>
+
             <button class="btn btn-custom mx-1"><a href="index.php?vista=catalogo_editar">Ver Catálogo</a></button>
+
             <button class="btn btn-custom mx-1" data-toggle="modal" data-target="#EditarModal">Editar Estado</button>
+            
             <button class="btn btn-custom mx-1"> <a href="index.php?vista=ordenes_solicitudes">Regresar</a></button>
         </div>
-    </div>
+    </div>';
+    echo $tabla;
+    ?>
     
     <!-- Modal de Creacion de Levantamiento Escoger el Voltaje-->
     <div class="modal fade" id="EditarModal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
