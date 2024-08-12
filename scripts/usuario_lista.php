@@ -27,7 +27,7 @@
 		$pag_inicio=$inicio+1;
 		foreach($datos as $rows){
 			$tabla.='
-				<div class="profile-card">
+				<div class="profile-card col-md-6">
 					<div class="step">
 						<img src="img/foto_perfil_clientes.jpg" alt="Foto de perfil" class="profile-img-cuad">
 						<p>'.$rows->usuario.'</p>

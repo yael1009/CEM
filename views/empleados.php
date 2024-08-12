@@ -7,6 +7,31 @@
                 </div>
                     <!-- Clientes -->
                     <div class="service-divider"></div>
+            <!-- div para que jale lo responsivo
+            <div class="personal-container"> (btw ya pusiste este div pero ps lo vuelvo a poner para que sepas desde donde inicia)
+            <div class="personal-card">
+                <div class="step">
+                    <div class="details row">
+                        <div class="col-lg-1 col-md-12">
+                            <img src="../img/foto_perfil_personal.jpg" alt="Foto de perfil" class="profile-img-cuad">
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <p>Nombressss</p>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <p>Apellidosssss</p>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <p>Rol</p>
+                        </div>
+                        <div class="col-lg-2 col-md-6 col-sm-12">
+                            <p><a href="#" class="text-danger">expandir</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            -->
 
     <?php
         require_once "./class/main.php";
@@ -298,10 +323,6 @@
                                         <tr>
                                             <th>Usuario:</th>
                                             <td>jorgito_uwu</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Contraseña:</th>
-                                            <td>*************</td>
                                         </tr>
                                         <tr>
                                             <th>Uso de la cuenta:</th>
