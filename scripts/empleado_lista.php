@@ -21,7 +21,31 @@
 
     //ceil redondea a su entero proximo
 	$Npaginas =ceil($total/$registros);
-
+	/* div para que jale lo responsivo
+	<div class="personal-container"> (btw ya pusiste este div pero ps lo vuelvo a poner para que sepas desde donde inicia)
+	<div class="personal-card">
+		<div class="step">
+			<div class="details row">
+				<div class="col-lg-1 col-md-12">
+					<img src="../img/foto_perfil_personal.jpg" alt="Foto de perfil" class="profile-img-cuad">
+				</div>
+				<div class="col-lg-3 col-md-6 col-sm-12">
+					<p>Nombressss</p>
+				</div>
+				<div class="col-lg-3 col-md-6 col-sm-12">
+					<p>Apellidosssss</p>
+				</div>
+				<div class="col-lg-3 col-md-6 col-sm-12">
+					<p>Rol</p>
+				</div>
+				<div class="col-lg-2 col-md-6 col-sm-12">
+					<p><a href="#" class="text-danger">expandir</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	*/
 	if($total>=1 && $pagina<=$Npaginas){
 		$contador=$inicio+1;
 		$pag_inicio=$inicio+1;
@@ -29,12 +53,23 @@
 			$tabla.='
 			<div class="personal-card">
 				<div class="step">
-					<div class="details">
-						<img src="img/foto_perfil_personal.jpg" alt="Foto de perfil" class="profile-img-cuad">
-						<p>'.$rows->usuario.'</p>
-						<p>'.$rows->nombre.'</p>
-						<p>Rol</p>
-						<p><a href="#" class="text-danger">expandir</a></p>
+					<div class="details row">
+						<div class="col-lg-1 col-md-12">
+							<img src="img/foto_perfil_personal.jpg" alt="Foto de perfil" class="profile-img-cuad">
+						</div>
+						<div class="col-lg-3 col-md-6 col-sm-12">
+							<p>'.$rows->usuario.'</p>
+						</div>
+						<div class="col-lg-3 col-md-6 col-sm-12">
+								<p>'.$rows->nombre.'</p>
+						</div>
+						<div class="col-lg-3 col-md-6 col-sm-12">
+							<p>Rol</p>
+						</div>
+						<div class="col-lg-2 col-md-6 col-sm-12">
+							<p><a href="#" class="text-danger">expandir</a></p>
+						</div>
+						
 					</div>
 				</div>
 			</div>

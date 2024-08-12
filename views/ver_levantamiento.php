@@ -4,7 +4,7 @@
         <h1 class="text-center">Ver Levantamiento ID_ORDEN</h1>
         <div class="service-divider"></div>
         <div class="text-right mb-3">
-            <button class="btn btn-custom"><a href="ordenes_catalogo.html">Cancelar Edicion</a></button>
+            <button class="btn btn-custom"><a href="index.php?vista=ordenes_en_progreso">Cancelar Edicion</a></button>
             <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#conceptModal">Añadir Aparato</button>
             <button class="btn btn-custom">Guardar</button>
         </div>

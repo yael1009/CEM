@@ -261,6 +261,9 @@ select {
     flex: 2;
     text-align: center;
 }
+.service-description p{
+    text-align: justify;
+}
 .service-divider {
     height: 2px;
     background-color: #800000;
