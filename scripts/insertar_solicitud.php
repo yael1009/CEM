@@ -80,7 +80,7 @@
         exit();
     }
 
-            /*== Verificando email ==*/
+            // Verificando email
 
     if($correo!=""){
         if(filter_var($correo, FILTER_VALIDATE_EMAIL)){
@@ -95,7 +95,7 @@
     }
 
 
-    /*== Verificando usuario ==*/
+    // Verificando usuario
     if($db->contar("SELECT usuario FROM usuarios WHERE usuario='$usuario'")>0){
         echo $main->mensaje_error("El USUARIO ingresado ya se encuentra registrado, por favor elija otro");
         exit();
