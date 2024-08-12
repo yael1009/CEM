@@ -2,10 +2,9 @@
     include "class/main.php";
     include 'class/database.php';
 
-    $db = new Database('invitado');
+    $db = new Database();
     $main = new main();
-    //$db->conectardb();
-
+    $db->conectardb();
     $fecha = $main->limpiarstring($_POST['fecha'] ?? '');
     $tipo_trabajo = $main->limpiarstring($_POST['tipo_trabajo'] ?? '');
     $servicos = $main->limpiarstring($_POST['servicios'] ?? '');

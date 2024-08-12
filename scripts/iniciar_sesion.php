@@ -26,8 +26,8 @@
     }
 
 
-    $bd = new database('invitado');
-   // $bd->conectardb();
+    $bd = new database();
+    $bd->conectardb();
     $query=("CALL VERIFY_USUARIO ('$usuario', '$clave')");
 
     $tabla = $bd->seleccionar1($query);
