@@ -2,13 +2,13 @@
 class database 
 {
     private $pdolocal;
-    private $user = "root";
+    /*private $user = "root";
     private $password = "";
  /*  // private $user = "".$_SESSION['usuario']."";
    // private $password = "contraseñainvitado";*/
     private $server = "mysql:host=127.0.0.1;dbname=bd_cem";
 
-    function conectardb()
+  /*  function conectardb()
     {
         try
         {   
@@ -18,9 +18,9 @@ class database
         {
             echo $e->getMessage();
         }
-    }
+    }*/
 
-    /*public function __construct($usuario)
+    public function __construct($usuario)
     {
         try
         {
@@ -69,7 +69,7 @@ if (!$conn) {
         {
             echo $e->getMessage();
         }
-    }*/
+    }
 
     function desconectardb()
     {

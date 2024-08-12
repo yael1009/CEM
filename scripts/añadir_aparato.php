@@ -2,8 +2,8 @@
 require_once 'class/database.php';
 
 $main = new main;
-$conexion = new database;
-$conexion->conectardb();
+$conexion = new database($_SESSION['usuario']);
+//$conexion->conectardb();
 
 $nombre = $main->limpiarstring($_POST['nombre'] ?? '');
 $potencia = $main->limpiarstring($_POST['potencia_nominal'] ?? '');
