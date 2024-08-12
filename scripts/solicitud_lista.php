@@ -2,7 +2,7 @@
 	$inicio = ($pagina>0) ? (($pagina * $registros)-$registros) : 0;
 	$tabla="";
     include 'class/database.php';
-    $conexion = new database();
+    $conexion = new database($_SESSION['usuario']);
 
 	if(isset($busqueda) && $busqueda!=""){
 		// aqui tengo que ajustar la busqueda multitable y agregar mas terminos de busqueda
@@ -28,7 +28,7 @@
 
 
 	
-	$conexion->conectardb();
+	//$conexion->conectardb();
 
     $datos = $conexion->seleccionar($consulta_datos);
     $total = $conexion->contar_resultados($consulta_total);
