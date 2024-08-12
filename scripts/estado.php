@@ -21,6 +21,7 @@
         }
 
     // Redireccionar o mostrar un mensaje de éxito
+    header("Refresh:0"); // Refresca la página inmediatamente
    // header("Location: ".$recargar."");
     //exit();
 
