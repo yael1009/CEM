@@ -22,7 +22,7 @@
             $consulta_usuario=("SELECT DISTINCT concat(nombre, ' ',a_p, ' ',a_m) AS nombre_completo,telefono FROM vista_usuarios ");
             $rows_usuario = $conexion->seleccionar1($consulta_usuario);
 
-            if(isset($id_solicitud) || $rows != 'Cancelado'){
+            if(isset($id_solicitud) && $rows != 'Cancelado'){
                 $conexion->ejecutar("UPDATE SOLICITUDES SET estado = 'Visto' WHERE id_solicitud = $id_solicitud");
             }
             ?>
