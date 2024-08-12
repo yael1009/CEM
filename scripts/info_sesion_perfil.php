@@ -19,7 +19,8 @@ $resultado = $conexion->seleccionar($consulta);
 
 if (!empty($resultado)) {
     $datos = $resultado;
-    echo "<table class='table mb-0'>
+    echo "<div class='table-responsive'>
+    <table class='table mb-0'>
     <tbody>
         <tr>
             <th class='fixed-width'>Nombres:</th>
@@ -43,10 +44,12 @@ if (!empty($resultado)) {
         </tr>
     </tbody>
 </table>
+</div>
 <div class='table-custom'>
     <div class='table-header p-2'>
         Datos de Usuario
     </div>
+    <div class='table-responsive'>
     <table class='table mb-0'>
         <tbody>
             <tr>
@@ -66,6 +69,7 @@ if (!empty($resultado)) {
             </tr>
         </tbody>
     </table>
+    </div>
 </div>";
 } else {
     echo "No se encontraron datos.";
