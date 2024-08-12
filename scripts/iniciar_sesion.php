@@ -26,7 +26,7 @@
     }
 
 
-    $bd = new database($_SESSION['usuario']);
+    $bd = new database('invitado');
     //$bd->conectardb();
     $query=("CALL VERIFY_USUARIO ('$usuario', '$clave')");
 

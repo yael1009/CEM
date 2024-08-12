@@ -5,97 +5,100 @@
             <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#appliancesModal">Añadir</button>
         </div>
         <div class="service-divider"></div>
-        <table class="table table-bordered mt-3">
-            <thead>
-                <tr class="thBlanco">
-                    <th>Nombre completo del Aparato</th>
-                    <th>Potencia nominal</th>
-                    <th colspan="2">Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Lampara de bajo consumo y tubos fluorescentes 9W</td>
-                    <td>9</td>
-                    <td>
-                        <button type="button" data-toggle="modal" data-target="#editappliancesModal" class="btn btn-primary btn-sm">Editar</button>
-                    </td>
-                    <td>
-                        <button class="btn btn-danger btn-sm">Eliminar</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Lampara de bajo consumo y tubos fluorescentes 11W</td>
-                    <td>11</td>
-                    <td>
-                        <button class="btn btn-primary btn-sm">Editar</button>
-                    </td>
-                    <td>
-                        <button class="btn btn-danger btn-sm">Eliminar</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Lampara de bajo consumo y tubos fluorescentes 15W</td>
-                    <td>15</td>
-                    <td>
-                        <button class="btn btn-primary btn-sm">Editar</button>
-                    </td>
-                    <td>
-                        <button class="btn btn-danger btn-sm">Eliminar</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Lampara de bajo consumo y tubos fluorescentes 20W</td>
-                    <td>20</td>
-                    <td>
-                        <button class="btn btn-primary btn-sm">Editar</button>
-                    </td>
-                    <td>
-                        <button class="btn btn-danger btn-sm">Eliminar</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Lamparas incandescentes 25W</td>
-                    <td>25</td>
-                    <td>
-                        <button class="btn btn-primary btn-sm">Editar</button>
-                    </td>
-                    <td>
-                        <button class="btn btn-danger btn-sm">Eliminar</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Lamparas incandescentes 40W</td>
-                    <td>40</td>
-                    <td>
-                        <button class="btn btn-primary btn-sm">Editar</button>
-                    </td>
-                    <td>
-                        <button class="btn btn-danger btn-sm">Eliminar</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Lamparas incandescentes 60W</td>
-                    <td>60</td>
-                    <td>
-                        <button class="btn btn-primary btn-sm">Editar</button>
-                    </td>
-                    <td>
-                        <button class="btn btn-danger btn-sm">Eliminar</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Lamparas incandescentes 75W</td>
-                    <td>75</td>
-                    <td>
-                        <button class="btn btn-primary btn-sm">Editar</button>
-                    </td>
-                    <td>
-                        <button class="btn btn-danger btn-sm">Eliminar</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+
+            <table class="table table-bordered mt-3">
+                <thead>
+                    <tr class="thBlanco">
+                        <th>Nombre completo del Aparato</th>
+                        <th>Potencia nominal</th>
+                        <th colspan="2">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Lampara de bajo consumo y tubos fluorescentes 9W</td>
+                        <td>9</td>
+                        <td>
+                            <button type="button" data-toggle="modal" data-target="#editappliancesModal" class="btn btn-primary btn-sm">Editar</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger btn-sm">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Lampara de bajo consumo y tubos fluorescentes 11W</td>
+                        <td>11</td>
+                        <td>
+                            <button class="btn btn-primary btn-sm">Editar</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger btn-sm">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Lampara de bajo consumo y tubos fluorescentes 15W</td>
+                        <td>15</td>
+                        <td>
+                            <button class="btn btn-primary btn-sm">Editar</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger btn-sm">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Lampara de bajo consumo y tubos fluorescentes 20W</td>
+                        <td>20</td>
+                        <td>
+                            <button class="btn btn-primary btn-sm">Editar</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger btn-sm">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Lamparas incandescentes 25W</td>
+                        <td>25</td>
+                        <td>
+                            <button class="btn btn-primary btn-sm">Editar</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger btn-sm">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Lamparas incandescentes 40W</td>
+                        <td>40</td>
+                        <td>
+                            <button class="btn btn-primary btn-sm">Editar</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger btn-sm">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Lamparas incandescentes 60W</td>
+                        <td>60</td>
+                        <td>
+                            <button class="btn btn-primary btn-sm">Editar</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger btn-sm">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Lamparas incandescentes 75W</td>
+                        <td>75</td>
+                        <td>
+                            <button class="btn btn-primary btn-sm">Editar</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger btn-sm">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
 
