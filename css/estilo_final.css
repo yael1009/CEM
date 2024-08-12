@@ -416,9 +416,6 @@ th.fixed-width {
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
-    height: 30%;
-    width: 20%;
-    aspect-ratio: 1 / 1;
 }
 .personal-card .details {
     flex: 1;

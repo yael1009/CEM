@@ -46,7 +46,7 @@
             $busqueda=$_SESSION['busqueda_usuario']; /* <== */
 
         }
-            echo '    <div class="profile-container mt-4">';
+            echo '    <div class="profile-container mt-4 row">';
             # Eliminar usuario #
             /*if(isset($_GET['user_id_del'])){
                 require_once "./php/usuario_eliminar.php";

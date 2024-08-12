@@ -231,7 +231,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary" id="continuarBtn">Terminar</button>
+                    <button type="submit" class="btn btn-primary" id="terminarBtn">Terminar</button>
                 </div>
                 <?php
                 if(isset($_POST['fecha']) && isset($_POST['tipo_trabajo']) && isset($_POST['servicios']) && isset($_POST['calle'])
@@ -261,6 +261,47 @@
             </div>
         </div>
     </div>
+    <!-- Modal 5.1     
+    <div class="modal fade" id="serviciosModal" tabindex="-1" aria-labelledby="serviciosModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="ultimoModalLabel">Servicios</h1>
+                </div>
+                <div class="modal-body">
+                <div class="form-group">
+                            <label class="form-label">Seleccione los Servicios:</label>
+                            <div class="form-check">
+                                <?php /*
+                                include_once 'class/database.php';
+                                $db = new Database($_SESSION['usuario']);
+                                    $query="SELECT * FROM TIPO_SERVICIO ";
+                                    $solicitudes = $db->seleccionar($query);
+                                    foreach ($solicitudes as $rows2) {
+                                        $query2="SELECT servicio FROM SERVICIOS  WHERE  tipo_servicio='".$rows2->id_tipo_servicio."'";
+                                        $servicios = $db->seleccionar($query2);
+        
+                                        echo "<strong>".$rows2->tipo_servicio."</strong> <br>";
+                                        foreach ($servicios as $rows3) {
+                                            echo '<br>
+                                            <input class="form-check-input" type="checkbox" name="servicios" value="'.$rows3->servicio.'" id="cliente">
+                                            <label class="form-check-label" for="cliente">
+                                            '.$rows3->servicio.'
+                                            </label> <br>';
+                                        }
+                                        } 
+                                $db->desconectardb(); */
+                                ?>
+                            </div>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" id="sigueBtn">Continuar</button>
+                </div>
+            </div>
+        </div>
+    </div>-->
     <!-- Bootstrap 5 JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
@@ -271,11 +312,22 @@
             $('#registro').modal('hide');
             $('#nuevoModal').modal('show');
         });
+
+        /* Agregar este script para que jale bien la secuencia de los modals y eliminas el document.get de continuarBtn
+        document.getElementById('continuaBtn').addEventListener('click', function() {
+            $('#nuevoModal').modal('hide');
+            $('#serviciosModal').modal('show');
+        });
+        document.getElementById('sigueBtn').addEventListener('click', function() {
+            $('#serviciosModal').modal('hide');
+            $('#direccionModal').modal('show');
+        });
+        */
         document.getElementById('continuaBtn').addEventListener('click', function() {
             $('#nuevoModal').modal('hide');
             $('#direccionModal').modal('show');
         });
-        document.getElementById('continuarBtn').addEventListener('click', function() {
+        document.getElementById('terminarBtn').addEventListener('click', function() {
             $('#direccionModal').modal('hide');
             $('#ultimoModal').modal('show');
         });

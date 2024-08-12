@@ -1,7 +1,29 @@
-/* Estilos para pantallas menor o iguales a 799px */
-@media (max-width: 799px) {
+/* Estilos para pantallas mayores o iguales a 768px */
+@media (min-width: 768px) {
+    .padd{
+        padding-left: 290px;
+    }
+  }
+  
+
+/* Estilos para pantallas entre 769px y 990px */
+@media (min-width: 769px) and (max-width: 990px) {
+    .nav-item {
+      width: 100%;
+    }
+    .navbar-collapse{
+      text-align: right;
+    }
+    .dropdown-menu.show{
+      text-align: right;
+    }
+  }
+
+
+/* Estilos para pantallas menor o iguales a 767px */
+@media (max-width: 767px) {
     body {
-      background-color: lightcoral; /* Fondo coral claro */
+      background-color: #656dad; /* Fondo coral claro */
     }
     .nav-item {
       width: 100%;
@@ -23,17 +45,41 @@
     .grande{
       font-size: 3rem;
     }
-    .service-img{
+    /*.service-img{
       max-width: 300px;
-    }
+    }*/
+    .footer {
+      width: 104%;
   }
+}
 
 
 
 
-  /* Estilos para pantallas mayores o iguales a 800px */
-  @media (min-width: 800px) {
-    .padd{
-        padding-left: 290px;
-    }
-    }
+
+/* Estilos para pantallas menor o iguales a 500px */
+@media (max-width: 500px) {
+  .service-img {
+    max-width: 325px;
+  }
+}
+
+/* Estilos para pantallas menor o iguales a 415px */
+@media (max-width: 415px) {
+  .service-img {
+    max-width: 280px;
+  }
+}
+/* Estilos para pantallas menor o iguales a 375px */
+@media (max-width: 375px) {
+  .service-img {
+    max-width: 235px;
+  }
+}
+
+/* Estilos para pantallas menor o iguales a 325px */
+@media (max-width: 325px) {
+  .service-img {
+    max-width: 200px;
+  }
+}
