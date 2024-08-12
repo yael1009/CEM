@@ -147,19 +147,22 @@
 
         <div class="actions text-center">
             <form action="" method="POST" autocomplete="off" >
-            <input type="hidden" name="accion" values="cancelar">   
+            <input type="hidden" name="accion" value="cancelar">   
                     <button class="btn btn-custom" type="submit" >Cancelar orden</button>
             </form>
+            <br>
 
             <form action="" method="POST" autocomplete="off" >
-            <input type="hidden" name="accion" values="aceptar">   
+            <input type="hidden" name="accion" value="aceptar">   
                     <button class="btn btn-custom mx-1" type="submit" >Aceptar orden</button>
             </form>
+            <br>
 
             <form action="" method="POST" autocomplete="off" >
-            <input type="hidden" name="accion" values="completado">   
+            <input type="hidden" name="accion" value="completado">   
                     <button class="btn btn-custom mx-1" type="submit" >Terminar trabajo</button>
             </form>
+            <br>
 
             <button class="btn btn-custom mx-1"><a href="index.php?vista=catalogo_editar">Ver Catálogo</a></button>
 
