@@ -158,14 +158,7 @@
                         <option value="8">Fusible</option>
                         <option value="9">Rele de Proteccion</option>
                     </select><br><br>
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Unidad</option>
-                        <option value="1">Unidad</option>
-                        <option value="2">Pieza</option>
-                        <option value="3">Caja</option>
-                        <option value="4">Metro</option>
-                    </select><br><br>
-
+                    
                     <label class="form-label" for="cantidad">Cantidad:</label>
                     <input class="form-control" type="text" name="cantidad" pattern="[0-9]+" maxlength="10" required>
                     <label class="form-label" for="unitario">Unitario:</label>
@@ -207,13 +200,7 @@
                         <option value="8">Fusible</option>
                         <option value="9">Rele de Proteccion</option>
                     </select><br><br>
-                    <select class="form-select" aria-label="Default select example" name="unidad">
-                        <option selected>Unidad</option>
-                        <option value="1">Unidad</option>
-                        <option value="2">Pieza</option>
-                        <option value="3">Caja</option>
-                        <option value="4">Metro</option>
-                    </select><br><br>
+                    
 
                     <label class="form-label" for="cantidad">Cantidad:</label>
                     <input class="form-control" type="text" name="cantidad" pattern="[0-9]+" maxlength="10" required>
@@ -239,7 +226,6 @@
                         require_once "scripts/editar_concepto_catalogo.php";
                 
                     }
-                    ?>
 
                 ?>
             </div>

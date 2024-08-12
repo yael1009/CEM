@@ -24,14 +24,6 @@ class database
     {
         try
         {
-<<<<<<< HEAD
-            $this->pdolocal = new PDO($this->server,$this->user,$this->password);
-            if($usuario !== "invitado"){
-            $resultado = $this->pdolocal->query("SELECT contraseña FROM usuarios WHERE usuario=".$usuario."");
-            $fila = $resultado->fetch(PDO::FETCH_OBJ);
-            $this->pdolocal = new PDO($this->server,$usuario,$fila->contraseña);
-            }
-=======
             $this->pdolocal = null;
 
             $this->pdolocal = new PDO($this->server,'invitado','contraseñainvitado');
@@ -72,7 +64,6 @@ if (!$conn) {
             //$this->pdolocal->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $fila->passIn;
             }            
->>>>>>> origin/yael
         }
         catch(PDOException $e)
         {
