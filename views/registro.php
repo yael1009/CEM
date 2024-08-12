@@ -51,7 +51,7 @@
                 </div>
                 <div class="centra-boton">
                     <button type="submit" class="btn btn-custom">Crear Cuenta</button>
-                    <button type="button" class="btn btn-custom">Iniciar sesión</button>
+                    <button type="button" class="btn btn-custom"> <a class="custom-link" href="index.php?vista=login">Iniciar sesión</a></button>
                 </div>
             </form>
         </div>
