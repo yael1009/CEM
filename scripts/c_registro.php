@@ -2,9 +2,9 @@
     include "class/main.php";
     include 'class/database.php';
 
-    $db = new Database();
+    $db = new Database($_SESSION['usuario']);
     $main = new main();
-    $db->conectardb();
+    //$db->conectardb();
 
     $nombre = $main->limpiarstring($_POST['nombre'] ?? '');
     $apaterno = $main->limpiarstring($_POST['apaterno'] ?? '');
