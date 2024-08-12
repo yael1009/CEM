@@ -2,13 +2,13 @@
 class database 
 {
     private $pdolocal;
-   /* private $user = "root";
+    private $user = "root";
     private $password = "";
  /*  // private $user = "".$_SESSION['usuario']."";
    // private $password = "contraseñainvitado";*/
     private $server = "mysql:host=127.0.0.1;dbname=bd_cem";
 
-   /* function conectardb()
+    function conectardb()
     {
         try
         {   
@@ -18,21 +18,21 @@ class database
         {
             echo $e->getMessage();
         }
-    }*/
+    }
 
-    public function __construct($usuario)
+    /*public function __construct($usuario)
     {
         try
         {
             $this->pdolocal = null;
 
             $this->pdolocal = new PDO($this->server,'invitado','contraseñainvitado');
-           /* if (isset($_SESSION['usuario'])) {
+            if (isset($_SESSION['usuario'])) {
                 $resultado = $this->pdolocal->query("CALL PASSWORDSILLA('".$this->user."', @passIn)");
                 $resultado = $this->pdolocal->query("SELECT @passIn AS passIn");
                 $fila = $resultado->fetch(PDO::FETCH_OBJ);    
                 $this->pdolocal = new PDO($this->server,$this->user,$fila->passIn);
-            }*/
+            }
             
             if($usuario !== "invitado"){
                 $stmt = $this->pdolocal->prepare("CALL buscar_contraseña(:usuario, @passIn)");
@@ -43,10 +43,10 @@ class database
                 $stmt->execute();
                 $fila = $stmt->fetch(PDO::FETCH_OBJ);
 
-              /*  $conn = mysqli_connect($this->server, $usuario, $fila->passIn);
+               $conn = mysqli_connect($this->server, $usuario, $fila->passIn);
 if (!$conn) {
     die('Could not connect: ' . mysqli_connect_error());
-}*/
+}
 
                // $hashedPassword = password_hash($fila->passIn, PASSWORD_DEFAULT);
 
@@ -55,21 +55,21 @@ if (!$conn) {
                 $this->pdolocal = new PDO($this->server,$usuario,$fila->passIn);
 
 
-           /* $resultado = $this->pdolocal->query("CALL buscar_contraseña('".$usuario."', @passIn)");
+            $resultado = $this->pdolocal->query("CALL buscar_contraseña('".$usuario."', @passIn)");
             $resultado = $this->pdolocal->query("SELECT @passIn AS passIn");
             $fila = $resultado->fetch(PDO::FETCH_OBJ);
             echo "Retrieved password: " . $fila->passIn; // Add this line
 
             //$this->pdolocal = new PDO($this->server,$usuario,$fila->passIn);
             //$this->pdolocal->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            return $fila->passIn;*/
+            return $fila->passIn;
             }            
         }
         catch(PDOException $e)
         {
             echo $e->getMessage();
         }
-    }
+    }*/
 
     function desconectardb()
     {
