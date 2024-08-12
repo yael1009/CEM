@@ -22,7 +22,7 @@
             $consulta_usuario=("SELECT DISTINCT concat(nombre, ' ',a_p, ' ',a_m) AS nombre_completo,telefono FROM vista_usuarios ");
             $rows_usuario = $conexion->seleccionar1($consulta_usuario);
 
-            if(isset($id_solicitud) && $rows != 'Cancelado'){
+            if(isset($id_solicitud) || $rows->estado_solicitud != 'Cancelado'){
                 $conexion->ejecutar("UPDATE SOLICITUDES SET estado = 'Visto' WHERE id_solicitud = $id_solicitud");
             }
             ?>
@@ -151,7 +151,15 @@
                     <button class="btn btn-custom" type="submit" >Cancelar orden</button>
             </form>
 
-            <button class="btn btn-custom mx-1">Aceptar orden</button>
+            <form action="" method="POST" autocomplete="off" >
+            <input type="hidden" name="accion" values="aceptar">   
+                    <button class="btn btn-custom mx-1" type="submit" >Aceptar orden</button>
+            </form>
+
+            <form action="" method="POST" autocomplete="off" >
+            <input type="hidden" name="accion" values="completado">   
+                    <button class="btn btn-custom mx-1" type="submit" >Terminar trabajo</button>
+            </form>
 
             <button class="btn btn-custom mx-1"><a href="index.php?vista=catalogo_editar">Ver Catálogo</a></button>
 
