@@ -143,7 +143,7 @@
                                 <td><input type="text" name="usuario" pattern="[a-zA-Z0-9]{4,50}" class="form-control"></td>
                             </tr>
                             <?php
-                            if($id_rol = 4){
+                            if(isset($_SESSION['cliente'])){
                             echo "<tr>
                                 <th class='fixed-width'>Uso de la cuenta:</th>
                                 <td><input type='text' name='uso' pattern='[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}' class='form-control'></td>

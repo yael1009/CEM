@@ -25,7 +25,7 @@
         exit();
     }
 
-    if($main->verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,60}",$nombre))
+    if($main->verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,60}",$estado))
     {
         echo $main->mensaje_error("EL NOMBRE no coincide con el formato solicitado");
         exit();

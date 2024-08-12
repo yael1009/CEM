@@ -4,9 +4,9 @@ class database
     private $pdolocal;
     private $user = "root";
     private $password = "";
- /*  // private $user = "".$_SESSION['usuario']."";
-   // private $password = "contraseñainvitado";*/
-    private $server = "mysql:host=127.0.0.1;dbname=bd_cem";
+ /*   private $user = "invitado";
+    private $password = "contraseñainvitado";*/
+    private $server = "mysql:host=localhost;dbname=bd_cem";
 
     function conectardb()
     {
