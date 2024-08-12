@@ -2,7 +2,7 @@
     include "class/main.php";
     include 'class/database.php';
 
-    $db = new Database($_SESSION['usuario']);
+    $db = new Database('invitado');
     $main = new main();
     //$db->conectardb();
 
