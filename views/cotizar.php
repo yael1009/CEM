@@ -31,47 +31,50 @@
             <p class="note">COTIZACIÓN SUJETA A CAMBIOS</p>
             <button class="btn btn-custom"
             <?php if (isset($_SESSION['usuario'])) { ?>
-            data-bs-toggle="modal" data-bs-target="#registro">Comenzar cotización
+            data-bs-toggle="modal" data-bs-target="#serviciosModal">Comenzar cotización
             <?php }else{
             echo '><a class="custom-link" href="index.php?vista=login">Comenzar cotización</a>';
             } ?>
             </button>
         </div>
     </div>
-    <!-- Modal -->
-    <div class="modal fade" id="registro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Modal 5.1     -->
+    <div class="modal fade" id="serviciosModal" tabindex="-1" aria-labelledby="serviciosModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Registrarse</h1>
+                    <h1 class="modal-title fs-5" id="ultimoModalLabel">Servicios</h1>
                 </div>
                 <div class="modal-body">
-                    <!--enctype="multipart/form-data se usa cuando en un formulario se quiere enviar archvios-->
-                    <form action="" enctype="multipart/form-data" autocomplete="off">
-                        <label class="form-label" for="nombre">Nombres</label>
-                        <input class="form-control" type="text" name="nombre" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,60}" maxlength="60" required>
-                        <label class="form-label" for="apaterno">Apellido Paterno</label>
-                        <input class="form-control" type="text" name="apaterno" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,30}" maxlength="30" required>
-                        <label class="form-label" for="amaterno">Apellido Materno</label>
-                        <input class="form-control" type="text" name="amaterno" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,30}" maxlength="30" required>
-                        <label class="form-label" for="tel">Telefono</label>
-                        <input class="form-control" type="text" name="tel" pattern="[0-9]+" maxlength="10" required>
-                        <label class="form-label" for="correo">Correo:</label>
-                        <input class="form-control" type="email" name="correo" maxlength="100">
-                        <label class="form-label" for="usuario">Usuario:</label>
-                        <input class="form-control" type="text" name="usuario" pattern="[a-zA-Z0-9]{4,50}" maxlength="50" required>
-                        <label class="form-label" for="pass">Password:</label>
-                        <input class="form-control" type="password" name="pass" pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength="100" required>
-                        <label class="form-label" for="compañia">Uso de la Cuenta</label>
-                        <input class="form-control" type="text" name="compañia" placeholder="Personal/Compañia" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}" maxlength="100" required>
-                        <label class="form-label" for="cargo">Cargo en la Compañia</label>
-                        <input class="form-control" type="text" name="cargo" placeholder="Personal/Propietario/Gerente/Constructor" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,50}" maxlength="50" required>
-                    </form>
+                <div class="form-group">
+                            <label class="form-label">Seleccione los Servicios:</label>
+                            <div class="form-check">
+                            <?php 
+                                include_once 'class/database.php';
+                                $db = new Database($_SESSION['usuario']);
+                                    $query="SELECT * FROM TIPO_SERVICIO ";
+                                    $solicitudes = $db->seleccionar($query);
+                                    foreach ($solicitudes as $rows2) {
+                                        $query2="SELECT servicio FROM SERVICIOS  WHERE  tipo_servicio='".$rows2->id_tipo_servicio."'";
+                                        $servicios = $db->seleccionar($query2);
+        
+                                        echo '<strong class="rojito">'.$rows2->tipo_servicio.'</strong> <br>';
+                                        foreach ($servicios as $rows3) {
+                                            echo '<br>
+                                            <input class="form-check-input" type="checkbox" name="servicios" value="'.$rows3->servicio.'" id="cliente">
+                                            <label class="form-check-label" for="cliente">
+                                            '.$rows3->servicio.'
+                                            </label> <br>';
+                                        }
+                                        } 
+                                $db->desconectardb();
+                                ?>
+                            </div>
+                        </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-custom">Inicia Sesion</button>
-                    <button type="button" class="btn btn-primary" id="registrarseBtn">Registrarse</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" id="sigueBtn">Continuar</button>
                 </div>
             </div>
         </div>
@@ -110,31 +113,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label class="form-label">Seleccione los Servicios:</label>
-                            <div class="form-check">
-                                <?php 
-                                include_once 'class/database.php';
-                                $db = new Database($_SESSION['usuario']);
-                                    $query="SELECT * FROM TIPO_SERVICIO ";
-                                    $solicitudes = $db->seleccionar($query);
-                                    foreach ($solicitudes as $rows2) {
-                                        $query2="SELECT servicio FROM SERVICIOS  WHERE  tipo_servicio='".$rows2->id_tipo_servicio."'";
-                                        $servicios = $db->seleccionar($query2);
-        
-                                        echo "<strong>".$rows2->tipo_servicio."</strong> <br>";
-                                        foreach ($servicios as $rows3) {
-                                            echo '<br>
-                                            <input class="form-check-input" type="checkbox" name="servicios" value="'.$rows3->servicio.'" id="cliente">
-                                            <label class="form-check-label" for="cliente">
-                                            '.$rows3->servicio.'
-                                            </label> <br>';
-                                        }
-                                        } 
-                                $db->desconectardb(); 
-                                ?>
-                            </div>
-                        </div>
+                        
                         
                         <label class="form-label" for="archivo">Subir Archivos</label>
                         <div id="contenedor-archivos">
@@ -308,12 +287,9 @@
 
     <script>
 
-        document.getElementById('registrarseBtn').addEventListener('click', function() {
-            $('#registro').modal('hide');
-            $('#nuevoModal').modal('show');
-        });
-
         /* Agregar este script para que jale bien la secuencia de los modals y eliminas el document.get de continuarBtn
+        toda esta marranada mandala alv
+        gracias uwu
         document.getElementById('continuaBtn').addEventListener('click', function() {
             $('#nuevoModal').modal('hide');
             $('#serviciosModal').modal('show');
@@ -323,6 +299,10 @@
             $('#direccionModal').modal('show');
         });
         */
+        document.getElementById('sigueBtn').addEventListener('click', function() {
+            $('#serviciosModal').modal('hide');
+            $('#nuevoModal').modal('show');
+        });
         document.getElementById('continuaBtn').addEventListener('click', function() {
             $('#nuevoModal').modal('hide');
             $('#direccionModal').modal('show');
@@ -331,5 +311,4 @@
             $('#direccionModal').modal('hide');
             $('#ultimoModal').modal('show');
         });
-        
     </script>
