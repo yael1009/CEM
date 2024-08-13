@@ -22,11 +22,11 @@
             $consulta_usuario=("SELECT DISTINCT concat(nombre, ' ',a_p, ' ',a_m) AS nombre_completo,telefono FROM vista_usuarios ");
             $rows_usuario = $conexion->seleccionar1($consulta_usuario);
 
-            if($rows->estado_orden == NULL){
+            if($rows->estado_orden !== NULL){
                 $aceptada = true;
             }
 
-            if(/*isset($id_solicitud) || */$rows->estado_solicitud->estado_solicitud != 'Cancelado'){
+            if(/*isset($id_solicitud) || */$rows->estado_solicitud !== 'Cancelado'){
                 $conexion->ejecutar("UPDATE SOLICITUDES SET estado = 'Visto' WHERE id_solicitud = $id_solicitud");
             }
             ?>
@@ -36,13 +36,13 @@
         <div class="order-info row">
             <div class="col-md-8">
                 <?php echo 
-                '<h6>Cliente</h6>
+                "<h6>Cliente</h6>
                 <p>Usuario: '.$rows->usuario.'<br>
                     Nombre completo: '.$rows_usuario->nombre_completo.'<br>
                     Teléfono: '.$rows_usuario->telefono.'</p>';
                 <p>Usuario: '.$rows->usuario.'<br>
                     Nombre completo: '.$rows_usuario->nombre_completo.'<br>
-                    Teléfono: '.$rows_usuario->telefono.'</p>';
+                    Teléfono: '.$rows_usuario->telefono.'</p>'";
                 ?>
             </div>
             <div class="col-md-4 text-center">
@@ -90,12 +90,16 @@
 
                         $tabla .= "<strong>".$rows2->tipo_servicio."</strong> <br>";
                         foreach ($servicios as $rows3) {
-                            $tabla .= $rows3->servicio . '
+                            $tabla .= $rows3->servicio;
+                            
+                            if($aceptada){
+                            $tabla .='
                             <form action="" method="POST" autocomplete="off" >
-                            <input type="hidden" name="id_ss" value='.$rows3->id_ss.'>   
-                                "    "<button class="btn btn-custom mx-1" type="submit" >Ver catalogo</button>
+                            <input type="hidden" name="id_ss" value="'.$rows3->id_ss.'">   
+                                <button class="btn btn-custom mx-1" type="submit" >Ver catalogo</button>
                             </form>
                             <br>';
+                            }
                         }
                         }          
                     $tabla .= '</td>
@@ -103,18 +107,20 @@
                 <tr>
                     <th class="section-title">Estado</th>
                     <td>';
-                    if ($rows->estado_orden == NULL) {
-                        $tabla .= $rows->estado_solicitud;
-                    }
-                    else{
+                    if ($aceptada) {
                         $tabla .= $rows->estado_orden;
                     }
+                    else{
+                        $tabla .= $rows->estado_solicitud;
+                    }
                     $tabla.='</td>
-                </tr>
+                </tr>';
+                if($aceptada){
+                $tabla.='
                 <tr>
                     <th class="section-title">Levantamiento</th>
                     <td>';
-                    if($rows->id_levantamiento !== NULL || $rows->estado_orden !== NULL ){
+                    if($rows->id_levantamiento !== NULL ){
                     $tabla.='
                     <form action="" method="POST" autocomplete="off" >
                     <input type="hidden" name="id_levantamiento" value="'.$rows->id_levantamiento.'">   
@@ -126,7 +132,9 @@
                     $tabla.='<button class="btn btn-custom btn-sm" data-toggle="modal" data-target="#LevantamientoModalVoltaje">Crear Levantamiento</button>';
                     }
                     $tabla.='</td>
-                </tr>
+                </tr>';
+                }
+                $tabla.='
                 <tr>
                     <th class="section-title">Archivos enviados</th>
                     <td>';
@@ -139,7 +147,7 @@
                     <th class="section-title">Comentarios del cliente</th>
                     <td>'.$rows->comentarios.'</td>
                 </tr>';
-                if ($rows->id_venta !== NULL){
+                if ($aceptada){
                     $tabla.='
                     <tr>
                         <th class="section-title">Subtotal</th>
@@ -155,30 +163,41 @@
                     </tr>';
                 }
             $tabla .='</tbody>
-        </table>
-
-        <div class="actions text-center">
+        </table>';
+        
+        if($rows->extado_orden !== "Completado"){
+            $tabla .='
+            <div class="actions text-center">
             <form action="" method="POST" autocomplete="off" >
             <input type="hidden" name="accion" value="cancelar">   
                     <button class="btn btn-custom" type="submit" >Cancelar orden</button>
             </form>
-            <br>
+            <br>';
+        }
 
+            if(!isset($aceptada) || $rows->estado_solicitud !=="Cancelado"){
+            $tabla .='
             <form action="" method="POST" autocomplete="off" >
             <input type="hidden" name="accion" value="aceptar">   
                     <button class="btn btn-custom mx-1" type="submit" >Aceptar orden</button>
             </form>
-            <br>
+            <br>';
+            }
 
+            if($aceptada || $rows->estado_orden !=="Descartado" || $rows->estado_orden !=="Completado"){
+            $tabla .='
             <form action="" method="POST" autocomplete="off" >
             <input type="hidden" name="accion" value="completado">   
                     <button class="btn btn-custom mx-1" type="submit" >Terminar trabajo</button>
             </form>
-            <br>
+            <br>';
+            }
 
+            $tabla .='
             <button class="btn btn-custom mx-1" data-toggle="modal" data-target="#EditarModal">Editar Estado</button>
             
-            '.include "inc/regresar.php".'<button class="btn btn-custom mx-1"> <a href="index.php?vista=ordenes_solicitudes">Regresar</a></button>
+            '.include "inc/regresar.php".'
+            <button class="btn btn-custom mx-1"> <a href="index.php?vista=ordenes_solicitudes">Regresar</a></button>
         </div>
     </div>';
     echo $tabla;
