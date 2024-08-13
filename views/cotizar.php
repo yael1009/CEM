@@ -46,6 +46,7 @@
                     <h1 class="modal-title fs-5" id="ultimoModalLabel">Servicios</h1>
                 </div>
                 <div class="modal-body">
+                    <form action="">
                 <div class="form-group">
                             <label class="form-label">Seleccione los Servicios:</label>
                             <div class="form-check">
@@ -71,6 +72,7 @@
                                 ?>
                             </div>
                         </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -312,3 +314,10 @@
             $('#ultimoModal').modal('show');
         });
     </script>
+    <script>
+    $(".custom-file-input").on("change", function() {
+    var fileName = $(this).val().split("\\").pop();
+    $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+
+</script>

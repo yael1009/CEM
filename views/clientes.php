@@ -128,15 +128,16 @@
                                     <div class="table-responsive">
                                         <table class="table mb-0" >
                                             <tbody>
-                                            <div class="form-check">
-                                                <tr>
-                                                    <th></th>
-                                                    <td><input class="form-check-input" type="checkbox" value="" id="cliente">
-                                                        <label class="form-check-label" for="cliente">
-                                                        Cliente
-                                                    </label></td>
-                                                </tr>
-                                            </div>
+                                                <form action="">
+                                        <div class="form-check">
+                                            <tr>
+                                                <th></th>
+                                                <td><input class="form-check-input" type="checkbox" value="" id="cliente">
+                                                    <label class="form-check-label" for="cliente">
+                                                    Cliente
+                                                </label></td>
+                                            </tr>
+                                        </div>
                                             <div class="form-check">
                                                 <tr>
                                                     <th></th>
@@ -164,6 +165,7 @@
                                                     </label></td>
                                                 </tr>
                                             </div>
+                                            </form>
                                             </tbody>
                                         </table>
                                     </div>
