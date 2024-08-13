@@ -220,8 +220,13 @@
                     </div>
                 </form>
 
-                <?php
-
+    
+            </div>
+            
+        </div>
+    </div>
+</div>
+<?php
 if(isset($_POST['concepto']) || isset($_POST['insumo']) || isset($_POST['cantidad']) || 
 isset($_POST['unitario'])){
 
@@ -229,8 +234,3 @@ require_once "class/main.php";
 require_once "scripts/editar_concepto_catalogo.php";
 }
 ?>
-            </div>
-            
-        </div>
-    </div>
-</div>
