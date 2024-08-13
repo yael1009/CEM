@@ -72,10 +72,11 @@
                                 ?>
                             </div>
                         </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" id="sigueBtn">Continuar</button>
+                <button type="submit" class="btn btn-primary" id="sigueBtn">Continuar</button>
                 </div>
             </div>
         </div>
@@ -88,6 +89,8 @@
                     <h1 class="modal-title fs-5" id="nuevoModalLabel">Solicitud de Cotizacion</h1>
                 </div>
                 <div class="modal-body">
+                <form method="post" enctype="multipart/form-data">
+
                     <?php
                     // Obtener la fecha actua l
                     $hoy = date("Y-m-d");
@@ -148,10 +151,11 @@
 
                         <label class="form-label" for="comentarios">Comentarios</label>
                         <textarea class="form-control" name="comentarios" rows="3" pattern="[a-zA-Z0-9$@.-]{7,2000}" maxlength="2000"></textarea>
+                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" id="continuaBtn">Continuar</button>
+                    <button type="submit" class="btn btn-primary" id="continuaBtn">Continuar</button>
                 </div>
             </div>
         </div>
@@ -164,6 +168,7 @@
                     <h1 class="modal-title fs-5" id="direccionModalLabel">Direccion del Trabajo</h1>
                 </div>
                 <div class="modal-body">
+                <form method="post" enctype="multipart/form-data">
                         <label class="form-label" for="ubicacion">¿Cuál es la Direccion donde se realizará el trabajo?</label>
                             <div class="table-container">
                                 <table class="table table-borderless">
@@ -210,18 +215,25 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-primary" id="terminarBtn">Terminar</button>
                 </div>
-
-            </div>
-        </div>
-    </div>
-    <?php
-                if (isset($_POST['fecha'], $_POST['tipo_trabajo'], $_POST['servicios'], $_POST['calle'], 
+                <?php
+                if (isset($_POST['fecha'], /*$_POST['tipo_trabajo'],*/ $_POST['servicios'], $_POST['calle'], 
                 $_POST['colonia'], $_POST['numero_ext'], $_POST['ciudad'], $_POST['estado'], 
                 $_POST['codigo_postal'])) {
                 require_once "scripts/insertar_solicitud.php";
                 }
 
                 ?>
+            </div>
+        </div>
+    </div>
+    <?php
+         /*       if (isset($_POST['fecha'], $_POST['tipo_trabajo'], $_POST['servicios'], $_POST['calle'], 
+                $_POST['colonia'], $_POST['numero_ext'], $_POST['ciudad'], $_POST['estado'], 
+                $_POST['codigo_postal'])) {
+                require_once "scripts/insertar_solicitud.php";
+                }
+
+                */?>
     <!-- Modal 4.1 -->
     <div class="modal fade" id="ultimoModal" tabindex="-1" aria-labelledby="ultimoModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
