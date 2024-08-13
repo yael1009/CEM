@@ -82,6 +82,8 @@
         $servicios_json = json_encode($servicios);
 
         include 'scripts/carga.php';
+	/*== Comprobando si se ha seleccionado una imagen ==*/
+	//if($_FILES['archivos']['name']!="" && $_FILES['archivos']['size']>0){}
     
         // Archivos subidos
         $archivos = [];
@@ -101,6 +103,10 @@
             echo "<div class='alert alert-success'>SOLICITUD REGISTRADA</div>";
             exit();
         } else {
+          /*  if(is_file($img_dir.$foto)){
+                chmod($img_dir.$foto, 0777);
+                unlink($img_dir.$foto);
+            }*/
             echo "<div class='alert alert-danger'>ERROR AL REGISTRAR LA SOLICITUD</div>";
         } 
     $db->desconectardb();

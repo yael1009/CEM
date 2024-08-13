@@ -46,7 +46,7 @@
                     <h1 class="modal-title fs-5" id="ultimoModalLabel">Servicios</h1>
                 </div>
                 <div class="modal-body">
-                    <form action="" method="post">
+                    <form action="" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                             <label class="form-label">Seleccione los Servicios:</label>
                             <div class="form-check">
@@ -89,7 +89,6 @@
                     <h1 class="modal-title fs-5" id="nuevoModalLabel">Solicitud de Cotizacion</h1>
                 </div>
                 <div class="modal-body">
-                    <form id="form2" autocomplete="off" method="post" enctype="multipart/form-data">
                     <?php
                     // Obtener la fecha actua l
                     $hoy = date("Y-m-d");
@@ -167,7 +166,6 @@
                     <h1 class="modal-title fs-5" id="direccionModalLabel">Direccion del Trabajo</h1>
                 </div>
                 <div class="modal-body">
-                    <form action="" id="form3" autocomplete="off" method="post">
                         <label class="form-label" for="ubicacion">¿Cuál es la Direccion donde se realizará el trabajo?</label>
                             <div class="table-container">
                                 <table class="table table-borderless">
@@ -215,11 +213,11 @@
                     <button type="submit" class="btn btn-primary" id="terminarBtn">Terminar</button>
                 </div>
                 <?php
-if (isset($_POST['fecha'], $_POST['tipo_trabajo'], $_POST['servicios'], $_POST['calle'], 
-$_POST['colonia'], $_POST['numero_ext'], $_POST['ciudad'], $_POST['estado'], 
-$_POST['codigo_postal'])) {
-require_once "scripts/insertar_solicitud.php";
-}
+                if (isset($_POST['fecha'], $_POST['tipo_trabajo'], $_POST['servicios'], $_POST['calle'], 
+                $_POST['colonia'], $_POST['numero_ext'], $_POST['ciudad'], $_POST['estado'], 
+                $_POST['codigo_postal'])) {
+                require_once "scripts/insertar_solicitud.php";
+                }
 
                 ?>
             </div>
