@@ -12,9 +12,9 @@
 
 	}else{
 
-		$consulta_datos="SELECT * FROM VistaCompletaSolicitudes  WHERE usuario='".$_SESSION['id']."' GROUP BY id_solicitud ORDER BY fecha_solicitud ASC LIMIT $inicio,$registros";
+		$consulta_datos="SELECT * FROM VistaCompletaSolicitudes  WHERE id_usuario='".$_SESSION['id']."' GROUP BY id_solicitud ORDER BY fecha_solicitud ASC LIMIT $inicio,$registros";
 
-		$consulta_total="SELECT COUNT( DISTINCT id_solicitud) FROM VistaCompletaSolicitudes  WHERE usuario='".$_SESSION['id']."'";
+		$consulta_total="SELECT COUNT( DISTINCT id_solicitud) FROM VistaCompletaSolicitudes  WHERE id_usuario='".$_SESSION['id']."'";
 		
 	}
 	
@@ -30,9 +30,9 @@
 		$contador=$inicio+1;
 		$pag_inicio=$inicio+1;
 		foreach($datos as $rows){
-            $query="SELECT DISTINCT tipo_servicio FROM VistaCompletaSolicitudes  WHERE usuario='".$_SESSION['id']."' AND id_solicitud='".$rows->id_solicitud."' ORDER BY fecha_solicitud";
+            $query="SELECT DISTINCT tipo_servicio FROM VistaCompletaSolicitudes  WHERE id_usuario='".$_SESSION['id']."' AND id_solicitud='".$rows->id_solicitud."' ORDER BY fecha_solicitud";
             $solicitudes = $conexion->seleccionar($query);
-            $query_archivo="SELECT DISTINCT archivo_ruta FROM VistaCompletaSolicitudes  WHERE usuario='".$_SESSION['id']."' AND id_solicitud='".$rows->id_solicitud."' ORDER BY fecha_solicitud";
+            $query_archivo="SELECT DISTINCT archivo_ruta FROM VistaCompletaSolicitudes  WHERE id_usuario='".$_SESSION['id']."' AND id_solicitud='".$rows->id_solicitud."' ORDER BY fecha_solicitud";
             $archivos = $conexion->seleccionar($query_archivo);
 			$tabla.='
                 <table class="table mb-0">
@@ -61,7 +61,7 @@
                             <th>Servicios solicitados:</th>
                             <td>';
                             foreach ($solicitudes as $rows2) {
-                                $query2="SELECT DISTINCT servicio FROM VistaCompletaSolicitudes  WHERE usuario='".$_SESSION['id']."' AND tipo_servicio='".$rows2->tipo_servicio."' AND id_solicitud='".$rows->id_solicitud."'";
+                                $query2="SELECT DISTINCT servicio FROM VistaCompletaSolicitudes  WHERE id_usuario='".$_SESSION['id']."' AND tipo_servicio='".$rows2->tipo_servicio."' AND id_solicitud='".$rows->id_solicitud."'";
                                 $servicios = $conexion->seleccionar($query2);
 
                                 $tabla .= "<strong>".$rows2->tipo_servicio."</strong> <br>";
@@ -82,7 +82,7 @@
                             }
                             $tabla.='</td>
                         </tr>';
-                        if ($rows->id_venta !== NULL){
+                        if ($rows->estado_orden == "Completado"){
                             $tabla.='
                             <tr>
                                 <th>Subtotal:</th>
@@ -112,11 +112,15 @@
                     </tbody>
                 </table>
                 <br>
-                <div class="button-container">
+                <div class="button-container">';
+                if ($rows->estado_orden !== "Completado"){
+                $tabla .='
                 <form action="" method="POST" autocomplete="off" >
                 <input type="hidden" name="accion" values="cancelar">   
                         <button class="btn btn-custom" type="submit" >Cancelar orden</button>
-                </form>
+                </form>';
+                }
+                $tabla .='
                 <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#EditarModal">Editar</button>
                 </div>
                 <br>

@@ -142,25 +142,26 @@
                                 <th class="fixed-width">Usuario:</th>
                                 <td><input type="text" name="usuario" pattern="[a-zA-Z0-9]{4,50}" class="form-control"></td>
                             </tr>
-                            <?php
-                            if(isset($_SESSION['cliente'])){
-                            echo "<tr>
+                            <tr>
                                 <th class='fixed-width'>Uso de la cuenta:</th>
                                 <td><input type='text' name='uso' pattern='[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}' class='form-control'></td>
                             </tr>
                             <tr>
                                 <th class='fixed-width'>Cargo de la compañía:</th>
                                 <td><input type='text' name='cargo' pattern='[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}' class='form-control'></td>
-                            </tr>";
-                            }else{
-                                echo "<tr>
+                            </tr>
+                            <?php
+                            if(isset($_SESSION['administrador']) || isset($_SESSION['g_usuarios']) || isset($_SESSION['g_cotizaciones'])){
+                                echo "
+                            <tr>
                                 <th class='fixed-width'>RFC:</th>
                                 <td><input type='text' name='RFC' pattern='^[A-ZÑ&]{3}\d{6}[A-Z0-9]{3}$' class='form-control'></td>
                             </tr>
                             <tr>
                                 <th class='fixed-width'>NSS:</th>
                                 <td><input type='text' name='NSS' pattern='^\d{2}\d{2}\d{2}\d{5}$' class='form-control'></td>
-                            </tr>";
+                            </tr>
+                            ";
                             }
                             ?>
                         </tbody>

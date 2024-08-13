@@ -28,10 +28,6 @@
                     $busqueda="";
 
                     require_once "./scripts/ver_mis_cotizaciones.php";
-
-                    if(isset($_POST['cancelar'])){
-                        require_once "./scripts/cancelar_orden.php";
-                    }
                 ?>
             </div>
         </div>

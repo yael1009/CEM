@@ -1,6 +1,6 @@
 <?php
 
-    $accion = $main->limpiarstring( $_POST['accion']); // Nombre del campo que indica la acción (aceptar, cancelar, completado)
+    $accion = $main->limpiarstring($_POST['accion']); // Nombre del campo que indica la acción (aceptar, cancelar, completado)
 
     if ($accion == 'cancelar') {
         if($rows->estado_orden !== NULL){
@@ -21,6 +21,7 @@
         }
 
     // Redireccionar o mostrar un mensaje de éxito
+    header("Refresh:0"); // Refresca la página inmediatamente
    // header("Location: ".$recargar."");
     //exit();
 

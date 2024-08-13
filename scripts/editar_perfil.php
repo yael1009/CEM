@@ -1,11 +1,11 @@
 <?php
 require_once 'class/database.php';
 
-$user = $_SESSION['id'];
-
 $main = new main();    
 $conexion = new database($_SESSION['usuario']);
-//$conexion->conectardb();
+//$conexion->conectardb()
+$user = $_SESSION['id'];
+$oldusuario = $_SESSION['usuarios'];
 
 // Recibir datos del formulario
 $nombres = !empty($_POST['nombres']) ? $main->limpiarstring($_POST['nombres']) : NULL;
@@ -81,7 +81,8 @@ if ($NSS && $main->verificar_datos("\d{11}", $NSS)) {
 
 try {
     $query = "CALL EDITAR_USER(
-        :id,
+        '$user',
+        '$oldusuario'
         :usuario,
         :foto,
         :nombres,
