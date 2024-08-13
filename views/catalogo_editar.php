@@ -11,7 +11,7 @@
         <div class="service-divider"></div>
         <?php
             include 'scripts/select_catalogo.php';
-        ?>
+            ?>
         <!-- <div class="table-responsive">
             <table class="table tabla table-bordered">
                 <thead>
@@ -135,9 +135,9 @@
                         <td class="text-right">$131,138.00</td>
                     </tr>
                 </tbody>
-            </table> -->
+            </table>-->
     </div>
-
+    </div>
     <!-- Añadir -->
 <div class="modal fade" id="conceptModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
