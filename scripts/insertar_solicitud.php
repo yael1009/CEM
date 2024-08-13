@@ -7,8 +7,6 @@
     //$db->conectardb();
     $fecha = $main->limpiarstring($_POST['fecha'] ?? '');
     $tipo_trabajo = $main->limpiarstring($_POST['tipo_trabajo'] ?? '');
-    $servicos = $main->limpiarstring($_POST['servicios'] ?? '');
-    $archivos = $main->limpiarstring($_POST['img_serv_1'] ?? '');
     $comentarios = $main->limpiarstring($_POST['comentarios'] ?? '');
     $calle = $main->limpiarstring($_POST['calle'] ?? '');
     $colonia = $main->limpiarstring($_POST['colonia'] ?? '');
@@ -25,89 +23,85 @@
         exit();
     }
 
-    if($main->verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,60}",$estado))
+    if($main->verificar_datos("[a-zA-Z0-9$@.-]{7,2000}",$comentarios))
     {
         echo $main->mensaje_error("EL NOMBRE no coincide con el formato solicitado");
         exit();
     }
 
-    if($main->verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,30}",$apaterno))
+    if($main->verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}",$calle))
     {
         echo $main->mensaje_error("El apellido paterno no coincide con el formato solicitado");
         exit();
     }
 
-    if($main->verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,30}",$amaterno))
+    if($main->verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}",$colonia))
     {
         echo $main->mensaje_error("El apellido materno no coincide con el formato solicitado");
         exit();
     }
 
-    if($main->verificar_datos("[0-9]+",$tel)) //no m convence el pattern
+    if($main->verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}",$ciudad))
+    {
+        echo $main->mensaje_error("El apellido materno no coincide con el formato solicitado");
+        exit();
+    }
+
+    if($main->verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}",$estado))
+    {
+        echo $main->mensaje_error("El apellido materno no coincide con el formato solicitado");
+        exit();
+    }
+
+    if($main->verificar_datos("[0-9]+",$n_ext)) //no m convence el pattern
     {
         echo $main->mensaje_error("El telefono no coincide con el formato solicitado");
         exit();
     }
 
-    /*if($main->verificar_datos("[a-zA-Z0-9$@.]{7,100}",$correo)) //meter ese patter
+    if($main->verificar_datos("[0-9]+",$n_int)) //no m convence el pattern
+    {
+        echo $main->mensaje_error("El telefono no coincide con el formato solicitado");
+        exit();
+    }
+
+    if($main->verificar_datos("^[0-9]{5}$",$codigo_postal)) //meter ese patter
     {
         echo $main->mensaje_error("El correo no coincide con el formato solicitado");
         exit();
     }
 
-    if($main->verificar_datos("[a-zA-Z0-9]{4,50}",$usuario))
+    if($main->verificar_datos("[a-zA-Z0-9$@.-]{7,2000}",$referencia))
     {
         echo $main->mensaje_error("El usuario no coincide con el formato solicitado");
         exit();
     }
 
-    if($main->verificar_datos("[a-zA-Z0-9$@.]{7,100}",$pass))
-    {
-        echo $main->mensaje_error("La contraseña no coincide con el formato solicitado");
-        exit();
-    }
+        // Servicios seleccionados
+        $servicios = $_POST['servicios'] ?? [];
+        $servicios_json = json_encode($servicios);
 
-    if($main->verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}",$compañia))
-    {
-        echo $main->mensaje_error("La compañia no coincide con el formato solicitado");
-        exit();
-    }
-
-    if($main->verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}",$cargo))
-    {
-        echo $main->mensaje_error("el cargo no coincide con el formato solicitado");
-        exit();
-    }
-
-            // Verificando email
-
-    if($correo!=""){
-        if(filter_var($correo, FILTER_VALIDATE_EMAIL)){
-            if($db->contar("SELECT correo FROM personas WHERE correo='$correo'")>0){
-                echo $main->mensaje_error("El correo electrónico ingresado ya se encuentra registrado, por favor elija otro");
-                exit();
+        include 'scripts/carga.php';
+    
+        // Archivos subidos
+        $archivos = [];
+        if (isset($_FILES['archivos'])) {
+            foreach ($_FILES['archivos']['tmp_name'] as $key => $tmp_name) {
+                $file_content = file_get_contents($tmp_name);
+                $archivos[] = base64_encode($file_content);
             }
-        }else{
-            echo $main->mensaje_error("Ha ingresado un correo electrónico no valido");
-            exit();
-        } 
-    }
+        }
+        $archivos_json = json_encode($archivos);
 
 
-    // Verificando usuario
-    if($db->contar("SELECT usuario FROM usuarios WHERE usuario='$usuario'")>0){
-        echo $main->mensaje_error("El USUARIO ingresado ya se encuentra registrado, por favor elija otro");
-        exit();
-    }*/
-
-        $query=("CALL CREAR_USUARIO_CL('$nombre', '$apaterno', '$amaterno', '$correo', '$tel', '$usuario', '$pass', '$compañia', '$cargo')");
+        $query=("CALL creacion_solicitud(".$_SESSION['id'].", '$calle', '$n_ext', '$n_int', '$colonia', '$codigo_postal', '$ciudad', '$estado', '$referencia', '$fecha_esperada', '$tipo_trabajo', '$comentarios', $servicios_json, $archivos_json)");
 
         if ($db->ejecutar($query)) {
                 header("refresh:3;url=index.php?vista=home");
-            echo "<div class='alert alert-success'>CLIENTE REGISTRADO</div>";
+            echo "<div class='alert alert-success'>SOLICITUD REGISTRADA</div>";
             exit();
         } else {
-            echo "<div class='alert alert-danger'>ERROR AL REGISTRAR CLIENTE</div>";
+            echo "<div class='alert alert-danger'>ERROR AL REGISTRAR LA SOLICITUD</div>";
         } 
     $db->desconectardb();
 ?>

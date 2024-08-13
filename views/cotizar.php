@@ -61,7 +61,7 @@
                                         echo '<strong class="rojito">'.$rows2->tipo_servicio.'</strong> <br>';
                                         foreach ($servicios as $rows3) {
                                             echo '<br>
-                                            <input class="form-check-input" type="checkbox" name="servicios" value="'.$rows3->servicio.'" id="cliente">
+                                            <input class="form-check-input" type="checkbox" name="servicios[]" value="'.$rows3->servicio.'" id="cliente">
                                             <label class="form-check-label" for="cliente">
                                             '.$rows3->servicio.'
                                             </label> <br>';
@@ -118,7 +118,7 @@
                         <label class="form-label" for="archivo">Subir Archivos</label>
                         <div id="contenedor-archivos">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="img_serv_1" name="img_serv[]" accept=".pdf">
+                                <input type="file" class="custom-file-input" id="img_serv_1" name="archivos[]" accept=".pdf">
                                 <label class="custom-file-label" for="img_serv_1">Seleccionar archivo</label>
                             </div>
                         </div>
@@ -128,7 +128,7 @@
                         <br><br>
 
                         <script>
-                        let contador = 1; // Iniciamos en 1 porque ya hay un campo visible
+                        let contador = 1; // Iniciamos en 1s- porque ya hay un campo visible
                         function agregarArchivo() {
                             if (contador < 3) {
                                 contador++;
