@@ -5,13 +5,6 @@
                 <h1 class="mb-4">Crear Cuenta</h1>
                 <p class="rojito">¡Regístrate hoy y accede a servicios exclusivos! Disfruta de una experiencia personalizada y soluciones a medida. ¡Únete ahora y aprovecha todas nuestras ventajas!</p>
             </div>
-            <?php
-			if(isset($_POST['nombre']) && isset($_POST['apaterno']) && isset($_POST['amaterno']) && isset($_POST['tel'])
-            && isset($_POST['correo']) && isset($_POST['usuario']) && isset($_POST['pass']) && isset($_POST['compañia'])
-            && isset($_POST['cargo'])){
-				require_once "scripts/c_registro.php";
-			}
-		    ?>
             <form action="" method="post" autocomplete="off" class="FormularioAjax">
                 <div class="mb-3">
                     <label class="form-label" for="nombre">Nombres</label>
@@ -54,5 +47,12 @@
                     <button type="button" class="btn btn-custom"> <a class="custom-link" href="index.php?vista=login">Iniciar sesión</a></button>
                 </div>
             </form>
+            <?php
+			if(isset($_POST['nombre']) && isset($_POST['apaterno']) && isset($_POST['amaterno']) && isset($_POST['tel'])
+            && isset($_POST['correo']) && isset($_POST['usuario']) && isset($_POST['pass']) && isset($_POST['compañia'])
+            && isset($_POST['cargo'])){
+				require_once "scripts/c_registro.php";
+			}
+		    ?>
         </div>
     </div>

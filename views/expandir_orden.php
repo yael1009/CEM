@@ -35,11 +35,11 @@
 
         <div class="order-info row">
             <div class="col-md-8">
-                <?php echo 
-                "<h6>Cliente</h6>
+            <?php echo 
+                '<h6>Cliente</h6>
                 <p>Usuario: '.$rows->usuario.'<br>
                     Nombre completo: '.$rows_usuario->nombre_completo.'<br>
-                    Teléfono: '.$rows_usuario->telefono.'</p>'";
+                    Teléfono: '.$rows_usuario->telefono.'</p>';
                 ?>
             </div>
             <div class="col-md-4 text-center">
@@ -189,10 +189,11 @@
             <br>';
         }
             include "inc/regresar.php";
-            $tabla .='            
+            $tabla .='          
         </div>
     </div>';
     echo $tabla;
+    include "inc/regresar.php";
 
     if(isset($_POST['accion'])){
         $recargar='index.php?vista=expandir_orden';
@@ -264,21 +265,22 @@
                             </div>
                         </div>
                         </form>
-                        <?php
-                        if(isset($_POST['voltaje'])){
-                            $voltaje = $main->limpiarstring($_POST['voltaje']);
-                            $conexion->ejecutar("CALL REGISTRO_LEVANTAMIENTOS ($voltaje,$rows->id_levantamiento)");
-                        }
-                        ?>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button class="btn btn-primary" id="guardarBtnCreacionVoltaje">Guardar</button>
+                    <button type="submit" class="btn btn-primary" id="guardarBtnCreacionVoltaje">Guardar</button>
                 </div>
             </div>
         </div>
     </div>
+    
+    <?php
+    if(isset($_POST['voltaje'])){
+        $voltaje = $main->limpiarstring($_POST['voltaje']);
+        $conexion->ejecutar("CALL REGISTRO_LEVANTAMIENTOS ($voltaje,$rows->id_levantamiento)");
+    }
+    ?>
     
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>

@@ -15,7 +15,8 @@ $consulta = "SELECT
     (SELECT I.UNIDAD FROM INSUMOS I WHERE I.ID_INSUMO = C.INSUMO) AS UNIDAD,
     C.CANTIDAD,
     C.PRECIO_UNITARIO,
-    C.IMPORTE
+    C.IMPORTE,
+    C.ID_CONCEPTO
 FROM 
     CONCEPTOS C
 JOIN 
@@ -57,6 +58,7 @@ foreach($resultado as $datos){
                 <button class='btn btn-custom'>Eliminar</button>
             </td>
           </tr>";
+          $id_concepto = $datos->ID_CONCEPTO;
 }
 
 echo "</tbody>
