@@ -36,10 +36,13 @@
         <div class="order-info row">
             <div class="col-md-8">
                 <?php echo 
-                '<h6>Cliente</h6>
+                "<h6>Cliente</h6>
                 <p>Usuario: '.$rows->usuario.'<br>
                     Nombre completo: '.$rows_usuario->nombre_completo.'<br>
                     Teléfono: '.$rows_usuario->telefono.'</p>';
+                <p>Usuario: '.$rows->usuario.'<br>
+                    Nombre completo: '.$rows_usuario->nombre_completo.'<br>
+                    Teléfono: '.$rows_usuario->telefono.'</p>'";
                 ?>
             </div>
             <div class="col-md-4 text-center">

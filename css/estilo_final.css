@@ -28,6 +28,9 @@
 .padd{
     padding-left: 0px;
 }
+.dropdown-item:hover{
+    color: #780415 !important;
+}
 /* drops */
 .red {
     background-color: #780415; 

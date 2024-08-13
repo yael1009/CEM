@@ -9,7 +9,10 @@
         </div>
         
         <div class="service-divider"></div>
-        <div class="table-responsive">
+        <?php
+            include 'scripts/select_catalogo.php';
+        ?>
+        <!-- <div class="table-responsive">
             <table class="table tabla table-bordered">
                 <thead>
                     <tr class="thBlanco">
@@ -132,7 +135,7 @@
                         <td class="text-right">$131,138.00</td>
                     </tr>
                 </tbody>
-            </table>
+            </table> -->
     </div>
 
     <!-- Añadir -->
@@ -178,7 +181,7 @@
 </div>
 
 <!-- Editar -->
-<div class="modal fade" id="editconceptModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="editconceptModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -219,17 +222,17 @@
 
                 <?php
 
-                    if(isset($_POST['concepto']) || isset($_POST['insumo']) || isset($_POST['unidad']) || isset($_POST['cantidad']) || 
-                    isset($_POST['unitario'])){
+                    // if(isset($_POST['concepto']) || isset($_POST['insumo']) || isset($_POST['unidad']) || isset($_POST['cantidad']) || 
+                    // isset($_POST['unitario'])){
                 
-                        require_once "class/main.php";
-                        require_once "scripts/editar_concepto_catalogo.php";
+                    //     require_once "class/main.php";
+                    //     require_once "scripts/editar_concepto_catalogo.php";
                 
-                    }
+                    // }
 
                 ?>
             </div>
             
         </div>
     </div>
-</div>
+</div> -->
