@@ -28,6 +28,9 @@
 .padd{
     padding-left: 0px;
 }
+.dropdown-item:hover{
+    color: #780415 !important;
+}
 /* drops */
 .red {
     background-color: #780415; 
@@ -260,6 +263,9 @@ select {
 .service-description {
     flex: 2;
     text-align: center;
+}
+.service-description p{
+    text-align: justify;
 }
 .service-divider {
     height: 2px;

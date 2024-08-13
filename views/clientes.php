@@ -91,30 +91,32 @@
                                 <div class="table-header p-2">
                                     Datos Personales
                                 </div>
-                                <table class="table mb-0" >
-                                    <tbody>
-                                        <tr>
-                                            <th>Nombres:</th>
-                                            <td>Jorge</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Apellido Paterno:</th>
-                                            <td>Fabela</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Apellido Materno:</th>
-                                            <td>No se</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Telefono:</th>
-                                            <td>871 666 6969</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Correo:</th>
-                                            <td>jorgito_uwu@gmail.com</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="table-responsive">
+                                    <table class="table mb-0" >
+                                        <tbody>
+                                            <tr>
+                                                <th>Nombres:</th>
+                                                <td>Jorge</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Apellido Paterno:</th>
+                                                <td>Fabela</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Apellido Materno:</th>
+                                                <td>No se</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Telefono:</th>
+                                                <td>871 666 6969</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Correo:</th>
+                                                <td>jorgito_uwu@gmail.com</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -123,55 +125,48 @@
                                     <div class="table-header p-2">
                                         Seleccione los roles
                                     </div>
-                                    <table class="table mb-0" >
-                                        <tbody>
-                                        <div class="form-check">
-                                            <tr>
-                                                <th></th>
-                                                <td><input class="form-check-input" type="checkbox" value="" id="cliente">
-                                                    <label class="form-check-label" for="cliente">
-                                                    Cliente
-                                                </label></td>
-                                            </tr>
-                                        </div>
-                                        <div class="form-check">
-                                            <tr>
-                                                <th></th>
-                                                <td><input class="form-check-input" type="checkbox" value="" id="gestorContenido">
-                                                    <label class="form-check-label" for="gestorContenido">
-                                                    Gestor de Contenido
-                                                </label></td>
-                                            </tr>
-                                        </div>
-                                        <div class="form-check">
-                                            <tr>
-                                                <th></th>
-                                                <td><input class="form-check-input" type="checkbox" value="" id="gestorRoles">
-                                                    <label class="form-check-label" for="gestorRoles">
-                                                    Gestor de Roles
-                                                </label></td>
-                                            </tr>
-                                        </div>
-                                        <div class="form-check">
-                                            <tr>
-                                                <th></th>
-                                                <td><input class="form-check-input" type="checkbox" value="" id="gestorCotizacion">
-                                                    <label class="form-check-label" for="gestorCotizacion">
-                                                    Gestor de Cotización
-                                                </label></td>
-                                            </tr>
-                                        </div>
-                                        <div class="form-check">
-                                            <tr>
-                                                <th></th>
-                                                <td><input class="form-check-input" type="checkbox" value="" id="administrador">
-                                                    <label class="form-check-label" for="administrador">
-                                                    Administrador
-                                                </label></td>
-                                            </tr>
-                                        </div>
-                                        </tbody>
-                                    </table>
+                                    <div class="table-responsive">
+                                        <table class="table mb-0" >
+                                            <tbody>
+                                            <div class="form-check">
+                                                <tr>
+                                                    <th></th>
+                                                    <td><input class="form-check-input" type="checkbox" value="" id="cliente">
+                                                        <label class="form-check-label" for="cliente">
+                                                        Cliente
+                                                    </label></td>
+                                                </tr>
+                                            </div>
+                                            <div class="form-check">
+                                                <tr>
+                                                    <th></th>
+                                                    <td><input class="form-check-input" type="checkbox" value="" id="gestorRoles">
+                                                        <label class="form-check-label" for="gestorRoles">
+                                                        Gestor de Roles
+                                                    </label></td>
+                                                </tr>
+                                            </div>
+                                            <div class="form-check">
+                                                <tr>
+                                                    <th></th>
+                                                    <td><input class="form-check-input" type="checkbox" value="" id="gestorCotizacion">
+                                                        <label class="form-check-label" for="gestorCotizacion">
+                                                        Gestor de Cotización
+                                                    </label></td>
+                                                </tr>
+                                            </div>
+                                            <div class="form-check">
+                                                <tr>
+                                                    <th></th>
+                                                    <td><input class="form-check-input" type="checkbox" value="" id="administrador">
+                                                        <label class="form-check-label" for="administrador">
+                                                        Administrador
+                                                    </label></td>
+                                                </tr>
+                                            </div>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -180,26 +175,24 @@
                                 <div class="table-header p-2">
                                     Datos de Usuario
                                 </div>
-                                <table class="table mb-0" >
-                                    <tbody>
-                                        <tr>
-                                            <th>Usuario:</th>
-                                            <td>jorgito_uwu</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Contraseña:</th>
-                                            <td>*************</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Uso de la cuenta:</th>
-                                            <td>Personal</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Cargo de la compañía:</th>
-                                            <td>Propietario</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="table-responsive">
+                                    <table class="table mb-0" >
+                                        <tbody>
+                                            <tr>
+                                                <th>Usuario:</th>
+                                                <td>jorgito_uwu</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Uso de la cuenta:</th>
+                                                <td>Personal</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Cargo de la compañía:</th>
+                                                <td>Propietario</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
