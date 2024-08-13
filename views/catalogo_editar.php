@@ -12,130 +12,6 @@
         <?php
             include 'scripts/select_catalogo.php';
         ?>
-        <!-- <div class="table-responsive">
-            <table class="table tabla table-bordered">
-                <thead>
-                    <tr class="thBlanco">
-                        <th>Concepto</th>
-                        <th>Insumo</th>
-                        <th>Unidad</th>
-                        <th>Cant.</th>
-                        <th>Unitario</th>
-                        <th>Importe</th>
-                        <th colspan="2">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Suministro e instalación de acometida eléctrica</td>
-                        <td>Cable de cobre</td>
-                        <td>Pza</td>
-                        <td>2</td>
-                        <td>$5,500.00</td>
-                        <td>$11,000.00</td>
-                        <td>
-                            <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#editconceptModal">Editar</button>
-                        </td>
-                        <td>
-                            <button class="btn btn-custom">Eliminar</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Suministro e instalación de interruptor termomagnético principal con gabinete</td>
-                        <td>Interruptor Automatico</td>
-                        <td>Pza</td>
-                        <td>2</td>
-                        <td>$8,800.00</td>
-                        <td>$17,600.00</td>
-                        <td>
-                            <button class="btn btn-custom">Editar</button>
-                        </td>
-                        <td>
-                            <button class="btn btn-custom">Eliminar</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Suministro e instalación de tablero centro de carga para 12 circuitos, incluye interruptores</td>
-                        <td>Toma Corriente</td>
-                        <td>Pza</td>
-                        <td>2</td>
-                        <td>$8,800.00</td>
-                        <td>$17,600.00</td>
-                        <td>
-                            <button class="btn btn-custom">Editar</button>
-                        </td>
-                        <td>
-                            <button class="btn btn-custom">Eliminar</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Instalación de salidas para alumbrado interior, incluye canalización y cableado</td>
-                        <td>Caja de conecciones</td>
-                        <td>Salida</td>
-                        <td>12</td>
-                        <td>$8,800.00</td>
-                        <td>$17,600.00</td>
-                        <td>
-                            <button class="btn btn-custom">Editar</button>
-                        </td>
-                        <td>
-                            <button class="btn btn-custom">Eliminar</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Suministro e instalación de luminaria LED tipo campana industrial UFO 100W</td>
-                        <td>Placa Solar</td>
-                        <td>Pza</td>
-                        <td>12</td>
-                        <td>$8,800.00</td>
-                        <td>$17,600.00</td>
-                        <td>
-                            <button class="btn btn-custom">Editar</button>
-                        </td>
-                        <td>
-                            <button class="btn btn-custom">Eliminar</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Instalación de salidas para alumbrado exterior, incluye canalización y cableado</td>
-                        <td>Fusible</td>
-                        <td>Salida</td>
-                        <td>9</td>
-                        <td>$8,800.00</td>
-                        <td>$17,600.00</td>
-                        <td>
-                            <button class="btn btn-custom">Editar</button>
-                        </td>
-                        <td>
-                            <button class="btn btn-custom">Eliminar</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Suministro e instalación de reflector LED 100W para exterior</td>
-                        <td>Bateria de respaldo</td>
-                        <td>Pza</td>
-                        <td>9</td>
-                        <td>$8,800.00</td>
-                        <td>$17,600.00</td>
-                        <td>
-                            <button class="btn btn-custom">Editar</button>
-                        </td>
-                        <td>
-                            <button class="btn btn-custom">Eliminar</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="service-divider"></div>
-            <table class="table">
-                <tbody>
-                    <tr class="total-row">
-                        <td class="text-right">Total</td>
-                        <td class="text-right">$131,138.00</td>
-                    </tr>
-                </tbody>
-            </table> -->
     </div>
 
     <!-- Añadir -->
@@ -147,6 +23,7 @@
             </div>
             <div class="modal-body">
                 <form action="" autocomplete="off">
+                    <input type="hidden" id="id_concepto_edit" name="id_concepto">
                     <label class="form-label" for="concepto_a">Concepto:</label>
                     <input class="form-control" type="text" name="concepto_a" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,1000}" maxlength="1000" required><br>
                     <select class="form-select" aria-label="Default select example" name="insumo_a">
@@ -188,11 +65,14 @@
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Concepto</h1>
             </div>
             <div class="modal-body">
-                <form method="post" autocomplete="off">
+                <form method="post" action="scripts/editar_concepto_catalogo.php" autocomplete="off">
+                    <input type="hidden" id="id_concepto_edit" name="id_concepto">
+
                     <label class="form-label" for="concepto">Concepto:</label>
                     <input class="form-control" type="text" name="concepto" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,1000}" maxlength="1000"><br>
+
                     <select class="form-select" aria-label="Default select example" name="insumo">
-                        <option selected>Insumo Usado</option>
+                    <option selected>Insumo Usado</option>
                         <option value="1">Cable Cobre</option>
                         <option value="2">Interruptor Automatico</option>
                         <option value="3">Toma Corriente</option>
@@ -201,9 +81,7 @@
                         <option value="6">Conector MC4</option>
                         <option value="7">Sensor de Luz</option>
                         <option value="8">Fusible</option>
-                        <option value="9">Rele de Proteccion</option>
-                    </select><br><br>
-                    
+                        <option value="9">Rele de Proteccion</option>                    </select><br><br>
 
                     <label class="form-label" for="cantidad">Cantidad:</label>
                     <input class="form-control" type="text" name="cantidad" pattern="[0-9]+" maxlength="10" >
@@ -216,21 +94,10 @@
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-custom" id="guardarBtn">Guardar</button>
+                        <button type="submit" class="btn btn-custom">Guardar</button>
                     </div>
                 </form>
-
-    
             </div>
-            
         </div>
     </div>
 </div>
-<?php
-if(isset($_POST['concepto']) || isset($_POST['insumo']) || isset($_POST['cantidad']) || 
-isset($_POST['unitario'])){
-
-require_once "class/main.php";
-require_once "scripts/editar_concepto_catalogo.php";
-}
-?>

@@ -1,11 +1,12 @@
 <?php
-require_once 'class/database.php';
-
+require_once 'C:\Users\balon\OneDrive\Escritorio\UTT\Cuatri 3\Aplicaciones Web\samp2\htdocs\CEM\class\database.php';
+require_once 'C:\Users\balon\OneDrive\Escritorio\UTT\Cuatri 3\Aplicaciones Web\samp2\htdocs\CEM\class\main.php';
 $main = new main;
-$conexion = new database($_SESSION['usuario']);
+
+$user = $_SESSION['usuario'];
+$conexion = new database($user);
 //$conexion->conectardb();
 
-$user = $_SESSION['id'];
 
 $conceptop = !empty($_POST['concepto']) ? $main->limpiarstring($_POST['concepto']) : null;
 $insumop = !empty($_POST['insumo']) ? $main->limpiarstring($_POST['insumo']) : null;

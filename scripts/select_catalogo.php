@@ -1,5 +1,5 @@
 <?php
-require_once 'class/database.php';
+require_once 'C:\Users\balon\OneDrive\Escritorio\UTT\Cuatri 3\Aplicaciones Web\samp2\htdocs\CEM\class\database.php';
 
 $conexion = new database($_SESSION['usuario']);
 
@@ -44,20 +44,22 @@ echo "<div class='table-responsive'>
 
 foreach($resultado as $datos){
     echo "<tr>
-            <td>{$datos->CONCEPTO}</td>
-            <td>{$datos->INSUMO}</td>
-            <td>{$datos->UNIDAD}</td>
-            <td>{$datos->CANTIDAD}</td>
-            <td>{$datos->PRECIO_UNITARIO}</td>
-            <td>{$datos->IMPORTE}</td>
-            <td>
-                <button type='submit' class='btn btn-custom' data-toggle='modal' data-target='#editconceptModal'>Editar</button>
-            </td>
-            <td>
-                <button class='btn btn-custom'>Eliminar</button>
-            </td>
-          </tr>";
-          $id_concepto = $datos->ID_CONCEPTO;
+    <td>{$datos->CONCEPTO}</td>
+    <td>{$datos->INSUMO}</td>
+    <td>{$datos->UNIDAD}</td>
+    <td>{$datos->CANTIDAD}</td>
+    <td>{$datos->PRECIO_UNITARIO}</td>
+    <td>{$datos->IMPORTE}</td>
+    <td>
+        <form method='post' action='scripts/editar_concepto_catalogo.php'>
+            <input type='hidden' name='id_concepto' value='{$datos->ID_CONCEPTO}'>
+            <button type='button' class='btn btn-custom' data-toggle='modal' data-target='#editconceptModal' onclick='document.getElementById(\"id_concepto_edit\").value=\"{$datos->ID_CONCEPTO}\"'>Editar</button>
+        </form>
+    </td>
+    <td>
+        <button class='btn btn-custom'>Eliminar</button>
+    </td>
+  </tr>";
 }
 
 echo "</tbody>
