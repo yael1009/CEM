@@ -46,7 +46,7 @@
                 <h1 class="modal-title fs-5" id="ultimoModalLabel">Servicios</h1>
             </div>
             <div class="modal-body">
-                <form action="scripts/insertar_solicitud.php" method="post" enctype="multipart/form-data">
+                <form  method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label class="form-label">Seleccione los Servicios:</label>
                         <div class="form-check">
@@ -71,6 +71,8 @@
                             ?>
                         </div>
                     </div>
+                    </form>
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         <button type="submit" class="btn btn-primary">Continuar</button>
@@ -89,7 +91,7 @@
                 <h1 class="modal-title fs-5" id="nuevoModalLabel">Solicitud de Cotizacion</h1>
             </div>
             <div class="modal-body">
-                <form action="scripts/insertar_solicitud.php" method="post" enctype="multipart/form-data">
+                <form  method="post" enctype="multipart/form-data">
                     <?php
                     $hoy = date("Y-m-d");
                     $fechaMaxima = date("Y-m-d", strtotime("+1 year"));
@@ -121,12 +123,12 @@
                     <br><br>
                     <label class="form-label" for="comentarios">Comentarios</label>
                     <textarea class="form-control" name="comentarios" rows="3" pattern="[a-zA-Z0-9$@.-]{7,2000}" maxlength="2000"></textarea>
+                    </form>
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         <button type="submit" class="btn btn-primary">Continuar</button>
                     </div>
-                </form>
             </div>
         </div>
     </div>
@@ -140,7 +142,7 @@
                 <h1 class="modal-title fs-5" id="direccionModalLabel">Direccion del Trabajo</h1>
             </div>
             <div class="modal-body">
-                <form action="scripts/insertar_solicitud.php" method="post" enctype="multipart/form-data">
+                <form  method="post" enctype="multipart/form-data">
                     <label class="form-label" for="ubicacion">¿Cuál es la Direccion donde se realizará el trabajo?</label>
                     <div class="table-container">
                         <table class="table table-borderless">
@@ -180,11 +182,11 @@
                             </tbody>
                         </table>
                     </div>
+                    </form>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-primary">Terminar</button>
                     </div>
-                </form>
             </div>
         </div>
     </div>
