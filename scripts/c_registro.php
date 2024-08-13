@@ -78,7 +78,7 @@
             /*== Verificando email ==*/
     if($correo!=""){
         if(filter_var($correo, FILTER_VALIDATE_EMAIL)){
-            if($db->contar("SELECT correo FROM personas WHERE correo='$correo'")>0){
+            if($db->contar("SELECT correo FROM PERSONAS WHERE correo='$correo'")>0){
                 echo $main->mensaje_error("El correo electrónico ingresado ya se encuentra registrado, por favor elija otro");
                 exit();
             }
@@ -90,7 +90,7 @@
 
 
     /*== Verificando usuario ==*/
-    if($db->contar("SELECT usuario FROM usuarios WHERE usuario='$usuario'")>0){
+    if($db->contar("SELECT usuario FROM USUARIOS WHERE usuario='$usuario'")>0){
         echo $main->mensaje_error("El USUARIO ingresado ya se encuentra registrado, por favor elija otro");
         exit();
     }

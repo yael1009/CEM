@@ -35,11 +35,11 @@
 
         <div class="order-info row">
             <div class="col-md-8">
-                <?php echo 
-                "<h6>Cliente</h6>
+            <?php echo 
+                '<h6>Cliente</h6>
                 <p>Usuario: '.$rows->usuario.'<br>
                     Nombre completo: '.$rows_usuario->nombre_completo.'<br>
-                    Teléfono: '.$rows_usuario->telefono.'</p>'";
+                    Teléfono: '.$rows_usuario->telefono.'</p>';
                 ?>
             </div>
             <div class="col-md-4 text-center">
@@ -189,7 +189,7 @@
             <br>';
         }
             include "inc/regresar.php";
-            $tabla .='            
+            $tabla .='<?php include "inc/regresar.php"; ?>          
         </div>
     </div>';
     echo $tabla;
