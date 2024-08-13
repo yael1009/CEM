@@ -137,7 +137,7 @@
                                 const div = document.createElement('div');
                                 div.className = 'custom-file';
                                 div.innerHTML = `
-                                    <input type="file" class="custom-file-input" id="img_serv_${contador}" name="img_serv[]" accept=".pdf">
+                                    <input type="file" class="custom-file-input" id="img_serv_${contador}" name="archivos[]" accept=".pdf">
                                     <label class="custom-file-label" for="img_serv_${contador}">Seleccionar archivo</label>
                                     <br><br>
                                 `;
@@ -215,7 +215,7 @@
                     <button type="submit" class="btn btn-primary" id="terminarBtn">Terminar</button>
                 </div>
                 <?php
-                if(isset($_POST['fecha']) && isset($_POST['tipo_trabajo']) && isset($_POST['servicios']) && isset($_POST['calle'])
+                if(isset($_POST['fecha']) && isset($_POST['tipo_trabajo']) && isset($_POST['servicios[]']) && isset($_POST['calle'])
                 && isset($_POST['colonia']) && isset($_POST['numero_ext']) && isset($_POST['ciudad']) && isset($_POST['estado'])
                 && isset($_POST['codigo_postal'])){
                     require_once "scripts/insertar_solicitud.php";
