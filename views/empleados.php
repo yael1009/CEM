@@ -105,25 +105,25 @@
                     <div class="form-group">
                         <label class="form-label">Seleccione los roles:</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="gestorContenido">
+                            <input class="form-check-input" type="checkbox" name="roles" id="gestorContenido">
                             <label class="form-check-label" for="gestorContenido">
                                 Gestor de Contenido
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="gestorRoles">
+                            <input class="form-check-input" type="checkbox" value="Gestor de Usuarios" name="roles[]" id="gestorRoles">
                             <label class="form-check-label" for="gestorRoles">
-                                Gestor de Roles
+                                Gestor de Usuarios
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="gestorCotizacion">
+                            <input class="form-check-input" type="checkbox" value="Gestor de Cotizaciones" name="roles[]" id="gestorCotizacion">
                             <label class="form-check-label" for="gestorCotizacion">
                                 Gestor de Cotización
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="administrador">
+                            <input class="form-check-input" type="checkbox" value="Administrador" name="roles[]" id="administrador">
                             <label class="form-check-label" for="administrador">
                                 Administrador
                             </label>
