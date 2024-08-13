@@ -87,7 +87,7 @@
 
                         $tabla .= "<strong>".$rows2->tipo_servicio."</strong> <br>";
                         foreach ($servicios as $rows3) {
-                            $tabla .= "<br>" . $rows3->servicio;
+                            $tabla .= "<br>" . $rows3->servicio . "  " . $rows3->id_ss;
                             
                             if($aceptada){
                             $tabla .='
@@ -161,7 +161,7 @@
             $tabla .='</tbody>
         </table>';
         
-        if($rows->estado_orden !== "Completado" && $rows->estado_orden !== "Descartado" && $rows->estado_orden !== "Cancelado"){
+        if($rows->estado_orden !== "Completado" && $rows->estado_orden !== "Descartado" && $rows->estado_solicitud !== "Cancelado"){
             $tabla .='
             <div class="actions text-center">
             <form action="" method="POST" autocomplete="off" >
@@ -188,11 +188,8 @@
             </form>
             <br>';
         }
-
-            $tabla .='
-            <button class="btn btn-custom mx-1" data-toggle="modal" data-target="#EditarModal">Editar Estado</button>
-            
-            '.include "inc/regresar.php".'
+            include "inc/regresar.php";
+            $tabla .='            
             <button class="btn btn-custom mx-1"> <a href="index.php?vista=ordenes_solicitudes">Regresar</a></button>
         </div>
     </div>';
