@@ -161,7 +161,7 @@
             $tabla .='</tbody>
         </table>';
         
-            if($rows->estado_orden !== "Completado" && $rows->estado_orden !== "Descartado" && $rows->estado_orden !== "Cancelado"){
+        if($rows->estado_orden !== "Completado" && $rows->estado_orden !== "Descartado" && $rows->estado_orden !== "Cancelado"){
             $tabla .='
             <div class="actions text-center">
             <form action="" method="POST" autocomplete="off" >
@@ -169,25 +169,25 @@
                     <button class="btn btn-custom" type="submit" >Cancelar orden</button>
             </form>
             <br>';
-            }
-
-            if(!isset($aceptada) || $rows->estado_solicitud !=="Cancelado"){
+        }
+        
+        if(!isset($aceptada) && $rows->estado_solicitud !== "Cancelado"){
             $tabla .='
             <form action="" method="POST" autocomplete="off" >
             <input type="hidden" name="accion" value="aceptar">   
                     <button class="btn btn-custom mx-1" type="submit" >Aceptar orden</button>
             </form>
             <br>';
-            }
-
-            if($aceptada == true || $rows->estado_orden !=="Descartado" || $rows->estado_orden !=="Completado"){
+        }
+        
+        if(isset($aceptada) && $rows->estado_orden !== "Descartado" && $rows->estado_orden !== "Completado"){
             $tabla .='
             <form action="" method="POST" autocomplete="off" >
             <input type="hidden" name="accion" value="completado">   
                     <button class="btn btn-custom mx-1" type="submit" >Terminar trabajo</button>
             </form>
             <br>';
-            }
+        }
 
             $tabla .='
             <button class="btn btn-custom mx-1" data-toggle="modal" data-target="#EditarModal">Editar Estado</button>
