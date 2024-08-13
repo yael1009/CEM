@@ -314,10 +314,10 @@
             $('#ultimoModal').modal('show');
         });
     </script>
-    <script>
-    $(".custom-file-input").on("change", function() {
-    var fileName = $(this).val().split("\\").pop();
-    $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-});
-
-</script>
+<script>
+        // Para mostrar el nombre del archivo seleccionado
+        $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
