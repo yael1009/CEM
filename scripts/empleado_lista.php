@@ -67,7 +67,7 @@
 							<p>Rol</p>
 						</div>
 						<div class="col-lg-2 col-md-6 col-sm-12">
-							<p><a href="#" class="text-danger">expandir</a></p>
+							<p><a href="#" class="text-danger" data-toggle="modal" data-target="#SeeMoreUser">expandir</a></p>
 						</div>
 						
 					</div>

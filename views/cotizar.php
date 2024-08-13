@@ -46,6 +46,7 @@
                     <h1 class="modal-title fs-5" id="ultimoModalLabel">Servicios</h1>
                 </div>
                 <div class="modal-body">
+                    <form action="" method="post" enctype="multipart/form-data" id="solicitudForm">
                 <div class="form-group">
                             <label class="form-label">Seleccione los Servicios:</label>
                             <div class="form-check">
@@ -61,7 +62,7 @@
                                         echo '<strong class="rojito">'.$rows2->tipo_servicio.'</strong> <br>';
                                         foreach ($servicios as $rows3) {
                                             echo '<br>
-                                            <input class="form-check-input" type="checkbox" name="servicios" value="'.$rows3->servicio.'" id="cliente">
+                                            <input class="form-check-input" type="checkbox" name="servicios[]" value="'.$rows3->servicio.'" id="cliente">
                                             <label class="form-check-label" for="cliente">
                                             '.$rows3->servicio.'
                                             </label> <br>';
@@ -71,10 +72,11 @@
                                 ?>
                             </div>
                         </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" id="sigueBtn">Continuar</button>
+                <button type="submit" class="btn btn-primary" id="sigueBtn">Continuar</button>
                 </div>
             </div>
         </div>
@@ -87,7 +89,8 @@
                     <h1 class="modal-title fs-5" id="nuevoModalLabel">Solicitud de Cotizacion</h1>
                 </div>
                 <div class="modal-body">
-                    <form id="form2" autocomplete="off">
+                <form method="post" enctype="multipart/form-data" id="solicitudForm">
+
                     <?php
                     // Obtener la fecha actua l
                     $hoy = date("Y-m-d");
@@ -118,7 +121,7 @@
                         <label class="form-label" for="archivo">Subir Archivos</label>
                         <div id="contenedor-archivos">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="img_serv_1" name="img_serv[]" accept=".pdf">
+                                <input type="file" class="custom-file-input" id="img_serv_1" name="archivos[]" accept=".pdf">
                                 <label class="custom-file-label" for="img_serv_1">Seleccionar archivo</label>
                             </div>
                         </div>
@@ -128,14 +131,14 @@
                         <br><br>
 
                         <script>
-                        let contador = 1; // Iniciamos en 1 porque ya hay un campo visible
+                        let contador = 1; // Iniciamos en 1s- porque ya hay un campo visible
                         function agregarArchivo() {
                             if (contador < 3) {
                                 contador++;
                                 const div = document.createElement('div');
                                 div.className = 'custom-file';
                                 div.innerHTML = `
-                                    <input type="file" class="custom-file-input" id="img_serv_${contador}" name="img_serv[]" accept=".pdf">
+                                    <input type="file" class="custom-file-input" id="img_serv_${contador}" name="archivos[]" accept=".pdf">
                                     <label class="custom-file-label" for="img_serv_${contador}">Seleccionar archivo</label>
                                     <br><br>
                                 `;
@@ -147,12 +150,12 @@
                         </script>
 
                         <label class="form-label" for="comentarios">Comentarios</label>
-                        <textarea class="form-control" name="comentarios" rows="3" pattern="[a-zA-Z0-9$@.-]{7,2000}" maxlength="2000"></textarea>
+                        <textarea class="form-control" name="comentarios" rows="3" pattern="[a-zA-Z0-9$@.]{7,2000}" maxlength="2000"></textarea>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" id="continuaBtn">Continuar</button>
+                    <button type="submit" class="btn btn-primary" id="continuaBtn">Continuar</button>
                 </div>
             </div>
         </div>
@@ -165,7 +168,7 @@
                     <h1 class="modal-title fs-5" id="direccionModalLabel">Direccion del Trabajo</h1>
                 </div>
                 <div class="modal-body">
-                    <form action="" id="form3" autocomplete="off">
+                <form method="post" enctype="multipart/form-data" id="solicitudForm">
                         <label class="form-label" for="ubicacion">¿Cuál es la Direccion donde se realizará el trabajo?</label>
                             <div class="table-container">
                                 <table class="table table-borderless">
@@ -213,15 +216,24 @@
                     <button type="submit" class="btn btn-primary" id="terminarBtn">Terminar</button>
                 </div>
                 <?php
-                if(isset($_POST['fecha']) && isset($_POST['tipo_trabajo']) && isset($_POST['servicios']) && isset($_POST['calle'])
-                && isset($_POST['colonia']) && isset($_POST['numero_ext']) && isset($_POST['ciudad']) && isset($_POST['estado'])
-                && isset($_POST['codigo_postal'])){
-                    require_once "scripts/insertar_solicitud.php";
-                }
+               /* if (isset($_POST['fecha'], /*$_POST['tipo_trabajo'], $_POST['servicios'], $_POST['calle'], 
+                $_POST['colonia'], $_POST['numero_ext'], $_POST['ciudad'], $_POST['estado'], 
+                $_POST['codigo_postal'])) {
+                require_once "scripts/insertar_solicitud.php";
+                 }*/
+
                 ?>
             </div>
         </div>
     </div>
+    <?php
+         /*       if (isset($_POST['fecha'], $_POST['tipo_trabajo'], $_POST['servicios'], $_POST['calle'], 
+                $_POST['colonia'], $_POST['numero_ext'], $_POST['ciudad'], $_POST['estado'], 
+                $_POST['codigo_postal'])) {
+                require_once "scripts/insertar_solicitud.php";
+                }
+
+                */?>
     <!-- Modal 4.1 -->
     <div class="modal fade" id="ultimoModal" tabindex="-1" aria-labelledby="ultimoModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -240,47 +252,6 @@
             </div>
         </div>
     </div>
-    <!-- Modal 5.1     
-    <div class="modal fade" id="serviciosModal" tabindex="-1" aria-labelledby="serviciosModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="ultimoModalLabel">Servicios</h1>
-                </div>
-                <div class="modal-body">
-                <div class="form-group">
-                            <label class="form-label">Seleccione los Servicios:</label>
-                            <div class="form-check">
-                                <?php /*
-                                include_once 'class/database.php';
-                                $db = new Database($_SESSION['usuario']);
-                                    $query="SELECT * FROM TIPO_SERVICIO ";
-                                    $solicitudes = $db->seleccionar($query);
-                                    foreach ($solicitudes as $rows2) {
-                                        $query2="SELECT servicio FROM SERVICIOS  WHERE  tipo_servicio='".$rows2->id_tipo_servicio."'";
-                                        $servicios = $db->seleccionar($query2);
-        
-                                        echo "<strong>".$rows2->tipo_servicio."</strong> <br>";
-                                        foreach ($servicios as $rows3) {
-                                            echo '<br>
-                                            <input class="form-check-input" type="checkbox" name="servicios" value="'.$rows3->servicio.'" id="cliente">
-                                            <label class="form-check-label" for="cliente">
-                                            '.$rows3->servicio.'
-                                            </label> <br>';
-                                        }
-                                        } 
-                                $db->desconectardb(); */
-                                ?>
-                            </div>
-                        </div>
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" id="sigueBtn">Continuar</button>
-                </div>
-            </div>
-        </div>
-    </div>-->
     <!-- Bootstrap 5 JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
@@ -307,8 +278,35 @@
             $('#nuevoModal').modal('hide');
             $('#direccionModal').modal('show');
         });
-        document.getElementById('terminarBtn').addEventListener('click', function() {
-            $('#direccionModal').modal('hide');
-            $('#ultimoModal').modal('show');
-        });
+        document.getElementById('terminarBtn').addEventListener('click', function(event) {
+    event.preventDefault(); // Evitar el envío automático del formulario
+    var form = document.getElementById('solicitudForm');
+    
+    // Crear un objeto FormData para manejar los datos del formulario
+    var formData = new FormData(form);
+
+    // Realizar la solicitud POST utilizando fetch
+    fetch('scripts/insertar_solicitud.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        // Aquí puedes manejar la respuesta del servidor
+        console.log(data);
+        // Cerrar el modal actual y abrir el último modal
+        $('#direccionModal').modal('hide');
+        $('#ultimoModal').modal('show');
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
     </script>
+    <script>
+    $(".custom-file-input").on("change", function() {
+    var fileName = $(this).val().split("\\").pop();
+    $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+
+</script>

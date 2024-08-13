@@ -5,7 +5,7 @@ $main = new main();
 $conexion = new database($_SESSION['usuario']);
 //$conexion->conectardb()
 $user = $_SESSION['id'];
-$oldusuario = $_SESSION['usuarios'];
+$oldusuario = $_SESSION['usuario'];
 
 // Recibir datos del formulario
 $nombres = !empty($_POST['nombres']) ? $main->limpiarstring($_POST['nombres']) : NULL;

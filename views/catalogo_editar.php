@@ -11,9 +11,133 @@
         <div class="service-divider"></div>
         <?php
             include 'scripts/select_catalogo.php';
-        ?>
+            ?>
+        <!-- <div class="table-responsive">
+            <table class="table tabla table-bordered">
+                <thead>
+                    <tr class="thBlanco">
+                        <th>Concepto</th>
+                        <th>Insumo</th>
+                        <th>Unidad</th>
+                        <th>Cant.</th>
+                        <th>Unitario</th>
+                        <th>Importe</th>
+                        <th colspan="2">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Suministro e instalación de acometida eléctrica</td>
+                        <td>Cable de cobre</td>
+                        <td>Pza</td>
+                        <td>2</td>
+                        <td>$5,500.00</td>
+                        <td>$11,000.00</td>
+                        <td>
+                            <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#editconceptModal">Editar</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-custom">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Suministro e instalación de interruptor termomagnético principal con gabinete</td>
+                        <td>Interruptor Automatico</td>
+                        <td>Pza</td>
+                        <td>2</td>
+                        <td>$8,800.00</td>
+                        <td>$17,600.00</td>
+                        <td>
+                            <button class="btn btn-custom">Editar</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-custom">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Suministro e instalación de tablero centro de carga para 12 circuitos, incluye interruptores</td>
+                        <td>Toma Corriente</td>
+                        <td>Pza</td>
+                        <td>2</td>
+                        <td>$8,800.00</td>
+                        <td>$17,600.00</td>
+                        <td>
+                            <button class="btn btn-custom">Editar</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-custom">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Instalación de salidas para alumbrado interior, incluye canalización y cableado</td>
+                        <td>Caja de conecciones</td>
+                        <td>Salida</td>
+                        <td>12</td>
+                        <td>$8,800.00</td>
+                        <td>$17,600.00</td>
+                        <td>
+                            <button class="btn btn-custom">Editar</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-custom">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Suministro e instalación de luminaria LED tipo campana industrial UFO 100W</td>
+                        <td>Placa Solar</td>
+                        <td>Pza</td>
+                        <td>12</td>
+                        <td>$8,800.00</td>
+                        <td>$17,600.00</td>
+                        <td>
+                            <button class="btn btn-custom">Editar</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-custom">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Instalación de salidas para alumbrado exterior, incluye canalización y cableado</td>
+                        <td>Fusible</td>
+                        <td>Salida</td>
+                        <td>9</td>
+                        <td>$8,800.00</td>
+                        <td>$17,600.00</td>
+                        <td>
+                            <button class="btn btn-custom">Editar</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-custom">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Suministro e instalación de reflector LED 100W para exterior</td>
+                        <td>Bateria de respaldo</td>
+                        <td>Pza</td>
+                        <td>9</td>
+                        <td>$8,800.00</td>
+                        <td>$17,600.00</td>
+                        <td>
+                            <button class="btn btn-custom">Editar</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-custom">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="service-divider"></div>
+            <table class="table">
+                <tbody>
+                    <tr class="total-row">
+                        <td class="text-right">Total</td>
+                        <td class="text-right">$131,138.00</td>
+                    </tr>
+                </tbody>
+            </table>-->
     </div>
-
+    </div>
     <!-- Añadir -->
 <div class="modal fade" id="conceptModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">

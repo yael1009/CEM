@@ -40,7 +40,8 @@ echo "<div class='table-responsive'>
                     <th colspan='2'>Acciones</th>
                 </tr>
             </thead>
-            <tbody>";
+            <tbody>
+    </div>";
 
 foreach($resultado as $datos){
     echo "<tr>
