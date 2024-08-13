@@ -202,7 +202,7 @@
                                                 <input class="form-control" type="text" name="codigo_postal" placeholder="Codigo Postal" pattern="^[0-9]{5}$" maxlength="5">
                                             </td>
                                             <td>
-                                                <input class="form-control" type="text" name="referencia" placeholder="Referencia" pattern="[a-zA-Z0-9$@.-]{7,2000}" maxlength="2000">
+                                                <input class="form-control" type="text" name="referencia" placeholder="Referencia" pattern="[a-zA-Z0-9$@.]{7,2000}" maxlength="2000">
                                             </td>
                                         </tr>
                                     </tbody>

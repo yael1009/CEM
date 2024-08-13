@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include "../class/main.php";
     include '../class/database.php';
 
