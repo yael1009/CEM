@@ -278,23 +278,24 @@
             $('#nuevoModal').modal('hide');
             $('#direccionModal').modal('show');
         });
-        document.getElementById('terminarBtn').addEventListener('click', function(event) {
-    event.preventDefault(); // Evitar el envío automático del formulario
-    var form = document.getElementById('solicitudForm');
-    
-    // Crear un objeto FormData para manejar los datos del formulario
-    var formData = new FormData(form);
+        document.getElementById('terminarBtn').addEventListener('click', function() {
+    // Obtener el formulario del modal actual
+    let form = document.querySelector('.modal.show form');
+    if (!form) return; // Asegurarse de que existe un formulario
 
-    // Realizar la solicitud POST utilizando fetch
+    // Crear un objeto FormData a partir del formulario
+    let formData = new FormData(form);
+
+    // Enviar la solicitud usando fetch
     fetch('scripts/insertar_solicitud.php', {
         method: 'POST',
         body: formData
     })
     .then(response => response.text())
-    .then(data => {
-        // Aquí puedes manejar la respuesta del servidor
-        console.log(data);
-        // Cerrar el modal actual y abrir el último modal
+    .then(result => {
+        // Aquí puedes manejar el resultado del script PHP
+        console.log(result);
+        // Puedes hacer que el modal se cierre y abrir el siguiente, si es necesario
         $('#direccionModal').modal('hide');
         $('#ultimoModal').modal('show');
     })
@@ -302,6 +303,7 @@
         console.error('Error:', error);
     });
 });
+
     </script>
     <script>
     $(".custom-file-input").on("change", function() {

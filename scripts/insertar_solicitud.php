@@ -1,7 +1,6 @@
 <?php
-    session_start();
-    include "../class/main.php";
-    include '../class/database.php';
+    include "class/main.php";
+    include 'class/database.php';
 
     $db = new Database($_SESSION['usuario']);
     $main = new main();
