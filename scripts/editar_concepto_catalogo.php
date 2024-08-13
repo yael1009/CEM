@@ -1,6 +1,6 @@
 <?php
-require_once 'C:\Users\balon\OneDrive\Escritorio\UTT\Cuatri 3\Aplicaciones Web\samp2\htdocs\CEM\class\database.php';
-require_once 'C:\Users\balon\OneDrive\Escritorio\UTT\Cuatri 3\Aplicaciones Web\samp2\htdocs\CEM\class\main.php';
+require_once 'class\database.php';
+require_once 'class\main.php';
 $main = new main;
 
 $user = $_SESSION['usuario'];

@@ -1,5 +1,5 @@
 <?php
-require_once 'C:\Users\balon\OneDrive\Escritorio\UTT\Cuatri 3\Aplicaciones Web\samp2\htdocs\CEM\class\database.php';
+require_once 'class/database.php';
 
 $conexion = new database($_SESSION['usuario']);
 
@@ -40,8 +40,7 @@ echo "<div class='table-responsive'>
                     <th colspan='2'>Acciones</th>
                 </tr>
             </thead>
-            <tbody>
-    </div>";
+            <tbody>";
 
 foreach($resultado as $datos){
     echo "<tr>
