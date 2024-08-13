@@ -46,7 +46,7 @@
                     <h1 class="modal-title fs-5" id="ultimoModalLabel">Servicios</h1>
                 </div>
                 <div class="modal-body">
-                    <form action="" method="post">
+                    <form action="" method="post" enctype="multipart/form-data" id="solicitudForm">
                 <div class="form-group">
                             <label class="form-label">Seleccione los Servicios:</label>
                             <div class="form-check">
@@ -89,7 +89,8 @@
                     <h1 class="modal-title fs-5" id="nuevoModalLabel">Solicitud de Cotizacion</h1>
                 </div>
                 <div class="modal-body">
-                    <form id="form2" autocomplete="off" method="post" enctype="multipart/form-data">
+                <form method="post" enctype="multipart/form-data" id="solicitudForm">
+
                     <?php
                     // Obtener la fecha actua l
                     $hoy = date("Y-m-d");
@@ -149,7 +150,7 @@
                         </script>
 
                         <label class="form-label" for="comentarios">Comentarios</label>
-                        <textarea class="form-control" name="comentarios" rows="3" pattern="[a-zA-Z0-9$@.-]{7,2000}" maxlength="2000"></textarea>
+                        <textarea class="form-control" name="comentarios" rows="3" pattern="[a-zA-Z0-9$@.]{7,2000}" maxlength="2000"></textarea>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -167,7 +168,7 @@
                     <h1 class="modal-title fs-5" id="direccionModalLabel">Direccion del Trabajo</h1>
                 </div>
                 <div class="modal-body">
-                    <form action="" id="form3" autocomplete="off" method="post">
+                <form method="post" enctype="multipart/form-data" id="solicitudForm">
                         <label class="form-label" for="ubicacion">¿Cuál es la Direccion donde se realizará el trabajo?</label>
                             <div class="table-container">
                                 <table class="table table-borderless">
@@ -201,7 +202,7 @@
                                                 <input class="form-control" type="text" name="codigo_postal" placeholder="Codigo Postal" pattern="^[0-9]{5}$" maxlength="5">
                                             </td>
                                             <td>
-                                                <input class="form-control" type="text" name="referencia" placeholder="Referencia" pattern="[a-zA-Z0-9$@.-]{7,2000}" maxlength="2000">
+                                                <input class="form-control" type="text" name="referencia" placeholder="Referencia" pattern="[a-zA-Z0-9$@.]{7,2000}" maxlength="2000">
                                             </td>
                                         </tr>
                                     </tbody>
@@ -215,16 +216,24 @@
                     <button type="submit" class="btn btn-primary" id="terminarBtn">Terminar</button>
                 </div>
                 <?php
-if (isset($_POST['fecha'], $_POST['tipo_trabajo'], $_POST['servicios'], $_POST['calle'], 
-$_POST['colonia'], $_POST['numero_ext'], $_POST['ciudad'], $_POST['estado'], 
-$_POST['codigo_postal'])) {
-require_once "scripts/insertar_solicitud.php";
-}
+               /* if (isset($_POST['fecha'], /*$_POST['tipo_trabajo'], $_POST['servicios'], $_POST['calle'], 
+                $_POST['colonia'], $_POST['numero_ext'], $_POST['ciudad'], $_POST['estado'], 
+                $_POST['codigo_postal'])) {
+                require_once "scripts/insertar_solicitud.php";
+                 }*/
 
                 ?>
             </div>
         </div>
     </div>
+    <?php
+         /*       if (isset($_POST['fecha'], $_POST['tipo_trabajo'], $_POST['servicios'], $_POST['calle'], 
+                $_POST['colonia'], $_POST['numero_ext'], $_POST['ciudad'], $_POST['estado'], 
+                $_POST['codigo_postal'])) {
+                require_once "scripts/insertar_solicitud.php";
+                }
+
+                */?>
     <!-- Modal 4.1 -->
     <div class="modal fade" id="ultimoModal" tabindex="-1" aria-labelledby="ultimoModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -243,47 +252,6 @@ require_once "scripts/insertar_solicitud.php";
             </div>
         </div>
     </div>
-    <!-- Modal 5.1     
-    <div class="modal fade" id="serviciosModal" tabindex="-1" aria-labelledby="serviciosModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="ultimoModalLabel">Servicios</h1>
-                </div>
-                <div class="modal-body">
-                <div class="form-group">
-                            <label class="form-label">Seleccione los Servicios:</label>
-                            <div class="form-check">
-                                <?php /*
-                                include_once 'class/database.php';
-                                $db = new Database($_SESSION['usuario']);
-                                    $query="SELECT * FROM TIPO_SERVICIO ";
-                                    $solicitudes = $db->seleccionar($query);
-                                    foreach ($solicitudes as $rows2) {
-                                        $query2="SELECT servicio FROM SERVICIOS  WHERE  tipo_servicio='".$rows2->id_tipo_servicio."'";
-                                        $servicios = $db->seleccionar($query2);
-        
-                                        echo "<strong>".$rows2->tipo_servicio."</strong> <br>";
-                                        foreach ($servicios as $rows3) {
-                                            echo '<br>
-                                            <input class="form-check-input" type="checkbox" name="servicios" value="'.$rows3->servicio.'" id="cliente">
-                                            <label class="form-check-label" for="cliente">
-                                            '.$rows3->servicio.'
-                                            </label> <br>';
-                                        }
-                                        } 
-                                $db->desconectardb(); */
-                                ?>
-                            </div>
-                        </div>
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" id="sigueBtn">Continuar</button>
-                </div>
-            </div>
-        </div>
-    </div>-->
     <!-- Bootstrap 5 JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
@@ -311,9 +279,31 @@ require_once "scripts/insertar_solicitud.php";
             $('#direccionModal').modal('show');
         });
         document.getElementById('terminarBtn').addEventListener('click', function() {
-            $('#direccionModal').modal('hide');
-            $('#ultimoModal').modal('show');
-        });
+    // Obtener el formulario del modal actual
+    let form = document.querySelector('.modal.show form');
+    if (!form) return; // Asegurarse de que existe un formulario
+
+    // Crear un objeto FormData a partir del formulario
+    let formData = new FormData(form);
+
+    // Enviar la solicitud usando fetch
+    fetch('scripts/insertar_solicitud.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(result => {
+        // Aquí puedes manejar el resultado del script PHP
+        console.log(result);
+        // Puedes hacer que el modal se cierre y abrir el siguiente, si es necesario
+        $('#direccionModal').modal('hide');
+        $('#ultimoModal').modal('show');
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
+
     </script>
 <script>
         // Para mostrar el nombre del archivo seleccionado

@@ -14,7 +14,10 @@
     $usuario = $main->limpiarstring($_POST['usuario'] ?? '');
     $pass = $main->limpiarstring($_POST['pass'] ?? '');
     $compañia = $main->limpiarstring($_POST['compañia'] ?? '');
-    $cargo = $main->limpiarstring($_POST['cargo'] ?? '');
+    $cargo = $main->limpiarstring($_POST['cargo'] ?? '');   
+    $rfc = $main->limpiarstring($_POST['rfc'] ?? '');
+    $nss = $main->limpiarstring($_POST['nss'] ?? '');
+    $roles = ($_POST['roles'] ?? '');
 
     if (!$main->validar_campos_vacios([$nombre,$apaterno,$amaterno,$tel,$correo,$usuario,$pass,$compañia,$cargo])) {
         echo $main->mensaje_error("Todos los campos son requeridos");
@@ -179,14 +182,30 @@
                 echo "<div class='alert alert-danger'>ERROR AL REGISTRAR CLIENTE</div>";
             }
                /*/
-        $query=("CALL CREAR_USUARIO_CL('$nombre', '$apaterno', '$amaterno', '$correo', '$tel', '$usuario', '$pass', '$compañia', '$cargo')");
 
-        if ($db->ejecutar($query)) {
+        if(!isset($rfc) || $rfc == "" || !isset($nss) || $nss == ""){
+            $query=("CALL CREAR_USUARIO_CL('$nombre', '$apaterno', '$amaterno', '$correo', '$tel', '$usuario', '$pass', '$compañia', '$cargo')");
+            if ($db->ejecutar($query)) {
                 header("refresh:3;url=index.php?vista=home");
-            echo "<div class='alert alert-success'>CLIENTE REGISTRADO</div>";
-            exit();
-        } else {
+                echo "<div class='alert alert-success'>CLIENTE REGISTRADO</div>";
+                exit();
+                } else {
+                    echo "<div class='alert alert-danger'>ERROR AL REGISTRAR CLIENTE</div>";
+                } 
+        }else{
+            foreach($roles as $rol){
+            $query=("CALL CREAR_USUARIO_EM('$nombre', '$apaterno', '$amaterno', '$correo', '$tel', '$usuario', '$pass','$rol','$rfc','$nss', '$compañia', '$cargo')");
+            if ($db->ejecutar($query)) {
+            $si=true;
+            }
+            if(isset($si)) {
+                header("refresh:3;url=index.php?vista=home");
+                echo "<div class='alert alert-success'>CLIENTE REGISTRADO</div>";
+                exit();
+            }else{
             echo "<div class='alert alert-danger'>ERROR AL REGISTRAR CLIENTE</div>";
-        } 
-    $db->desconectardb();
+            } 
+            }
+        }
+$db->desconectardb();
 ?>

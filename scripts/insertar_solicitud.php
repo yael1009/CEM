@@ -1,6 +1,10 @@
 <?php
-    include "class/main.php";
-    include 'class/database.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+    include "../class/main.php";
+    include '../class/database.php';
 
     $db = new Database($_SESSION['usuario']);
     $main = new main();
@@ -23,7 +27,7 @@
         exit();
     }
 
-    if($main->verificar_datos("[a-zA-Z0-9$@.-]{7,2000}",$comentarios))
+    if($main->verificar_datos("[a-zA-Z0-9$@.]{7,2000}",$comentarios))
     {
         echo $main->mensaje_error("EL NOMBRE no coincide con el formato solicitado");
         exit();
@@ -71,7 +75,7 @@
         exit();
     }
 
-    if($main->verificar_datos("[a-zA-Z0-9$@.-]{7,2000}",$referencia))
+    if($main->verificar_datos("[a-zA-Z0-9$@.]{7,2000}",$referencia))
     {
         echo $main->mensaje_error("El usuario no coincide con el formato solicitado");
         exit();
@@ -82,6 +86,8 @@
         $servicios_json = json_encode($servicios);
 
         include 'scripts/carga.php';
+	/*== Comprobando si se ha seleccionado una imagen ==*/
+	//if($_FILES['archivos']['name']!="" && $_FILES['archivos']['size']>0){}
     
         // Archivos subidos
         $archivos = [];
@@ -101,6 +107,10 @@
             echo "<div class='alert alert-success'>SOLICITUD REGISTRADA</div>";
             exit();
         } else {
+          /*  if(is_file($img_dir.$foto)){
+                chmod($img_dir.$foto, 0777);
+                unlink($img_dir.$foto);
+            }*/
             echo "<div class='alert alert-danger'>ERROR AL REGISTRAR LA SOLICITUD</div>";
         } 
     $db->desconectardb();

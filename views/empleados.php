@@ -105,46 +105,59 @@
                     <div class="form-group">
                         <label class="form-label">Seleccione los roles:</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="gestorContenido">
+                            <input class="form-check-input" type="checkbox" name="roles" id="gestorContenido">
                             <label class="form-check-label" for="gestorContenido">
                                 Gestor de Contenido
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="gestorRoles">
+                            <input class="form-check-input" type="checkbox" value="Gestor de Usuarios" name="roles[]" id="gestorRoles">
                             <label class="form-check-label" for="gestorRoles">
-                                Gestor de Roles
+                                Gestor de Usuarios
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="gestorCotizacion">
+                            <input class="form-check-input" type="checkbox" value="Gestor de Cotizaciones" name="roles[]" id="gestorCotizacion">
                             <label class="form-check-label" for="gestorCotizacion">
                                 Gestor de Cotización
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="administrador">
+                            <input class="form-check-input" type="checkbox" value="Administrador" name="roles[]" id="administrador">
                             <label class="form-check-label" for="administrador">
                                 Administrador
                             </label>
                         </div>
                     </div>
                 </form>
+                <?php
+			if(isset($_POST['nombre']) && isset($_POST['apaterno']) && isset($_POST['amaterno']) && isset($_POST['tel'])
+            && isset($_POST['correo']) && isset($_POST['usuario']) && isset($_POST['pass']) && isset($_POST['compañia'])
+            && isset($_POST['cargo']) && isset($_POST['rfc']) && isset($_POST['nss']) && isset($_POST['roles'])){
+				require_once "scripts/c_registro.php";
+			}
+		    ?>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-custom" id="guardarBtn">Guardar</button>
+                <button type="submit" class="btn btn-custom" id="guardarBtn">Guardar</button>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Expandir -->
+ <?php
+include_once 'class/database.php';
+$mostrar_usuario = new database($_SESSION['usuario']);
+$consulta_datos_usuario=("SELECT * FROM vista_usuarios WHERE id_usuario='".$_SESSION['id']."' GROUP BY id_usuario");
+$datos_usuario = $mostrar_usuario->seleccionar1($consulta_datos_usuario);
+ ?>
 <div class="modal fade" id="SeeMoreUser" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title" id="userModalLabel">Nombre Usuario</h2>
+                <h2 class="modal-title" id="userModalLabel"> <?php $datos_usuario->usuario ?> </h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -163,23 +176,23 @@
                                     <tbody>
                                         <tr>
                                             <th>Nombres:</th>
-                                            <td>Jorge</td>
+                                            <td> <?php $datos_usuario->nombre ?> </td>
                                         </tr>
                                         <tr>
                                             <th>Apellido Paterno:</th>
-                                            <td>Fabela</td>
+                                            <td> <?php $datos_usuario->a_p ?> </td>
                                         </tr>
                                         <tr>
                                             <th>Apellido Materno:</th>
-                                            <td>No se</td>
+                                            <td> <?php $datos_usuario->a_m ?> </td>
                                         </tr>
                                         <tr>
                                             <th>Telefono:</th>
-                                            <td>871 666 6969</td>
+                                            <td> <?php $datos_usuario->telefono ?> </td>
                                         </tr>
                                         <tr>
                                             <th>Correo:</th>
-                                            <td>jorgito_uwu@gmail.com</td>
+                                            <td> <?php $datos_usuario->correo ?> </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -245,15 +258,15 @@
                                     <tbody>
                                         <tr>
                                             <th>Usuario:</th>
-                                            <td>jorgito_uwu</td>
+                                            <td> <?php $datos_usuario->usuario ?> </td>
                                         </tr>
                                         <tr>
                                             <th>Uso de la cuenta:</th>
-                                            <td>Personal</td>
+                                            <td> <?php $datos_usuario->compañia ?> </td>
                                         </tr>
                                         <tr>
                                             <th>Cargo de la compañía:</th>
-                                            <td>Propietario</td>
+                                            <td> <?php $datos_usuario->cargo ?> </td>
                                         </tr>
                                     </tbody>
                                 </table>
