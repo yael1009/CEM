@@ -46,7 +46,7 @@
                     <h1 class="modal-title fs-5" id="ultimoModalLabel">Servicios</h1>
                 </div>
                 <div class="modal-body">
-                    <form action="">
+                    <form action="" method="post">
                 <div class="form-group">
                             <label class="form-label">Seleccione los Servicios:</label>
                             <div class="form-check">
@@ -89,7 +89,7 @@
                     <h1 class="modal-title fs-5" id="nuevoModalLabel">Solicitud de Cotizacion</h1>
                 </div>
                 <div class="modal-body">
-                    <form id="form2" autocomplete="off">
+                    <form id="form2" autocomplete="off" method="post" enctype="multipart/form-data">
                     <?php
                     // Obtener la fecha actua l
                     $hoy = date("Y-m-d");
@@ -167,7 +167,7 @@
                     <h1 class="modal-title fs-5" id="direccionModalLabel">Direccion del Trabajo</h1>
                 </div>
                 <div class="modal-body">
-                    <form action="" id="form3" autocomplete="off">
+                    <form action="" id="form3" autocomplete="off" method="post">
                         <label class="form-label" for="ubicacion">¿Cuál es la Direccion donde se realizará el trabajo?</label>
                             <div class="table-container">
                                 <table class="table table-borderless">
