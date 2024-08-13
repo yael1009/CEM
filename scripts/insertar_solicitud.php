@@ -3,8 +3,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-    include "class/main.php";
-    include 'class/database.php';
+    include "../class/main.php";
+    include '../class/database.php';
 
     $db = new Database($_SESSION['usuario']);
     $main = new main();
