@@ -216,11 +216,11 @@
                     <button type="submit" class="btn btn-primary" id="terminarBtn">Terminar</button>
                 </div>
                 <?php
-                if (isset($_POST['fecha'], /*$_POST['tipo_trabajo'],*/ $_POST['servicios'], $_POST['calle'], 
+               /* if (isset($_POST['fecha'], /*$_POST['tipo_trabajo'], $_POST['servicios'], $_POST['calle'], 
                 $_POST['colonia'], $_POST['numero_ext'], $_POST['ciudad'], $_POST['estado'], 
                 $_POST['codigo_postal'])) {
                 require_once "scripts/insertar_solicitud.php";
-                }
+                 }*/
 
                 ?>
             </div>
@@ -278,10 +278,30 @@
             $('#nuevoModal').modal('hide');
             $('#direccionModal').modal('show');
         });
-        document.getElementById('terminarBtn').addEventListener('click', function() {
-            $('#direccionModal').modal('hide');
-            $('#ultimoModal').modal('show');
-        });
+        document.getElementById('terminarBtn').addEventListener('click', function(event) {
+    event.preventDefault(); // Evitar el envío automático del formulario
+    var form = document.getElementById('solicitudForm');
+    
+    // Crear un objeto FormData para manejar los datos del formulario
+    var formData = new FormData(form);
+
+    // Realizar la solicitud POST utilizando fetch
+    fetch('scripts/insertar_solicitud.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        // Aquí puedes manejar la respuesta del servidor
+        console.log(data);
+        // Cerrar el modal actual y abrir el último modal
+        $('#direccionModal').modal('hide');
+        $('#ultimoModal').modal('show');
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
     </script>
     <script>
     $(".custom-file-input").on("change", function() {
