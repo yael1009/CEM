@@ -51,7 +51,7 @@ foreach($resultado as $datos){
             <td>{$datos->PRECIO_UNITARIO}</td>
             <td>{$datos->IMPORTE}</td>
             <td>
-                <button type='button' class='btn btn-custom' data-toggle='modal' data-target='#editconceptModal'>Editar</button>
+                <button type='submit' class='btn btn-custom' data-toggle='modal' data-target='#editconceptModal'>Editar</button>
             </td>
             <td>
                 <button class='btn btn-custom'>Eliminar</button>

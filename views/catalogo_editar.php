@@ -147,9 +147,9 @@
             </div>
             <div class="modal-body">
                 <form action="" autocomplete="off">
-                    <label class="form-label" for="concepto">Concepto:</label>
-                    <input class="form-control" type="text" name="concepto" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,1000}" maxlength="1000" required><br>
-                    <select class="form-select" aria-label="Default select example">
+                    <label class="form-label" for="concepto_a">Concepto:</label>
+                    <input class="form-control" type="text" name="concepto_a" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,1000}" maxlength="1000" required><br>
+                    <select class="form-select" aria-label="Default select example" name="insumo_a">
                         <option selected>Insumo Usado</option>
                         <option value="1">Cable Cobre</option>
                         <option value="2">Interruptor Automatico</option>
@@ -162,12 +162,12 @@
                         <option value="9">Rele de Proteccion</option>
                     </select><br><br>
                     
-                    <label class="form-label" for="cantidad">Cantidad:</label>
-                    <input class="form-control" type="text" name="cantidad" pattern="[0-9]+" maxlength="10" required>
+                    <label class="form-label" for="cantidad_a">Cantidad:</label>
+                    <input class="form-control" type="text" name="cantidad_a" pattern="[0-9]+" maxlength="10" required>
                     <label class="form-label" for="unitario">Unitario:</label>
                     <div class="input-group mb-3">
                     <span class="input-group-text">$</span>
-                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="unitario" pattern="[0-9]+" maxlength="10" required>
+                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="unitario_a" pattern="[0-9]+" maxlength="10" required>
                     <span class="input-group-text">.00</span>
                     </div>
                 </form>
@@ -188,9 +188,9 @@
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Concepto</h1>
             </div>
             <div class="modal-body">
-                <form action="" autocomplete="off">
+                <form method="post" autocomplete="off">
                     <label class="form-label" for="concepto">Concepto:</label>
-                    <input class="form-control" type="text" name="concepto" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,1000}" maxlength="1000" required><br>
+                    <input class="form-control" type="text" name="concepto" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,1000}" maxlength="1000"><br>
                     <select class="form-select" aria-label="Default select example" name="insumo">
                         <option selected>Insumo Usado</option>
                         <option value="1">Cable Cobre</option>
@@ -206,11 +206,11 @@
                     
 
                     <label class="form-label" for="cantidad">Cantidad:</label>
-                    <input class="form-control" type="text" name="cantidad" pattern="[0-9]+" maxlength="10" required>
+                    <input class="form-control" type="text" name="cantidad" pattern="[0-9]+" maxlength="10" >
                     <label class="form-label" for="unitario">Unitario:</label>
                     <div class="input-group mb-3">
                     <span class="input-group-text">$</span>
-                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="unitario" pattern="[0-9]+" maxlength="10" required>
+                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="unitario" pattern="[0-9]+" maxlength="10" >
                     <span class="input-group-text">.00</span>
                     </div>
 
@@ -222,15 +222,13 @@
 
                 <?php
 
-                    if(isset($_POST['concepto']) || isset($_POST['insumo']) || isset($_POST['cantidad']) || 
-                    isset($_POST['unitario'])){
-                
-                    require_once "class/main.php";
-                    require_once "scripts/editar_concepto_catalogo.php";
-                
-                    }
+if(isset($_POST['concepto']) || isset($_POST['insumo']) || isset($_POST['cantidad']) || 
+isset($_POST['unitario'])){
 
-                ?>
+require_once "class/main.php";
+require_once "scripts/editar_concepto_catalogo.php";
+}
+?>
             </div>
             
         </div>

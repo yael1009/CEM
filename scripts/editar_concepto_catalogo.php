@@ -1,5 +1,5 @@
 <?php
-require_once 'class_database.php';
+require_once 'class/database.php';
 
 $main = new main;
 $conexion = new database($_SESSION['usuario']);
@@ -7,7 +7,7 @@ $conexion = new database($_SESSION['usuario']);
 
 $user = $_SESSION['id'];
 
-$conceptop = !empty($_POST['conepto']) ? $main->limpiarstring($_POST['conepto']) : null;
+$conceptop = !empty($_POST['concepto']) ? $main->limpiarstring($_POST['concepto']) : null;
 $insumop = !empty($_POST['insumo']) ? $main->limpiarstring($_POST['insumo']) : null;
 $cantidadp = !empty($_POST['cantidad']) ? $main->limpiarstring($_POST['cantidad']) : null;
 $unitariop = !empty($_POST['unitario']) ? $main->limpiarstring($_POST['unitario']) : null;
@@ -29,10 +29,10 @@ if ($unitariop && $main->verificar_datos("[0-9]+", $unitariop)) {
 
 try{
 
-    $query = "CALL EDITAR_CONCEPTO_CATALOGO(
-    :id,
-    :concepto,
+    $query = "CALL EDITAR_CONCEPTO(
+    :id_concepto,
     :insumo,
+    :concepto,
     :cantidad,
     :unitario
     );";
@@ -40,15 +40,11 @@ try{
 
     $stmt = $conexion->preparar($query);
 
-    $stmt->bindParam(':id', $user, PDO::PARAM_INT);
-    $stmt->bindParam(':conepto', $conceptop, PDO::PARAM_STR);
-    $stmt->bindParam(':insumo', $insumop, PDO::PARAM_STR);
+    $stmt->bindParam(':id_concepto', $id_concepto, PDO::PARAM_STR);
+    $stmt->bindParam(':concepto', $conceptop, PDO::PARAM_STR);
+    $stmt->bindParam(':insumo', $insumop, PDO::PARAM_INT);
     $stmt->bindParam(':cantidad', $cantidadp, PDO::PARAM_INT);
     $stmt->bindParam(':unitario', $unitariop, PDO::PARAM_INT);
-
-    if (!$_POST['usuario'] == NULL) {
-        $_SESSION['usuario'] = $_POST['usuario'];
-    }
 
     if ($stmt->execute()) {
         echo "<div class='alert alert-success'>¡Concepto actualizado correctamente!</div>";
