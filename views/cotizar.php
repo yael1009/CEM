@@ -76,7 +76,7 @@
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" id="sigueBtn">Continuar</button>
+                <button type="submit" class="btn btn-primary" id="sigueBtn">Continuar</button>
                 </div>
             </div>
         </div>
@@ -154,7 +154,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" id="continuaBtn">Continuar</button>
+                    <button type="submit" class="btn btn-primary" id="continuaBtn">Continuar</button>
                 </div>
             </div>
         </div>
@@ -215,11 +215,12 @@
                     <button type="submit" class="btn btn-primary" id="terminarBtn">Terminar</button>
                 </div>
                 <?php
-                if(isset($_POST['fecha']) && isset($_POST['tipo_trabajo']) && isset($_POST['servicios[]']) && isset($_POST['calle'])
-                && isset($_POST['colonia']) && isset($_POST['numero_ext']) && isset($_POST['ciudad']) && isset($_POST['estado'])
-                && isset($_POST['codigo_postal'])){
-                    require_once "scripts/insertar_solicitud.php";
-                }
+if (isset($_POST['fecha'], $_POST['tipo_trabajo'], $_POST['servicios'], $_POST['calle'], 
+$_POST['colonia'], $_POST['numero_ext'], $_POST['ciudad'], $_POST['estado'], 
+$_POST['codigo_postal'])) {
+require_once "scripts/insertar_solicitud.php";
+}
+
                 ?>
             </div>
         </div>
