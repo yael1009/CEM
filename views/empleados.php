@@ -98,57 +98,12 @@
                     <input class="form-control" type="text" name="rfc">
                     <label class="form-label" for="cargo">Numero del Seguro Social:</label>
                     <input class="form-control" type="text" name="nss">
-                    <label class="form-label" for="direccion">Direccion:</label>
-                        <div class="table-container">
-                            <table class="table table-borderless">
-                                <tbody>
-                                    <tr>
-                                        <td> 
-                                            <input class="form-control" type="text" name="calle" placeholder="Calle">
-                                        </td>
-                                        <td>
-                                            <input class="form-control" type="text" name="colonia" placeholder="Colonia">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input class="form-control" type="text" name="numero_ext" placeholder="Numero Exterior">
-                                        </td>
-                                        <td>
-                                            <input class="form-control" type="text" name="numero_int" placeholder="Numero Interior">                                            </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input class="form-control" type="text" name="ciudad" placeholder="Ciudad">
-                                        </td>
-                                        <td>
-                                            <input class="form-control" type="text" name="estado" placeholder="Estado">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input class="form-control" type="text" name="codigo_postal" placeholder="Codigo Postal">
-                                        </td>
-                                        <td>
-                                            <input class="form-control" type="text" name="referencia" placeholder="Referencia">
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            
-                        </div>
                     <label class="form-label" for="usuario">Usuario:</label>
                     <input class="form-control" type="text" name="usuario">
                     <label class="form-label" for="pass">Password:</label>
                     <input class="form-control" type="password" name="pass">
                     <div class="form-group">
                         <label class="form-label">Seleccione los roles:</label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="cliente">
-                            <label class="form-check-label" for="cliente">
-                                Cliente
-                            </label>
-                        </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="gestorContenido">
                             <label class="form-check-label" for="gestorContenido">
@@ -238,21 +193,13 @@
                                     </div>
                                     <table class="table mb-0" >
                                         <tbody>
+                                            <form action="">
                                         <div class="form-check">
                                             <tr>
                                                 <th></th>
                                                 <td><input class="form-check-input" type="checkbox" value="" id="cliente">
                                                     <label class="form-check-label" for="cliente">
                                                     Cliente
-                                                </label></td>
-                                            </tr>
-                                        </div>
-                                        <div class="form-check">
-                                            <tr>
-                                                <th></th>
-                                                <td><input class="form-check-input" type="checkbox" value="" id="gestorContenido">
-                                                    <label class="form-check-label" for="gestorContenido">
-                                                    Gestor de Contenido
                                                 </label></td>
                                             </tr>
                                         </div>
@@ -284,6 +231,7 @@
                                             </tr>
                                         </div>
                                         </tbody>
+                                        </form>
                                     </table>
                                 </div>
                             </div>
