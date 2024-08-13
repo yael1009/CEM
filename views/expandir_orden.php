@@ -90,15 +90,14 @@
 
                         $tabla .= "<strong>".$rows2->tipo_servicio."</strong> <br>";
                         foreach ($servicios as $rows3) {
-                            $tabla .= $rows3->servicio;
+                            $tabla .= "<br>" . $rows3->servicio;
                             
                             if($aceptada){
                             $tabla .='
                             <form action="" method="POST" autocomplete="off" >
                             <input type="hidden" name="id_ss" value="'.$rows3->id_ss.'">   
                                 <button class="btn btn-custom mx-1" type="submit" >Ver catalogo</button>
-                            </form>
-                            <br>';
+                            </form>';
                             }
                         }
                         }          
@@ -165,7 +164,7 @@
             $tabla .='</tbody>
         </table>';
         
-        if($rows->extado_orden !== "Completado"){
+            if($rows->estado_orden !== "Completado" && $rows->estado_orden !== "Descartado" && $rows->estado_orden !== "Cancelado"){
             $tabla .='
             <div class="actions text-center">
             <form action="" method="POST" autocomplete="off" >
@@ -173,7 +172,7 @@
                     <button class="btn btn-custom" type="submit" >Cancelar orden</button>
             </form>
             <br>';
-        }
+            }
 
             if(!isset($aceptada) || $rows->estado_solicitud !=="Cancelado"){
             $tabla .='
@@ -184,7 +183,7 @@
             <br>';
             }
 
-            if($aceptada || $rows->estado_orden !=="Descartado" || $rows->estado_orden !=="Completado"){
+            if($aceptada == true || $rows->estado_orden !=="Descartado" || $rows->estado_orden !=="Completado"){
             $tabla .='
             <form action="" method="POST" autocomplete="off" >
             <input type="hidden" name="accion" value="completado">   
