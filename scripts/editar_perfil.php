@@ -14,6 +14,7 @@ $a_m = !empty($_POST['a_m']) ? $main->limpiarstring($_POST['a_m']) : NULL;
 $tel = !empty($_POST['tel']) ? $main->limpiarstring($_POST['tel']) : NULL;
 $correo = !empty($_POST['correo']) ? $main->limpiarstring($_POST['correo']) : NULL;
 $usuario = !empty($_POST['usuario']) ? $main->limpiarstring($_POST['usuario']) : NULL;
+$contra = !empty($_POST['contraseña']) ? $main->limpiarstring($_POST['contraseña']) : NULL;
 $compania = !empty($_POST['uso']) ? $main->limpiarstring($_POST['uso']) : NULL;
 $cargo = !empty($_POST['cargo']) ? $main->limpiarstring($_POST['cargo']) : NULL;
 $RFC = !empty($_POST['RFC']) ? $main->limpiarstring($_POST['RFC']) : NULL;
@@ -41,6 +42,11 @@ if ($usuario && $conexion->contar("SELECT usuario FROM usuarios WHERE usuario='$
 /* Verificar datos del formulario */
 if ($nombres && $main->verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,60}", $nombres)) {
     echo $main->mensaje_error("EL NOMBRE no coincide con el formato solicitado");
+    exit();
+}
+
+if ($contra && $main->verificar_datos("[a-zA-Z0-9$@.]{7,100}", $contra)) {
+    echo $main->mensaje_error("La contraseña no coincide con el formato solicitado");
     exit();
 }
 
@@ -84,6 +90,7 @@ try {
         '$user',
         '$oldusuario'
         :usuario,
+        :contraseña,
         :foto,
         :nombres,
         :a_p,
@@ -100,6 +107,7 @@ try {
 
     $stmt->bindParam(':id', $user, PDO::PARAM_INT);
     $stmt->bindParam(':usuario', $usuario, PDO::PARAM_STR);
+    $stmt->bindParam(':contraseña', $contra, PDO::PARAM_LOB);
     $stmt->bindParam(':foto', $foto, PDO::PARAM_LOB);
     $stmt->bindParam(':nombres', $nombres, PDO::PARAM_STR);
     $stmt->bindParam(':a_p', $a_p, PDO::PARAM_STR);

@@ -36,10 +36,10 @@
         <div class="order-info row">
             <div class="col-md-8">
                 <?php echo 
-                '<h6>Cliente</h6>
+                "<h6>Cliente</h6>
                 <p>Usuario: '.$rows->usuario.'<br>
                     Nombre completo: '.$rows_usuario->nombre_completo.'<br>
-                    Teléfono: '.$rows_usuario->telefono.'</p>';
+                    Teléfono: '.$rows_usuario->telefono.'</p>'";
                 ?>
             </div>
             <div class="col-md-4 text-center">
@@ -166,7 +166,7 @@
             <div class="actions text-center">
             <form action="" method="POST" autocomplete="off" >
             <input type="hidden" name="accion" value="cancelar">   
-                    <button class="btn btn-custom" type="submit" >Cancelar orden</button>
+                    <button class="btn btn-custom" type="submit" >Cancelar</button>
             </form>
             <br>';
         }
@@ -190,7 +190,6 @@
         }
             include "inc/regresar.php";
             $tabla .='            
-            <button class="btn btn-custom mx-1"> <a href="index.php?vista=ordenes_solicitudes">Regresar</a></button>
         </div>
     </div>';
     echo $tabla;
@@ -256,16 +255,21 @@
                             <!-- Grupo de Radio Buttons -->
                             <div class="radio-group">
                             <div class="form-check custom-radio">
-                                <input class="form-check-input" type="radio" name="tipo_trabajo" id="domestico" value="Domestico">
+                                <input class="form-check-input" type="radio" name="voltaje" id="domestico" value="127">
                                 <label class="form-check-label" for="domestico">127 V</label>
                             </div>
                             <div class="form-check custom-radio">
-                                <input class="form-check-input" type="radio" name="tipo_trabajo" id="industrial" value="Industrial">
+                                <input class="form-check-input" type="radio" name="voltaje" id="industrial" value="220">
                                 <label class="form-check-label" for="industrial">220 V</label>
                             </div>
                         </div>
                         </form>
-
+                        <?php
+                        if(isset($_POST['voltaje'])){
+                            $voltaje = $main->limpiarstring($_POST['voltaje']);
+                            $conexion->ejecutar("CALL REGISTRO_LEVANTAMIENTOS ($voltaje,$rows->id_levantamiento)");
+                        }
+                        ?>
                     </div>
                 </div>
                 <div class="modal-footer">

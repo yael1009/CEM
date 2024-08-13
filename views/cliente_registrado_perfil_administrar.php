@@ -143,6 +143,10 @@
                                 <td><input type="text" name="usuario" pattern="[a-zA-Z0-9]{4,50}" class="form-control"></td>
                             </tr>
                             <tr>
+                                <th class="fixed-width">Contraseña:</th>
+                                <td><input type="password" name="contraseña" pattern="[a-zA-Z0-9$@.]{7,100}" class="form-control"></td>
+                            </tr>
+                            <tr>
                                 <th class='fixed-width'>Uso de la cuenta:</th>
                                 <td><input type='text' name='uso' pattern='[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,100}' class='form-control'></td>
                             </tr>
