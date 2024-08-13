@@ -22,7 +22,11 @@
             $consulta_usuario=("SELECT DISTINCT concat(nombre, ' ',a_p, ' ',a_m) AS nombre_completo,telefono FROM vista_usuarios ");
             $rows_usuario = $conexion->seleccionar1($consulta_usuario);
 
-            if(isset($id_solicitud) || $rows->estado_solicitud != 'Cancelado'){
+            if($rows->estado_orden == NULL){
+                $aceptada = true;
+            }
+
+            if(/*isset($id_solicitud) || */$rows->estado_solicitud->estado_solicitud != 'Cancelado'){
                 $conexion->ejecutar("UPDATE SOLICITUDES SET estado = 'Visto' WHERE id_solicitud = $id_solicitud");
             }
             ?>
@@ -33,6 +37,9 @@
             <div class="col-md-8">
                 <?php echo 
                 '<h6>Cliente</h6>
+                <p>Usuario: '.$rows->usuario.'<br>
+                    Nombre completo: '.$rows_usuario->nombre_completo.'<br>
+                    Teléfono: '.$rows_usuario->telefono.'</p>';
                 <p>Usuario: '.$rows->usuario.'<br>
                     Nombre completo: '.$rows_usuario->nombre_completo.'<br>
                     Teléfono: '.$rows_usuario->telefono.'</p>';
@@ -85,7 +92,7 @@
                         foreach ($servicios as $rows3) {
                             $tabla .= $rows3->servicio . '
                             <form action="" method="POST" autocomplete="off" >
-                            <input type="hidden" name="id_ss" value="'.$rows3->id_ss.'">   
+                            <input type="hidden" name="id_ss" value='.$rows3->id_ss.'>   
                                 "    "<button class="btn btn-custom mx-1" type="submit" >Ver catalogo</button>
                             </form>
                             <br>';
@@ -184,7 +191,7 @@
     if(isset($_POST['id_ss'])){
         $id_ss = $main->limpiarstring($_POST['id_ss']);
         $_SESSION['id_ss'] = $id_ss;
-        header("Location: index.php?vista=ordenes_solicitude");
+        header("Location: index.php?vista=catalogo_editar");
         exit;			
     }
 
