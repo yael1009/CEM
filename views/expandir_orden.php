@@ -39,9 +39,6 @@
                 "<h6>Cliente</h6>
                 <p>Usuario: '.$rows->usuario.'<br>
                     Nombre completo: '.$rows_usuario->nombre_completo.'<br>
-                    Teléfono: '.$rows_usuario->telefono.'</p>';
-                <p>Usuario: '.$rows->usuario.'<br>
-                    Nombre completo: '.$rows_usuario->nombre_completo.'<br>
                     Teléfono: '.$rows_usuario->telefono.'</p>'";
                 ?>
             </div>
@@ -193,7 +190,6 @@
         }
             include "inc/regresar.php";
             $tabla .='            
-            <button class="btn btn-custom mx-1"> <a href="index.php?vista=ordenes_solicitudes">Regresar</a></button>
         </div>
     </div>';
     echo $tabla;
