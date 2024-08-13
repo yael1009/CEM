@@ -74,7 +74,7 @@
 <?php
 include_once 'class/database.php';
 $mostrar_usuario = new database($_SESSION['usuario']);
-$consulta_datos_usuario=("SELECT * FROM vista_usuarios WHERE id_usuario='".$_SESSION['id']."' GROUP BY id_usuario");
+$consulta_datos_usuario=("SELECT * FROM vista_usuarios WHERE id_usuario='".$ver_id_cliente."' GROUP BY id_usuario");
 $datos_usuario = $mostrar_usuario->seleccionar1($consulta_datos_usuario);
  ?>
 <div class="modal fade" id="SeeMoreUser" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">

@@ -130,18 +130,18 @@
                         </div>
                     </div>
                 </form>
-                <?php
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-custom" id="guardarBtn">Guardar</button>
+            </div>
+            <?php
 			if(isset($_POST['nombre']) && isset($_POST['apaterno']) && isset($_POST['amaterno']) && isset($_POST['tel'])
             && isset($_POST['correo']) && isset($_POST['usuario']) && isset($_POST['pass']) && isset($_POST['compañia'])
             && isset($_POST['cargo']) && isset($_POST['rfc']) && isset($_POST['nss']) && isset($_POST['roles'])){
 				require_once "scripts/c_registro.php";
 			}
 		    ?>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-custom" id="guardarBtn">Guardar</button>
-            </div>
         </div>
     </div>
 </div>
@@ -150,7 +150,7 @@
  <?php
 include_once 'class/database.php';
 $mostrar_usuario = new database($_SESSION['usuario']);
-$consulta_datos_usuario=("SELECT * FROM vista_usuarios WHERE id_usuario='".$_SESSION['id']."' GROUP BY id_usuario");
+$consulta_datos_usuario=("SELECT * FROM vista_usuarios WHERE id_usuario='".$ver_id_cliente."' GROUP BY id_usuario");
 $datos_usuario = $mostrar_usuario->seleccionar1($consulta_datos_usuario);
  ?>
 <div class="modal fade" id="SeeMoreUser" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
