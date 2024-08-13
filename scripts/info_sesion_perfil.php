@@ -45,6 +45,7 @@ if(isset($_SESSION['g_cotizaciones']) || isset($_SESSION['g_usuarios']) || isset
             </tr>
         </tbody>
     </table>
+    </div>
     <div class='table-custom'>
         <div class='table-header p-2'>
             Datos de Usuario

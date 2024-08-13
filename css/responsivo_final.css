@@ -22,9 +22,6 @@
 
 /* Estilos para pantallas menor o iguales a 767px */
 @media (max-width: 767px) {
-    body {
-      background-color: #656dad; /* Fondo coral claro */
-    }
     .nav-item {
       width: 100%;
     }
