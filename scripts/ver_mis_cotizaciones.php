@@ -82,7 +82,7 @@
                             }
                             $tabla.='</td>
                         </tr>';
-                        if ($rows->id_venta !== NULL){
+                        if ($rows->estado_orden == "Completado"){
                             $tabla.='
                             <tr>
                                 <th>Subtotal:</th>
@@ -112,11 +112,15 @@
                     </tbody>
                 </table>
                 <br>
-                <div class="button-container">
+                <div class="button-container">';
+                if ($rows->estado_orden !== "Completado"){
+                $tabla .='
                 <form action="" method="POST" autocomplete="off" >
                 <input type="hidden" name="accion" values="cancelar">   
                         <button class="btn btn-custom" type="submit" >Cancelar orden</button>
-                </form>
+                </form>';
+                }
+                $tabla .='
                 <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#EditarModal">Editar</button>
                 </div>
                 <br>
