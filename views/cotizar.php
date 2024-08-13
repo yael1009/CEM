@@ -46,7 +46,7 @@
                     <h1 class="modal-title fs-5" id="ultimoModalLabel">Servicios</h1>
                 </div>
                 <div class="modal-body">
-                    <form action="" method="post" enctype="multipart/form-data">
+                    <form action="" method="post" enctype="multipart/form-data" id="solicitudForm">
                 <div class="form-group">
                             <label class="form-label">Seleccione los Servicios:</label>
                             <div class="form-check">
@@ -89,7 +89,7 @@
                     <h1 class="modal-title fs-5" id="nuevoModalLabel">Solicitud de Cotizacion</h1>
                 </div>
                 <div class="modal-body">
-                <form method="post" enctype="multipart/form-data">
+                <form method="post" enctype="multipart/form-data" id="solicitudForm">
 
                     <?php
                     // Obtener la fecha actua l
@@ -150,7 +150,7 @@
                         </script>
 
                         <label class="form-label" for="comentarios">Comentarios</label>
-                        <textarea class="form-control" name="comentarios" rows="3" pattern="[a-zA-Z0-9$@.-]{7,2000}" maxlength="2000"></textarea>
+                        <textarea class="form-control" name="comentarios" rows="3" pattern="[a-zA-Z0-9$@.]{7,2000}" maxlength="2000"></textarea>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -168,7 +168,7 @@
                     <h1 class="modal-title fs-5" id="direccionModalLabel">Direccion del Trabajo</h1>
                 </div>
                 <div class="modal-body">
-                <form method="post" enctype="multipart/form-data">
+                <form method="post" enctype="multipart/form-data" id="solicitudForm">
                         <label class="form-label" for="ubicacion">¿Cuál es la Direccion donde se realizará el trabajo?</label>
                             <div class="table-container">
                                 <table class="table table-borderless">

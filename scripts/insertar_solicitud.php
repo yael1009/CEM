@@ -23,7 +23,7 @@
         exit();
     }
 
-    if($main->verificar_datos("[a-zA-Z0-9$@.-]{7,2000}",$comentarios))
+    if($main->verificar_datos("[a-zA-Z0-9$@.]{7,2000}",$comentarios))
     {
         echo $main->mensaje_error("EL NOMBRE no coincide con el formato solicitado");
         exit();
