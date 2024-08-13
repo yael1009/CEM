@@ -46,7 +46,7 @@
                     <h1 class="modal-title fs-5" id="ultimoModalLabel">Servicios</h1>
                 </div>
                 <div class="modal-body">
-                    <form action="">
+                    <form action="" method="post">
                 <div class="form-group">
                             <label class="form-label">Seleccione los Servicios:</label>
                             <div class="form-check">
@@ -62,7 +62,7 @@
                                         echo '<strong class="rojito">'.$rows2->tipo_servicio.'</strong> <br>';
                                         foreach ($servicios as $rows3) {
                                             echo '<br>
-                                            <input class="form-check-input" type="checkbox" name="servicios" value="'.$rows3->servicio.'" id="cliente">
+                                            <input class="form-check-input" type="checkbox" name="servicios[]" value="'.$rows3->servicio.'" id="cliente">
                                             <label class="form-check-label" for="cliente">
                                             '.$rows3->servicio.'
                                             </label> <br>';
@@ -76,7 +76,7 @@
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" id="sigueBtn">Continuar</button>
+                <button type="submit" class="btn btn-primary" id="sigueBtn">Continuar</button>
                 </div>
             </div>
         </div>
@@ -89,7 +89,7 @@
                     <h1 class="modal-title fs-5" id="nuevoModalLabel">Solicitud de Cotizacion</h1>
                 </div>
                 <div class="modal-body">
-                    <form id="form2" autocomplete="off">
+                    <form id="form2" autocomplete="off" method="post" enctype="multipart/form-data">
                     <?php
                     // Obtener la fecha actua l
                     $hoy = date("Y-m-d");
@@ -120,7 +120,7 @@
                         <label class="form-label" for="archivo">Subir Archivos</label>
                         <div id="contenedor-archivos">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="img_serv_1" name="img_serv[]" accept=".pdf">
+                                <input type="file" class="custom-file-input" id="img_serv_1" name="archivos[]" accept=".pdf">
                                 <label class="custom-file-label" for="img_serv_1">Seleccionar archivo</label>
                             </div>
                         </div>
@@ -130,14 +130,14 @@
                         <br><br>
 
                         <script>
-                        let contador = 1; // Iniciamos en 1 porque ya hay un campo visible
+                        let contador = 1; // Iniciamos en 1s- porque ya hay un campo visible
                         function agregarArchivo() {
                             if (contador < 3) {
                                 contador++;
                                 const div = document.createElement('div');
                                 div.className = 'custom-file';
                                 div.innerHTML = `
-                                    <input type="file" class="custom-file-input" id="img_serv_${contador}" name="img_serv[]" accept=".pdf">
+                                    <input type="file" class="custom-file-input" id="img_serv_${contador}" name="archivos[]" accept=".pdf">
                                     <label class="custom-file-label" for="img_serv_${contador}">Seleccionar archivo</label>
                                     <br><br>
                                 `;
@@ -154,7 +154,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" id="continuaBtn">Continuar</button>
+                    <button type="submit" class="btn btn-primary" id="continuaBtn">Continuar</button>
                 </div>
             </div>
         </div>
@@ -167,7 +167,7 @@
                     <h1 class="modal-title fs-5" id="direccionModalLabel">Direccion del Trabajo</h1>
                 </div>
                 <div class="modal-body">
-                    <form action="" id="form3" autocomplete="off">
+                    <form action="" id="form3" autocomplete="off" method="post">
                         <label class="form-label" for="ubicacion">¿Cuál es la Direccion donde se realizará el trabajo?</label>
                             <div class="table-container">
                                 <table class="table table-borderless">
@@ -215,11 +215,12 @@
                     <button type="submit" class="btn btn-primary" id="terminarBtn">Terminar</button>
                 </div>
                 <?php
-                if(isset($_POST['fecha']) && isset($_POST['tipo_trabajo']) && isset($_POST['servicios']) && isset($_POST['calle'])
-                && isset($_POST['colonia']) && isset($_POST['numero_ext']) && isset($_POST['ciudad']) && isset($_POST['estado'])
-                && isset($_POST['codigo_postal'])){
-                    require_once "scripts/insertar_solicitud.php";
-                }
+if (isset($_POST['fecha'], $_POST['tipo_trabajo'], $_POST['servicios'], $_POST['calle'], 
+$_POST['colonia'], $_POST['numero_ext'], $_POST['ciudad'], $_POST['estado'], 
+$_POST['codigo_postal'])) {
+require_once "scripts/insertar_solicitud.php";
+}
+
                 ?>
             </div>
         </div>
