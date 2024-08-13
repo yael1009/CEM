@@ -22,7 +22,7 @@
             $consulta_usuario=("SELECT DISTINCT concat(nombre, ' ',a_p, ' ',a_m) AS nombre_completo,telefono FROM vista_usuarios ");
             $rows_usuario = $conexion->seleccionar1($consulta_usuario);
 
-            if(isset($id_solicitud) || $rows != 'Cancelado'){
+            if(isset($id_solicitud) || $rows->estado_solicitud != 'Cancelado'){
                 $conexion->ejecutar("UPDATE SOLICITUDES SET estado = 'Visto' WHERE id_solicitud = $id_solicitud");
             }
             ?>
@@ -33,9 +33,9 @@
             <div class="col-md-8">
                 <?php echo 
                 '<h6>Cliente</h6>
-                <p>Usuario: "'.$rows->usuario.'"<br>
-                    Nombre completo: "'.$rows_usuario->nombre_completo.'"<br>
-                    Teléfono: "'.$rows_usuario->telefono.'"</p>';
+                <p>Usuario: '.$rows->usuario.'<br>
+                    Nombre completo: '.$rows_usuario->nombre_completo.'<br>
+                    Teléfono: '.$rows_usuario->telefono.'</p>';
                 ?>
             </div>
             <div class="col-md-4 text-center">
@@ -78,12 +78,17 @@
                     <th class="section-title">Servicios</th>
                     <td>';
                     foreach ($solicitudes as $rows2) {
-                        $query2="SELECT DISTINCT servicio FROM VistaCompletaSolicitudes  WHERE tipo_servicio='".$rows2->tipo_servicio."' AND id_solicitud='".$rows->id_solicitud."'";
+                        $query2="SELECT DISTINCT servicio, id_ss FROM VistaCompletaSolicitudes  WHERE tipo_servicio='".$rows2->tipo_servicio."' AND id_solicitud='".$rows->id_solicitud."'";
                         $servicios = $conexion->seleccionar($query2);
 
                         $tabla .= "<strong>".$rows2->tipo_servicio."</strong> <br>";
                         foreach ($servicios as $rows3) {
-                            $tabla .= $rows3->servicio . "<br>";
+                            $tabla .= $rows3->servicio . '
+                            <form action="" method="POST" autocomplete="off" >
+                            <input type="hidden" name="id_ss" value="'.$rows3->id_ss.'">   
+                                "    "<button class="btn btn-custom mx-1" type="submit" >Ver catalogo</button>
+                            </form>
+                            <br>';
                         }
                         }          
                     $tabla .= '</td>
@@ -104,7 +109,7 @@
                     <td>';
                     if($rows->id_levantamiento !== NULL || $rows->estado_orden !== NULL ){
                     $tabla.='
-                    <form action="index.php?vista=ver_levantamiento" method="POST" autocomplete="off" >
+                    <form action="" method="POST" autocomplete="off" >
                     <input type="hidden" name="id_levantamiento" value="'.$rows->id_levantamiento.'">   
                         <button class="btn btn-custom btn-sm" type="submit" >
                         Ver levantamiento
@@ -147,17 +152,26 @@
 
         <div class="actions text-center">
             <form action="" method="POST" autocomplete="off" >
-            <input type="hidden" name="accion" values="aceptar">   
+            <input type="hidden" name="accion" value="cancelar">   
                     <button class="btn btn-custom" type="submit" >Cancelar orden</button>
             </form>
+            <br>
 
-            <button class="btn btn-custom mx-1">Aceptar orden</button>
+            <form action="" method="POST" autocomplete="off" >
+            <input type="hidden" name="accion" value="aceptar">   
+                    <button class="btn btn-custom mx-1" type="submit" >Aceptar orden</button>
+            </form>
+            <br>
 
-            <button class="btn btn-custom mx-1"><a href="index.php?vista=catalogo_editar">Ver Catálogo</a></button>
+            <form action="" method="POST" autocomplete="off" >
+            <input type="hidden" name="accion" value="completado">   
+                    <button class="btn btn-custom mx-1" type="submit" >Terminar trabajo</button>
+            </form>
+            <br>
 
             <button class="btn btn-custom mx-1" data-toggle="modal" data-target="#EditarModal">Editar Estado</button>
             
-            <button class="btn btn-custom mx-1"> <a href="index.php?vista=ordenes_solicitudes">Regresar</a></button>
+            '.include "inc/regresar.php".'<button class="btn btn-custom mx-1"> <a href="index.php?vista=ordenes_solicitudes">Regresar</a></button>
         </div>
     </div>';
     echo $tabla;
@@ -165,6 +179,20 @@
     if(isset($_POST['accion'])){
         $recargar='index.php?vista=expandir_orden';
         include 'scripts/estado.php';
+    }
+
+    if(isset($_POST['id_ss'])){
+        $id_ss = $main->limpiarstring($_POST['id_ss']);
+        $_SESSION['id_ss'] = $id_ss;
+        header("Location: index.php?vista=ordenes_solicitude");
+        exit;			
+    }
+
+    if(isset($_POST['id_levantamiento'])){
+        $id_levantamiento = $main->limpiarstring($_POST['id_levantamiento']);
+        $_SESSION['id_levantamiento'] = $id_levantamiento;
+        header("Location: index.php?vista=ver_levantamiento");
+        exit;			
     }
     ?>
     

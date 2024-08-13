@@ -6,24 +6,6 @@ require_once 'class/database.php';
 $conexion = new database($_SESSION['usuario']);
 $user = $_SESSION['usuario'];
 
-<<<<<<< HEAD
-if(isset($_SESSION['g_cotizaciones']) || isset($_SESSION['g_usuarios']) || isset($_SESSION['administrador'])){
-    $consulta = "SELECT PERSONAS.NOMBRE, PERSONAS.A_P, PERSONAS.A_M, PERSONAS.CORREO, PERSONAS.TELEFONO, USUARIOS.USUARIO, 
-        CLIENTES.COMPAÑIA, CLIENTES.CARGO, EMPLEADOS.RFC, EMPLEADOS.NSS
-        FROM PERSONAS 
-        JOIN CLIENTES ON CLIENTES.PERSONA = PERSONAS.ID_PERSONA
-        JOIN EMPLEADOS ON EMPLEADOS.PERSONA = PERSONAS.ID_PERSONA
-        JOIN USUARIOS ON PERSONAS.USUARIO = USUARIOS.ID_USUARIO
-        JOIN USUARIO_ROL ON USUARIO_ROL.USUARIO = USUARIOS.ID_USUARIO
-        WHERE USUARIOS.USUARIO = '$user'";
-    
-    // Ejecuta la consulta y obtiene los resultados
-    $resultado = $conexion->seleccionar1($consulta);
-        
-    if (!empty($resultado)) {
-        $datos = $resultado;
-        echo "<table class='table mb-0'>
-=======
 // Ejecuta la consulta y obtiene los resultados
 $resultado = $conexion->seleccionar($consulta);
 
@@ -61,7 +43,6 @@ if (!empty($resultado)) {
     </div>
     <div class='table-responsive'>
     <table class='table mb-0'>
->>>>>>> origin/ana
         <tbody>
             <tr>
                 <th class='fixed-width'>Nombres:</th>
@@ -85,7 +66,13 @@ if (!empty($resultado)) {
             </tr>
         </tbody>
     </table>
-<<<<<<< HEAD
+<<<<<<<<< Temporary merge branch 1
+    </div>
+</div>";
+} else {
+    echo "No se encontraron datos.";
+}
+=========
     <div class='table-custom'>
         <div class='table-header p-2'>
             Datos de Usuario
@@ -187,11 +174,5 @@ if (!empty($resultado)) {
         echo "No se encontraron datos.";
     }
     }
-=======
-    </div>
-</div>";
-} else {
-    echo "No se encontraron datos.";
-}
->>>>>>> origin/ana
+>>>>>>>>> Temporary merge branch 2
 ?>
