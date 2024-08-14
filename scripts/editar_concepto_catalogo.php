@@ -19,7 +19,7 @@ if ($conceptop && $main->verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,10
 }
 
 if ($cantidadp && $main->verificar_datos("[0-9]+", $cantidadp)) {
-    echo $main->mensaje_error("La cantidad ingresada coincide con el formato solicitado");
+    echo $main->mensaje_error("La cantidad ingresada no coincide con el formato solicitado");
     exit();
 }
 

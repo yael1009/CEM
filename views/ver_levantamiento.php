@@ -24,7 +24,7 @@
             <div class="modal-body">
                 <form action="" autocomplete="off">
                     <select class="form-select same" aria-label="Default select example">
-                        <option selected>Agregar Aparato</option>
+                        <option selected>Seleccionar Aparato</option>
                         <?php
                         include 'scripts/select_aparatos.php';
                         ?>
@@ -51,9 +51,9 @@
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Aparato</h1>
             </div>
             <div class="modal-body">
-                <form action="" autocomplete="off">
-                    <select class="form-select same" aria-label="Default select example">
-                        <option selected>Agregar Aparato</option>
+                <form action="" autocomplete="off" method="post">
+                    <select class="form-select same" aria-label="Default select example" name="aparato">
+                        <option selected>Seleccionar Aparato</option>
                         <?php
                         include 'scripts/select_aparatos.php';
                         ?>
@@ -62,12 +62,20 @@
                     <label class="form-label" for="concepto">Cantidad:</label>
                     <input class="form-control" type="text" name="N_aparatos" pattern="[0-9]+" maxlength="10" required><br>
                     
-                </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-custom" id="guardarBtn">Guardar</button>
+                    </div>
+
+                    <?php
+
+                    if(isset($_POST['aparato']) || isset($_POST['N_aparatos'])){
+                        include 'scripts/editar_aparato';
+                    }
+                    ?>
+                    </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-custom" id="guardarBtn">Guardar</button>
-            </div>
+            
         </div>
     </div>
 </div>
