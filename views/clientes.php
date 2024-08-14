@@ -70,13 +70,18 @@
     ?>
     </div>
 </div>
-
 <!-- Expandir -->
+<?php
+include_once 'class/database.php';
+$mostrar_usuario = new database($_SESSION['usuario']);
+$consulta_datos_usuario=("SELECT * FROM vista_usuarios WHERE id_usuario='".$ver_id_cliente."' GROUP BY id_usuario");
+$datos_usuario = $mostrar_usuario->seleccionar1($consulta_datos_usuario);
+ ?>
 <div class="modal fade" id="SeeMoreUser" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title" id="userModalLabel">Nombre Usuario</h2>
+                <h2 class="modal-title" id="userModalLabel"> <?php $datos_usuario->usuario ?> </h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -91,32 +96,30 @@
                                 <div class="table-header p-2">
                                     Datos Personales
                                 </div>
-                                <div class="table-responsive">
-                                    <table class="table mb-0" >
-                                        <tbody>
-                                            <tr>
-                                                <th>Nombres:</th>
-                                                <td>Jorge</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Apellido Paterno:</th>
-                                                <td>Fabela</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Apellido Materno:</th>
-                                                <td>No se</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Telefono:</th>
-                                                <td>871 666 6969</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Correo:</th>
-                                                <td>jorgito_uwu@gmail.com</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                <table class="table mb-0" >
+                                    <tbody>
+                                        <tr>
+                                            <th>Nombres:</th>
+                                            <td> <?php $datos_usuario->nombre ?> </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Apellido Paterno:</th>
+                                            <td> <?php $datos_usuario->a_p ?> </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Apellido Materno:</th>
+                                            <td> <?php $datos_usuario->a_m ?> </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Telefono:</th>
+                                            <td> <?php $datos_usuario->telefono ?> </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Correo:</th>
+                                            <td> <?php $datos_usuario->correo ?> </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -125,10 +128,9 @@
                                     <div class="table-header p-2">
                                         Seleccione los roles
                                     </div>
-                                    <div class="table-responsive">
-                                        <table class="table mb-0" >
-                                            <tbody>
-                                                <form action="">
+                                    <table class="table mb-0" >
+                                        <tbody>
+                                            <form action="">
                                         <div class="form-check">
                                             <tr>
                                                 <th></th>
@@ -138,37 +140,36 @@
                                                 </label></td>
                                             </tr>
                                         </div>
-                                            <div class="form-check">
-                                                <tr>
-                                                    <th></th>
-                                                    <td><input class="form-check-input" type="checkbox" value="" id="gestorRoles">
-                                                        <label class="form-check-label" for="gestorRoles">
-                                                        Gestor de Roles
-                                                    </label></td>
-                                                </tr>
-                                            </div>
-                                            <div class="form-check">
-                                                <tr>
-                                                    <th></th>
-                                                    <td><input class="form-check-input" type="checkbox" value="" id="gestorCotizacion">
-                                                        <label class="form-check-label" for="gestorCotizacion">
-                                                        Gestor de Cotización
-                                                    </label></td>
-                                                </tr>
-                                            </div>
-                                            <div class="form-check">
-                                                <tr>
-                                                    <th></th>
-                                                    <td><input class="form-check-input" type="checkbox" value="" id="administrador">
-                                                        <label class="form-check-label" for="administrador">
-                                                        Administrador
-                                                    </label></td>
-                                                </tr>
-                                            </div>
-                                            </form>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                        <div class="form-check">
+                                            <tr>
+                                                <th></th>
+                                                <td><input class="form-check-input" type="checkbox" value="" id="gestorRoles">
+                                                    <label class="form-check-label" for="gestorRoles">
+                                                    Gestor de Roles
+                                                </label></td>
+                                            </tr>
+                                        </div>
+                                        <div class="form-check">
+                                            <tr>
+                                                <th></th>
+                                                <td><input class="form-check-input" type="checkbox" value="" id="gestorCotizacion">
+                                                    <label class="form-check-label" for="gestorCotizacion">
+                                                    Gestor de Cotización
+                                                </label></td>
+                                            </tr>
+                                        </div>
+                                        <div class="form-check">
+                                            <tr>
+                                                <th></th>
+                                                <td><input class="form-check-input" type="checkbox" value="" id="administrador">
+                                                    <label class="form-check-label" for="administrador">
+                                                    Administrador
+                                                </label></td>
+                                            </tr>
+                                        </div>
+                                        </tbody>
+                                        </form>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -177,24 +178,22 @@
                                 <div class="table-header p-2">
                                     Datos de Usuario
                                 </div>
-                                <div class="table-responsive">
-                                    <table class="table mb-0" >
-                                        <tbody>
-                                            <tr>
-                                                <th>Usuario:</th>
-                                                <td>jorgito_uwu</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Uso de la cuenta:</th>
-                                                <td>Personal</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Cargo de la compañía:</th>
-                                                <td>Propietario</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                <table class="table mb-0" >
+                                    <tbody>
+                                        <tr>
+                                            <th>Usuario:</th>
+                                            <td> <?php $datos_usuario->usuario ?> </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Uso de la cuenta:</th>
+                                            <td> <?php $datos_usuario->compañia ?> </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Cargo de la compañía:</th>
+                                            <td> <?php $datos_usuario->cargo ?> </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>

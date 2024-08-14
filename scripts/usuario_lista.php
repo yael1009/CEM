@@ -36,6 +36,7 @@
 					</div>
 				</div>
             ';
+			$ver_id_cliente = $rows->$id_usuario;
             $contador++;
 		}
 		$pag_final=$contador-1;
