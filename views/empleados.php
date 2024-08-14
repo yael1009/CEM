@@ -129,7 +129,6 @@
                             </label>
                         </div>
                     </div>
-                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -142,6 +141,8 @@
 				require_once "scripts/c_registro.php";
 			}
 		    ?>
+                </form>
+
         </div>
     </div>
 </div>
@@ -150,6 +151,7 @@
  <?php
 include_once 'class/database.php';
 $mostrar_usuario = new database($_SESSION['usuario']);
+echo $ver_id_cliente;
 $consulta_datos_usuario=("SELECT * FROM vista_usuarios WHERE id_usuario='".$ver_id_cliente."' GROUP BY id_usuario");
 $datos_usuario = $mostrar_usuario->seleccionar1($consulta_datos_usuario);
  ?>
