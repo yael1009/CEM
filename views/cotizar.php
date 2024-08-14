@@ -76,7 +76,7 @@
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="submit" class="btn btn-primary" id="sigueBtn">Continuar</button>
+                <button type="submit" class="btn btn-primary" id="sigueBtn" data-bs-toggle="modal" data-bs-target="#nuevoModal" data-bs-dismiss="modal">Continuar</button>
                 </div>
             </div>
         </div>
@@ -155,7 +155,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-primary" id="continuaBtn">Continuar</button>
+                    <button type="submit" class="btn btn-primary" id="continuaBtn" data-bs-toggle="modal" data-bs-target="#direccionModal" data-bs-dismiss="modal">Continuar</button>
                 </div>
             </div>
         </div>
@@ -213,7 +213,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary" id="terminarBtn">Terminar</button>
+                    <button type="submit" class="btn btn-primary" id="terminarBtn" data-bs-toggle="modal" data-bs-target="#ultimoModal" data-bs-dismiss="modal">Terminar</button>
                 </div>
                 <?php
                /* if (isset($_POST['fecha'], /*$_POST['tipo_trabajo'], $_POST['servicios'], $_POST['calle'], 
@@ -270,7 +270,7 @@
             $('#direccionModal').modal('show');
         });
         */
-        document.getElementById('sigueBtn').addEventListener('click', function() {
+        /*document.getElementById('sigueBtn').addEventListener('click', function() {
             $('#serviciosModal').modal('hide');
             $('#nuevoModal').modal('show');
         });
@@ -303,12 +303,12 @@
         console.error('Error:', error);
     });
 });
-
+*/
     </script>
-    <script>
-    $(".custom-file-input").on("change", function() {
-    var fileName = $(this).val().split("\\").pop();
-    $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-});
-
-</script>
+<script>
+        // Para mostrar el nombre del archivo seleccionado
+        $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
