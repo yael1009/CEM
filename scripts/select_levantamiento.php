@@ -22,7 +22,7 @@ if(!empty($resultado2)){
             <tbody>
                 <tr class='total-row'>
                     <th class='section-title text-right'>Voltaje del Circuito</th>
-                    <td class='text-right'>'$datos->VOLTAJE'</td>
+                    <td class='text-right'>$datos->VOLTAJE</td>
                 </tr>
             </tbody>
         </table>
@@ -30,7 +30,7 @@ if(!empty($resultado2)){
             <tbody>
                 <tr class='total-row'>
                     <th class='text-right'>Resultado:</th>
-                    <td class='text-right'>'$datos->AMPERAJE'</td>
+                    <td class='text-right'>$datos->AMPERAJE</td>
                 </tr>
             </tbody>
         </table>";
@@ -49,7 +49,7 @@ $resultado = $conexion->seleccionar($consulta);
 
 if(!empty($resultado)){
     
-    echo "<div class='service-divider'></div> -->
+    echo "<div class='service-divider'></div>
           <div class='table-responsive'>
             <table class='table table-bordered'>
                 <thead>
@@ -65,9 +65,9 @@ if(!empty($resultado)){
     foreach($resultado as $datos2){
         echo "
             <tr>
-                <td>'$datos2->DISPOSITIVO'</td>
-                <td>'$datos2->POTENCIA'</td>
-                <td>'$datos2->N_APARATOS'</td>
+                <td>$datos2->DISPOSITIVO</td>
+                <td>$datos2->POTENCIA</td>
+                <td>$datos2->N_APARATOS</td>
                 <td>
                     <button type='button' class='btn btn-custom' data-toggle='modal' data-target='#editconceptModal'>Editar</button>
                 </td>

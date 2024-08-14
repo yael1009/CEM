@@ -11,7 +11,7 @@
         <div class="service-divider"></div>
         <?php
             include 'scripts/select_catalogo.php';
-            ?>
+         ?>
         <!-- <div class="table-responsive">
             <table class="table tabla table-bordered">
                 <thead>

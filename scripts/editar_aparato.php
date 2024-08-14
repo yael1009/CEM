@@ -11,6 +11,7 @@ if ($naparatos && $main->verificar_datos("[0-9]+", $naparatos)) {
 }
 
 try{
+    $query = "";
 
 }catch(PDOException $e){
     echo "Error: ".$e->getMessage();
