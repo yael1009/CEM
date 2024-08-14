@@ -51,14 +51,12 @@ foreach($resultado as $datos){
     <td>{$datos->PRECIO_UNITARIO}</td>
     <td>{$datos->IMPORTE}</td>
     <td>
-        <form method='post' action='scripts/editar_concepto_catalogo.php'>
-            <input type='hidden' name='id_concepto' value='{$datos->ID_CONCEPTO}'>
-            <button type='button' class='btn btn-custom' data-toggle='modal' data-target='#editconceptModal' onclick='document.getElementById(\"id_concepto_edit\").value=\"{$datos->ID_CONCEPTO}\"'>Editar</button>
-        </form>
+    <button class='btn btn-custom'>Editar</button>
     </td>
     <td>
         <button class='btn btn-custom'>Eliminar</button>
     </td>
+    $id_concepto = $datos->ID_CONCEPTO
   </tr>";
 }
 

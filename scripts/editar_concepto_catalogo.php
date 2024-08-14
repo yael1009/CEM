@@ -4,7 +4,7 @@ require_once 'class\main.php';
 $main = new main;
 
 $user = $_SESSION['usuario'];
-$conexion = new database($user);
+$conexion = new database($_SESSION['usuario']);
 //$conexion->conectardb();
 
 

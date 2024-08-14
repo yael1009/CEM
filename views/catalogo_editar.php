@@ -146,8 +146,7 @@
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Añadir Concepto</h1>
             </div>
             <div class="modal-body">
-                <form action="" autocomplete="off">
-                    <input type="hidden" id="id_concepto_edit" name="id_concepto">
+                <form method="post" autocomplete="off">
                     <label class="form-label" for="concepto_a">Concepto:</label>
                     <input class="form-control" type="text" name="concepto_a" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,1000}" maxlength="1000" required><br>
                     <select class="form-select" aria-label="Default select example" name="insumo_a">
@@ -165,17 +164,22 @@
                     
                     <label class="form-label" for="cantidad_a">Cantidad:</label>
                     <input class="form-control" type="text" name="cantidad_a" pattern="[0-9]+" maxlength="10" required>
-                    <label class="form-label" for="unitario">Unitario:</label>
+                    <label class="form-label" for="unitario_a">Unitario:</label>
                     <div class="input-group mb-3">
                     <span class="input-group-text">$</span>
                     <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="unitario_a" pattern="[0-9]+" maxlength="10" required>
                     <span class="input-group-text">.00</span>
                     </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-custom" id="guardarBtn">Guardar</button>
+                    </div>
+                    <?php
+                        if(isset($_POST['concepto_a']) && isset($_POST['insumo_a']) && isset($_POST['cantidad_a']) && isset($_POST['unitario_a'])){
+                            require_once 'scripts/añadir_concepto.php';
+                        }
+                    ?>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-custom" id="guardarBtn">Guardar</button>
             </div>
         </div>
     </div>
@@ -189,8 +193,7 @@
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Concepto</h1>
             </div>
             <div class="modal-body">
-                <form method="post" action="scripts/editar_concepto_catalogo.php" autocomplete="off">
-                    <input type="hidden" id="id_concepto_edit" name="id_concepto">
+                <form method="post" action="" autocomplete="off">
 
                     <label class="form-label" for="concepto">Concepto:</label>
                     <input class="form-control" type="text" name="concepto" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,1000}" maxlength="1000"><br>
@@ -220,6 +223,11 @@
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-custom">Guardar</button>
                     </div>
+                    <?php
+                        if(isset($_POST['concepto']) || isset($_POST['insumo']) || isset($_POST['cantidad']) || isset($_POST['unitario'])){
+                            require_once 'scripts/editar_concepto_catalogo.php';
+                        }
+                    ?>
                 </form>
             </div>
         </div>

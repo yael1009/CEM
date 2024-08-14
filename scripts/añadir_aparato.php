@@ -43,9 +43,9 @@ try{
             $stmt->bindParam(':potencia_nominal', $potencia, PDO::PARAM_INT);
         
             if ($stmt->execute()) {
-                echo "<div class='alert alert-success'>¡Aparatp actualizado correctamente!</div>";
+                echo "<div class='alert alert-success'>¡Aparato registrado correctamente!</div>";
             } else {
-                echo "<div class='alert alert-danger'>¡Error al actualizar el aparato!</div>";
+                echo "<div class='alert alert-danger'>¡Error al registrar el aparato!</div>";
             }
 }catch(PDOException $e) {
     echo "Error: ".$e -> getMessage();
