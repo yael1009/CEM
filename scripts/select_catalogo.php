@@ -40,25 +40,24 @@ echo "<div class='table-responsive'>
                     <th colspan='2'>Acciones</th>
                 </tr>
             </thead>
-            <tbody>
-    </div>";
+            <tbody>";
 
 foreach($resultado as $datos){
     echo "<tr>
-            <td>{$datos->CONCEPTO}</td>
-            <td>{$datos->INSUMO}</td>
-            <td>{$datos->UNIDAD}</td>
-            <td>{$datos->CANTIDAD}</td>
-            <td>{$datos->PRECIO_UNITARIO}</td>
-            <td>{$datos->IMPORTE}</td>
-            <td>
-                <button type='button' class='btn btn-custom' data-toggle='modal' data-target='#editconceptModal'>Editar</button>
-            </td>
-            <td>
-                <button class='btn btn-custom'>Eliminar</button>
-            </td>
-          </tr>";
-          $id_concepto = $datos->ID_CONCEPTO;
+    <td>{$datos->CONCEPTO}</td>
+    <td>{$datos->INSUMO}</td>
+    <td>{$datos->UNIDAD}</td>
+    <td>{$datos->CANTIDAD}</td>
+    <td>{$datos->PRECIO_UNITARIO}</td>
+    <td>{$datos->IMPORTE}</td>
+    <td>
+    <button class='btn btn-custom'>Editar</button>
+    </td>
+    <td>
+        <button class='btn btn-custom'>Eliminar</button>
+    </td>
+    $id_concepto = $datos->ID_CONCEPTO
+  </tr>";
 }
 
 echo "</tbody>
