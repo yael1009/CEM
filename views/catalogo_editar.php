@@ -151,15 +151,9 @@
                     <input class="form-control" type="text" name="concepto_a" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,1000}" maxlength="1000" required><br>
                     <select class="form-select" aria-label="Default select example" name="insumo_a">
                         <option selected>Insumo Usado</option>
-                        <option value="1">Cable Cobre</option>
-                        <option value="2">Interruptor Automatico</option>
-                        <option value="3">Toma Corriente</option>
-                        <option value="4">Caja de Conecciones</option>
-                        <option value="5">Placa Solar</option>
-                        <option value="6">Conector MC4</option>
-                        <option value="7">Sensor de Luz</option>
-                        <option value="8">Fusible</option>
-                        <option value="9">Rele de Proteccion</option>
+                        <?php
+                        include 'scripts/select_insumos.php';
+                        ?>
                     </select><br><br>
                     
                     <label class="form-label" for="cantidad_a">Cantidad:</label>
@@ -172,7 +166,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-custom" id="guardarBtn">Guardar</button>
+                        <button type="submit" class="btn btn-custom" id="guardarBtn">Guardar</button>
                     </div>
                     <?php
                         if(isset($_POST['concepto_a']) && isset($_POST['insumo_a']) && isset($_POST['cantidad_a']) && isset($_POST['unitario_a'])){
@@ -199,16 +193,11 @@
                     <input class="form-control" type="text" name="concepto" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,1000}" maxlength="1000"><br>
 
                     <select class="form-select" aria-label="Default select example" name="insumo">
-                    <option selected>Insumo Usado</option>
-                        <option value="1">Cable Cobre</option>
-                        <option value="2">Interruptor Automatico</option>
-                        <option value="3">Toma Corriente</option>
-                        <option value="4">Caja de Conecciones</option>
-                        <option value="5">Placa Solar</option>
-                        <option value="6">Conector MC4</option>
-                        <option value="7">Sensor de Luz</option>
-                        <option value="8">Fusible</option>
-                        <option value="9">Rele de Proteccion</option>                    </select><br><br>
+                        <option selected>Insumo Usado</option>
+                        <?php
+                        include 'scripts/select_insumos.php';
+                        ?>                    
+                    </select><br><br>
 
                     <label class="form-label" for="cantidad">Cantidad:</label>
                     <input class="form-control" type="text" name="cantidad" pattern="[0-9]+" maxlength="10" >

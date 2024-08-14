@@ -8,94 +8,11 @@
             <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#conceptModal">Añadir Aparato</button>
             <button class="btn btn-custom">Guardar</button>
         </div>
-        <table class="table">
-            <tbody>
-                <tr class="total-row">
-                    <th class="section-title text-right">Voltaje del Circuito</th>
-                    <td class="text-right">Voltaje Insertado</td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table">
-            <tbody>
-                <tr class="total-row">
-                    <th class="text-right">Resultado:</th>
-                    <td class="text-right">######</td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="service-divider"></div>
-        <div class="table-responsive">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Aparato</th>
-                        <th>Volts c/u</th>
-                        <th>Cantidad</th>
-                        <th colspan="2">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Aparato 1</td>
-                        <td>300</td>
-                        <td>2</td>
-                        <td>
-                            <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#editconceptModal">Editar</button>
-                        </td>
-                        <td>
-                            <button class="btn btn-custom">Eliminar</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Aparato 2</td>
-                        <td>500</td>
-                        <td>1</td>
-                        <td>
-                            <button class="btn btn-custom">Editar</button>
-                        </td>
-                        <td>
-                            <button class="btn btn-custom">Eliminar</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Aparato 3</td>
-                        <td>40</td>
-                        <td>4</td>
-                        <td>
-                            <button class="btn btn-custom">Editar</button>
-                        </td>
-                        <td>
-                            <button class="btn btn-custom">Eliminar</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Aparato 4</td>
-                        <td>50</td>
-                        <td>2</td>
-                        <td>
-                            <button class="btn btn-custom">Editar</button>
-                        </td>
-                        <td>
-                            <button class="btn btn-custom">Eliminar</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Aparato 5</td>
-                        <td>80</td>
-                        <td>3</td>
-                        <td>
-                            <button class="btn btn-custom">Editar</button>
-                        </td>
-                        <td>
-                            <button class="btn btn-custom">Eliminar</button>
-                        </td>
-                    </tr>
-                    
-                </tbody>
-            </table>
-        </div>
-    </div>
+
+        <?php
+            include 'scripts/select_levantamiento.php';
+        ?>
+</div>
 
     <!-- Añadir -->
 <div class="modal fade" id="conceptModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -108,12 +25,9 @@
                 <form action="" autocomplete="off">
                     <select class="form-select same" aria-label="Default select example">
                         <option selected>Agregar Aparato</option>
-                        <option value="2">MiniSplit</option>
-                        <option value="3">Ventilador</option>
-                        <option value="2">Foquito</option>
-                        <option value="2">Focote</option>
-                        <option value="2">Focototote</option>
-                        <option value="2">Foquititito</option>
+                        <?php
+                        include 'scripts/select_aparatos.php';
+                        ?>
                         </select>
                     <button class="btn btn-secondary same">Gestionar Aparatos</button><br>
                     <label class="form-label" for="concepto">Cantidad:</label>
@@ -123,7 +37,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-custom" id="agregarBtn">Agregar</button>
+                <button type="button" class="btn btn-custom" id="agregarBtn">Guardar</button>
             </div>
         </div>
     </div>
@@ -140,12 +54,9 @@
                 <form action="" autocomplete="off">
                     <select class="form-select same" aria-label="Default select example">
                         <option selected>Agregar Aparato</option>
-                        <option value="2">MiniSplit</option>
-                        <option value="3">Ventilador</option>
-                        <option value="2">Foquito</option>
-                        <option value="2">Focote</option>
-                        <option value="2">Focototote</option>
-                        <option value="2">Foquititito</option>
+                        <?php
+                        include 'scripts/select_aparatos.php';
+                        ?>
                         </select>
                     <button class="btn btn-secondary same">Gestionar Aparatos</button><br>
                     <label class="form-label" for="concepto">Cantidad:</label>
